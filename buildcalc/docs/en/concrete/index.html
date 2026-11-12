@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Concrete Calculator: Cubic Yards, m³ &amp; Bags | BuildCalc</title>
+    <meta name="description" content="Calculate concrete volume for slabs, footings and columns in cubic yards or m³, with waste and the number of pre-mix bags. Free, with formulas explained.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://resktoff.github.io/Buildcalc-/en/concrete/">
+    <link rel="alternate" hreflang="es" href="https://resktoff.github.io/Buildcalc-/es/hormigon/">
+    <link rel="alternate" hreflang="en" href="https://resktoff.github.io/Buildcalc-/en/concrete/">
+    <link rel="alternate" hreflang="x-default" href="https://resktoff.github.io/Buildcalc-/en/concrete/">
+    <meta name="theme-color" content="#0f6fff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: dark)">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="BuildCalc">
+    <meta property="og:title" content="Concrete Calculator: Cubic Yards, m³ &amp; Bags | BuildCalc">
+    <meta property="og:description" content="Calculate concrete volume for slabs, footings and columns in cubic yards or m³, with waste and the number of pre-mix bags. Free, with formulas explained.">
+    <meta property="og:url" content="https://resktoff.github.io/Buildcalc-/en/concrete/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://resktoff.github.io/Buildcalc-/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Concrete Calculator: Cubic Yards, m³ &amp; Bags | BuildCalc">
+    <meta name="twitter:description" content="Calculate concrete volume for slabs, footings and columns in cubic yards or m³, with waste and the number of pre-mix bags. Free, with formulas explained.">
+    <meta name="twitter:image" content="https://resktoff.github.io/Buildcalc-/assets/og-image.png">
+    
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+    <link rel="manifest" href="../../assets/site.webmanifest">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <script type="module" src="../../assets/js/ui/app.js"></script>
+    <!-- analytics: set analytics.gaMeasurementId in site.config.json to enable Google Analytics -->
+    
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"Concrete calculator","url":"https://resktoff.github.io/Buildcalc-/en/concrete/","description":"Calculate concrete volume for slabs, footings and columns in cubic yards or m³, with waste and the number of pre-mix bags. Free, with formulas explained.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"BuildCalc","url":"https://resktoff.github.io/Buildcalc-/en/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many bags of concrete do I need for 1 cubic yard?","acceptedAnswer":{"@type":"Answer","text":"About 45 bags of 80 lb or 60 bags of 60 lb per cubic yard. In metric, 1 m³ takes roughly 43 bags of 50 kg, 54 of 40 kg or 86 of 25 kg."}},{"@type":"Question","name":"What waste percentage should I use?","acceptedAnswer":{"@type":"Answer","text":"5% is usually enough for slabs on a well-levelled base; use 10% for hand-dug footings or small pours."}},{"@type":"Question","name":"Is thickness entered in inches or feet?","acceptedAnswer":{"@type":"Answer","text":"In imperial the thickness is entered in inches (e.g. 4 in) and in metric in centimetres; the calculator converts automatically."}},{"@type":"Question","name":"Can I use this to order ready-mix from a truck?","acceptedAnswer":{"@type":"Answer","text":"Yes. The total volume with waste is the amount to order; plants usually sell in increments of 0.25 yd³ or 0.5 m³."}}]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://resktoff.github.io/Buildcalc-/en/"},{"@type":"ListItem","position":2,"name":"Concrete calculator","item":"https://resktoff.github.io/Buildcalc-/en/concrete/"}]}]</script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../../en/" aria-label="BuildCalc — Home"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3" y="3" width="26" height="26" rx="6" fill="#0f6fff"/><path d="M9 22V11h5.5a3 3 0 0 1 0 6H9m0 0h6.5a3 3 0 0 1 0 6H9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 12h5M19 16h5M19 20h5" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg><span>Build<b>Calc</b></span></a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <nav id="site-nav" class="site-nav" aria-label="Calculators">
+          <ul>
+            <li><a href="../../en/">Home</a></li>
+            <li><a href="../../en/concrete/" aria-current="page">Concrete</a></li>
+            <li><a href="../../en/paint/">Paint</a></li>
+            <li><a href="../../en/flooring/">Flooring</a></li>
+            <li><a class="lang-switch" href="../../es/hormigon/" hreflang="es" lang="es" rel="alternate" aria-label="View this page in Spanish">🌐 Español</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="container" tabindex="-1">
+
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol><li><a href="../../en/">Home</a></li><li aria-current="page">Concrete calculator</li></ol>
+      </nav>
+      <header class="page-head">
+        <h1 id="calc-title">Concrete calculator</h1>
+        <p class="lead">Find out how many cubic yards or cubic metres of concrete you need for a slab, footing, sidewalk or column, and how many bags of pre-mix to buy.</p>
+      </header>
+      <div class="calc-layout">
+        <div>
+    <form class="calc-form card" data-calc="concrete" novalidate aria-labelledby="calc-title">
+      <fieldset class="unit-fieldset">
+        <legend>Unit system</legend>
+        <div class="segmented" role="radiogroup" aria-label="Unit system">
+          <label><input type="radio" name="units" value="metric" checked><span>Metric</span></label>
+          <label><input type="radio" name="units" value="imperial"><span>Imperial</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Shape</legend>
+        <div class="radio-list">
+          <label class="radio-card"><input type="radio" name="shape" value="slab" checked> Slab / footing (rectangular)</label>
+          <label class="radio-card"><input type="radio" name="shape" value="cylinder"> Round column (cylinder)</label>
+        </div>
+      </fieldset>
+      <div class="field-grid cols-3" data-show-when="shape=slab">
+        <div class="field" data-field="length">
+          <label for="c-length">Length <span class="unit" data-unit-role="length"></span></label>
+          <input id="c-length" name="length" type="number" inputmode="decimal" step="any" min="0" data-role="length" required aria-describedby="c-length-err" data-placeholder-metric="5" data-placeholder-imperial="16" autocomplete="off">
+          
+          <p class="field-error" id="c-length-err" hidden></p>
+        </div>
+        <div class="field" data-field="width">
+          <label for="c-width">Width <span class="unit" data-unit-role="length"></span></label>
+          <input id="c-width" name="width" type="number" inputmode="decimal" step="any" min="0" data-role="length" required aria-describedby="c-width-err" data-placeholder-metric="4" data-placeholder-imperial="12" autocomplete="off">
+          
+          <p class="field-error" id="c-width-err" hidden></p>
+        </div>
+        <div class="field" data-field="thickness">
+          <label for="c-thickness">Thickness <span class="unit" data-unit-role="small"></span></label>
+          <input id="c-thickness" name="thickness" type="number" inputmode="decimal" step="any" min="0" data-role="small" required aria-describedby="c-thickness-err" data-placeholder-metric="10" data-placeholder-imperial="4" autocomplete="off">
+          
+          <p class="field-error" id="c-thickness-err" hidden></p>
+        </div>
+      </div>
+      <div class="field-grid" data-show-when="shape=cylinder" hidden>
+        <div class="field" data-field="diameter">
+          <label for="c-diameter">Diameter <span class="unit" data-unit-role="small"></span></label>
+          <input id="c-diameter" name="diameter" type="number" inputmode="decimal" step="any" min="0" data-role="small" required aria-describedby="c-diameter-err" data-placeholder-metric="30" data-placeholder-imperial="12" autocomplete="off">
+          
+          <p class="field-error" id="c-diameter-err" hidden></p>
+        </div>
+        <div class="field" data-field="height">
+          <label for="c-height">Height <span class="unit" data-unit-role="length"></span></label>
+          <input id="c-height" name="height" type="number" inputmode="decimal" step="any" min="0" data-role="length" required aria-describedby="c-height-err" data-placeholder-metric="3" data-placeholder-imperial="10" autocomplete="off">
+          
+          <p class="field-error" id="c-height-err" hidden></p>
+        </div>
+      </div>
+      <div class="field-grid">
+        <div class="field" data-field="quantity">
+          <label for="c-quantity">Number of elements</label>
+          <input id="c-quantity" name="quantity" type="number" inputmode="numeric" step="1" min="1" data-role="none" required aria-describedby="c-quantity-help c-quantity-err" data-default-metric="1" data-default-imperial="1" autocomplete="off">
+          <p class="field-help" id="c-quantity-help">Count of identical pieces (e.g. 4 equal columns).</p>
+          <p class="field-error" id="c-quantity-err" hidden></p>
+        </div>
+        <div class="field" data-field="waste">
+          <label for="c-waste">Waste (%)</label>
+          <input id="c-waste" name="waste" type="number" inputmode="decimal" step="any" min="0" data-role="none" required aria-describedby="c-waste-help c-waste-err" data-default-metric="5" data-default-imperial="5" autocomplete="off">
+          <p class="field-help" id="c-waste-help">Extra margin for cuts, spills and surprises. 5–10% is typical.</p>
+          <p class="field-error" id="c-waste-err" hidden></p>
+        </div>
+      </div>
+      <div class="field" data-field="bag">
+          <label for="c-bag">Pre-mix bag size</label>
+          <select id="c-bag" name="bag" data-select="bag">
+            <option value="none">Don&#39;t calculate bags</option>
+          </select>
+          <p class="field-error" id="c-bag-err" hidden></p>
+        </div>
+      <p class="error-summary" data-error-summary role="alert" hidden></p>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Results</button>
+        <button type="reset" class="btn btn-ghost">Clear</button>
+      </div>
+    </form>
+        </div>
+        <section class="results card" id="results" data-state="empty" aria-labelledby="results-title" aria-live="polite">
+          <h2 id="results-title">Results</h2>
+          <div data-results-body><p class="results-placeholder">Fill in the fields to see your result instantly.</p></div>
+          <div class="results-actions">
+            <button type="button" class="btn btn-ghost btn-sm" data-copy>Copy results</button>
+            <button type="button" class="btn btn-ghost btn-sm" data-print>Print / save as PDF</button>
+          </div>
+        </section>
+      </div>
+      <a class="result-bar" href="#results" data-result-bar hidden aria-label="Results">
+        <span class="result-bar-label">Concrete needed (with waste)</span>
+        <strong class="result-bar-value" data-result-bar-value></strong>
+        <span class="result-bar-cta" aria-hidden="true">↓</span>
+      </a>
+      <!-- ad-slot:calc-below-results (disabled) -->
+      <section class="section prose" aria-labelledby="formula-title">
+        <h2 id="formula-title">How concrete is calculated</h2>
+          <p>The volume of a rectangular slab or footing is the product of its three dimensions: V = length × width × thickness. For a round column we use the cylinder volume: V = π × r² × h, where r is half the diameter.</p>
+          <p>All measurements are first converted to metres (1 ft = 0.3048 m; 1 in = 0.0254 m), so the internal volume is always in m³. It is then displayed in cubic yards or m³ (1 yd³ = 0.7646 m³).</p>
+          <p>Waste is added as a percentage of the net volume. 5–10% covers concrete left in the mixer, uneven sub-grade and formwork deflection.</p>
+          <p>For bags we use the industry rule of thumb: an 80 lb bag yields ≈ 0.60 ft³ (≈ 45 bags per cubic yard). The same yield per kilogram is applied to 25, 40 and 50 kg bags (≈ 2136 kg of dry mix per m³). Always check the yield stated by the manufacturer.</p>
+      </section>
+      
+      <section class="section faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions</h2>
+          <details><summary>How many bags of concrete do I need for 1 cubic yard?</summary><p>About 45 bags of 80 lb or 60 bags of 60 lb per cubic yard. In metric, 1 m³ takes roughly 43 bags of 50 kg, 54 of 40 kg or 86 of 25 kg.</p></details>
+          <details><summary>What waste percentage should I use?</summary><p>5% is usually enough for slabs on a well-levelled base; use 10% for hand-dug footings or small pours.</p></details>
+          <details><summary>Is thickness entered in inches or feet?</summary><p>In imperial the thickness is entered in inches (e.g. 4 in) and in metric in centimetres; the calculator converts automatically.</p></details>
+          <details><summary>Can I use this to order ready-mix from a truck?</summary><p>Yes. The total volume with waste is the amount to order; plants usually sell in increments of 0.25 yd³ or 0.5 m³.</p></details>
+      </section>
+      <section class="section related" aria-labelledby="related-title">
+        <h2 id="related-title">Other calculators</h2>
+        <ul><li><a href="../../en/paint/">Paint calculator</a></li><li><a href="../../en/flooring/">Flooring calculator</a></li></ul>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <p><strong>BuildCalc</strong> — Free construction calculators</p>
+          <p>BuildCalc is an estimating tool. Always confirm quantities with your supplier or contractor before purchasing.</p>
+          <p>© 2026 BuildCalc. All rights reserved.</p>
+        </div>
+        <nav aria-label="Footer">
+          <ul>
+            <li><a href="../../en/concrete/">Concrete</a></li>
+            <li><a href="../../en/paint/">Paint</a></li>
+            <li><a href="../../en/flooring/">Flooring</a></li>
+            <li><a href="../../en/privacy/">Privacy</a></li>
+            <li><a href="../../es/hormigon/" hreflang="es" lang="es">Español</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script type="application/json" id="bc-i18n">{"lang":"en","locale":"en","units":{"legend":"Unit system","metric":"Metric","imperial":"Imperial","m":"m","cm":"cm","mm":"mm","ft":"ft","in":"in","m2":"m²","ft2":"ft²","m3":"m³","yd3":"yd³","ft3":"ft³","L":"L","gal":"gal","m2PerL":"m²/L","ft2PerGal":"ft²/gal","pieces":"pieces","boxes":"boxes","bags":"bags","cans":"cans"},"common":{"results":"Results","resultsEmpty":"Fill in the fields to see your result instantly.","resultsInvalid":"Fix the highlighted fields to see the result.","howCalculated":"How it was calculated","formulaSection":"Formulas & method","faq":"Frequently asked questions","related":"Other calculators","waste":"Waste (%)","wasteHelp":"Extra margin for cuts, spills and surprises. 5–10% is typical.","quantity":"Number of elements","quantityHelp":"Count of identical pieces (e.g. 4 equal columns).","reset":"Clear","print":"Print / save as PDF","copy":"Copy results","copied":"Copied","optional":"optional","required":"required","mode":"What do you know?","modeRoom":"Room dimensions","modeArea":"Area already known","disclaimer":"Estimate only. Confirm quantities with your supplier.","errors":{"required":"This field is required.","nan":"Enter a valid number.","min":"Must be greater than {min}.","minInclusive":"Must be {min} or more.","max":"Too large (maximum {max}). Check your units.","integer":"Must be a whole number."},"summaryError":"{count} field(s) need attention."},"calc":{"fields":{"length":"Length","width":"Width","thickness":"Thickness","diameter":"Diameter","height":"Height","bag":"Pre-mix bag size","bagNone":"Don't calculate bags"},"results":{"total":"Concrete needed (with waste)","net":"Net volume","waste":"Waste","unit":"Volume per element","bags":"{bag} bags","bagsHelp":"Estimated yield: {yield} per bag."},"steps":{"slabVolume":"Volume = length × width × thickness = {lengthM} × {widthM} × {thicknessM} = {unitVolumeM3}","cylinderVolume":"Volume = π × radius² × height = π × ({radiusM})² × {heightM} = {unitVolumeM3}","quantity":"Net total = {unitVolumeM3} × {quantity} elements = {netVolumeM3}","waste":"Waste = {netVolumeM3} × {wastePercent}% = {wasteVolumeM3} → Total = {totalVolumeM3}","bags":"Bags = {totalVolumeM3} ÷ {bagYieldM3} per {bagLabel} bag = {bags} (rounded up)"}}}</script>
+</body>
+</html>

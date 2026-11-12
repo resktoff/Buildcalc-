@@ -1,0 +1,21 @@
+{
+  "name": "buildcalc",
+  "version": "0.1.0",
+  "description": "BuildCalc — international construction calculators (concrete, paint, flooring). Bilingual ES/EN, metric & imperial.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.js",
+    "test": "npm run test:unit && npm run test:build",
+    "test:unit": "node --test tests/unit/",
+    "test:build": "npm run build && node --test tests/build.test.js",
+    "test:e2e": "npm run build && node --test tests/e2e/",
+    "test:all": "npm run test:unit && npm run test:build && node --test tests/e2e/",
+    "serve": "node scripts/serve.js"
+  },
+  "engines": { "node": ">=18" },
+  "devDependencies": {
+    "playwright": "^1.50.0"
+  },
+  "license": "MIT"
+}

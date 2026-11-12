@@ -1,0 +1,26 @@
+{
+  "siteUrl": "https://resktoff.github.io",
+  "basePath": "/Buildcalc-",
+  "defaultLang": "en",
+  "languages": ["es", "en"],
+  "analytics": {
+    "gaMeasurementId": ""
+  },
+  "seo": {
+    "googleSiteVerification": "",
+    "bingSiteVerification": ""
+  },
+  "ads": {
+    "enabled": false,
+    "provider": "adsense",
+    "clientId": "",
+    "slots": {
+      "calc-below-results": "",
+      "home-footer": ""
+    }
+  },
+  "affiliates": {
+    "enabled": false,
+    "links": []
+  }
+}

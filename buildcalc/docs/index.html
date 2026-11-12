@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BuildCalc — Free construction calculators</title>
+    <meta name="description" content="Free, accurate construction calculators: concrete, paint and flooring. Metric and imperial units, configurable waste percentage and every formula explained.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://resktoff.github.io/Buildcalc-/en/">
+    <link rel="alternate" hreflang="es" href="https://resktoff.github.io/Buildcalc-/es/">
+    <link rel="alternate" hreflang="en" href="https://resktoff.github.io/Buildcalc-/en/">
+    <link rel="alternate" hreflang="x-default" href="https://resktoff.github.io/Buildcalc-/">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script>
+      (function () {
+        var supported = ["es","en"];
+        var stored = null;
+        try { stored = localStorage.getItem('bc.lang'); } catch (e) {}
+        var langs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || '']);
+        var target = stored && supported.indexOf(stored) !== -1 ? stored : null;
+        if (!target) {
+          for (var i = 0; i < langs.length && !target; i++) {
+            var code = String(langs[i]).toLowerCase().split('-')[0];
+            if (supported.indexOf(code) !== -1) target = code;
+          }
+        }
+        location.replace((target || 'en') + '/');
+      })();
+    </script>
+    <noscript><meta http-equiv="refresh" content="0; url=en/"></noscript>
+</head>
+<body>
+    <main class="container center-page">
+      <h1>BuildCalc</h1>
+      <p class="lead">Free construction calculators · Calculadoras de construcción gratuitas</p>
+      <div class="lang-choice">
+          <a class="btn btn-ghost" href="es/" hreflang="es" lang="es">Español</a>
+          <a class="btn btn-primary" href="en/" hreflang="en" lang="en">English</a>
+      </div>
+    </main>
+</body>
+</html>

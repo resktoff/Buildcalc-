@@ -1,0 +1,12 @@
+{
+  "name": "BuildCalc",
+  "short_name": "BuildCalc",
+  "description": "Construction calculators: concrete, paint, flooring.",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ],
+  "theme_color": "#0f6fff",
+  "background_color": "#f6f7f9",
+  "display": "browser"
+}

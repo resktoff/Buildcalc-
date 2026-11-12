@@ -1,0 +1,162 @@
+/**
+ * BuildCalc — HTML document shell, header/footer and SEO head.
+ * Pure functions returning strings; executed at build time (Node).
+ */
+
+export const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+export const ICONS = {
+  logo: `<svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3" y="3" width="26" height="26" rx="6" fill="#0f6fff"/><path d="M9 22V11h5.5a3 3 0 0 1 0 6H9m0 0h6.5a3 3 0 0 1 0 6H9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 12h5M19 16h5M19 20h5" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg>`,
+  menu: `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+  concrete: `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 9l9-5 9 5-9 5-9-5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3 9v6l9 5 9-5V9M12 14v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>`,
+  paint: `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="14" height="6" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M17 7h3v5l-8 2v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><rect x="10" y="16" width="4" height="5" rx="1" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>`,
+  flooring: `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 4h18v16H3zM3 12h18M9 4v8M15 12v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>`,
+};
+
+/**
+ * @param {object} o
+ * @param {object} o.t        i18n dictionary for the page language
+ * @param {object} o.config   site.config.json
+ * @param {string} o.path     page path relative to site root, e.g. "es/hormigon/"
+ * @param {object} o.alternates  { es: "es/hormigon/", en: "en/concrete/" }
+ * @param {string} o.title
+ * @param {string} o.description
+ * @param {string} o.body     main HTML
+ * @param {string} [o.navCurrent]  nav id for aria-current
+ * @param {Array}  [o.jsonLd]  JSON-LD objects
+ * @param {object} [o.i18nClient] JSON injected for the client app
+ * @param {boolean} [o.noindex]
+ */
+export function document({ t, config, path, alternates, title, description, body, navCurrent, jsonLd = [], i18nClient = null, noindex = false, xDefault = null }) {
+  const lang = t.meta.lang;
+  const root = rootPrefix(path);
+  const abs = (p) => `${config.siteUrl}${config.basePath}/${p}`;
+  const canonical = abs(path);
+  const otherLang = t.meta.otherLang;
+
+  const hreflang = Object.entries(alternates)
+    .map(([l, p]) => `<link rel="alternate" hreflang="${l}" href="${abs(p)}">`)
+    .join('\n    ');
+  const xdef = `<link rel="alternate" hreflang="x-default" href="${abs(xDefault ?? alternates[config.defaultLang] ?? path)}">`;
+
+  const ga = config.analytics?.gaMeasurementId
+    ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${esc(config.analytics.gaMeasurementId)}"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${esc(config.analytics.gaMeasurementId)}',{anonymize_ip:true});</script>`
+    : '<!-- analytics: set analytics.gaMeasurementId in site.config.json to enable Google Analytics -->';
+  const adsHead = config.ads?.enabled && config.ads.provider === 'adsense' && config.ads.clientId
+    ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${esc(config.ads.clientId)}" crossorigin="anonymous"></script>`
+    : '';
+  const verification = [
+    config.seo?.googleSiteVerification ? `<meta name="google-site-verification" content="${esc(config.seo.googleSiteVerification)}">` : '',
+    config.seo?.bingSiteVerification ? `<meta name="msvalidate.01" content="${esc(config.seo.bingSiteVerification)}">` : '',
+  ].filter(Boolean).join('\n    ');
+
+  const ld = jsonLd.length ? `<script type="application/ld+json">${JSON.stringify(jsonLd.length === 1 ? jsonLd[0] : jsonLd)}</script>` : '';
+  const clientI18n = i18nClient ? `<script type="application/json" id="bc-i18n">${JSON.stringify(i18nClient).replace(/</g, '\\u003c')}</script>` : '';
+
+  const navItems = [
+    ['home', `${lang}/`, t.nav.home],
+    ['concrete', `${lang}/${t.concrete.slug}/`, t.nav.concrete],
+    ['paint', `${lang}/${t.paint.slug}/`, t.nav.paint],
+    ['flooring', `${lang}/${t.flooring.slug}/`, t.nav.flooring],
+  ];
+
+  return `<!DOCTYPE html>
+<html lang="${lang}" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>${esc(title)}</title>
+    <meta name="description" content="${esc(description)}">
+    ${noindex ? '<meta name="robots" content="noindex, follow">' : '<meta name="robots" content="index, follow, max-image-preview:large">'}
+    <link rel="canonical" href="${canonical}">
+    ${hreflang}
+    ${xdef}
+    <meta name="theme-color" content="#0f6fff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: dark)">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="${esc(t.site.name)}">
+    <meta property="og:title" content="${esc(title)}">
+    <meta property="og:description" content="${esc(description)}">
+    <meta property="og:url" content="${canonical}">
+    <meta property="og:locale" content="${t.meta.ogLocale}">
+    <meta property="og:image" content="${abs('assets/og-image.png')}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(title)}">
+    <meta name="twitter:description" content="${esc(description)}">
+    <meta name="twitter:image" content="${abs('assets/og-image.png')}">
+    ${verification}
+    <link rel="icon" href="${root}assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="${root}assets/apple-touch-icon.png">
+    <link rel="manifest" href="${root}assets/site.webmanifest">
+    <link rel="stylesheet" href="${root}assets/css/styles.css">
+    <script type="module" src="${root}assets/js/ui/app.js"></script>
+    ${ga}
+    ${adsHead}
+    ${ld}
+</head>
+<body>
+    <a class="skip-link" href="#main">${esc(t.nav.skip)}</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="${root}${lang}/" aria-label="${esc(t.site.name)} — ${esc(t.nav.home)}">${ICONS.logo}<span>Build<b>Calc</b></span></a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="${esc(t.nav.menu)}">${ICONS.menu}</button>
+        <nav id="site-nav" class="site-nav" aria-label="${esc(t.nav.calculators)}">
+          <ul>
+            ${navItems.map(([id, p, label]) => `<li><a href="${root}${p}"${navCurrent === id ? ' aria-current="page"' : ''}>${esc(label)}</a></li>`).join('\n            ')}
+            <li><a class="lang-switch" href="${root}${alternates[otherLang]}" hreflang="${otherLang}" lang="${otherLang}" rel="alternate" aria-label="${esc(t.meta.switchLangAria)}">🌐 ${esc(t.meta.otherLangName)}</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="container" tabindex="-1">
+${body}
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <p><strong>${esc(t.site.name)}</strong> — ${esc(t.site.tagline)}</p>
+          <p>${esc(t.site.footerText)}</p>
+          <p>© ${new Date().getFullYear()} ${esc(t.site.name)}. ${esc(t.site.copyright)}</p>
+        </div>
+        <nav aria-label="Footer">
+          <ul>
+            ${navItems.slice(1).map(([, p, label]) => `<li><a href="${root}${p}">${esc(label)}</a></li>`).join('\n            ')}
+            <li><a href="${root}${lang}/${t.privacy.slug}/">${esc(t.nav.privacy)}</a></li>
+            <li><a href="${root}${alternates[otherLang]}" hreflang="${otherLang}" lang="${otherLang}">${esc(t.meta.otherLangName)}</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    ${clientI18n}
+</body>
+</html>
+`;
+}
+
+export function rootPrefix(path) {
+  const depth = path.split('/').filter(Boolean).length;
+  return depth === 0 ? './' : '../'.repeat(depth);
+}
+
+/** Ad slot placeholder: rendered only when ads are enabled in config. */
+export function adSlot(config, t, slotName) {
+  if (!config.ads?.enabled) return `<!-- ad-slot:${slotName} (disabled) -->`;
+  const slotId = config.ads.slots?.[slotName] || '';
+  if (config.ads.provider === 'adsense' && config.ads.clientId && slotId) {
+    return `<aside class="ad-slot" aria-label="${esc(t.ads.label)}"><ins class="adsbygoogle" style="display:block" data-ad-client="${esc(config.ads.clientId)}" data-ad-slot="${esc(slotId)}" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></aside>`;
+  }
+  return `<aside class="ad-slot" aria-label="${esc(t.ads.label)}" data-ad-slot="${esc(slotName)}">${esc(t.ads.label)}</aside>`;
+}
+
+/** Affiliate box: rendered only when enabled and links exist for this calculator. */
+export function affiliateBox(config, t, calcId) {
+  if (!config.affiliates?.enabled) return '';
+  const links = (config.affiliates.links || []).filter((l) => !l.calc || l.calc === calcId);
+  if (!links.length) return '';
+  return `<aside class="card affiliate-box section" aria-labelledby="aff-title">
+      <h2 id="aff-title">${esc(t.affiliates.title)}</h2>
+      <ul>${links.map((l) => `<li><a href="${esc(l.url)}" rel="sponsored nofollow noopener" target="_blank">${esc(l.label)}</a></li>`).join('')}</ul>
+      <small>${esc(t.affiliates.disclosure)}</small>
+    </aside>`;
+}

@@ -1,0 +1,257 @@
+{
+  "meta": {
+    "lang": "en",
+    "locale": "en",
+    "ogLocale": "en_US",
+    "langName": "English",
+    "otherLang": "es",
+    "otherLangName": "Español",
+    "switchLangAria": "View this page in Spanish"
+  },
+  "site": {
+    "name": "BuildCalc",
+    "tagline": "Free construction calculators",
+    "description": "Free, accurate construction calculators: concrete, paint and flooring. Metric and imperial units, configurable waste percentage and every formula explained.",
+    "footerText": "BuildCalc is an estimating tool. Always confirm quantities with your supplier or contractor before purchasing.",
+    "copyright": "All rights reserved."
+  },
+  "nav": {
+    "skip": "Skip to content",
+    "home": "Home",
+    "concrete": "Concrete",
+    "paint": "Paint",
+    "flooring": "Flooring",
+    "privacy": "Privacy",
+    "menu": "Menu",
+    "calculators": "Calculators"
+  },
+  "units": {
+    "legend": "Unit system",
+    "metric": "Metric",
+    "imperial": "Imperial",
+    "m": "m", "cm": "cm", "mm": "mm", "ft": "ft", "in": "in",
+    "m2": "m²", "ft2": "ft²",
+    "m3": "m³", "yd3": "yd³", "ft3": "ft³", "L": "L", "gal": "gal",
+    "m2PerL": "m²/L", "ft2PerGal": "ft²/gal",
+    "pieces": "pieces", "boxes": "boxes", "bags": "bags", "cans": "cans"
+  },
+  "common": {
+    "results": "Results",
+    "resultsEmpty": "Fill in the fields to see your result instantly.",
+    "resultsInvalid": "Fix the highlighted fields to see the result.",
+    "howCalculated": "How it was calculated",
+    "formulaSection": "Formulas & method",
+    "faq": "Frequently asked questions",
+    "related": "Other calculators",
+    "waste": "Waste (%)",
+    "wasteHelp": "Extra margin for cuts, spills and surprises. 5–10% is typical.",
+    "quantity": "Number of elements",
+    "quantityHelp": "Count of identical pieces (e.g. 4 equal columns).",
+    "reset": "Clear",
+    "print": "Print / save as PDF",
+    "copy": "Copy results",
+    "copied": "Copied",
+    "optional": "optional",
+    "required": "required",
+    "mode": "What do you know?",
+    "modeRoom": "Room dimensions",
+    "modeArea": "Area already known",
+    "disclaimer": "Estimate only. Confirm quantities with your supplier.",
+    "errors": {
+      "required": "This field is required.",
+      "nan": "Enter a valid number.",
+      "min": "Must be greater than {min}.",
+      "minInclusive": "Must be {min} or more.",
+      "max": "Too large (maximum {max}). Check your units.",
+      "integer": "Must be a whole number."
+    },
+    "summaryError": "{count} field(s) need attention."
+  },
+  "home": {
+    "metaTitle": "Free Construction Calculators | BuildCalc",
+    "metaDescription": "Work out how much concrete, paint or flooring you need in seconds. Free, metric & imperial, adjustable waste percentage and every formula explained.",
+    "h1": "Estimate your building materials in seconds",
+    "lead": "Free tools to estimate concrete, paint and flooring. Instant results in metric or imperial units, the waste percentage you choose, and every formula explained step by step.",
+    "cta": "Pick a calculator",
+    "cards": {
+      "concrete": { "title": "Concrete calculator", "text": "Volume in m³ or cubic yards for slabs, footings and columns, plus the number of pre-mix bags.", "cta": "Calculate concrete" },
+      "paint": { "title": "Paint calculator", "text": "Gallons or litres per room, minus doors and windows, with adjustable coats and coverage.", "cta": "Calculate paint" },
+      "flooring": { "title": "Flooring calculator", "text": "Area, number of tiles or planks and boxes to buy, with the recommended cutting waste.", "cta": "Calculate flooring" }
+    },
+    "whyTitle": "Why BuildCalc?",
+    "why": [
+      { "title": "Instant results", "text": "Everything is computed in your browser as you type. No waiting, no sign-up." },
+      { "title": "Metric and imperial", "text": "Switch between metres and feet with one tap; your values convert automatically." },
+      { "title": "Transparent formulas", "text": "Every result shows the step-by-step maths with your numbers so you can check it." },
+      { "title": "Input validation", "text": "Empty, negative or out-of-range values are caught before a wrong result is shown." }
+    ],
+    "aboutTitle": "About BuildCalc",
+    "aboutText": "BuildCalc is an international platform of construction calculators for contractors, students and home renovators. It works on any device, is free to use and is available in English and Spanish."
+  },
+  "concrete": {
+    "slug": "concrete",
+    "metaTitle": "Concrete Calculator: Cubic Yards, m³ & Bags | BuildCalc",
+    "metaDescription": "Calculate concrete volume for slabs, footings and columns in cubic yards or m³, with waste and the number of pre-mix bags. Free, with formulas explained.",
+    "h1": "Concrete calculator",
+    "intro": "Find out how many cubic yards or cubic metres of concrete you need for a slab, footing, sidewalk or column, and how many bags of pre-mix to buy.",
+    "shape": "Shape",
+    "shapes": { "slab": "Slab / footing (rectangular)", "cylinder": "Round column (cylinder)" },
+    "fields": {
+      "length": "Length", "width": "Width", "thickness": "Thickness",
+      "diameter": "Diameter", "height": "Height",
+      "bag": "Pre-mix bag size", "bagNone": "Don't calculate bags"
+    },
+    "results": {
+      "total": "Concrete needed (with waste)",
+      "net": "Net volume",
+      "waste": "Waste",
+      "unit": "Volume per element",
+      "bags": "{bag} bags",
+      "bagsHelp": "Estimated yield: {yield} per bag."
+    },
+    "steps": {
+      "slabVolume": "Volume = length × width × thickness = {lengthM} × {widthM} × {thicknessM} = {unitVolumeM3}",
+      "cylinderVolume": "Volume = π × radius² × height = π × ({radiusM})² × {heightM} = {unitVolumeM3}",
+      "quantity": "Net total = {unitVolumeM3} × {quantity} elements = {netVolumeM3}",
+      "waste": "Waste = {netVolumeM3} × {wastePercent}% = {wasteVolumeM3} → Total = {totalVolumeM3}",
+      "bags": "Bags = {totalVolumeM3} ÷ {bagYieldM3} per {bagLabel} bag = {bags} (rounded up)"
+    },
+    "formula": {
+      "title": "How concrete is calculated",
+      "p1": "The volume of a rectangular slab or footing is the product of its three dimensions: V = length × width × thickness. For a round column we use the cylinder volume: V = π × r² × h, where r is half the diameter.",
+      "p2": "All measurements are first converted to metres (1 ft = 0.3048 m; 1 in = 0.0254 m), so the internal volume is always in m³. It is then displayed in cubic yards or m³ (1 yd³ = 0.7646 m³).",
+      "p3": "Waste is added as a percentage of the net volume. 5–10% covers concrete left in the mixer, uneven sub-grade and formwork deflection.",
+      "p4": "For bags we use the industry rule of thumb: an 80 lb bag yields ≈ 0.60 ft³ (≈ 45 bags per cubic yard). The same yield per kilogram is applied to 25, 40 and 50 kg bags (≈ 2136 kg of dry mix per m³). Always check the yield stated by the manufacturer."
+    },
+    "faq": [
+      { "q": "How many bags of concrete do I need for 1 cubic yard?", "a": "About 45 bags of 80 lb or 60 bags of 60 lb per cubic yard. In metric, 1 m³ takes roughly 43 bags of 50 kg, 54 of 40 kg or 86 of 25 kg." },
+      { "q": "What waste percentage should I use?", "a": "5% is usually enough for slabs on a well-levelled base; use 10% for hand-dug footings or small pours." },
+      { "q": "Is thickness entered in inches or feet?", "a": "In imperial the thickness is entered in inches (e.g. 4 in) and in metric in centimetres; the calculator converts automatically." },
+      { "q": "Can I use this to order ready-mix from a truck?", "a": "Yes. The total volume with waste is the amount to order; plants usually sell in increments of 0.25 yd³ or 0.5 m³." }
+    ]
+  },
+  "paint": {
+    "slug": "paint",
+    "metaTitle": "Paint Calculator: Gallons or Litres per Room | BuildCalc",
+    "metaDescription": "Calculate how much paint you need for walls and ceilings in gallons or litres. Subtract doors and windows, set coats, coverage and waste. Free and accurate.",
+    "h1": "Paint calculator",
+    "intro": "Find out how many gallons or litres of paint to buy for a room, subtracting doors and windows and adjusting the number of coats and your paint's coverage.",
+    "fields": {
+      "length": "Room length", "width": "Room width", "height": "Wall height",
+      "area": "Area to paint",
+      "ceiling": "Include ceiling",
+      "doors": "Doors", "doorsHelp": "{area} is subtracted per door.",
+      "windows": "Windows", "windowsHelp": "{area} is subtracted per window.",
+      "coats": "Number of coats",
+      "coverage": "Paint coverage", "coverageHelp": "Printed on the can. Typical: 300–400 ft²/gal (8–12 m²/L) per coat.",
+      "can": "Container size", "canNone": "Don't calculate containers"
+    },
+    "results": {
+      "total": "Paint needed (with waste)",
+      "net": "Paint without waste",
+      "area": "Net area to paint",
+      "areaCoats": "Total area ({coats} coats)",
+      "openings": "Subtracted for openings",
+      "cans": "{can} containers",
+      "openingsWarning": "Openings exceed the given area: check your measurements."
+    },
+    "steps": {
+      "wallArea": "Wall area = 2 × (length + width) × height = 2 × ({lengthM} + {widthM}) × {heightM} = {wallAreaM2}",
+      "ceilingArea": "Ceiling area = length × width = {lengthM} × {widthM} = {ceilingAreaM2}",
+      "directArea": "Given area = {areaM2}",
+      "openings": "Openings = {doors} doors × {doorAreaM2} + {windows} windows × {windowAreaM2} = {openingsAreaM2}",
+      "netArea": "Net area = {grossAreaM2} − {openingsAreaM2} = {netAreaM2}",
+      "coats": "Total area = {netAreaM2} × {coats} coats = {totalAreaM2}",
+      "litres": "Paint = {totalAreaM2} ÷ {coverageM2PerL} = {litresNet}",
+      "waste": "Waste = {litresNet} × {wastePercent}% = {litresWaste} → Total = {litresTotal}",
+      "cans": "Containers = {litresTotal} ÷ {canLitres} ({canLabel}) = {cans} (rounded up)"
+    },
+    "formula": {
+      "title": "How paint is calculated",
+      "p1": "First we get the wall area: perimeter × height = 2 × (length + width) × height. If you tick the ceiling, length × width is added.",
+      "p2": "We subtract openings using typical sizes: 20 ft² (1.9 m²) per door and 16 ft² (1.5 m²) per window. The result is the net area to paint.",
+      "p3": "The net area is multiplied by the number of coats and divided by the paint coverage (ft² per gallon or m² per litre) stated by the manufacturer.",
+      "p4": "Finally waste is added and the total is rounded up to whole containers of the chosen size. Rough or very absorbent surfaces may need up to 20% more."
+    },
+    "faq": [
+      { "q": "How much paint do I need for a 12 × 10 ft room?", "a": "With 8 ft ceilings the walls are 352 ft²; after one door and one window about 316 ft² remain. Two coats at 350 ft²/gal need ≈ 1.8 gal, so two 1-gallon cans." },
+      { "q": "How many coats of paint should I apply?", "a": "Two coats is the standard for an even finish. Over dark colours or new drywall you may need three, or a coat of primer." },
+      { "q": "What is typical paint coverage?", "a": "Most latex and acrylic paints cover 300–400 ft² per gallon per coat (8–12 m² per litre). The exact figure is printed on the can." },
+      { "q": "Does the calculator work for exteriors?", "a": "Yes: use the “Area already known” mode with the façade surface and raise waste to 10–15% for textured stucco or siding." }
+    ]
+  },
+  "flooring": {
+    "slug": "flooring",
+    "metaTitle": "Flooring Calculator: Tiles, Boxes & Waste | BuildCalc",
+    "metaDescription": "Calculate floor area in ft² or m², how many tiles or planks you need and the number of boxes, including cutting waste. Free and instant.",
+    "h1": "Flooring calculator",
+    "intro": "Work out your floor area, the number of tiles, porcelain, laminate or vinyl planks and how many boxes to buy, with the right waste allowance for cuts.",
+    "fields": {
+      "length": "Room length", "width": "Room width",
+      "area": "Floor area",
+      "tileLength": "Piece length", "tileWidth": "Piece width",
+      "tileHelp": "Tile or plank size. Leave empty if you only need the area.",
+      "boxMode": "Box contents",
+      "boxNone": "Don't calculate boxes",
+      "boxPieces": "Pieces per box",
+      "boxArea": "Area per box",
+      "piecesPerBox": "Pieces per box",
+      "boxAreaField": "Area covered by one box"
+    },
+    "results": {
+      "total": "Area to buy (with waste)",
+      "net": "Floor area",
+      "waste": "Waste",
+      "pieces": "Pieces needed",
+      "pieceArea": "Area per piece",
+      "boxes": "Boxes to buy"
+    },
+    "steps": {
+      "floorArea": "Area = length × width = {lengthM} × {widthM} = {areaM2}",
+      "directArea": "Given area = {areaM2}",
+      "waste": "Waste = {areaM2} × {wastePercent}% = {wasteAreaM2} → Area to buy = {areaWithWasteM2}",
+      "pieces": "Pieces = {areaWithWasteM2} ÷ ({tileLengthM} × {tileWidthM} = {pieceAreaM2}) = {pieces} (rounded up)",
+      "boxesByPieces": "Boxes = {pieces} ÷ {piecesPerBox} pieces per box = {boxes} (rounded up)",
+      "boxesByArea": "Boxes = {areaWithWasteM2} ÷ {boxAreaM2} per box = {boxes} (rounded up)"
+    },
+    "formula": {
+      "title": "How flooring is calculated",
+      "p1": "The area of a rectangular room is length × width. For L-shaped or irregular rooms, split them into rectangles, add the areas and use the “Area already known” mode.",
+      "p2": "Waste covers cuts at edges, corners and around obstacles. We recommend 10% for straight layouts, 15% for diagonal or patterned layouts (herringbone, modular) and 5% for large simple rooms.",
+      "p3": "The number of pieces is the area to buy divided by the area of one piece (length × width), rounded up. Inch or centimetre sizes are converted automatically.",
+      "p4": "Boxes are the pieces divided by the box contents, or the area to buy divided by the ft² (m²) one box covers, always rounded up. Buy one spare box from the same batch for future repairs."
+    },
+    "faq": [
+      { "q": "How many 12 × 24 in tiles do I need for 120 ft²?", "a": "Each tile covers 2 ft². With 10% waste the area to buy is 132 ft² → 66 tiles; with 8 tiles per box, 9 boxes." },
+      { "q": "How much waste should I allow for laminate or vinyl plank?", "a": "7–10% for straight layouts. If the room has many corners or you lay diagonally, go up to 15%." },
+      { "q": "Should I subtract furniture or kitchen cabinets?", "a": "Not movable furniture. You can subtract kitchen islands or permanent built-ins using the “Area already known” mode." },
+      { "q": "Does the calculator account for grout joints?", "a": "No: the grout gap (1/16–3/16 in) adds a small margin in your favour that is already covered by the waste percentage." }
+    ]
+  },
+  "privacy": {
+    "slug": "privacy",
+    "metaTitle": "Privacy Policy | BuildCalc",
+    "metaDescription": "BuildCalc privacy policy: how the calculators handle your data, analytics, cookies and future advertising or affiliate links.",
+    "h1": "Privacy policy",
+    "updated": "Last updated: {date}",
+    "sections": [
+      { "title": "Data we process", "text": "The calculators run entirely in your browser. The values you type are never sent to a server. Your unit-system preference is stored locally on your device (localStorage) and can be removed by clearing site data." },
+      { "title": "Analytics", "text": "We may use Google Analytics to understand, in aggregate and anonymously, how the site is used (pages visited, device, country). When active, IP addresses are anonymised. You can block it with Google's official opt-out extension or your browser's blocker." },
+      { "title": "Advertising and affiliates", "text": "In the future the site may display clearly labelled third-party ads or affiliate links. If you buy through an affiliate link, BuildCalc may earn a commission at no extra cost to you. Ad providers may use cookies under their own policies." },
+      { "title": "Contact", "text": "For privacy questions, open an issue in the project's GitHub repository." }
+    ]
+  },
+  "notFound": {
+    "metaTitle": "Page not found | BuildCalc",
+    "h1": "Page not found",
+    "text": "The address you requested doesn't exist or has moved.",
+    "cta": "Go to the home page"
+  },
+  "affiliates": {
+    "title": "Recommended tools",
+    "disclosure": "Affiliate links: we may earn a commission at no cost to you."
+  },
+  "ads": {
+    "label": "Advertisement"
+  }
+}
