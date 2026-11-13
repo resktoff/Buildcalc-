@@ -30,7 +30,7 @@ export const ICONS = {
 export function document({ t, config, path, alternates, title, description, body, navCurrent, jsonLd = [], i18nClient = null, noindex = false, xDefault = null }) {
   const lang = t.meta.lang;
   const root = rootPrefix(path);
-  const abs = (p) => `${config.siteUrl}${config.basePath}/${p}`;
+  const abs = (p) => `${config.siteUrl.replace(/\/+$/, '')}${config.basePath ? `/${config.basePath.replace(/^\/+|\/+$/g, '')}` : ''}/${String(p).replace(/^\/+/, '')}`;
   const canonical = abs(path);
   const otherLang = t.meta.otherLang;
 

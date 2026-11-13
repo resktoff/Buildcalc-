@@ -130,7 +130,7 @@ export async function build({ quiet = false } = {}) {
   }
 
   // robots.txt, sitemap.xml, .nojekyll
-  const abs = (p) => `${config.siteUrl}${config.basePath}/${p}`;
+  const abs = (p) => `${config.siteUrl.replace(/\/+$/, '')}${config.basePath ? `/${config.basePath.replace(/^\/+|\/+$/g, '')}` : ''}/${String(p).replace(/^\/+/, '')}`;
   const today = new Date().toISOString().slice(0, 10);
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">

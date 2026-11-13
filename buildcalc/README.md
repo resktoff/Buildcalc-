@@ -7,7 +7,7 @@ Proyecto
 
 > Calculadoras de construcción gratuitas (hormigón, pintura, pisos) · ES/EN · métrico e imperial · sin dependencias en producción.
 
-**Live (once GitHub Pages is enabled):** `https://resktoff.github.io/Buildcalc-/` → redirects to `/es/` or `/en/`.
+**Live (deployed on Render):** `https://buildcalc-c16f.onrender.com/` → redirects to `/es/` or `/en/`.
 
 ## Features
 

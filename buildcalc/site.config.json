@@ -1,8 +1,11 @@
 {
-  "siteUrl": "https://resktoff.github.io",
+  "siteUrl": "https://buildcalc-c16f.onrender.com",
   "basePath": "",
   "defaultLang": "en",
-  "languages": ["es", "en"],
+  "languages": [
+    "es",
+    "en"
+  ],
   "analytics": {
     "gaMeasurementId": ""
   },

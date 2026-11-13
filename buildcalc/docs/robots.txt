@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://resktoff.github.io/Buildcalc-/sitemap.xml
+Sitemap: https://buildcalc-c16f.onrender.com/sitemap.xml

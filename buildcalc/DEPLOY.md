@@ -6,10 +6,10 @@
 2. En GitHub: **Settings → Pages → Build and deployment**
    * Source: *Deploy from a branch*
    * Branch: `main` · Folder: **`/docs`** → Save.
-3. En 1–2 minutos el sitio queda en `https://resktoff.github.io/Buildcalc-/`.
-4. Comprueba `https://resktoff.github.io/Buildcalc-/sitemap.xml` y `/robots.txt`.
+3. En 1–2 minutos el sitio queda en `https://buildcalc-c16f.onrender.com/`.
+4. Comprueba `https://buildcalc-c16f.onrender.com/sitemap.xml` y `/robots.txt`.
 
-`site.config.json` ya apunta a `siteUrl: https://resktoff.github.io` y `basePath: /Buildcalc-`.
+`site.config.json` ya apunta a `siteUrl: https://buildcalc-c16f.onrender.com` y `basePath: (vacío)`.
 Si renombras el repositorio o usas dominio propio, cambia esos dos valores, ejecuta `npm run build` y vuelve a hacer commit.
 
 ### Dominio propio (opcional)
@@ -36,7 +36,7 @@ Si prefieres que lo haga el agente: facilita un *fine-grained personal access to
 
 ## Google Search Console y Analytics
 
-1. **Search Console**: añade la propiedad `https://resktoff.github.io/Buildcalc-/` (tipo *URL prefix*). Copia el código de verificación HTML en `site.config.json → seo.googleSiteVerification`, rebuild, commit. Luego envía `sitemap.xml`.
+1. **Search Console**: añade la propiedad `https://buildcalc-c16f.onrender.com/` (tipo *URL prefix*). Copia el código de verificación HTML en `site.config.json → seo.googleSiteVerification`, rebuild, commit. Luego envía `sitemap.xml`.
 2. **Analytics (GA4)**: crea la propiedad, copia `G-XXXXXXX` en `analytics.gaMeasurementId`, rebuild, commit. La IP se anonimiza; la política de privacidad ya lo menciona.
 3. **AdSense** (cuando el sitio tenga tráfico y contenido suficiente): `ads.enabled: true`, `ads.clientId: "ca-pub-…"`, y los IDs de bloque en `ads.slots`. Crea `src/public/ads.txt` con la línea que te dé AdSense (se copia a la raíz del sitio). Los anuncios aparecen solo en 2 posiciones reservadas (bajo resultados y pie de la home), nunca sobre el formulario.
 4. **Afiliados**: `affiliates.enabled: true` y `links: [{ "label": "...", "url": "...", "calc": "concrete" }]`. Se renderizan con `rel="sponsored nofollow"` y aviso de divulgación.

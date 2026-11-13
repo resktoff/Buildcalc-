@@ -108,7 +108,7 @@ export function clientI18n(t, id) {
 }
 
 export function calcJsonLd({ t, config, id, path, alternates }) {
-  const abs = (p) => `${config.siteUrl}${config.basePath}/${p}`;
+  const abs = (p) => `${config.siteUrl.replace(/\/+$/, '')}${config.basePath ? `/${config.basePath.replace(/^\/+|\/+$/g, '')}` : ''}/${String(p).replace(/^\/+/, '')}`;
   const c = t[id];
   const lang = t.meta.lang;
   return [
@@ -143,7 +143,7 @@ export function calcJsonLd({ t, config, id, path, alternates }) {
 }
 
 export function homeJsonLd({ t, config }) {
-  const abs = (p) => `${config.siteUrl}${config.basePath}/${p}`;
+  const abs = (p) => `${config.siteUrl.replace(/\/+$/, '')}${config.basePath ? `/${config.basePath.replace(/^\/+|\/+$/g, '')}` : ''}/${String(p).replace(/^\/+/, '')}`;
   const lang = t.meta.lang;
   return [{
     '@context': 'https://schema.org',
@@ -174,7 +174,7 @@ export function privacyPage({ t }) {
 export function notFoundPage({ t, config }) {
   const lang = t.meta.lang;
   // 404 is served from the site root → use base-path-absolute links so it works from any depth
-  const base = `${config.basePath}/`;
+  const base = config.basePath ? `/${config.basePath.replace(/^\/+|\/+$/g, '')}/` : '/';
   return `
       <div class="center-page">
         <h1>${esc(t.notFound.h1)}</h1>
@@ -189,7 +189,7 @@ export function notFoundPage({ t, config }) {
 export function rootRedirect({ dicts, config }) {
   const langs = Object.keys(dicts);
   const def = config.defaultLang;
-  const abs = (p) => `${config.siteUrl}${config.basePath}/${p}`;
+  const abs = (p) => `${config.siteUrl.replace(/\/+$/, '')}${config.basePath ? `/${config.basePath.replace(/^\/+|\/+$/g, '')}` : ''}/${String(p).replace(/^\/+/, '')}`;
   const links = langs.map((l) => `<a class="btn ${l === def ? 'btn-primary' : 'btn-ghost'}" href="${l}/" hreflang="${l}" lang="${l}">${esc(dicts[l].meta.langName)}</a>`).join('\n          ');
   return `<!DOCTYPE html>
 <html lang="${def}">

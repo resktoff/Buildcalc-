@@ -12,7 +12,7 @@ const OUT = path.join(ROOT, 'docs');
 const config = JSON.parse(await fs.readFile(path.join(ROOT, 'site.config.json'), 'utf8'));
 const es = JSON.parse(await fs.readFile(path.join(ROOT, 'src/i18n/es.json'), 'utf8'));
 const en = JSON.parse(await fs.readFile(path.join(ROOT, 'src/i18n/en.json'), 'utf8'));
-const BASE = `${config.siteUrl}${config.basePath}/`;
+const BASE = `${config.siteUrl.replace(/\/+$/, '')}${config.basePath ? `/${config.basePath.replace(/^\/+|\/+$/g, '')}` : ''}/`;
 
 const read = (rel) => fs.readFile(path.join(OUT, rel), 'utf8');
 const exists = async (rel) => !!(await fs.stat(path.join(OUT, rel)).catch(() => null));
