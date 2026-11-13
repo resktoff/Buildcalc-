@@ -1,6 +1,6 @@
 {
   "siteUrl": "https://resktoff.github.io",
-  "basePath": "/Buildcalc-",
+  "basePath": "",
   "defaultLang": "en",
   "languages": ["es", "en"],
   "analytics": {
