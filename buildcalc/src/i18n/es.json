@@ -127,7 +127,7 @@
       { "q": "¿Cuántos sacos de hormigón necesito para 1 m³?", "a": "Con premezclado de 50 kg se necesitan unos 43 sacos por m³; con sacos de 40 kg, unos 54; con 25 kg, unos 86. En imperial, 1 yd³ equivale a ≈ 45 sacos de 80 lb o 60 sacos de 60 lb." },
       { "q": "¿Qué porcentaje de desperdicio debo usar?", "a": "Para losas sobre terreno bien nivelado 5 % suele bastar; para zapatas excavadas a mano o trabajos pequeños conviene 10 %." },
       { "q": "¿El espesor se ingresa en centímetros o metros?", "a": "En el sistema métrico el espesor se ingresa en centímetros (p. ej. 10 cm) y en imperial en pulgadas; la calculadora hace la conversión automáticamente." },
-      { "q": "¿Sirve para calcular hormigón premezclado de camión?", "a": "Sí. El volumen total con desperdicio es la cantidad que debes pedir; las plantas suelen vender en múltiplos de 0.5 m³ o 0.25 yd³." }
+      { "q": "¿Sirve para calcular hormigón premezclado de camión?", "a": "Sí. El volumen total con desperdicio es la cantidad que debes pedir; las plantas suelen vender en múltiplos de 0.5 m³ o 0.25 yd³." },
     ]
   },
   "paint": {
