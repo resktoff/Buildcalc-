@@ -240,7 +240,71 @@
       { "title": "Publicidad y afiliados", "text": "En el futuro el sitio puede mostrar anuncios de terceros o enlaces de afiliados claramente identificados. Si compras a través de un enlace de afiliado, BuildCalc puede recibir una comisión sin coste adicional para ti. Los proveedores de anuncios pueden usar cookies según sus propias políticas." },
       { "title": "Contacto", "text": "Para consultas sobre privacidad, abre un issue en el repositorio del proyecto en GitHub." }
     ]
-  },
+  },"privacy": {
+  "slug": "privacidad",
+  "metaTitle": "Política de privacidad | BuildCalc",
+  "metaDescription": "Política de privacidad de BuildCalc: datos de las calculadoras, almacenamiento local, datos técnicos, cookies, analítica, publicidad y enlaces de afiliados.",
+  "h1": "Política de privacidad",
+  "updated": "Última actualización: {date}",
+  "sections": [
+    {
+      "title": "1. Quiénes somos",
+      "text": "BuildCalc es un sitio web gratuito que ofrece calculadoras y herramientas de construcción en español e inglés. Esta política explica qué información puede procesarse al utilizar el sitio."
+    },
+    {
+      "title": "2. Datos introducidos en las calculadoras",
+      "text": "Los cálculos se realizan directamente en tu navegador. Las medidas, cantidades y demás valores que introduces no se envían deliberadamente a nuestros servidores ni se almacenan en una cuenta de usuario. No es necesario registrarse para utilizar las herramientas."
+    },
+    {
+      "title": "3. Almacenamiento local",
+      "text": "El sitio puede guardar en el almacenamiento local de tu navegador preferencias como el sistema de unidades seleccionado. Esta información permanece en tu dispositivo y puedes eliminarla desde la configuración del navegador, borrando los datos del sitio."
+    },
+    {
+      "title": "4. Información técnica",
+      "text": "El proveedor de alojamiento puede registrar automáticamente información técnica necesaria para entregar y proteger el sitio, como dirección IP, fecha y hora de acceso, páginas solicitadas, navegador, sistema operativo, dispositivo y página de procedencia. El tratamiento de estos registros depende también de las políticas del proveedor."
+    },
+    {
+      "title": "5. Cookies y tecnologías similares",
+      "text": "BuildCalc utiliza almacenamiento local para algunas preferencias. El almacenamiento local no es lo mismo que una cookie. Actualmente Google Analytics y la publicidad de Google AdSense están deshabilitados. Si incorporamos cookies u otras tecnologías de seguimiento, actualizaremos esta política y aplicaremos los mecanismos de información y consentimiento que correspondan."
+    },
+    {
+      "title": "6. Analítica",
+      "text": "Actualmente Google Analytics no está habilitado en BuildCalc. Si en el futuro incorporamos herramientas de medición, podremos recopilar estadísticas de uso, como páginas visitadas, tipo de dispositivo y ubicación aproximada, de acuerdo con la configuración y las políticas del proveedor."
+    },
+    {
+      "title": "7. Publicidad y enlaces de afiliados",
+      "text": "Actualmente la publicidad y los enlaces de afiliados están deshabilitados. En el futuro el sitio podría mostrar anuncios de terceros o enlaces de afiliados identificados. BuildCalc podría recibir una comisión si realizas una compra mediante uno de esos enlaces, sin coste adicional para ti. Los proveedores externos podrían utilizar cookies u otras tecnologías conforme a sus propias políticas."
+    },
+    {
+      "title": "8. Compartición de información",
+      "text": "No vendemos ni alquilamos información personal. La información técnica puede ser procesada por proveedores de alojamiento y seguridad para mantener el funcionamiento del sitio. Cualquier servicio externo que se incorpore en el futuro estará sujeto a sus propias condiciones y políticas."
+    },
+    {
+      "title": "9. Enlaces a sitios externos",
+      "text": "BuildCalc puede incluir enlaces a otros sitios web. No controlamos sus contenidos, prácticas de privacidad ni medidas de seguridad. Te recomendamos revisar sus políticas antes de proporcionarles información personal."
+    },
+    {
+      "title": "10. Conservación y seguridad",
+      "text": "Las preferencias guardadas localmente permanecen en tu dispositivo hasta que las elimines. Los registros técnicos del alojamiento se conservan según las condiciones del proveedor. Aplicamos medidas razonables para mantener el sitio seguro, aunque ningún sistema puede garantizar seguridad absoluta."
+    },
+    {
+      "title": "11. Privacidad de menores",
+      "text": "BuildCalc no está diseñado para recopilar deliberadamente información personal de menores. No solicita cuentas ni datos personales para utilizar sus calculadoras."
+    },
+    {
+      "title": "12. Tus derechos y consultas",
+      "text": "Según la legislación aplicable, puedes tener derecho a solicitar acceso, actualización, corrección o supresión de tus datos personales. Para consultas sobre privacidad puedes contactar al proyecto mediante GitHub Issues: https://github.com/resktoff/Buildcalc-/issues. Ten presente que los comentarios publicados allí pueden ser visibles públicamente. No compartas información sensible en un issue."
+    },
+    {
+      "title": "13. Cambios en esta política",
+      "text": "Podemos actualizar esta política cuando cambien las funciones del sitio, los servicios utilizados o los requisitos legales. La fecha de actualización aparecerá al comienzo de esta página."
+    },
+    {
+      "title": "14. Alcance de esta información",
+      "text": "Esta política ofrece información general sobre el funcionamiento de BuildCalc y no constituye asesoramiento legal. Si el sitio incorpora nuevos servicios o comienza a procesar datos personales de otras maneras, revisaremos esta política y las obligaciones aplicables."
+    }
+  ]
+},
   "notFound": {
     "metaTitle": "Página no encontrada | BuildCalc",
     "h1": "Página no encontrada",
