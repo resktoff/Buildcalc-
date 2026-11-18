@@ -229,18 +229,70 @@
     ]
   },
   "privacy": {
-    "slug": "privacy",
-    "metaTitle": "Privacy Policy | BuildCalc",
-    "metaDescription": "BuildCalc privacy policy: how the calculators handle your data, analytics, cookies and future advertising or affiliate links.",
-    "h1": "Privacy policy",
-    "updated": "Last updated: {date}",
-    "sections": [
-      { "title": "Data we process", "text": "The calculators run entirely in your browser. The values you type are never sent to a server. Your unit-system preference is stored locally on your device (localStorage) and can be removed by clearing site data." },
-      { "title": "Analytics", "text": "We may use Google Analytics to understand, in aggregate and anonymously, how the site is used (pages visited, device, country). When active, IP addresses are anonymised. You can block it with Google's official opt-out extension or your browser's blocker." },
-      { "title": "Advertising and affiliates", "text": "In the future the site may display clearly labelled third-party ads or affiliate links. If you buy through an affiliate link, BuildCalc may earn a commission at no extra cost to you. Ad providers may use cookies under their own policies." },
-      { "title": "Contact", "text": "For privacy questions, open an issue in the project's GitHub repository." }
-    ]
-  },
+  "slug": "privacy",
+  "metaTitle": "Privacy Policy | BuildCalc",
+  "metaDescription": "BuildCalc privacy policy covering calculator inputs, local storage, technical data, cookies, analytics, advertising and affiliate links.",
+  "h1": "Privacy Policy",
+  "updated": "Last updated: {date}",
+  "sections": [
+    {
+      "title": "1. Who we are",
+      "text": "BuildCalc is a free website offering construction calculators and tools in Spanish and English. This policy explains what information may be processed when you use the website."
+    },
+    {
+      "title": "2. Information entered into calculators",
+      "text": "Calculations are performed directly in your browser. Measurements, quantities and other values you enter are not deliberately sent to our servers or stored in a user account. Registration is not required to use the tools."
+    },
+    {
+      "title": "3. Local storage",
+      "text": "The website may save preferences, such as your selected measurement system, in your browser's local storage. This information remains on your device and can be deleted through your browser settings by clearing the website's data."
+    },
+    {
+      "title": "4. Technical information",
+      "text": "The hosting provider may automatically log technical information required to deliver and protect the website, such as IP address, access date and time, requested pages, browser, operating system, device and referring page. The processing of these logs is also subject to the provider's policies."
+    },
+    {
+      "title": "5. Cookies and similar technologies",
+      "text": "BuildCalc uses local storage for certain preferences. Local storage is not the same as a cookie. Google Analytics and Google AdSense advertising are currently disabled. If we introduce cookies or other tracking technologies in the future, we will update this policy and apply the relevant information and consent mechanisms."
+    },
+    {
+      "title": "6. Analytics",
+      "text": "Google Analytics is not currently enabled on BuildCalc. If we introduce measurement tools in the future, we may collect usage statistics such as pages visited, device type and approximate location, according to the provider's settings and policies."
+    },
+    {
+      "title": "7. Advertising and affiliate links",
+      "text": "Advertising and affiliate links are currently disabled. In the future, the website may display third-party advertisements or clearly identified affiliate links. BuildCalc may earn a commission if you make a purchase through an affiliate link, at no additional cost to you. External providers may use cookies or other technologies according to their own policies."
+    },
+    {
+      "title": "8. Sharing information",
+      "text": "We do not sell or rent personal information. Technical information may be processed by hosting and security providers to maintain the website. Any external service introduced in the future will also be subject to its own terms and privacy policies."
+    },
+    {
+      "title": "9. Links to external websites",
+      "text": "BuildCalc may contain links to other websites. We do not control their content, privacy practices or security measures. We recommend reviewing their policies before providing any personal information."
+    },
+    {
+      "title": "10. Data retention and security",
+      "text": "Preferences stored locally remain on your device until you delete them. Technical hosting logs are retained according to the provider's terms. We apply reasonable measures to keep the website secure, although no system can guarantee absolute security."
+    },
+    {
+      "title": "11. Children's privacy",
+      "text": "BuildCalc is not designed to deliberately collect personal information from children. No account or personal information is required to use its calculators."
+    },
+    {
+      "title": "12. Your rights and questions",
+      "text": "Depending on applicable law, you may have the right to request access to, correction, updating or deletion of your personal information. For privacy questions, you can contact the project through GitHub Issues: https://github.com/resktoff/Buildcalc-/issues. Please note that comments posted there may be publicly visible. Do not share sensitive information in an issue."
+    },
+    {
+      "title": "13. Changes to this policy",
+      "text": "We may update this policy when website features, services or legal requirements change. The update date will appear at the beginning of this page."
+    },
+    {
+      "title": "14. Scope of this information",
+      "text": "This policy provides general information about how BuildCalc works and does not constitute legal advice. If the website introduces new services or begins processing personal information in other ways, we will review this policy and the applicable obligations."
+    }
+  ]
+},
   "notFound": {
     "metaTitle": "Page not found | BuildCalc",
     "h1": "Page not found",
