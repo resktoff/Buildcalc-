@@ -19,15 +19,16 @@ export function validateNumber(raw, rule = {}) {
     integer = false,
   } = rule;
 
-  const isEmpty = raw === '' || raw === null || raw === undefined ||
-    (typeof raw === 'number' && Number.isNaN(raw));
+  const trimmed = typeof raw === 'string' ? raw.trim() : raw;
+  const isEmpty = trimmed === '' || trimmed === null || trimmed === undefined ||
+    (typeof trimmed === 'number' && Number.isNaN(trimmed));
 
   if (isEmpty) {
     return required ? { ok: false, code: 'required' } : { ok: true, value: null };
   }
-  const value = typeof raw === 'number' ? raw : Number(String(raw).replace(',', '.'));
+  const value = typeof trimmed === 'number' ? trimmed : Number(String(trimmed).replace(',', '.'));
   if (!Number.isFinite(value)) return { ok: false, code: 'nan' };
-  if (exclusiveMin ? value <= min : value < min) return { ok: false, code: 'min', min };
+  if (exclusiveMin ? value <= min : value < min) return { ok: false, code: 'min', min, exclusive: exclusiveMin };
   if (value > max) return { ok: false, code: 'max', max };
   if (integer && !Number.isInteger(value)) return { ok: false, code: 'integer' };
   return { ok: true, value };

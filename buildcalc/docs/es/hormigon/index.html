@@ -3,61 +3,73 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Calculadora de hormigón: m³, yd³ y sacos | BuildCalc</title>
-    <meta name="description" content="Calcula el volumen de hormigón para losas, zapatas y columnas en m³ o yd³, con desperdicio y número de sacos de premezclado. Gratis, con fórmulas explicadas.">
+    <title>Calculadora de hormigón (m³, yd³ y bolsas) | BuildCalc</title>
+    <meta name="description" content="Calculá metros cúbicos de hormigón y bolsas premezcladas para losas, contrapisos, veredas y columnas. Con desperdicio y paso a paso.">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://buildcalc-c16f.onrender.com/es/hormigon/">
     <link rel="alternate" hreflang="es" href="https://buildcalc-c16f.onrender.com/es/hormigon/">
     <link rel="alternate" hreflang="en" href="https://buildcalc-c16f.onrender.com/en/concrete/">
     <link rel="alternate" hreflang="x-default" href="https://buildcalc-c16f.onrender.com/en/concrete/">
-    <meta name="theme-color" content="#0f6fff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0a58ca" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: dark)">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="BuildCalc">
-    <meta property="og:title" content="Calculadora de hormigón: m³, yd³ y sacos | BuildCalc">
-    <meta property="og:description" content="Calcula el volumen de hormigón para losas, zapatas y columnas en m³ o yd³, con desperdicio y número de sacos de premezclado. Gratis, con fórmulas explicadas.">
+    <meta property="og:title" content="Calculadora de hormigón (m³, yd³ y bolsas) | BuildCalc">
+    <meta property="og:description" content="Calculá metros cúbicos de hormigón y bolsas premezcladas para losas, contrapisos, veredas y columnas. Con desperdicio y paso a paso.">
     <meta property="og:url" content="https://buildcalc-c16f.onrender.com/es/hormigon/">
-    <meta property="og:locale" content="es_ES">
+    <meta property="og:locale" content="es_LA">
+    <meta property="og:locale:alternate" content="en_US">
     <meta property="og:image" content="https://buildcalc-c16f.onrender.com/assets/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="BuildCalc — Calculadoras de materiales de construcción">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Calculadora de hormigón: m³, yd³ y sacos | BuildCalc">
-    <meta name="twitter:description" content="Calcula el volumen de hormigón para losas, zapatas y columnas en m³ o yd³, con desperdicio y número de sacos de premezclado. Gratis, con fórmulas explicadas.">
+    <meta name="twitter:title" content="Calculadora de hormigón (m³, yd³ y bolsas) | BuildCalc">
+    <meta name="twitter:description" content="Calculá metros cúbicos de hormigón y bolsas premezcladas para losas, contrapisos, veredas y columnas. Con desperdicio y paso a paso.">
     <meta name="twitter:image" content="https://buildcalc-c16f.onrender.com/assets/og-image.png">
-    
+    <meta name="twitter:image:alt" content="BuildCalc — Calculadoras de materiales de construcción">
+    <meta name="google-site-verification" content="DwC7mmtmJrc3ZlKKbyxzmw41Pnn1XB9e0eYh8FcVAiI">
     <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
     <link rel="manifest" href="../../assets/site.webmanifest">
     <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="modulepreload" href="../../assets/js/ui/nav.js">
+    <link rel="modulepreload" href="../../assets/js/ui/common.js">
+    <link rel="modulepreload" href="../../assets/js/ui/calc-concrete.js">
+    <link rel="modulepreload" href="../../assets/js/core/units.js">
+    <link rel="modulepreload" href="../../assets/js/core/validate.js">
+    <link rel="modulepreload" href="../../assets/js/core/format.js">
+    <link rel="modulepreload" href="../../assets/js/core/calculators/concrete.js">
     <script type="module" src="../../assets/js/ui/app.js"></script>
-    <!-- analytics: set analytics.gaMeasurementId in site.config.json to enable Google Analytics -->
-    
-    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de hormigón","url":"https://buildcalc-c16f.onrender.com/es/hormigon/","description":"Calcula el volumen de hormigón para losas, zapatas y columnas en m³ o yd³, con desperdicio y número de sacos de premezclado. Gratis, con fórmulas explicadas.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"es","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"BuildCalc","url":"https://buildcalc-c16f.onrender.com/es/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántos sacos de hormigón necesito para 1 m³?","acceptedAnswer":{"@type":"Answer","text":"Con premezclado de 50 kg se necesitan unos 43 sacos por m³; con sacos de 40 kg, unos 54; con 25 kg, unos 86. En imperial, 1 yd³ equivale a ≈ 45 sacos de 80 lb o 60 sacos de 60 lb."}},{"@type":"Question","name":"¿Qué porcentaje de desperdicio debo usar?","acceptedAnswer":{"@type":"Answer","text":"Para losas sobre terreno bien nivelado 5 % suele bastar; para zapatas excavadas a mano o trabajos pequeños conviene 10 %."}},{"@type":"Question","name":"¿El espesor se ingresa en centímetros o metros?","acceptedAnswer":{"@type":"Answer","text":"En el sistema métrico el espesor se ingresa en centímetros (p. ej. 10 cm) y en imperial en pulgadas; la calculadora hace la conversión automáticamente."}},{"@type":"Question","name":"¿Sirve para calcular hormigón premezclado de camión?","acceptedAnswer":{"@type":"Answer","text":"Sí. El volumen total con desperdicio es la cantidad que debes pedir; las plantas suelen vender en múltiplos de 0.5 m³ o 0.25 yd³."}}]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://buildcalc-c16f.onrender.com/es/"},{"@type":"ListItem","position":2,"name":"Calculadora de hormigón","item":"https://buildcalc-c16f.onrender.com/es/hormigon/"}]}]</script>
+    <!-- analytics: disabled (set analytics.gaMeasurementId in site.config.json when ready) -->
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de hormigón","url":"https://buildcalc-c16f.onrender.com/es/hormigon/","description":"Calculá metros cúbicos de hormigón y bolsas premezcladas para losas, contrapisos, veredas y columnas. Con desperdicio y paso a paso.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"es","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"BuildCalc","url":"https://buildcalc-c16f.onrender.com/es/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuánto hormigón necesito para una losa de 10 m²?","acceptedAnswer":{"@type":"Answer","text":"Depende del espesor: para 10 m² con 10 cm (0,10 m) de espesor necesitás 1,00 m³ neto (1,10 m³ con 10 % de desperdicio). Si el espesor es de 12 cm, necesitás 1,20 m³ netos (1,32 m³ con 10 % de desperdicio)."}},{"@type":"Question","name":"¿Cuántas bolsas de hormigón necesito por metro cúbico?","acceptedAnswer":{"@type":"Answer","text":"Como referencia, 1 m³ de hormigón equivale aproximadamente a 45 bolsas premezcladas de 50 kg o unas 90 bolsas de 25 kg. Verificá siempre el rendimiento exacto indicado en el envase."}},{"@type":"Question","name":"¿Qué porcentaje de desperdicio conviene agregar?","acceptedAnswer":{"@type":"Answer","text":"En losas y contrapisos con encofrado parejo suele alcanzar con 5 % a 10 %. En excavaciones sobre tierra o zapatas irregulares conviene usar 10 % a 15 %."}},{"@type":"Question","name":"¿Esta calculadora sirve para mortero o mezcla de albañilería?","acceptedAnswer":{"@type":"Answer","text":"El cálculo de volumen (m³) sirve para cualquier mezcla, pero la estimación de bolsas corresponde a hormigón premezclado estándar (con áridos incluidos), no a bolsas de cemento puro."}},{"@type":"Question","name":"¿Cómo convierto centímetros a metros si cargo una losa?","acceptedAnswer":{"@type":"Answer","text":"No hace falta convertirlo manualmente: en el sistema métrico el campo de espesor ya está en centímetros (cm) y la calculadora lo pasa a metros automáticamente."}}]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://buildcalc-c16f.onrender.com/es/"},{"@type":"ListItem","position":2,"name":"Calculadora de hormigón","item":"https://buildcalc-c16f.onrender.com/es/hormigon/"}]}]</script>
 </head>
 <body>
-    <a class="skip-link" href="#main">Saltar al contenido</a>
+    <a class="skip-link" href="#main">Ir al contenido principal</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="../../es/" aria-label="BuildCalc — Inicio"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3" y="3" width="26" height="26" rx="6" fill="#0f6fff"/><path d="M9 22V11h5.5a3 3 0 0 1 0 6H9m0 0h6.5a3 3 0 0 1 0 6H9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 12h5M19 16h5M19 20h5" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg><span>Build<b>Calc</b></span></a>
-        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menú"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <a class="brand" href="../../es/" aria-label="BuildCalc — Inicio"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3" y="3" width="26" height="26" rx="6" fill="#0a58ca"/><path d="M9 22V11h5.5a3 3 0 0 1 0 6H9m0 0h6.5a3 3 0 0 1 0 6H9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 12h5M19 16h5M19 20h5" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".85"/></svg><span>Build<b>Calc</b></span></a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menú"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
         <nav id="site-nav" class="site-nav" aria-label="Calculadoras">
           <ul>
             <li><a href="../../es/">Inicio</a></li>
             <li><a href="../../es/hormigon/" aria-current="page">Hormigón</a></li>
             <li><a href="../../es/pintura/">Pintura</a></li>
-            <li><a href="../../es/pisos/">Pisos</a></li>
-            <li><a class="lang-switch" href="../../en/concrete/" hreflang="en" lang="en" rel="alternate" aria-label="Ver esta página en inglés">🌐 English</a></li>
+            <li><a href="../../es/pisos/">Pisos y baldosas</a></li>
+            <li><a class="lang-switch" href="../../en/concrete/" hreflang="en" lang="en" rel="alternate" data-lang-switch aria-label="Switch to English">🌐 English</a></li>
           </ul>
         </nav>
       </div>
     </header>
     <main id="main" class="container" tabindex="-1">
 
-      <nav class="breadcrumb" aria-label="Breadcrumb">
+      <nav class="breadcrumb" aria-label="Ruta de navegación">
         <ol><li><a href="../../es/">Inicio</a></li><li aria-current="page">Calculadora de hormigón</li></ol>
       </nav>
       <header class="page-head">
         <h1 id="calc-title">Calculadora de hormigón</h1>
-        <p class="lead">Calcula cuántos metros o yardas cúbicas de hormigón necesitas para una losa, zapata, vereda o columna, y cuántos sacos de premezclado comprar.</p>
+        <p class="lead">Calculá el volumen exacto de hormigón para losas, contrapisos, zapatas o columnas cilíndricas, con margen de desperdicio y cantidad de bolsas.</p>
       </header>
       <div class="calc-layout">
         <div>
@@ -65,15 +77,15 @@
       <fieldset class="unit-fieldset">
         <legend>Sistema de unidades</legend>
         <div class="segmented" role="radiogroup" aria-label="Sistema de unidades">
-          <label><input type="radio" name="units" value="metric" checked><span>Métrico</span></label>
-          <label><input type="radio" name="units" value="imperial"><span>Imperial</span></label>
+          <label><input type="radio" name="units" value="metric" checked><span>Métrico (m, cm, L)</span></label>
+          <label><input type="radio" name="units" value="imperial"><span>Imperial (ft, in, gal)</span></label>
         </div>
       </fieldset>
       <fieldset>
         <legend>Forma del elemento</legend>
         <div class="radio-list">
-          <label class="radio-card"><input type="radio" name="shape" value="slab" checked> Losa / zapata (rectangular)</label>
-          <label class="radio-card"><input type="radio" name="shape" value="cylinder"> Columna redonda (cilindro)</label>
+          <label class="radio-card"><input type="radio" name="shape" value="slab" checked> Losa o zapata rectangular</label>
+          <label class="radio-card"><input type="radio" name="shape" value="cylinder"> Columna o pilote cilíndrico</label>
         </div>
       </fieldset>
       <div class="field-grid cols-3" data-show-when="shape=slab">
@@ -90,7 +102,7 @@
           <p class="field-error" id="c-width-err" hidden></p>
         </div>
         <div class="field" data-field="thickness">
-          <label for="c-thickness">Espesor <span class="unit" data-unit-role="small"></span></label>
+          <label for="c-thickness">Espesor / altura <span class="unit" data-unit-role="small"></span></label>
           <input id="c-thickness" name="thickness" type="number" inputmode="decimal" step="any" min="0" data-role="small" required aria-describedby="c-thickness-err" data-placeholder-metric="10" data-placeholder-imperial="4" autocomplete="off">
           
           <p class="field-error" id="c-thickness-err" hidden></p>
@@ -112,85 +124,132 @@
       </div>
       <div class="field-grid">
         <div class="field" data-field="quantity">
-          <label for="c-quantity">Cantidad de elementos</label>
+          <label for="c-quantity">Cantidad</label>
           <input id="c-quantity" name="quantity" type="number" inputmode="numeric" step="1" min="1" data-role="none" required aria-describedby="c-quantity-help c-quantity-err" data-default-metric="1" data-default-imperial="1" autocomplete="off">
-          <p class="field-help" id="c-quantity-help">Número de piezas idénticas (p. ej. 4 columnas iguales).</p>
+          <p class="field-help" id="c-quantity-help">Número de elementos iguales.</p>
           <p class="field-error" id="c-quantity-err" hidden></p>
         </div>
         <div class="field" data-field="waste">
           <label for="c-waste">Desperdicio (%)</label>
           <input id="c-waste" name="waste" type="number" inputmode="decimal" step="any" min="0" data-role="none" required aria-describedby="c-waste-help c-waste-err" data-default-metric="5" data-default-imperial="5" autocomplete="off">
-          <p class="field-help" id="c-waste-help">Margen extra por cortes, derrames e imprevistos. 5–10 % es lo habitual.</p>
+          <p class="field-help" id="c-waste-help">Agregá 5 %–15 % por cortes, desniveles o pérdidas.</p>
           <p class="field-error" id="c-waste-err" hidden></p>
         </div>
       </div>
       <div class="field" data-field="bag">
-          <label for="c-bag">Tamaño del saco de premezclado</label>
+          <label for="c-bag">Bolsa premezclada</label>
           <select id="c-bag" name="bag" data-select="bag">
-            <option value="none">Sin cálculo de sacos</option>
+            <option value="none">No calcular bolsas</option>
           </select>
           <p class="field-error" id="c-bag-err" hidden></p>
         </div>
       <p class="error-summary" data-error-summary role="alert" hidden></p>
       <div class="form-actions">
         <button type="submit" class="btn btn-primary">Resultados</button>
-        <button type="reset" class="btn btn-ghost">Limpiar</button>
+        <button type="reset" class="btn btn-ghost">Restablecer</button>
       </div>
     </form>
         </div>
         <section class="results card" id="results" data-state="empty" aria-labelledby="results-title" aria-live="polite">
           <h2 id="results-title">Resultados</h2>
-          <div data-results-body><p class="results-placeholder">Completa los campos para ver el resultado al instante.</p></div>
+          <div data-results-body><p class="results-placeholder">Completá los datos para ver el cálculo al instante.</p></div>
           <div class="results-actions">
-            <button type="button" class="btn btn-ghost btn-sm" data-copy>Copiar resultados</button>
-            <button type="button" class="btn btn-ghost btn-sm" data-print>Imprimir / guardar PDF</button>
+            <button type="button" class="btn btn-ghost btn-sm" data-copy>Copiar resultado</button>
+            <button type="button" class="btn btn-ghost btn-sm" data-print>Imprimir</button>
+            <span class="visually-hidden" role="status" aria-live="polite" data-copy-status></span>
           </div>
         </section>
       </div>
-      <a class="result-bar" href="#results" data-result-bar hidden aria-label="Resultados">
-        <span class="result-bar-label">Hormigón necesario (con desperdicio)</span>
+      <a class="result-bar" href="#results" data-result-bar hidden>
+        <span class="result-bar-label">Volumen total (con desperdicio)</span>
         <strong class="result-bar-value" data-result-bar-value></strong>
         <span class="result-bar-cta" aria-hidden="true">↓</span>
       </a>
       <!-- ad-slot:calc-below-results (disabled) -->
+      <section class="section prose" aria-labelledby="guide-title">
+        <h2 id="guide-title">Para qué sirve y cómo usar esta calculadora</h2>
+        <p>Esta herramienta sirve para estimar cuánto hormigón necesitás antes de pedir un camión mixer o comprar bolsas de hormigón premezclado. Evita quedarte corto a mitad del llenado y te ayuda a presupuestar con un margen de desperdicio realista.</p>
+        <h3>Cómo usarla paso a paso</h3>
+        <ol class="guide-steps">
+            <li>Elegí el sistema de unidades (métrico en m/cm o imperial en ft/in).</li>
+            <li>Seleccioná si vas a llenar una losa/contrapiso rectangular o columnas cilíndricas.</li>
+            <li>Ingresá las medidas reales y la cantidad de elementos iguales.</li>
+            <li>Definí un porcentaje de desperdicio (lo habitual es 10 % para compensar desniveles y restos en carretilla o bomba).</li>
+            <li>Si comprás bolsas premezcladas, elegí el peso de la bolsa para obtener la cantidad exacta redondeada hacia arriba.</li>
+        </ol>
+      </section>
       <section class="section prose" aria-labelledby="formula-title">
-        <h2 id="formula-title">Cómo se calcula el hormigón</h2>
-          <p>El volumen de una losa o zapata rectangular es el producto de sus tres dimensiones: V = largo × ancho × espesor. Para una columna circular se usa el volumen del cilindro: V = π × r² × h, donde r es la mitad del diámetro.</p>
-          <p>Todas las medidas se convierten primero a metros (1 ft = 0.3048 m; 1 in = 0.0254 m), por lo que el volumen interno siempre está en m³. Luego se muestra en m³ o yd³ (1 yd³ = 0.7646 m³).</p>
-          <p>El desperdicio se añade como porcentaje del volumen neto. Un 5–10 % compensa el hormigón que queda en el mixer, las irregularidades del terreno y el encofrado.</p>
-          <p>Para los sacos usamos el rendimiento estándar de la industria: un saco de 80 lb rinde ≈ 0.60 ft³ (≈ 45 sacos por yd³). Ese mismo rendimiento por kilogramo se aplica a los sacos de 25, 40 y 50 kg (≈ 2136 kg de mezcla seca por m³). Consulta siempre el rendimiento indicado por el fabricante.</p>
+        <h2 id="formula-title">Fórmula y criterios de cálculo</h2>
+        <ul class="formula-box">
+            <li><code>Losa o zapata: V = Largo × Ancho × Espesor × Cantidad</code></li>
+            <li><code>Columna cilíndrica: V = π × (Diámetro / 2)² × Altura × Cantidad</code></li>
+            <li><code>Volumen total: V_total = V × (1 + Desperdicio / 100)</code></li>
+            <li><code>Bolsas: Cantidad = redondear_arriba(V_total / Rendimiento_bolsa)</code></li>
+        </ul>
+          <p>Para losas, plateas, veredas y contrapisos se multiplica largo por ancho por espesor (convertido a metros o pies).</p>
+          <p>Para columnas o pilotes cilíndricos se aplica el área del círculo π × r² multiplicada por la altura y por la cantidad de columnas.</p>
+          <p>El margen de desperdicio cubre pérdidas por encofrados irregulares, compactación y material que queda adherido a herramientas.</p>
+          <p>Las bolsas premezcladas se calculan dividiendo el volumen total por el rendimiento estándar del fabricante (por ejemplo, ~0,011 m³ por bolsa de 25 kg o ~0,022 m³ por bolsa de 50 kg) y redondeando hacia arriba.</p>
+      </section>
+      <section class="section prose" aria-labelledby="interpret-title">
+        <h2 id="interpret-title">Cómo interpretar los resultados</h2>
+        <ul class="guide-list">
+            <li>Volumen neto: es el volumen geométrico exacto del elemento sin pérdidas.</li>
+            <li>Volumen total (con desperdicio): es el volumen que conviene pedir al camión mixer o usar como base de compra.</li>
+            <li>Equivalente: muestra el mismo volumen en pies cúbicos o yardas cúbicas para comparar con fichas técnicas.</li>
+            <li>Bolsas necesarias: cantidad entera de bolsas premezcladas redondeada hacia arriba para cubrir el volumen total.</li>
+        </ul>
+      </section>
+      <section class="section" aria-labelledby="examples-title">
+        <h2 id="examples-title">Ejemplos prácticos</h2>
+        <div class="example-grid">
+          <article class="card example-card">
+            <h3>Contrapiso o losa de 5 × 4 m y 10 cm de espesor</h3>
+            <p>Necesitás llenar una base rectangular de 5 m de largo, 4 m de ancho y 10 cm (0,10 m) de espesor, con 10 % de desperdicio.</p>
+            <p class="example-calc">5 × 4 × 0,10 = 2,00 m³ netos → 2,00 × 1,10 = 2,20 m³ totales</p>
+            <p class="example-result">Resultado: 2,20 m³ de hormigón (equivale a 100 bolsas de 50 kg).</p>
+          </article>
+          <article class="card example-card">
+            <h3>4 columnas cilíndricas de 30 cm de diámetro y 3 m de altura</h3>
+            <p>Cuatro columnas de 0,30 m de diámetro (radio 0,15 m) y 3 m de alto, con 10 % de desperdicio.</p>
+            <p class="example-calc">π × 0,15² × 3 × 4 = 0,848 m³ netos → × 1,10 = 0,933 m³ totales</p>
+            <p class="example-result">Resultado: 0,933 m³ de hormigón (equivale a 43 bolsas de 50 kg).</p>
+          </article>
+        </div>
       </section>
       
       <section class="section faq" aria-labelledby="faq-title">
         <h2 id="faq-title">Preguntas frecuentes</h2>
-          <details><summary>¿Cuántos sacos de hormigón necesito para 1 m³?</summary><p>Con premezclado de 50 kg se necesitan unos 43 sacos por m³; con sacos de 40 kg, unos 54; con 25 kg, unos 86. En imperial, 1 yd³ equivale a ≈ 45 sacos de 80 lb o 60 sacos de 60 lb.</p></details>
-          <details><summary>¿Qué porcentaje de desperdicio debo usar?</summary><p>Para losas sobre terreno bien nivelado 5 % suele bastar; para zapatas excavadas a mano o trabajos pequeños conviene 10 %.</p></details>
-          <details><summary>¿El espesor se ingresa en centímetros o metros?</summary><p>En el sistema métrico el espesor se ingresa en centímetros (p. ej. 10 cm) y en imperial en pulgadas; la calculadora hace la conversión automáticamente.</p></details>
-          <details><summary>¿Sirve para calcular hormigón premezclado de camión?</summary><p>Sí. El volumen total con desperdicio es la cantidad que debes pedir; las plantas suelen vender en múltiplos de 0.5 m³ o 0.25 yd³.</p></details>
+          <details><summary>¿Cuánto hormigón necesito para una losa de 10 m²?</summary><p>Depende del espesor: para 10 m² con 10 cm (0,10 m) de espesor necesitás 1,00 m³ neto (1,10 m³ con 10 % de desperdicio). Si el espesor es de 12 cm, necesitás 1,20 m³ netos (1,32 m³ con 10 % de desperdicio).</p></details>
+          <details><summary>¿Cuántas bolsas de hormigón necesito por metro cúbico?</summary><p>Como referencia, 1 m³ de hormigón equivale aproximadamente a 45 bolsas premezcladas de 50 kg o unas 90 bolsas de 25 kg. Verificá siempre el rendimiento exacto indicado en el envase.</p></details>
+          <details><summary>¿Qué porcentaje de desperdicio conviene agregar?</summary><p>En losas y contrapisos con encofrado parejo suele alcanzar con 5 % a 10 %. En excavaciones sobre tierra o zapatas irregulares conviene usar 10 % a 15 %.</p></details>
+          <details><summary>¿Esta calculadora sirve para mortero o mezcla de albañilería?</summary><p>El cálculo de volumen (m³) sirve para cualquier mezcla, pero la estimación de bolsas corresponde a hormigón premezclado estándar (con áridos incluidos), no a bolsas de cemento puro.</p></details>
+          <details><summary>¿Cómo convierto centímetros a metros si cargo una losa?</summary><p>No hace falta convertirlo manualmente: en el sistema métrico el campo de espesor ya está en centímetros (cm) y la calculadora lo pasa a metros automáticamente.</p></details>
       </section>
       <section class="section related" aria-labelledby="related-title">
         <h2 id="related-title">Otras calculadoras</h2>
-        <ul><li><a href="../../es/pintura/">Calculadora de pintura</a></li><li><a href="../../es/pisos/">Calculadora de pisos</a></li></ul>
+        <ul><li><a href="../../es/pintura/">Calculadora de pintura</a></li><li><a href="../../es/pisos/">Calculadora de pisos y baldosas</a></li></ul>
       </section>
     </main>
     <footer class="site-footer">
       <div class="container footer-inner">
         <div>
-          <p><strong>BuildCalc</strong> — Calculadoras de construcción gratuitas</p>
-          <p>BuildCalc es una herramienta de estimación. Verifica siempre las cantidades con tu proveedor o profesional antes de comprar.</p>
+          <p><strong>BuildCalc</strong> — Calculadoras de materiales de construcción</p>
+          <p>Cálculos orientativos en tu navegador. Verificá siempre con las especificaciones técnicas del fabricante antes de comprar materiales.</p>
           <p>© 2026 BuildCalc. Todos los derechos reservados.</p>
         </div>
-        <nav aria-label="Footer">
+        <nav aria-label="Enlaces del pie de página">
           <ul>
-            <li><a href="../../es/hormigon/">Hormigón</a></li>
+            <li><a href="../../es/">Inicio</a></li>
+            <li><a href="../../es/hormigon/" aria-current="page">Hormigón</a></li>
             <li><a href="../../es/pintura/">Pintura</a></li>
-            <li><a href="../../es/pisos/">Pisos</a></li>
+            <li><a href="../../es/pisos/">Pisos y baldosas</a></li>
             <li><a href="../../es/privacidad/">Privacidad</a></li>
-            <li><a href="../../en/concrete/" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../en/concrete/" hreflang="en" lang="en" rel="alternate" data-lang-switch>English</a></li>
           </ul>
         </nav>
       </div>
     </footer>
-    <script type="application/json" id="bc-i18n">{"lang":"es","locale":"es","units":{"legend":"Sistema de unidades","metric":"Métrico","imperial":"Imperial","m":"m","cm":"cm","mm":"mm","ft":"ft","in":"in","m2":"m²","ft2":"ft²","m3":"m³","yd3":"yd³","ft3":"ft³","L":"L","gal":"gal","m2PerL":"m²/L","ft2PerGal":"ft²/gal","pieces":"piezas","boxes":"cajas","bags":"sacos","cans":"envases"},"common":{"results":"Resultados","resultsEmpty":"Completa los campos para ver el resultado al instante.","resultsInvalid":"Corrige los campos marcados para ver el resultado.","howCalculated":"Cómo se calculó","formulaSection":"Fórmulas y método","faq":"Preguntas frecuentes","related":"Otras calculadoras","waste":"Desperdicio (%)","wasteHelp":"Margen extra por cortes, derrames e imprevistos. 5–10 % es lo habitual.","quantity":"Cantidad de elementos","quantityHelp":"Número de piezas idénticas (p. ej. 4 columnas iguales).","reset":"Limpiar","print":"Imprimir / guardar PDF","copy":"Copiar resultados","copied":"Copiado","optional":"opcional","required":"obligatorio","mode":"¿Qué datos tienes?","modeRoom":"Medidas del espacio","modeArea":"Área ya conocida","disclaimer":"Estimación orientativa. Confirma las cantidades con tu proveedor.","errors":{"required":"Este campo es obligatorio.","nan":"Introduce un número válido.","min":"Debe ser mayor que {min}.","minInclusive":"Debe ser {min} o mayor.","max":"Demasiado grande (máximo {max}). Revisa las unidades.","integer":"Debe ser un número entero."},"summaryError":"Hay {count} campo(s) con errores."},"calc":{"fields":{"length":"Largo","width":"Ancho","thickness":"Espesor","diameter":"Diámetro","height":"Altura","bag":"Tamaño del saco de premezclado","bagNone":"Sin cálculo de sacos"},"results":{"total":"Hormigón necesario (con desperdicio)","net":"Volumen neto","waste":"Desperdicio","unit":"Volumen por elemento","bags":"Sacos de {bag}","bagsHelp":"Rendimiento estimado: {yield} por saco."},"steps":{"slabVolume":"Volumen = largo × ancho × espesor = {lengthM} × {widthM} × {thicknessM} = {unitVolumeM3}","cylinderVolume":"Volumen = π × radio² × altura = π × ({radiusM})² × {heightM} = {unitVolumeM3}","quantity":"Total neto = {unitVolumeM3} × {quantity} elementos = {netVolumeM3}","waste":"Desperdicio = {netVolumeM3} × {wastePercent} % = {wasteVolumeM3} → Total = {totalVolumeM3}","bags":"Sacos = {totalVolumeM3} ÷ {bagYieldM3} por saco de {bagLabel} = {bags} (redondeado hacia arriba)"}}}</script>
+    <script type="application/json" id="bc-i18n">{"lang":"es","locale":"es-419","units":{"metric":"Métrico (m, cm, L)","imperial":"Imperial (ft, in, gal)","m":"m","cm":"cm","m2":"m²","m3":"m³","L":"L","ft":"ft","in":"in","ft2":"ft²","ft3":"ft³","yd3":"yd³","gal":"gal","m2PerL":"m²/L","ft2PerGal":"ft²/gal","bag25":"Bolsas de 25 kg","bag50":"Bolsas de 50 kg","bag40":"Bolsas de 40 lb","bag60":"Bolsas de 60 lb","bag80":"Bolsas de 80 lb","can1L":"Latas de 1 L","can4L":"Latas de 4 L","can20L":"Baldes de 20 L","can1qt":"Latas de 1 qt","can1gal":"Latas de 1 gal","can5gal":"Baldes de 5 gal","none":"No calcular envases","legend":"Sistema de unidades","mm":"mm","pieces":"piezas","boxes":"cajas","bags":"bolsas","cans":"envases"},"common":{"unitSystem":"Sistema de unidades","calculate":"Calcular","reset":"Restablecer","results":"Resultados","resultsEmpty":"Completá los datos para ver el cálculo al instante.","resultsInvalid":"Revisá los campos marcados para ver el resultado.","copy":"Copiar resultado","copied":"¡Copiado!","print":"Imprimir","steps":"Detalle del cálculo","faq":"Preguntas frecuentes","related":"Otras calculadoras","summaryError":"Hay {count} campo(s) con errores. Revisá los valores ingresados.","errors":{"required":"Este campo es obligatorio.","nan":"Ingresá un número válido.","min":"Debe ser mayor que {min}.","minInclusive":"Debe ser {min} o mayor.","max":"No puede superar {max}.","integer":"Ingresá un número entero."},"howCalculated":"Cómo se calcula","formulaSection":"Fórmula y criterios","waste":"Desperdicio (%)","wasteHelp":"Agregá 5 %–15 % por cortes, desniveles o pérdidas.","quantity":"Cantidad","quantityHelp":"Número de elementos iguales.","optional":"opcional","required":"obligatorio","mode":"Modo de entrada","modeRoom":"Por medidas del ambiente","modeArea":"Por superficie total","disclaimer":"Estimación orientativa. Verificá siempre con las especificaciones del fabricante."},"calc":{"fields":{"shape":"Tipo de elemento","slab":"Losa, contrapiso o zapata rectangular","cylinder":"Columna o pilote cilíndrico","length":"Largo","width":"Ancho","thickness":"Espesor / altura","diameter":"Diámetro","height":"Altura","quantity":"Cantidad de elementos","waste":"Margen de desperdicio (%)","wasteHelp":"Recomendado: 5 % a 10 % para losas; 10 % a 15 % si el terreno es irregular.","bagSize":"Presentación de bolsa premezclada","bagHelp":"Opcional: estima cuántas bolsas de hormigón premezclado necesitás.","bag":"Bolsa premezclada","bagNone":"No calcular bolsas"},"results":{"netVolume":"Volumen neto","total":"Volumen total (con desperdicio)","altVolume":"Equivalente","bags":"Bolsas necesarias","bagYieldNote":"Rendimiento estimado de referencia: {yield} por bolsa.","net":"Volumen neto","waste":"Con {waste}% de desperdicio","unit":"m³","bagsHelp":"Rendimiento de referencia: {yield} por bolsa."},"steps":{"slab":"Volumen neto = {l} × {w} × {t} × {q} = {net}","cylinder":"Volumen neto = π × ({d}/2)² × {h} × {q} = {net}","waste":"Con {w}% de desperdicio = {net} × {factor} = {total}","bags":"Bolsas = {total} ÷ {yield} = {raw} → {bags} bolsas (redondeado hacia arriba)","slabVolume":"Volumen de 1 elemento = {l} × {w} × {t} = {v}","cylinderVolume":"Volumen de 1 columna = π × ({d}/2)² × {h} = {v}","quantity":"× {q} elemento(s) = {net}"}}}</script>
 </body>
 </html>
