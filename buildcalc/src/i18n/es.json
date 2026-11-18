@@ -1,321 +1,594 @@
 {
   "meta": {
     "lang": "es",
-    "locale": "es",
-    "ogLocale": "es_ES",
     "langName": "Español",
     "otherLang": "en",
     "otherLangName": "English",
-    "switchLangAria": "Ver esta página en inglés"
+    "switchLangAria": "Switch to English",
+    "locale": "es-419",
+    "ogLocale": "es_LA"
   },
   "site": {
     "name": "BuildCalc",
-    "tagline": "Calculadoras de construcción gratuitas",
-    "description": "Calculadoras de construcción gratuitas y precisas: hormigón, pintura y pisos. Unidades métricas e imperiales, porcentaje de desperdicio y explicación de cada fórmula.",
-    "footerText": "BuildCalc es una herramienta de estimación. Verifica siempre las cantidades con tu proveedor o profesional antes de comprar.",
+    "tagline": "Calculadoras de materiales de construcción",
+    "description": "Calculadoras gratuitas de hormigón, pintura y pisos con unidades métricas e imperiales, margen de desperdicio y resultados al instante.",
+    "footerText": "Cálculos orientativos en tu navegador. Verificá siempre con las especificaciones técnicas del fabricante antes de comprar materiales.",
     "copyright": "Todos los derechos reservados."
   },
   "nav": {
-    "skip": "Saltar al contenido",
+    "skip": "Ir al contenido principal",
+    "menu": "Abrir menú",
     "home": "Inicio",
+    "calculators": "Calculadoras",
+    "footer": "Enlaces del pie de página",
+    "breadcrumb": "Ruta de navegación",
     "concrete": "Hormigón",
     "paint": "Pintura",
-    "flooring": "Pisos",
-    "privacy": "Privacidad",
-    "menu": "Menú",
-    "calculators": "Calculadoras"
+    "flooring": "Pisos y baldosas",
+    "privacy": "Privacidad"
   },
   "units": {
+    "metric": "Métrico (m, cm, L)",
+    "imperial": "Imperial (ft, in, gal)",
+    "m": "m",
+    "cm": "cm",
+    "m2": "m²",
+    "m3": "m³",
+    "L": "L",
+    "ft": "ft",
+    "in": "in",
+    "ft2": "ft²",
+    "ft3": "ft³",
+    "yd3": "yd³",
+    "gal": "gal",
+    "m2PerL": "m²/L",
+    "ft2PerGal": "ft²/gal",
+    "bag25": "Bolsas de 25 kg",
+    "bag50": "Bolsas de 50 kg",
+    "bag40": "Bolsas de 40 lb",
+    "bag60": "Bolsas de 60 lb",
+    "bag80": "Bolsas de 80 lb",
+    "can1L": "Latas de 1 L",
+    "can4L": "Latas de 4 L",
+    "can20L": "Baldes de 20 L",
+    "can1qt": "Latas de 1 qt",
+    "can1gal": "Latas de 1 gal",
+    "can5gal": "Baldes de 5 gal",
+    "none": "No calcular envases",
     "legend": "Sistema de unidades",
-    "metric": "Métrico",
-    "imperial": "Imperial",
-    "m": "m", "cm": "cm", "mm": "mm", "ft": "ft", "in": "in",
-    "m2": "m²", "ft2": "ft²",
-    "m3": "m³", "yd3": "yd³", "ft3": "ft³", "L": "L", "gal": "gal",
-    "m2PerL": "m²/L", "ft2PerGal": "ft²/gal",
-    "pieces": "piezas", "boxes": "cajas", "bags": "sacos", "cans": "envases"
+    "mm": "mm",
+    "pieces": "piezas",
+    "boxes": "cajas",
+    "bags": "bolsas",
+    "cans": "envases"
   },
   "common": {
+    "unitSystem": "Sistema de unidades",
+    "calculate": "Calcular",
+    "reset": "Restablecer",
     "results": "Resultados",
-    "resultsEmpty": "Completa los campos para ver el resultado al instante.",
-    "resultsInvalid": "Corrige los campos marcados para ver el resultado.",
-    "howCalculated": "Cómo se calculó",
-    "formulaSection": "Fórmulas y método",
+    "resultsEmpty": "Completá los datos para ver el cálculo al instante.",
+    "resultsInvalid": "Revisá los campos marcados para ver el resultado.",
+    "copy": "Copiar resultado",
+    "copied": "¡Copiado!",
+    "print": "Imprimir",
+    "steps": "Detalle del cálculo",
     "faq": "Preguntas frecuentes",
     "related": "Otras calculadoras",
-    "waste": "Desperdicio (%)",
-    "wasteHelp": "Margen extra por cortes, derrames e imprevistos. 5–10 % es lo habitual.",
-    "quantity": "Cantidad de elementos",
-    "quantityHelp": "Número de piezas idénticas (p. ej. 4 columnas iguales).",
-    "reset": "Limpiar",
-    "print": "Imprimir / guardar PDF",
-    "copy": "Copiar resultados",
-    "copied": "Copiado",
-    "optional": "opcional",
-    "required": "obligatorio",
-    "mode": "¿Qué datos tienes?",
-    "modeRoom": "Medidas del espacio",
-    "modeArea": "Área ya conocida",
-    "disclaimer": "Estimación orientativa. Confirma las cantidades con tu proveedor.",
+    "summaryError": "Hay {count} campo(s) con errores. Revisá los valores ingresados.",
     "errors": {
       "required": "Este campo es obligatorio.",
-      "nan": "Introduce un número válido.",
+      "nan": "Ingresá un número válido.",
       "min": "Debe ser mayor que {min}.",
       "minInclusive": "Debe ser {min} o mayor.",
-      "max": "Demasiado grande (máximo {max}). Revisa las unidades.",
-      "integer": "Debe ser un número entero."
+      "max": "No puede superar {max}.",
+      "integer": "Ingresá un número entero."
     },
-    "summaryError": "Hay {count} campo(s) con errores."
+    "howCalculated": "Cómo se calcula",
+    "formulaSection": "Fórmula y criterios",
+    "waste": "Desperdicio (%)",
+    "wasteHelp": "Agregá 5 %–15 % por cortes, desniveles o pérdidas.",
+    "quantity": "Cantidad",
+    "quantityHelp": "Número de elementos iguales.",
+    "optional": "opcional",
+    "required": "obligatorio",
+    "mode": "Modo de entrada",
+    "modeRoom": "Por medidas del ambiente",
+    "modeArea": "Por superficie total",
+    "disclaimer": "Estimación orientativa. Verificá siempre con las especificaciones del fabricante."
   },
   "home": {
-    "metaTitle": "Calculadoras de construcción online y gratis | BuildCalc",
-    "metaDescription": "Calcula materiales de obra gratis: hormigón en m³, litros de pintura y cantidad de pisos o baldosas. Resultados instantáneos, fórmulas explicadas y sin registro.",
-    "h1": "Calcula tus materiales de obra en segundos",
-    "lead": "Herramientas gratuitas para estimar hormigón, pintura y pisos. Resultados instantáneos, en unidades métricas o imperiales, con el porcentaje de desperdicio que tú elijas y cada fórmula explicada paso a paso.",
-    "cta": "Elige una calculadora",
+    "metaTitle": "BuildCalc — Calculadoras de hormigón, pintura y pisos",
+    "metaDescription": "Calculá hormigón en m³ o bolsas, litros de pintura y cajas de pisos al instante. Gratis, bilingüe y con unidades métricas e imperiales.",
+    "h1": "Calculá materiales de obra en segundos",
+    "lead": "Herramientas gratuitas para estimar hormigón, pintura y pisos con margen de desperdicio, conversión métrica/imperial y redondeo real por envase.",
+    "cta": "Elegí una calculadora",
     "cards": {
-      "concrete": { "title": "Calculadora de hormigón", "text": "Volumen en m³ o yd³ para losas, zapatas y columnas, más la cantidad de sacos de premezclado.", "cta": "Calcular hormigón" },
-      "paint": { "title": "Calculadora de pintura", "text": "Litros o galones por habitación, descontando puertas y ventanas, con manos y rendimiento ajustables.", "cta": "Calcular pintura" },
-      "flooring": { "title": "Calculadora de pisos", "text": "Área, cantidad de baldosas o tablas y número de cajas, con el desperdicio recomendado para cortes.", "cta": "Calcular pisos" }
+      "concrete": {
+        "title": "Calculadora de hormigón",
+        "text": "Volumen en m³ o yd³ para losas, contrapisos, zapatas y columnas cilíndricas, más cantidad de bolsas premezcladas.",
+        "cta": "Calcular hormigón"
+      },
+      "paint": {
+        "title": "Calculadora de pintura",
+        "text": "Litros o galones según paredes, cielorraso, manos de pintura, rendimiento y descuento de puertas y ventanas.",
+        "cta": "Calcular pintura"
+      },
+      "flooring": {
+        "title": "Calculadora de pisos",
+        "text": "Superficie neta, margen de corte, piezas necesarias y cajas completas para cerámicos, porcelanato o pisos flotantes.",
+        "cta": "Calcular pisos"
+      }
     },
-    "whyTitle": "¿Por qué BuildCalc?",
+    "whyTitle": "Pensada para obra y presupuesto",
     "why": [
-      { "title": "Resultados al instante", "text": "Todo se calcula en tu navegador mientras escribes. Sin esperas ni registro." },
-      { "title": "Métrico e imperial", "text": "Cambia de metros a pies con un clic; los valores se convierten automáticamente." },
-      { "title": "Fórmulas transparentes", "text": "Cada resultado muestra el paso a paso con tus números para que puedas verificarlo." },
-      { "title": "Validación de datos", "text": "Detectamos valores vacíos, negativos o fuera de rango antes de mostrar un resultado erróneo." }
+      {
+        "title": "Sin cuentas ni descargas",
+        "text": "Todo se calcula en tu navegador al instante, sin registros, sin costo y sin enviar tus medidas a ningún servidor."
+      },
+      {
+        "title": "Métrico e imperial",
+        "text": "Cambiá entre metros/litros y pies/pulgadas/galones en cualquier momento; los valores ingresados se convierten automáticamente."
+      },
+      {
+        "title": "Fórmulas transparentes",
+        "text": "Cada resultado muestra el paso a paso completo para que puedas verificar cómo se obtuvo el volumen, la superficie o los envases."
+      }
     ],
-    "aboutTitle": "Acerca de BuildCalc",
-    "aboutText": "BuildCalc es una plataforma internacional de calculadoras para la construcción pensada para profesionales, estudiantes y personas que reforman su casa. Funciona en cualquier dispositivo, es gratuita y está disponible en español e inglés."
+    "aboutTitle": "Cómo usar BuildCalc",
+    "aboutText": "Elegí el sistema de unidades, cargá las medidas de tu proyecto y definí un margen de desperdicio acorde al trabajo. BuildCalc te devuelve la cantidad neta, el total con desperdicio y la cantidad redondeada de bolsas, latas o cajas."
   },
   "concrete": {
     "slug": "hormigon",
-    "metaTitle": "Calculadora de hormigón online: m³ y bolsas | BuildCalc",
-    "metaDescription": "Calcula cuánto hormigón necesitas para una losa, vereda, zapata o columna. Obtén el volumen en m³, el desperdicio y la cantidad de bolsas de cemento. Gratis y sin registro.",
+    "metaTitle": "Calculadora de hormigón (m³, yd³ y bolsas) | BuildCalc",
+    "metaDescription": "Calculá metros cúbicos de hormigón y bolsas premezcladas para losas, contrapisos, veredas y columnas. Con desperdicio y paso a paso.",
     "h1": "Calculadora de hormigón",
-    "intro": "Calcula cuánto hormigón necesitas para construir una losa, hacer una vereda, rellenar zapatas o levantar columnas. Obtén el volumen en metros cúbicos (m³), agrega un porcentaje de desperdicio y estima la cantidad de bolsas de hormigón premezclado.",
-    "shape": "Forma del elemento",
-    "shapes": { "slab": "Losa / zapata (rectangular)", "cylinder": "Columna redonda (cilindro)" },
+    "intro": "Calculá el volumen exacto de hormigón para losas, contrapisos, zapatas o columnas cilíndricas, con margen de desperdicio y cantidad de bolsas.",
     "fields": {
-      "length": "Largo", "width": "Ancho", "thickness": "Espesor",
-      "diameter": "Diámetro", "height": "Altura",
-      "bag": "Tamaño del saco de premezclado", "bagNone": "Sin cálculo de sacos"
+      "shape": "Tipo de elemento",
+      "slab": "Losa, contrapiso o zapata rectangular",
+      "cylinder": "Columna o pilote cilíndrico",
+      "length": "Largo",
+      "width": "Ancho",
+      "thickness": "Espesor / altura",
+      "diameter": "Diámetro",
+      "height": "Altura",
+      "quantity": "Cantidad de elementos",
+      "waste": "Margen de desperdicio (%)",
+      "wasteHelp": "Recomendado: 5 % a 10 % para losas; 10 % a 15 % si el terreno es irregular.",
+      "bagSize": "Presentación de bolsa premezclada",
+      "bagHelp": "Opcional: estima cuántas bolsas de hormigón premezclado necesitás.",
+      "bag": "Bolsa premezclada",
+      "bagNone": "No calcular bolsas"
     },
     "results": {
-      "total": "Hormigón necesario (con desperdicio)",
+      "netVolume": "Volumen neto",
+      "total": "Volumen total (con desperdicio)",
+      "altVolume": "Equivalente",
+      "bags": "Bolsas necesarias",
+      "bagYieldNote": "Rendimiento estimado de referencia: {yield} por bolsa.",
       "net": "Volumen neto",
-      "waste": "Desperdicio",
-      "unit": "Volumen por elemento",
-      "bags": "Sacos de {bag}",
-      "bagsHelp": "Rendimiento estimado: {yield} por saco."
+      "waste": "Con {waste}% de desperdicio",
+      "unit": "m³",
+      "bagsHelp": "Rendimiento de referencia: {yield} por bolsa."
     },
     "steps": {
-      "slabVolume": "Volumen = largo × ancho × espesor = {lengthM} × {widthM} × {thicknessM} = {unitVolumeM3}",
-      "cylinderVolume": "Volumen = π × radio² × altura = π × ({radiusM})² × {heightM} = {unitVolumeM3}",
-      "quantity": "Total neto = {unitVolumeM3} × {quantity} elementos = {netVolumeM3}",
-      "waste": "Desperdicio = {netVolumeM3} × {wastePercent} % = {wasteVolumeM3} → Total = {totalVolumeM3}",
-      "bags": "Sacos = {totalVolumeM3} ÷ {bagYieldM3} por saco de {bagLabel} = {bags} (redondeado hacia arriba)"
+      "slab": "Volumen neto = {l} × {w} × {t} × {q} = {net}",
+      "cylinder": "Volumen neto = π × ({d}/2)² × {h} × {q} = {net}",
+      "waste": "Con {w}% de desperdicio = {net} × {factor} = {total}",
+      "bags": "Bolsas = {total} ÷ {yield} = {raw} → {bags} bolsas (redondeado hacia arriba)",
+      "slabVolume": "Volumen de 1 elemento = {l} × {w} × {t} = {v}",
+      "cylinderVolume": "Volumen de 1 columna = π × ({d}/2)² × {h} = {v}",
+      "quantity": "× {q} elemento(s) = {net}"
+    },
+    "guide": {
+      "title": "Para qué sirve y cómo usar esta calculadora",
+      "purpose": "Esta herramienta sirve para estimar cuánto hormigón necesitás antes de pedir un camión mixer o comprar bolsas de hormigón premezclado. Evita quedarte corto a mitad del llenado y te ayuda a presupuestar con un margen de desperdicio realista.",
+      "howTitle": "Cómo usarla paso a paso",
+      "steps": [
+        "Elegí el sistema de unidades (métrico en m/cm o imperial en ft/in).",
+        "Seleccioná si vas a llenar una losa/contrapiso rectangular o columnas cilíndricas.",
+        "Ingresá las medidas reales y la cantidad de elementos iguales.",
+        "Definí un porcentaje de desperdicio (lo habitual es 10 % para compensar desniveles y restos en carretilla o bomba).",
+        "Si comprás bolsas premezcladas, elegí el peso de la bolsa para obtener la cantidad exacta redondeada hacia arriba."
+      ]
     },
     "formula": {
-      "title": "Cómo se calcula el hormigón",
-      "p1": "El volumen de una losa o zapata rectangular es el producto de sus tres dimensiones: V = largo × ancho × espesor. Para una columna circular se usa el volumen del cilindro: V = π × r² × h, donde r es la mitad del diámetro.",
-      "p2": "Todas las medidas se convierten primero a metros (1 ft = 0.3048 m; 1 in = 0.0254 m), por lo que el volumen interno siempre está en m³. Luego se muestra en m³ o yd³ (1 yd³ = 0.7646 m³).",
-      "p3": "El desperdicio se añade como porcentaje del volumen neto. Un 5–10 % compensa el hormigón que queda en el mixer, las irregularidades del terreno y el encofrado.",
-      "p4": "Para los sacos usamos el rendimiento estándar de la industria: un saco de 80 lb rinde ≈ 0.60 ft³ (≈ 45 sacos por yd³). Ese mismo rendimiento por kilogramo se aplica a los sacos de 25, 40 y 50 kg (≈ 2136 kg de mezcla seca por m³). Consulta siempre el rendimiento indicado por el fabricante."
+      "title": "Fórmula y criterios de cálculo",
+      "equations": [
+        "Losa o zapata: V = Largo × Ancho × Espesor × Cantidad",
+        "Columna cilíndrica: V = π × (Diámetro / 2)² × Altura × Cantidad",
+        "Volumen total: V_total = V × (1 + Desperdicio / 100)",
+        "Bolsas: Cantidad = redondear_arriba(V_total / Rendimiento_bolsa)"
+      ],
+      "p1": "Para losas, plateas, veredas y contrapisos se multiplica largo por ancho por espesor (convertido a metros o pies).",
+      "p2": "Para columnas o pilotes cilíndricos se aplica el área del círculo π × r² multiplicada por la altura y por la cantidad de columnas.",
+      "p3": "El margen de desperdicio cubre pérdidas por encofrados irregulares, compactación y material que queda adherido a herramientas.",
+      "p4": "Las bolsas premezcladas se calculan dividiendo el volumen total por el rendimiento estándar del fabricante (por ejemplo, ~0,011 m³ por bolsa de 25 kg o ~0,022 m³ por bolsa de 50 kg) y redondeando hacia arriba."
+    },
+    "interpret": {
+      "title": "Cómo interpretar los resultados",
+      "items": [
+        "Volumen neto: es el volumen geométrico exacto del elemento sin pérdidas.",
+        "Volumen total (con desperdicio): es el volumen que conviene pedir al camión mixer o usar como base de compra.",
+        "Equivalente: muestra el mismo volumen en pies cúbicos o yardas cúbicas para comparar con fichas técnicas.",
+        "Bolsas necesarias: cantidad entera de bolsas premezcladas redondeada hacia arriba para cubrir el volumen total."
+      ]
+    },
+    "examples": {
+      "title": "Ejemplos prácticos",
+      "items": [
+        {
+          "title": "Contrapiso o losa de 5 × 4 m y 10 cm de espesor",
+          "scenario": "Necesitás llenar una base rectangular de 5 m de largo, 4 m de ancho y 10 cm (0,10 m) de espesor, con 10 % de desperdicio.",
+          "calc": "5 × 4 × 0,10 = 2,00 m³ netos → 2,00 × 1,10 = 2,20 m³ totales",
+          "result": "Resultado: 2,20 m³ de hormigón (equivale a 100 bolsas de 50 kg)."
+        },
+        {
+          "title": "4 columnas cilíndricas de 30 cm de diámetro y 3 m de altura",
+          "scenario": "Cuatro columnas de 0,30 m de diámetro (radio 0,15 m) y 3 m de alto, con 10 % de desperdicio.",
+          "calc": "π × 0,15² × 3 × 4 = 0,848 m³ netos → × 1,10 = 0,933 m³ totales",
+          "result": "Resultado: 0,933 m³ de hormigón (equivale a 43 bolsas de 50 kg)."
+        }
+      ]
     },
     "faq": [
-      { "q": "¿Cuántos sacos de hormigón necesito para 1 m³?", "a": "Con premezclado de 50 kg se necesitan unos 43 sacos por m³; con sacos de 40 kg, unos 54; con 25 kg, unos 86. En imperial, 1 yd³ equivale a ≈ 45 sacos de 80 lb o 60 sacos de 60 lb." },
-      { "q": "¿Qué porcentaje de desperdicio debo usar?", "a": "Para losas sobre terreno bien nivelado 5 % suele bastar; para zapatas excavadas a mano o trabajos pequeños conviene 10 %." },
-      { "q": "¿El espesor se ingresa en centímetros o metros?", "a": "En el sistema métrico el espesor se ingresa en centímetros (p. ej. 10 cm) y en imperial en pulgadas; la calculadora hace la conversión automáticamente." },
-      { "q": "¿Sirve para calcular hormigón premezclado de camión?", "a": "Sí. El volumen total con desperdicio es la cantidad que debes pedir; las plantas suelen vender en múltiplos de 0.5 m³ o 0.25 yd³." },
-      
-    ]
+      {
+        "q": "¿Cuánto hormigón necesito para una losa de 10 m²?",
+        "a": "Depende del espesor: para 10 m² con 10 cm (0,10 m) de espesor necesitás 1,00 m³ neto (1,10 m³ con 10 % de desperdicio). Si el espesor es de 12 cm, necesitás 1,20 m³ netos (1,32 m³ con 10 % de desperdicio)."
+      },
+      {
+        "q": "¿Cuántas bolsas de hormigón necesito por metro cúbico?",
+        "a": "Como referencia, 1 m³ de hormigón equivale aproximadamente a 45 bolsas premezcladas de 50 kg o unas 90 bolsas de 25 kg. Verificá siempre el rendimiento exacto indicado en el envase."
+      },
+      {
+        "q": "¿Qué porcentaje de desperdicio conviene agregar?",
+        "a": "En losas y contrapisos con encofrado parejo suele alcanzar con 5 % a 10 %. En excavaciones sobre tierra o zapatas irregulares conviene usar 10 % a 15 %."
+      },
+      {
+        "q": "¿Esta calculadora sirve para mortero o mezcla de albañilería?",
+        "a": "El cálculo de volumen (m³) sirve para cualquier mezcla, pero la estimación de bolsas corresponde a hormigón premezclado estándar (con áridos incluidos), no a bolsas de cemento puro."
+      },
+      {
+        "q": "¿Cómo convierto centímetros a metros si cargo una losa?",
+        "a": "No hace falta convertirlo manualmente: en el sistema métrico el campo de espesor ya está en centímetros (cm) y la calculadora lo pasa a metros automáticamente."
+      }
+    ],
+    "shape": "Forma del elemento",
+    "shapes": {
+      "slab": "Losa o zapata rectangular",
+      "cylinder": "Columna o pilote cilíndrico"
+    }
   },
   "paint": {
     "slug": "pintura",
-    "metaTitle": "Calculadora de pintura: litros o galones | BuildCalc",
-    "metaDescription": "Calcula cuánta pintura necesitas para paredes y techos en litros o galones. Descuenta puertas y ventanas, elige manos, rendimiento y desperdicio. Gratis.",
+    "metaTitle": "Calculadora de pintura (litros, galones y latas) | BuildCalc",
+    "metaDescription": "Calculá cuántos litros o galones de pintura necesitás según paredes, cielorraso, manos, rendimiento y aberturas. Resultados al instante.",
     "h1": "Calculadora de pintura",
-    "intro": "Averigua cuántos litros o galones de pintura comprar para una habitación, descontando puertas y ventanas y ajustando el número de manos y el rendimiento de tu pintura.",
+    "intro": "Calculá los litros o galones de pintura necesarios para tus paredes y cielorraso, descontando puertas y ventanas y redondeando por envase.",
     "fields": {
-      "length": "Largo de la habitación", "width": "Ancho de la habitación", "height": "Altura de las paredes",
-      "area": "Área a pintar",
-      "ceiling": "Incluir el techo",
-      "doors": "Puertas", "doorsHelp": "Se descuentan {area} por puerta.",
-      "windows": "Ventanas", "windowsHelp": "Se descuentan {area} por ventana.",
-      "coats": "Número de manos",
-      "coverage": "Rendimiento de la pintura", "coverageHelp": "Lo indica el envase. Típico: 8–12 m²/L (300–400 ft²/gal) por mano.",
-      "can": "Tamaño del envase", "canNone": "Sin cálculo de envases"
+      "mode": "Modo de cálculo",
+      "room": "Por medidas de ambiente (largo, ancho, alto)",
+      "area": "Por superficie total directa",
+      "length": "Largo del ambiente",
+      "width": "Ancho del ambiente",
+      "height": "Altura de paredes",
+      "wallArea": "Superficie a pintar",
+      "includeCeiling": "Incluir cielorraso en el cálculo",
+      "doors": "Puertas a descontar",
+      "doorsHelp": "Descuento estándar: ~1,85 m² (20 ft²) por puerta.",
+      "windows": "Ventanas a descontar",
+      "windowsHelp": "Descuento estándar: ~1,40 m² (15 ft²) por ventana.",
+      "coats": "Cantidad de manos",
+      "coverage": "Rendimiento por mano",
+      "coverageHelp": "Típico: 10 a 12 m²/L (350 a 400 ft²/gal). Revisá la lata.",
+      "waste": "Margen de desperdicio (%)",
+      "canSize": "Tamaño de lata / balde",
+      "ceiling": "Incluir cielorraso",
+      "can": "Tamaño de envase",
+      "canNone": "No calcular envases"
     },
     "results": {
-      "total": "Pintura necesaria (con desperdicio)",
-      "net": "Pintura sin desperdicio",
-      "area": "Área neta a pintar",
-      "areaCoats": "Área total ({coats} manos)",
-      "openings": "Descontado por aberturas",
-      "cans": "Envases de {can}",
-      "openingsWarning": "Las aberturas superan el área indicada: revisa las medidas."
+      "netArea": "Superficie neta (por mano)",
+      "paintedArea": "Superficie total a cubrir",
+      "total": "Pintura necesaria",
+      "cans": "Envases necesarios",
+      "openingsClamped": "El descuento de aberturas superaba la superficie de paredes y se ajustó a 0.",
+      "net": "Superficie neta (por mano)",
+      "area": "Superficie bruta",
+      "areaCoats": "Superficie total ({coats} manos)",
+      "openings": "Descuento aberturas",
+      "openingsWarning": "El descuento de aberturas superaba la superficie de paredes y se ajustó a 0."
     },
     "steps": {
-      "wallArea": "Área de paredes = 2 × (largo + ancho) × altura = 2 × ({lengthM} + {widthM}) × {heightM} = {wallAreaM2}",
-      "ceilingArea": "Área del techo = largo × ancho = {lengthM} × {widthM} = {ceilingAreaM2}",
-      "directArea": "Área indicada = {areaM2}",
-      "openings": "Aberturas = {doors} puertas × {doorAreaM2} + {windows} ventanas × {windowAreaM2} = {openingsAreaM2}",
-      "netArea": "Área neta = {grossAreaM2} − {openingsAreaM2} = {netAreaM2}",
-      "coats": "Área total = {netAreaM2} × {coats} manos = {totalAreaM2}",
-      "litres": "Pintura = {totalAreaM2} ÷ {coverageM2PerL} = {litresNet}",
-      "waste": "Desperdicio = {litresNet} × {wastePercent} % = {litresWaste} → Total = {litresTotal}",
-      "cans": "Envases = {litresTotal} ÷ {canLitres} ({canLabel}) = {cans} (redondeado hacia arriba)"
+      "room": "Paredes = 2 × ({l} + {w}) × {h} = {walls}",
+      "ceiling": "Cielorraso = {l} × {w} = {ceiling}",
+      "openings": "Descuento aberturas = {doors} puertas + {windows} ventanas = {openings}",
+      "net": "Superficie neta = {net} × {coats} mano(s) = {painted}",
+      "paint": "Pintura = ({painted} ÷ {cov}) × {factor} = {total}",
+      "cans": "Envases = {total} ÷ {can} = {raw} → {cans} envase(s)",
+      "wallArea": "Paredes = 2 × ({l} + {w}) × {h} = {walls}",
+      "ceilingArea": "Cielorraso = {l} × {w} = {ceiling}",
+      "directArea": "Superficie ingresada = {area}",
+      "netArea": "Superficie neta = {gross} − {openings} = {net}",
+      "coats": "× {coats} mano(s) = {painted}",
+      "litres": "Pintura neta = {painted} ÷ {cov} = {litres}",
+      "waste": "Con {w}% de desperdicio = {total}"
+    },
+    "guide": {
+      "title": "Para qué sirve y cómo usar esta calculadora",
+      "purpose": "Esta calculadora te permite saber cuánta pintura comprar para pintar una habitación, un departamento o una fachada sin gastar de más ni quedarte sin material en la última mano.",
+      "howTitle": "Cómo usarla paso a paso",
+      "steps": [
+        "Elegí si querés ingresar las medidas del ambiente (largo, ancho, alto) o la superficie total directa.",
+        "Indicá si también vas a pintar el cielorraso y cuántas puertas y ventanas tiene el ambiente.",
+        "Definí la cantidad de manos (normalmente 2 manos) y el rendimiento que figura en la lata de pintura.",
+        "Agregá un margen de desperdicio (5 % a 10 % para retoques y absorción del rodillo).",
+        "Seleccioná el tamaño de lata o balde (1 L, 4 L o 20 L) para ver cuántos envases comprar."
+      ]
     },
     "formula": {
-      "title": "Cómo se calcula la pintura",
-      "p1": "Primero obtenemos el área de las paredes: perímetro × altura = 2 × (largo + ancho) × altura. Si marcas el techo, se suma largo × ancho.",
-      "p2": "Restamos las aberturas con tamaños típicos: 1.9 m² (≈ 20 ft²) por puerta y 1.5 m² (≈ 16 ft²) por ventana. El resultado es el área neta a pintar.",
-      "p3": "El área neta se multiplica por el número de manos y se divide por el rendimiento de la pintura (m² por litro o ft² por galón) que indica el fabricante.",
-      "p4": "Finalmente se añade el desperdicio y se redondea hacia arriba al número de envases del tamaño elegido. Superficies rugosas o muy absorbentes pueden requerir hasta un 20 % más."
+      "title": "Fórmula y criterios de cálculo",
+      "equations": [
+        "Paredes = 2 × (Largo + Ancho) × Altura",
+        "Superficie neta = Paredes + Cielorraso − Aberturas",
+        "Pintura = (Superficie neta × Manos / Rendimiento) × (1 + Desperdicio / 100)",
+        "Envases = redondear_arriba(Pintura / Tamaño_envase)"
+      ],
+      "p1": "El perímetro del ambiente se multiplica por la altura para obtener la superficie bruta de paredes. Si marcás cielorraso, se suma Largo × Ancho.",
+      "p2": "Se descuentan las aberturas usando valores promedio estándar (1,85 m² por puerta y 1,40 m² por ventana).",
+      "p3": "La superficie neta se multiplica por la cantidad de manos y se divide por el rendimiento por mano (por ejemplo, 10 m²/L).",
+      "p4": "Finalmente se aplica el porcentaje de desperdicio y se redondea hacia arriba según el tamaño de lata o balde elegido."
+    },
+    "interpret": {
+      "title": "Cómo interpretar los resultados",
+      "items": [
+        "Superficie neta (por mano): metros o pies cuadrados reales a cubrir en una sola pasada.",
+        "Superficie total a cubrir: superficie neta multiplicada por la cantidad de manos.",
+        "Pintura necesaria: volumen total en litros o galones incluyendo el margen de desperdicio.",
+        "Envases necesarios: cantidad entera de latas o baldes redondeada hacia arriba."
+      ]
+    },
+    "examples": {
+      "title": "Ejemplos prácticos",
+      "items": [
+        {
+          "title": "Dormitorio de 4 × 3 m y 2,5 m de altura (2 manos)",
+          "scenario": "Paredes únicamente, con 1 puerta y 1 ventana, rendimiento de 10 m²/L y sin desperdicio.",
+          "calc": "Paredes = 35 m² − 3,25 m² aberturas = 31,75 m² × 2 manos = 63,5 m² ÷ 10 m²/L",
+          "result": "Resultado: 6,35 L de pintura (2 latas de 4 L)."
+        },
+        {
+          "title": "Living de 5 × 4 m con cielorraso y 10 % de desperdicio",
+          "scenario": "Altura 2,6 m, 1 puerta, 2 ventanas, 2 manos y rendimiento de 10 m²/L.",
+          "calc": "46,8 m² paredes + 20 m² techo − 4,65 m² = 62,15 m² × 2 ÷ 10 × 1,10",
+          "result": "Resultado: 13,67 L de pintura (4 latas de 4 L o 1 balde de 20 L)."
+        }
+      ]
     },
     "faq": [
-      { "q": "¿Cuánta pintura necesito para una habitación de 4 × 3 metros?", "a": "Una habitación de 4 × 3 m con 2.5 m de altura tiene unos 35 m² de pared; descontando una puerta y una ventana quedan ~31.6 m². Con dos manos y 10 m²/L necesitas ≈ 6.3 L, es decir dos envases de 4 L." },
-      { "q": "¿Cuántas manos de pintura debo aplicar?", "a": "Dos manos es el estándar para un acabado uniforme. Sobre colores oscuros o superficies nuevas pueden hacer falta tres, o una mano de imprimación." },
-      { "q": "¿Qué rendimiento tiene la pintura?", "a": "La mayoría de las pinturas látex o acrílicas rinden entre 8 y 12 m² por litro y mano (300–400 ft² por galón). El valor exacto figura en el envase." },
-      { "q": "¿La calculadora sirve para exteriores?", "a": "Sí: usa el modo «Área ya conocida» con la superficie de la fachada y aumenta el desperdicio a 10–15 % por la textura del revoque." },
+      {
+        "q": "¿Cuántos metros cuadrados rinde 1 litro de pintura?",
+        "a": "Un látex interior estándar suele rendir entre 10 y 12 m² por litro y por mano sobre pared lisa y sellada. En superficies rugosas o muy absorbentes puede bajar a 6–8 m²/L."
+      },
+      {
+        "q": "¿Cuántas manos de pintura necesito?",
+        "a": "Lo habitual son 2 manos para lograr un color parejo. Si cubrís un tono oscuro con uno claro o pintás sobre revoque nuevo sin fijador, pueden hacer falta 3 manos."
+      },
+      {
+        "q": "¿Conviene incluir el cielorraso en el mismo cálculo?",
+        "a": "Solo si vas a usar exactamente la misma pintura en paredes y techo. Si el cielorraso lleva pintura especial antihongo o blanco mate distinto, calculalo aparte en modo superficie."
+      },
+      {
+        "q": "¿Por qué la calculadora redondea las latas hacia arriba?",
+        "a": "Porque en pinturería no podés comprar fracciones de envase. Redondear hacia arriba asegura que no te falte pintura para terminar la última pared."
+      },
+      {
+        "q": "¿Qué pasa si no quiero descontar puertas ni ventanas?",
+        "a": "Dejá ambos campos en 0. Muchas veces conviene dejarlos en 0 si las aberturas son chicas y querés tener un pequeño sobrante para retoques."
+      }
     ]
+  },
   "flooring": {
     "slug": "pisos",
-    "metaTitle": "Calculadora de pisos: baldosas, cajas y desperdicio | BuildCalc",
-    "metaDescription": "Calcula los m² o ft² de piso, cuántas baldosas, porcelanatos o tablas necesitas y el número de cajas, con desperdicio por cortes. Gratis y en español.",
-    "h1": "Calculadora de pisos",
-    "intro": "Calcula el área de tu piso, la cantidad de baldosas, porcelanatos, tablas de laminado o vinílico y el número de cajas a comprar, con el margen de desperdicio adecuado para los cortes.",
+    "metaTitle": "Calculadora de pisos, cerámicos y cajas | BuildCalc",
+    "metaDescription": "Calculá m² de piso, margen de desperdicio, cantidad de piezas y cajas completas para cerámicos, porcelanato o pisos flotantes.",
+    "h1": "Calculadora de pisos y baldosas",
+    "intro": "Calculá la superficie a cubrir, el desperdicio por cortes, la cantidad de piezas y las cajas completas de cerámicos, porcelanato o piso flotante.",
     "fields": {
-      "length": "Largo del ambiente", "width": "Ancho del ambiente",
-      "area": "Área del piso",
-      "tileLength": "Largo de la pieza", "tileWidth": "Ancho de la pieza",
-      "tileHelp": "Baldosa, porcelanato o tabla. Déjalo vacío si solo necesitas el área.",
-      "boxMode": "Contenido de la caja",
-      "boxNone": "No calcular cajas",
-      "boxPieces": "Piezas por caja",
-      "boxArea": "Área por caja",
+      "mode": "Modo de entrada",
+      "room": "Por medidas del ambiente (largo × ancho)",
+      "area": "Por superficie total directa",
+      "length": "Largo",
+      "width": "Ancho",
+      "areaInput": "Superficie",
+      "waste": "Margen de desperdicio (%)",
+      "wasteHelp": "Recomendado: 10 % en colocación recta; 15 % en colocación diagonal o ambientes irregulares.",
+      "tileLength": "Largo de la pieza",
+      "tileWidth": "Ancho de la pieza",
+      "boxMode": "Cómo calcular las cajas",
+      "byPieces": "Por cantidad de piezas por caja",
+      "byBoxArea": "Por m² (o ft²) que cubre cada caja",
+      "none": "No calcular cajas",
       "piecesPerBox": "Piezas por caja",
-      "boxAreaField": "Área que cubre una caja"
+      "boxArea": "Superficie por caja",
+      "tileHelp": "Opcional si solo calculás por m² por caja.",
+      "boxNone": "No calcular cajas",
+      "boxPieces": "Por piezas por caja",
+      "boxAreaField": "Por superficie por caja"
     },
     "results": {
-      "total": "Área a comprar (con desperdicio)",
-      "net": "Área del piso",
-      "waste": "Desperdicio",
+      "netArea": "Superficie neta",
+      "total": "Superficie total (con desperdicio)",
+      "tiles": "Piezas necesarias",
+      "boxes": "Cajas necesarias",
+      "tileAreaLabel": "Superficie por pieza",
+      "net": "Superficie neta",
+      "waste": "Con {waste}% de desperdicio",
       "pieces": "Piezas necesarias",
-      "pieceArea": "Área por pieza",
-      "boxes": "Cajas a comprar"
+      "pieceArea": "Superficie por pieza"
     },
     "steps": {
-      "floorArea": "Área = largo × ancho = {lengthM} × {widthM} = {areaM2}",
-      "directArea": "Área indicada = {areaM2}",
-      "waste": "Desperdicio = {areaM2} × {wastePercent} % = {wasteAreaM2} → Área a comprar = {areaWithWasteM2}",
-      "pieces": "Piezas = {areaWithWasteM2} ÷ ({tileLengthM} × {tileWidthM} = {pieceAreaM2}) = {pieces} (redondeado hacia arriba)",
-      "boxesByPieces": "Cajas = {pieces} ÷ {piecesPerBox} piezas por caja = {boxes} (redondeado hacia arriba)",
-      "boxesByArea": "Cajas = {areaWithWasteM2} ÷ {boxAreaM2} por caja = {boxes} (redondeado hacia arriba)"
+      "area": "Superficie neta = {l} × {w} = {net}",
+      "waste": "Con {w}% de desperdicio = {net} × {factor} = {total}",
+      "tiles": "Piezas = {total} ÷ {tile} = {raw} → {tiles} piezas",
+      "boxesPieces": "Cajas = {tiles} piezas ÷ {ppb} por caja = {raw} → {boxes} cajas",
+      "boxesArea": "Cajas = {total} ÷ {boxArea} por caja = {raw} → {boxes} cajas",
+      "floorArea": "Superficie neta = {l} × {w} = {net}",
+      "directArea": "Superficie ingresada = {net}",
+      "pieces": "Piezas = {total} ÷ {tile} = {raw} → {pieces} piezas",
+      "boxesByPieces": "Cajas = {pieces} ÷ {ppb} = {raw} → {boxes} cajas",
+      "boxesByArea": "Cajas = {total} ÷ {boxArea} = {raw} → {boxes} cajas"
+    },
+    "guide": {
+      "title": "Para qué sirve y cómo usar esta calculadora",
+      "purpose": "Esta herramienta calcula cuántos metros cuadrados, cuántas piezas individuales y cuántas cajas cerradas necesitás para revestir un piso o una pared con cerámicos, porcelanato o pisos flotantes.",
+      "howTitle": "Cómo usarla paso a paso",
+      "steps": [
+        "Elegí si cargás largo y ancho del ambiente o la superficie total directamente.",
+        "Definí el porcentaje de desperdicio según el tipo de colocación (10 % recta, 15 % diagonal).",
+        "Ingresá las medidas de la baldosa o tabla (por ejemplo, 60 × 60 cm).",
+        "Seleccioná si querés calcular las cajas por cantidad de piezas por caja o por los m² que rinde cada caja."
+      ]
     },
     "formula": {
-      "title": "Cómo se calcula el piso",
-      "p1": "El área de un ambiente rectangular es largo × ancho. Para espacios en L o irregulares, divídelos en rectángulos, suma las áreas y usa el modo «Área ya conocida».",
-      "p2": "El desperdicio cubre los cortes en bordes, esquinas y alrededor de columnas. Se recomienda 10 % para colocación recta, 15 % en diagonal o con patrones (espiga, módulos) y 5 % en ambientes grandes y simples.",
-      "p3": "La cantidad de piezas es el área a comprar dividida por el área de una pieza (largo × ancho), redondeada hacia arriba. Las medidas en centímetros o pulgadas se convierten automáticamente.",
-      "p4": "Las cajas se calculan dividiendo las piezas por el contenido de la caja o el área a comprar por los m² (ft²) que cubre cada caja, siempre redondeando hacia arriba. Compra una caja extra del mismo lote para reparaciones futuras."
+      "title": "Fórmula y criterios de cálculo",
+      "equations": [
+        "Superficie neta = Largo × Ancho",
+        "Superficie total = Superficie neta × (1 + Desperdicio / 100)",
+        "Piezas = redondear_arriba(Superficie total / Superficie_pieza)",
+        "Cajas = redondear_arriba(Piezas / Piezas_por_caja) o redondear_arriba(Superficie total / m²_por_caja)"
+      ],
+      "p1": "La superficie neta se multiplica por el factor de desperdicio para cubrir recortes en bordes, zócalos y posibles roturas durante la colocación.",
+      "p2": "Si ingresás las medidas de la pieza, se calcula su área unitaria y se divide la superficie total por ese valor, redondeando hacia arriba.",
+      "p3": "Cuando calculás cajas por cantidad de piezas, se divide el total de piezas por las unidades que trae cada caja.",
+      "p4": "Cuando calculás cajas por superficie por caja (dato muy común en porcelanatos y pisos flotantes), se divide la superficie total directamente por el rendimiento de la caja."
+    },
+    "interpret": {
+      "title": "Cómo interpretar los resultados",
+      "items": [
+        "Superficie neta: área exacta del ambiente sin margen de corte.",
+        "Superficie total (con desperdicio): área que debés cubrir al comprar el material.",
+        "Piezas necesarias: cantidad entera de cerámicos, porcelanatos o tablas.",
+        "Cajas necesarias: cantidad de cajas cerradas redondeada hacia arriba para evitar faltantes de partida o tono."
+      ]
+    },
+    "examples": {
+      "title": "Ejemplos prácticos",
+      "items": [
+        {
+          "title": "Living de 5 × 4 m con porcelanato de 60 × 60 cm",
+          "scenario": "Colocación recta con 10 % de desperdicio y cajas de 4 piezas.",
+          "calc": "20 m² × 1,10 = 22,00 m² ÷ 0,36 m²/pieza = 62 piezas ÷ 4 = 15,5",
+          "result": "Resultado: 22,00 m² totales, 62 piezas y 16 cajas."
+        },
+        {
+          "title": "Dormitorio de 15 m² con piso flotante (cajas de 2,20 m²)",
+          "scenario": "10 % de desperdicio y cálculo directo por superficie por caja.",
+          "calc": "15 m² × 1,10 = 16,50 m² ÷ 2,20 m²/caja = 7,5",
+          "result": "Resultado: 16,50 m² totales y 8 cajas."
+        }
+      ]
     },
     "faq": [
-      { "q": "¿Cuántas baldosas de 60×60 necesito para 20 m²?", "a": "Cada pieza cubre 0.36 m². Con 10 % de desperdicio el área a comprar es 22 m² → 62 piezas; con cajas de 4 unidades, 16 cajas." },
-      { "q": "¿Qué desperdicio debo considerar para piso laminado o vinílico?", "a": "Entre 7 y 10 % en colocación recta. Si el ambiente tiene muchas esquinas o se coloca en diagonal, sube al 15 %." },
-      { "q": "¿Debo restar el área de muebles o la cocina?", "a": "No para los muebles móviles. Sí puedes restar islas de cocina o muebles empotrados permanentes usando el modo «Área ya conocida»." },
-      { "q": "¿La calculadora considera las juntas entre baldosas?", "a": "No: la junta (2–5 mm) añade un margen pequeño a tu favor que ya queda cubierto por el porcentaje de desperdicio." }
+      {
+        "q": "¿Cuánto desperdicio se calcula para cerámicos o porcelanato?",
+        "a": "Para colocación recta en ambientes cuadrados o rectangulares se recomienda 10 %. Para colocación en diagonal, formato espiga o ambientes con muchos recortes conviene subir a 15 %."
+      },
+      {
+        "q": "¿Por qué conviene comprar alguna caja de más del mismo lote?",
+        "a": "Los cerámicos y porcelanatos pueden variar levemente de tono y calibre entre partidas. Tener 1 o 2 cajas extra del mismo lote evita diferencias visuales si necesitás hacer un arreglo en el futuro."
+      },
+      {
+        "q": "¿La calculadora descuenta la junta entre baldosas?",
+        "a": "Las medidas nominales comerciales suelen incluir la junta estándar, por lo que calcular con la medida de la pieza y un 10 % de desperdicio cubre ampliamente la colocación."
+      },
+      {
+        "q": "¿Sirve para pisos flotantes o vinílicos?",
+        "a": "Sí. Podés usar el modo por superficie por caja (el dato más habitual en pisos flotantes y SPC) o ingresar el largo y ancho de cada tabla."
+      },
+      {
+        "q": "¿Qué hago si mi ambiente tiene forma de L?",
+        "a": "Dividí el ambiente en dos rectángulos, calculá la superficie de cada uno y sumalos para cargar el total en el modo 'Por superficie total directa'."
+      }
     ]
   },
   "privacy": {
     "slug": "privacidad",
     "metaTitle": "Política de privacidad | BuildCalc",
-    "metaDescription": "Política de privacidad de BuildCalc: cómo tratan tus datos las calculadoras, analítica, cookies y futura publicidad o enlaces de afiliados.",
+    "metaDescription": "Política de privacidad de BuildCalc: qué datos locales usa el sitio, qué servicios están desactivados y cómo funciona en tu navegador.",
     "h1": "Política de privacidad",
     "updated": "Última actualización: {date}",
     "sections": [
-      { "title": "Datos que procesamos", "text": "Las calculadoras funcionan íntegramente en tu navegador. Los valores que introduces no se envían a ningún servidor. Tu preferencia de sistema de unidades se guarda localmente en tu dispositivo (localStorage) y puedes borrarla limpiando los datos del sitio." },
-      { "title": "Analítica", "text": "Podemos utilizar Google Analytics para conocer de forma agregada y anónima cómo se usa el sitio (páginas visitadas, dispositivo, país). Si está activo, las direcciones IP se anonimizan. Puedes bloquearlo con la extensión oficial de Google o con el bloqueador de tu navegador." },
-      { "title": "Publicidad y afiliados", "text": "En el futuro el sitio puede mostrar anuncios de terceros o enlaces de afiliados claramente identificados. Si compras a través de un enlace de afiliado, BuildCalc puede recibir una comisión sin coste adicional para ti. Los proveedores de anuncios pueden usar cookies según sus propias políticas." },
-      { "title": "Contacto", "text": "Para consultas sobre privacidad, abre un issue en el repositorio del proyecto en GitHub." }
+      {
+        "title": "1. Resumen general",
+        "text": "BuildCalc es un sitio web estático de calculadoras de construcción. No requiere registro, no tiene cuentas de usuario y no recopila datos personales identificables."
+      },
+      {
+        "title": "2. Cálculos en tu navegador",
+        "text": "Todas las medidas, cantidades y resultados que ingresás en las calculadoras de hormigón, pintura y pisos se procesan exclusivamente en tu navegador mediante JavaScript. Ningún dato de tus cálculos se envía a servidores propios ni de terceros."
+      },
+      {
+        "title": "3. Preferencias guardadas localmente (localStorage)",
+        "text": "BuildCalc guarda únicamente dos preferencias técnicas en el almacenamiento local de tu navegador (localStorage): 'bc.units' (para recordar si preferís el sistema métrico o imperial) y 'bc.lang' (para recordar el idioma elegido al visitar la raíz del sitio). Podés borrar estos datos en cualquier momento desde la configuración de tu navegador."
+      },
+      {
+        "title": "4. Cookies",
+        "text": "Actualmente BuildCalc no utiliza cookies propias ni cookies de terceros para seguimiento, analítica o publicidad."
+      },
+      {
+        "title": "5. Analítica web",
+        "text": "La analítica web (como Google Analytics) se encuentra desactivada en esta versión del sitio. No se cargan scripts de seguimiento ni se registran perfiles de navegación."
+      },
+      {
+        "title": "6. Publicidad",
+        "text": "La publicidad (como Google AdSense) se encuentra desactivada actualmente. Si en el futuro se habilitara un proveedor de anuncios, esta política se actualizará antes de activar cualquier script para informar sobre cookies y opciones de consentimiento."
+      },
+      {
+        "title": "7. Enlaces de afiliados",
+        "text": "Actualmente no hay enlaces de afiliados activos en el sitio. Si en el futuro se incorporaran enlaces patrocinados o de afiliados, se identificarán de forma clara junto al contenido correspondiente."
+      },
+      {
+        "title": "8. Alojamiento y registros técnicos",
+        "text": "El sitio estático se aloja en Render. Como cualquier servidor web, la infraestructura de alojamiento puede registrar temporalmente datos técnicos básicos de conexión (como dirección IP, fecha, hora y página solicitada) con fines de seguridad y disponibilidad."
+      },
+      {
+        "title": "9. Enlaces externos",
+        "text": "Esta página puede incluir enlaces a sitios externos (por ejemplo, el repositorio público del proyecto). BuildCalc no controla las políticas de privacidad de sitios de terceros."
+      },
+      {
+        "title": "10. Menores de edad",
+        "text": "BuildCalc no está dirigido específicamente a menores de edad ni recopila información personal de ningún usuario."
+      },
+      {
+        "title": "11. Precisión de los cálculos",
+        "text": "Los resultados ofrecidos son estimaciones orientativas. Verificá siempre las especificaciones técnicas de cada fabricante y consultá con un profesional antes de realizar compras o ejecutar obra."
+      },
+      {
+        "title": "12. Tus derechos",
+        "text": "Dado que no almacenamos datos personales en servidores propios, no existen perfiles ni bases de datos personales asociadas a tu uso. Podés eliminar las preferencias locales ('bc.units' y 'bc.lang') limpiando los datos del sitio en tu navegador."
+      },
+      {
+        "title": "13. Cambios en esta política",
+        "text": "Podemos actualizar esta política cuando se incorporen nuevas funciones o servicios. La fecha de última actualización figura siempre al inicio de esta página."
+      },
+      {
+        "title": "14. Contacto",
+        "text": "Si tenés dudas o querés reportar un error, podés abrir un issue en el repositorio público del proyecto en https://github.com/resktoff/Buildcalc-/issues."
+      }
     ]
-  },"privacy": {
-  "slug": "privacidad",
-  "metaTitle": "Política de privacidad | BuildCalc",
-  "metaDescription": "Política de privacidad de BuildCalc: datos de las calculadoras, almacenamiento local, datos técnicos, cookies, analítica, publicidad y enlaces de afiliados.",
-  "h1": "Política de privacidad",
-  "updated": "Última actualización: {date}",
-  "sections": [
-    {
-      "title": "1. Quiénes somos",
-      "text": "BuildCalc es un sitio web gratuito que ofrece calculadoras y herramientas de construcción en español e inglés. Esta política explica qué información puede procesarse al utilizar el sitio."
-    },
-    {
-      "title": "2. Datos introducidos en las calculadoras",
-      "text": "Los cálculos se realizan directamente en tu navegador. Las medidas, cantidades y demás valores que introduces no se envían deliberadamente a nuestros servidores ni se almacenan en una cuenta de usuario. No es necesario registrarse para utilizar las herramientas."
-    },
-    {
-      "title": "3. Almacenamiento local",
-      "text": "El sitio puede guardar en el almacenamiento local de tu navegador preferencias como el sistema de unidades seleccionado. Esta información permanece en tu dispositivo y puedes eliminarla desde la configuración del navegador, borrando los datos del sitio."
-    },
-    {
-      "title": "4. Información técnica",
-      "text": "El proveedor de alojamiento puede registrar automáticamente información técnica necesaria para entregar y proteger el sitio, como dirección IP, fecha y hora de acceso, páginas solicitadas, navegador, sistema operativo, dispositivo y página de procedencia. El tratamiento de estos registros depende también de las políticas del proveedor."
-    },
-    {
-      "title": "5. Cookies y tecnologías similares",
-      "text": "BuildCalc utiliza almacenamiento local para algunas preferencias. El almacenamiento local no es lo mismo que una cookie. Actualmente Google Analytics y la publicidad de Google AdSense están deshabilitados. Si incorporamos cookies u otras tecnologías de seguimiento, actualizaremos esta política y aplicaremos los mecanismos de información y consentimiento que correspondan."
-    },
-    {
-      "title": "6. Analítica",
-      "text": "Actualmente Google Analytics no está habilitado en BuildCalc. Si en el futuro incorporamos herramientas de medición, podremos recopilar estadísticas de uso, como páginas visitadas, tipo de dispositivo y ubicación aproximada, de acuerdo con la configuración y las políticas del proveedor."
-    },
-    {
-      "title": "7. Publicidad y enlaces de afiliados",
-      "text": "Actualmente la publicidad y los enlaces de afiliados están deshabilitados. En el futuro el sitio podría mostrar anuncios de terceros o enlaces de afiliados identificados. BuildCalc podría recibir una comisión si realizas una compra mediante uno de esos enlaces, sin coste adicional para ti. Los proveedores externos podrían utilizar cookies u otras tecnologías conforme a sus propias políticas."
-    },
-    {
-      "title": "8. Compartición de información",
-      "text": "No vendemos ni alquilamos información personal. La información técnica puede ser procesada por proveedores de alojamiento y seguridad para mantener el funcionamiento del sitio. Cualquier servicio externo que se incorpore en el futuro estará sujeto a sus propias condiciones y políticas."
-    },
-    {
-      "title": "9. Enlaces a sitios externos",
-      "text": "BuildCalc puede incluir enlaces a otros sitios web. No controlamos sus contenidos, prácticas de privacidad ni medidas de seguridad. Te recomendamos revisar sus políticas antes de proporcionarles información personal."
-    },
-    {
-      "title": "10. Conservación y seguridad",
-      "text": "Las preferencias guardadas localmente permanecen en tu dispositivo hasta que las elimines. Los registros técnicos del alojamiento se conservan según las condiciones del proveedor. Aplicamos medidas razonables para mantener el sitio seguro, aunque ningún sistema puede garantizar seguridad absoluta."
-    },
-    {
-      "title": "11. Privacidad de menores",
-      "text": "BuildCalc no está diseñado para recopilar deliberadamente información personal de menores. No solicita cuentas ni datos personales para utilizar sus calculadoras."
-    },
-    {
-      "title": "12. Tus derechos y consultas",
-      "text": "Según la legislación aplicable, puedes tener derecho a solicitar acceso, actualización, corrección o supresión de tus datos personales. Para consultas sobre privacidad puedes contactar al proyecto mediante GitHub Issues: https://github.com/resktoff/Buildcalc-/issues. Ten presente que los comentarios publicados allí pueden ser visibles públicamente. No compartas información sensible en un issue."
-    },
-    {
-      "title": "13. Cambios en esta política",
-      "text": "Podemos actualizar esta política cuando cambien las funciones del sitio, los servicios utilizados o los requisitos legales. La fecha de actualización aparecerá al comienzo de esta página."
-    },
-    {
-      "title": "14. Alcance de esta información",
-      "text": "Esta política ofrece información general sobre el funcionamiento de BuildCalc y no constituye asesoramiento legal. Si el sitio incorpora nuevos servicios o comienza a procesar datos personales de otras maneras, revisaremos esta política y las obligaciones aplicables."
-    }
-  ]
-},
+  },
   "notFound": {
     "metaTitle": "Página no encontrada | BuildCalc",
-    "h1": "Página no encontrada",
-    "text": "La dirección que buscas no existe o ha cambiado.",
+    "h1": "404 — Página no encontrada",
+    "text": "La página que buscás no existe o fue movida. Elegí una calculadora o volvé al inicio.",
     "cta": "Ir al inicio"
-  },
-  "affiliates": {
-    "title": "Herramientas recomendadas",
-    "disclosure": "Enlaces de afiliados: podemos recibir una comisión sin coste para ti."
   },
   "ads": {
     "label": "Publicidad"
+  },
+  "affiliates": {
+    "title": "Materiales recomendados",
+    "disclosure": "Aviso: algunos enlaces pueden ser de afiliados."
   }
 }
