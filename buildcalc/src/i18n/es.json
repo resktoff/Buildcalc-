@@ -128,6 +128,7 @@
       { "q": "¿Qué porcentaje de desperdicio debo usar?", "a": "Para losas sobre terreno bien nivelado 5 % suele bastar; para zapatas excavadas a mano o trabajos pequeños conviene 10 %." },
       { "q": "¿El espesor se ingresa en centímetros o metros?", "a": "En el sistema métrico el espesor se ingresa en centímetros (p. ej. 10 cm) y en imperial en pulgadas; la calculadora hace la conversión automáticamente." },
       { "q": "¿Sirve para calcular hormigón premezclado de camión?", "a": "Sí. El volumen total con desperdicio es la cantidad que debes pedir; las plantas suelen vender en múltiplos de 0.5 m³ o 0.25 yd³." },
+      
     ]
   },
   "paint": {
