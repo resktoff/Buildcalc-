@@ -174,7 +174,7 @@
       "p4": "Finalmente se añade el desperdicio y se redondea hacia arriba al número de envases del tamaño elegido. Superficies rugosas o muy absorbentes pueden requerir hasta un 20 % más."
     },
     "faq": [
-      { "q": "¿Cuánta pintura necesito para una habitación de 12 m²?", "a": "Una habitación de 4 × 3 m con 2.5 m de altura tiene unos 35 m² de pared; descontando una puerta y una ventana quedan ~31.6 m². Con dos manos y 10 m²/L necesitas ≈ 6.3 L, es decir dos envases de 4 L." },
+      { "q": "¿Cuánta pintura necesito para una habitación de 4 × 3 metros?", "a": "Una habitación de 4 × 3 m con 2.5 m de altura tiene unos 35 m² de pared; descontando una puerta y una ventana quedan ~31.6 m². Con dos manos y 10 m²/L necesitas ≈ 6.3 L, es decir dos envases de 4 L." },
       { "q": "¿Cuántas manos de pintura debo aplicar?", "a": "Dos manos es el estándar para un acabado uniforme. Sobre colores oscuros o superficies nuevas pueden hacer falta tres, o una mano de imprimación." },
       { "q": "¿Qué rendimiento tiene la pintura?", "a": "La mayoría de las pinturas látex o acrílicas rinden entre 8 y 12 m² por litro y mano (300–400 ft² por galón). El valor exacto figura en el envase." },
       { "q": "¿La calculadora sirve para exteriores?", "a": "Sí: usa el modo «Área ya conocida» con la superficie de la fachada y aumenta el desperdicio a 10–15 % por la textura del revoque." }
