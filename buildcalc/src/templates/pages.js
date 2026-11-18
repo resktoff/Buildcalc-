@@ -1,13 +1,34 @@
 /**
- * BuildCalc — page bodies (build time).
+ * BuildCalc — page bodies and structured data (build time).
  */
-import { esc, ICONS, rootPrefix, adSlot, affiliateBox } from './layout.js';
+import { esc, ICONS, rootPrefix, absUrl, verificationTags, adSlot, affiliateBox } from './layout.js';
 import { FORMS } from './forms.js';
 
 const CALC_IDS = ['concrete', 'paint', 'flooring'];
 
 export function calcPath(lang, t, id) {
   return `${lang}/${t[id].slug}/`;
+}
+
+/** Escape plain text while turning explicit https:// URLs into safe clickable links. */
+function formatParagraphWithLinks(text) {
+  const str = String(text);
+  const urlRe = /https:\/\/[^\s)]+/g;
+  let out = '';
+  let last = 0;
+  for (const m of str.matchAll(urlRe)) {
+    let url = m[0];
+    let trail = '';
+    while (/[.,;:!?]$/.test(url)) {
+      trail = url.slice(-1) + trail;
+      url = url.slice(0, -1);
+    }
+    out += esc(str.slice(last, m.index));
+    out += `<a href="${esc(url)}" rel="noopener noreferrer">${esc(url)}</a>${esc(trail)}`;
+    last = m.index + m[0].length;
+  }
+  out += esc(str.slice(last));
+  return out;
 }
 
 /* ---------- home ---------- */
@@ -50,12 +71,24 @@ export function calcPage({ t, config, id }) {
   const c = t[id];
   const path = calcPath(lang, t, id);
   const root = rootPrefix(path);
+
+  const guideSteps = c.guide.steps.map((s) => `<li>${esc(s)}</li>`).join('\n            ');
+  const equations = c.formula.equations.map((eq) => `<li><code>${esc(eq)}</code></li>`).join('\n            ');
   const formula = ['p1', 'p2', 'p3', 'p4'].map((k) => `<p>${esc(c.formula[k])}</p>`).join('\n          ');
+  const interpretItems = c.interpret.items.map((item) => `<li>${esc(item)}</li>`).join('\n            ');
+  const examples = c.examples.items.map((ex) => `
+          <article class="card example-card">
+            <h3>${esc(ex.title)}</h3>
+            <p>${esc(ex.scenario)}</p>
+            <p class="example-calc">${esc(ex.calc)}</p>
+            <p class="example-result">${esc(ex.result)}</p>
+          </article>`).join('');
   const faq = c.faq.map((f) => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('\n          ');
   const related = CALC_IDS.filter((x) => x !== id)
     .map((x) => `<li><a href="${root}${calcPath(lang, t, x)}">${esc(t[x].h1)}</a></li>`).join('');
+
   return `
-      <nav class="breadcrumb" aria-label="Breadcrumb">
+      <nav class="breadcrumb" aria-label="${esc(t.nav.breadcrumb)}">
         <ol><li><a href="${root}${lang}/">${esc(t.nav.home)}</a></li><li aria-current="page">${esc(c.h1)}</li></ol>
       </nav>
       <header class="page-head">
@@ -72,18 +105,41 @@ export function calcPage({ t, config, id }) {
           <div class="results-actions">
             <button type="button" class="btn btn-ghost btn-sm" data-copy>${esc(t.common.copy)}</button>
             <button type="button" class="btn btn-ghost btn-sm" data-print>${esc(t.common.print)}</button>
+            <span class="visually-hidden" role="status" aria-live="polite" data-copy-status></span>
           </div>
         </section>
       </div>
-      <a class="result-bar" href="#results" data-result-bar hidden aria-label="${esc(t.common.results)}">
+      <a class="result-bar" href="#results" data-result-bar hidden>
         <span class="result-bar-label">${esc(c.results.total)}</span>
         <strong class="result-bar-value" data-result-bar-value></strong>
         <span class="result-bar-cta" aria-hidden="true">↓</span>
       </a>
       ${adSlot(config, t, 'calc-below-results')}
+      <section class="section prose" aria-labelledby="guide-title">
+        <h2 id="guide-title">${esc(c.guide.title)}</h2>
+        <p>${esc(c.guide.purpose)}</p>
+        <h3>${esc(c.guide.howTitle)}</h3>
+        <ol class="guide-steps">
+            ${guideSteps}
+        </ol>
+      </section>
       <section class="section prose" aria-labelledby="formula-title">
         <h2 id="formula-title">${esc(c.formula.title)}</h2>
+        <ul class="formula-box">
+            ${equations}
+        </ul>
           ${formula}
+      </section>
+      <section class="section prose" aria-labelledby="interpret-title">
+        <h2 id="interpret-title">${esc(c.interpret.title)}</h2>
+        <ul class="guide-list">
+            ${interpretItems}
+        </ul>
+      </section>
+      <section class="section" aria-labelledby="examples-title">
+        <h2 id="examples-title">${esc(c.examples.title)}</h2>
+        <div class="example-grid">${examples}
+        </div>
       </section>
       ${affiliateBox(config, t, id)}
       <section class="section faq" aria-labelledby="faq-title">
@@ -107,8 +163,8 @@ export function clientI18n(t, id) {
   };
 }
 
-export function calcJsonLd({ t, config, id, path, alternates }) {
-  const abs = (p) => `${config.siteUrl.replace(/\/+$/, '')}${config.basePath ? `/${config.basePath.replace(/^\/+|\/+$/g, '')}` : ''}/${String(p).replace(/^\/+/, '')}`;
+export function calcJsonLd({ t, config, id, path }) {
+  const abs = (p) => absUrl(config, p);
   const c = t[id];
   const lang = t.meta.lang;
   return [
@@ -143,44 +199,79 @@ export function calcJsonLd({ t, config, id, path, alternates }) {
 }
 
 export function homeJsonLd({ t, config }) {
-  const abs = (p) => `${config.siteUrl.replace(/\/+$/, '')}${config.basePath ? `/${config.basePath.replace(/^\/+|\/+$/g, '')}` : ''}/${String(p).replace(/^\/+/, '')}`;
+  const abs = (p) => absUrl(config, p);
+  const lang = t.meta.lang;
+  return [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: t.site.name,
+      url: abs(`${lang}/`),
+      description: t.home.metaDescription,
+      inLanguage: lang,
+      publisher: { '@type': 'Organization', name: t.site.name, url: abs(`${lang}/`) },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: t.home.cta,
+      itemListElement: CALC_IDS.map((id, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        name: t[id].h1,
+        url: abs(calcPath(lang, t, id)),
+      })),
+    },
+  ];
+}
+
+export function privacyJsonLd({ t, config, path }) {
+  const abs = (p) => absUrl(config, p);
   const lang = t.meta.lang;
   return [{
     '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: t.site.name,
-    url: abs(`${lang}/`),
-    description: t.site.description,
-    inLanguage: lang,
-    publisher: { '@type': 'Organization', name: t.site.name, url: abs('') },
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: t.nav.home, item: abs(`${lang}/`) },
+      { '@type': 'ListItem', position: 2, name: t.privacy.h1, item: abs(path) },
+    ],
   }];
 }
 
 /* ---------- privacy ---------- */
 export function privacyPage({ t }) {
+  const lang = t.meta.lang;
   const p = t.privacy;
+  const root = rootPrefix(`${lang}/${p.slug}/`);
   const date = new Date().toISOString().slice(0, 10);
   return `
+      <nav class="breadcrumb" aria-label="${esc(t.nav.breadcrumb)}">
+        <ol><li><a href="${root}${lang}/">${esc(t.nav.home)}</a></li><li aria-current="page">${esc(p.h1)}</li></ol>
+      </nav>
       <header class="page-head">
         <h1>${esc(p.h1)}</h1>
         <p class="lead">${esc(p.updated.replace('{date}', date))}</p>
       </header>
       <div class="prose">
-        ${p.sections.map((s) => `<section><h2>${esc(s.title)}</h2><p>${esc(s.text)}</p></section>`).join('\n        ')}
+        ${p.sections.map((s) => `<section><h2>${esc(s.title)}</h2><p>${formatParagraphWithLinks(s.text)}</p></section>`).join('\n        ')}
       </div>`;
 }
 
 /* ---------- 404 ---------- */
-export function notFoundPage({ t, config }) {
+export function notFoundPage({ t, dicts, config }) {
   const lang = t.meta.lang;
-  // 404 is served from the site root → use base-path-absolute links so it works from any depth
+  const other = t.meta.otherLang;
+  const tOther = dicts[other];
+  // 404 is served from the site root → use base-path-absolute links so it works from any depth.
   const base = config.basePath ? `/${config.basePath.replace(/^\/+|\/+$/g, '')}/` : '/';
   return `
       <div class="center-page">
         <h1>${esc(t.notFound.h1)}</h1>
         <p class="lead">${esc(t.notFound.text)}</p>
+        ${tOther ? `<p class="lead" lang="${esc(other)}">${esc(tOther.notFound.text)}</p>` : ''}
         <div class="lang-choice">
-          <a class="btn btn-primary" href="${base}${lang}/">${esc(t.notFound.cta)}</a>
+          <a class="btn btn-primary" href="${base}${lang}/">${esc(t.notFound.cta)} (${esc(t.meta.langName)})</a>
+          ${tOther ? `<a class="btn btn-ghost" href="${base}${other}/" hreflang="${esc(other)}" lang="${esc(other)}">${esc(tOther.notFound.cta)} (${esc(tOther.meta.langName)})</a>` : ''}
         </div>
       </div>`;
 }
@@ -189,21 +280,27 @@ export function notFoundPage({ t, config }) {
 export function rootRedirect({ dicts, config }) {
   const langs = Object.keys(dicts);
   const def = config.defaultLang;
-  const abs = (p) => `${config.siteUrl.replace(/\/+$/, '')}${config.basePath ? `/${config.basePath.replace(/^\/+|\/+$/g, '')}` : ''}/${String(p).replace(/^\/+/, '')}`;
-  const links = langs.map((l) => `<a class="btn ${l === def ? 'btn-primary' : 'btn-ghost'}" href="${l}/" hreflang="${l}" lang="${l}">${esc(dicts[l].meta.langName)}</a>`).join('\n          ');
+  const abs = (p) => absUrl(config, p);
+  const verification = verificationTags(config);
+  const links = langs.map((l) => `<a class="btn ${l === def ? 'btn-primary' : 'btn-ghost'}" href="${esc(l)}/" hreflang="${esc(l)}" lang="${esc(l)}">${esc(dicts[l].meta.langName)}</a>`).join('\n          ');
+  const headLines = [
+    '<meta charset="utf-8">',
+    '<meta name="viewport" content="width=device-width, initial-scale=1">',
+    `<title>BuildCalc — ${esc(dicts[def].site.tagline)}</title>`,
+    `<meta name="description" content="${esc(dicts[def].site.description)}">`,
+    '<meta name="robots" content="noindex, follow">',
+    `<link rel="canonical" href="${esc(abs(`${def}/`))}">`,
+    ...langs.map((l) => `<link rel="alternate" hreflang="${esc(l)}" href="${esc(abs(`${l}/`))}">`),
+    `<link rel="alternate" hreflang="x-default" href="${esc(abs(`${def}/`))}">`,
+    verification,
+    '<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">',
+    '<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">',
+    '<link rel="stylesheet" href="assets/css/styles.css">',
+  ].filter(Boolean).join('\n    ');
   return `<!DOCTYPE html>
-<html lang="${def}">
+<html lang="${esc(def)}">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BuildCalc — ${esc(dicts[def].site.tagline)}</title>
-    <meta name="description" content="${esc(dicts[def].site.description)}">
-    <meta name="robots" content="noindex, follow">
-    <link rel="canonical" href="${abs(`${def}/`)}">
-    ${langs.map((l) => `<link rel="alternate" hreflang="${l}" href="${abs(`${l}/`)}">`).join('\n    ')}
-    <link rel="alternate" hreflang="x-default" href="${abs('')}">
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    ${headLines}
     <script>
       (function () {
         var supported = ${JSON.stringify(langs)};
@@ -217,10 +314,10 @@ export function rootRedirect({ dicts, config }) {
             if (supported.indexOf(code) !== -1) target = code;
           }
         }
-        location.replace((target || '${def}') + '/');
+        location.replace((target || '${esc(def)}') + '/');
       })();
     </script>
-    <noscript><meta http-equiv="refresh" content="0; url=${def}/"></noscript>
+    <noscript><meta http-equiv="refresh" content="0; url=${esc(def)}/"></noscript>
 </head>
 <body>
     <main class="container center-page">
