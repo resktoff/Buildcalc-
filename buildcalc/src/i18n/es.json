@@ -90,10 +90,10 @@
   },
   "concrete": {
     "slug": "hormigon",
-    "metaTitle": "Calculadora de hormigón: m³, yd³ y sacos | BuildCalc",
-    "metaDescription": "Calcula el volumen de hormigón para losas, zapatas y columnas en m³ o yd³, con desperdicio y número de sacos de premezclado. Gratis, con fórmulas explicadas.",
+    "metaTitle": "Calculadora de hormigón online: m³ y bolsas | BuildCalc",
+    "metaDescription": "Calcula cuánto hormigón necesitas para una losa, vereda, zapata o columna. Obtén el volumen en m³, el desperdicio y la cantidad de bolsas de cemento. Gratis y sin registro.",
     "h1": "Calculadora de hormigón",
-    "intro": "Calcula cuántos metros o yardas cúbicas de hormigón necesitas para una losa, zapata, vereda o columna, y cuántos sacos de premezclado comprar.",
+    "intro": "Calcula cuánto hormigón necesitas para construir una losa, hacer una vereda, rellenar zapatas o levantar columnas. Obtén el volumen en metros cúbicos (m³), agrega un porcentaje de desperdicio y estima la cantidad de bolsas de hormigón premezclado.",
     "shape": "Forma del elemento",
     "shapes": { "slab": "Losa / zapata (rectangular)", "cylinder": "Columna redonda (cilindro)" },
     "fields": {
