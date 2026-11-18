@@ -3,49 +3,61 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Paint Calculator: Gallons or Litres per Room | BuildCalc</title>
-    <meta name="description" content="Calculate how much paint you need for walls and ceilings in gallons or litres. Subtract doors and windows, set coats, coverage and waste. Free and accurate.">
+    <title>Paint Calculator (Gallons, Liters &amp; Cans) | BuildCalc</title>
+    <meta name="description" content="Calculate how many gallons or liters of paint you need based on room size, ceiling, coats, coverage and openings. Instant results.">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://buildcalc-c16f.onrender.com/en/paint/">
     <link rel="alternate" hreflang="es" href="https://buildcalc-c16f.onrender.com/es/pintura/">
     <link rel="alternate" hreflang="en" href="https://buildcalc-c16f.onrender.com/en/paint/">
     <link rel="alternate" hreflang="x-default" href="https://buildcalc-c16f.onrender.com/en/paint/">
-    <meta name="theme-color" content="#0f6fff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0a58ca" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: dark)">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="BuildCalc">
-    <meta property="og:title" content="Paint Calculator: Gallons or Litres per Room | BuildCalc">
-    <meta property="og:description" content="Calculate how much paint you need for walls and ceilings in gallons or litres. Subtract doors and windows, set coats, coverage and waste. Free and accurate.">
+    <meta property="og:title" content="Paint Calculator (Gallons, Liters &amp; Cans) | BuildCalc">
+    <meta property="og:description" content="Calculate how many gallons or liters of paint you need based on room size, ceiling, coats, coverage and openings. Instant results.">
     <meta property="og:url" content="https://buildcalc-c16f.onrender.com/en/paint/">
     <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="es_LA">
     <meta property="og:image" content="https://buildcalc-c16f.onrender.com/assets/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="BuildCalc — Construction Material Calculators">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Paint Calculator: Gallons or Litres per Room | BuildCalc">
-    <meta name="twitter:description" content="Calculate how much paint you need for walls and ceilings in gallons or litres. Subtract doors and windows, set coats, coverage and waste. Free and accurate.">
+    <meta name="twitter:title" content="Paint Calculator (Gallons, Liters &amp; Cans) | BuildCalc">
+    <meta name="twitter:description" content="Calculate how many gallons or liters of paint you need based on room size, ceiling, coats, coverage and openings. Instant results.">
     <meta name="twitter:image" content="https://buildcalc-c16f.onrender.com/assets/og-image.png">
-    
+    <meta name="twitter:image:alt" content="BuildCalc — Construction Material Calculators">
+    <meta name="google-site-verification" content="DwC7mmtmJrc3ZlKKbyxzmw41Pnn1XB9e0eYh8FcVAiI">
     <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
     <link rel="manifest" href="../../assets/site.webmanifest">
     <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="modulepreload" href="../../assets/js/ui/nav.js">
+    <link rel="modulepreload" href="../../assets/js/ui/common.js">
+    <link rel="modulepreload" href="../../assets/js/ui/calc-paint.js">
+    <link rel="modulepreload" href="../../assets/js/core/units.js">
+    <link rel="modulepreload" href="../../assets/js/core/validate.js">
+    <link rel="modulepreload" href="../../assets/js/core/format.js">
+    <link rel="modulepreload" href="../../assets/js/core/calculators/paint.js">
     <script type="module" src="../../assets/js/ui/app.js"></script>
-    <!-- analytics: set analytics.gaMeasurementId in site.config.json to enable Google Analytics -->
-    
-    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"Paint calculator","url":"https://buildcalc-c16f.onrender.com/en/paint/","description":"Calculate how much paint you need for walls and ceilings in gallons or litres. Subtract doors and windows, set coats, coverage and waste. Free and accurate.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"BuildCalc","url":"https://buildcalc-c16f.onrender.com/en/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much paint do I need for a 12 × 10 ft room?","acceptedAnswer":{"@type":"Answer","text":"With 8 ft ceilings the walls are 352 ft²; after one door and one window about 316 ft² remain. Two coats at 350 ft²/gal need ≈ 1.8 gal, so two 1-gallon cans."}},{"@type":"Question","name":"How many coats of paint should I apply?","acceptedAnswer":{"@type":"Answer","text":"Two coats is the standard for an even finish. Over dark colours or new drywall you may need three, or a coat of primer."}},{"@type":"Question","name":"What is typical paint coverage?","acceptedAnswer":{"@type":"Answer","text":"Most latex and acrylic paints cover 300–400 ft² per gallon per coat (8–12 m² per litre). The exact figure is printed on the can."}},{"@type":"Question","name":"Does the calculator work for exteriors?","acceptedAnswer":{"@type":"Answer","text":"Yes: use the “Area already known” mode with the façade surface and raise waste to 10–15% for textured stucco or siding."}}]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://buildcalc-c16f.onrender.com/en/"},{"@type":"ListItem","position":2,"name":"Paint calculator","item":"https://buildcalc-c16f.onrender.com/en/paint/"}]}]</script>
+    <!-- analytics: disabled (set analytics.gaMeasurementId in site.config.json when ready) -->
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"Paint calculator","url":"https://buildcalc-c16f.onrender.com/en/paint/","description":"Calculate how many gallons or liters of paint you need based on room size, ceiling, coats, coverage and openings. Instant results.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"BuildCalc","url":"https://buildcalc-c16f.onrender.com/en/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much area does 1 gallon of paint cover?","acceptedAnswer":{"@type":"Answer","text":"Standard interior latex paint typically covers 350 to 400 ft² per gallon per coat on smooth, primed drywall. Textured or porous surfaces may drop to 250–300 ft²/gal."}},{"@type":"Question","name":"How many coats of paint do I need?","acceptedAnswer":{"@type":"Answer","text":"Two coats are standard for even color. Going from a dark color to a light one, or painting bare drywall without primer, may require 3 coats."}},{"@type":"Question","name":"Should I include the ceiling in the same calculation?","acceptedAnswer":{"@type":"Answer","text":"Only if you are using the exact same paint for both walls and ceiling. If the ceiling uses flat white ceiling paint, calculate it separately in area mode."}},{"@type":"Question","name":"Why does the calculator round containers up?","acceptedAnswer":{"@type":"Answer","text":"Because paint is sold in fixed cans or pails. Rounding up ensures you have enough to finish the final wall."}},{"@type":"Question","name":"What if I prefer not to subtract doors and windows?","acceptedAnswer":{"@type":"Answer","text":"Leave both fields at 0. Keeping them at 0 gives you a small buffer for trim and future touch-ups."}}]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://buildcalc-c16f.onrender.com/en/"},{"@type":"ListItem","position":2,"name":"Paint calculator","item":"https://buildcalc-c16f.onrender.com/en/paint/"}]}]</script>
 </head>
 <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="../../en/" aria-label="BuildCalc — Home"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3" y="3" width="26" height="26" rx="6" fill="#0f6fff"/><path d="M9 22V11h5.5a3 3 0 0 1 0 6H9m0 0h6.5a3 3 0 0 1 0 6H9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 12h5M19 16h5M19 20h5" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg><span>Build<b>Calc</b></span></a>
-        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <a class="brand" href="../../en/" aria-label="BuildCalc — Home"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3" y="3" width="26" height="26" rx="6" fill="#0a58ca"/><path d="M9 22V11h5.5a3 3 0 0 1 0 6H9m0 0h6.5a3 3 0 0 1 0 6H9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 12h5M19 16h5M19 20h5" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".85"/></svg><span>Build<b>Calc</b></span></a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
         <nav id="site-nav" class="site-nav" aria-label="Calculators">
           <ul>
             <li><a href="../../en/">Home</a></li>
             <li><a href="../../en/concrete/">Concrete</a></li>
             <li><a href="../../en/paint/" aria-current="page">Paint</a></li>
-            <li><a href="../../en/flooring/">Flooring</a></li>
-            <li><a class="lang-switch" href="../../es/pintura/" hreflang="es" lang="es" rel="alternate" aria-label="View this page in Spanish">🌐 Español</a></li>
+            <li><a href="../../en/flooring/">Flooring &amp; Tiles</a></li>
+            <li><a class="lang-switch" href="../../es/pintura/" hreflang="es" lang="es" rel="alternate" data-lang-switch aria-label="Cambiar a Español">🌐 Español</a></li>
           </ul>
         </nav>
       </div>
@@ -57,7 +69,7 @@
       </nav>
       <header class="page-head">
         <h1 id="calc-title">Paint calculator</h1>
-        <p class="lead">Find out how many gallons or litres of paint to buy for a room, subtracting doors and windows and adjusting the number of coats and your paint&#39;s coverage.</p>
+        <p class="lead">Estimate gallons or liters of paint for walls and ceilings, subtracting doors and windows and rounding up by container size.</p>
       </header>
       <div class="calc-layout">
         <div>
@@ -65,8 +77,8 @@
       <fieldset class="unit-fieldset">
         <legend>Unit system</legend>
         <div class="segmented" role="radiogroup" aria-label="Unit system">
-          <label><input type="radio" name="units" value="metric" checked><span>Metric</span></label>
-          <label><input type="radio" name="units" value="imperial"><span>Imperial</span></label>
+          <label><input type="radio" name="units" value="metric" checked><span>Metric (m, cm, L)</span></label>
+          <label><input type="radio" name="units" value="imperial"><span>Imperial (ft, in, gal)</span></label>
         </div>
       </fieldset>
       <fieldset>
@@ -103,7 +115,7 @@
       </div>
       <div data-show-when="mode=area" hidden>
         <div class="field" data-field="area">
-          <label for="p-area">Area to paint <span class="unit" data-unit-role="area"></span></label>
+          <label for="p-area">By total surface area <span class="unit" data-unit-role="area"></span></label>
           <input id="p-area" name="area" type="number" inputmode="decimal" step="any" min="0" data-role="area" required aria-describedby="p-area-err" data-placeholder-metric="30" data-placeholder-imperial="320" autocomplete="off">
           
           <p class="field-error" id="p-area-err" hidden></p>
@@ -111,15 +123,15 @@
       </div>
       <div class="field-grid">
         <div class="field" data-field="doors">
-          <label for="p-doors">Doors</label>
+          <label for="p-doors">Doors to subtract</label>
           <input id="p-doors" name="doors" type="number" inputmode="numeric" step="1" min="0" data-role="none" aria-describedby="p-doors-help p-doors-err" data-default-metric="1" data-default-imperial="1" autocomplete="off">
-          <p class="field-help" id="p-doors-help" data-help-for="doors">… is subtracted per door.</p>
+          <p class="field-help" id="p-doors-help" data-help-for="doors">Standard deduction: ~20 ft² (1.85 m²) per door.</p>
           <p class="field-error" id="p-doors-err" hidden></p>
         </div>
         <div class="field" data-field="windows">
-          <label for="p-windows">Windows</label>
+          <label for="p-windows">Windows to subtract</label>
           <input id="p-windows" name="windows" type="number" inputmode="numeric" step="1" min="0" data-role="none" aria-describedby="p-windows-help p-windows-err" data-default-metric="1" data-default-imperial="1" autocomplete="off">
-          <p class="field-help" id="p-windows-help" data-help-for="windows">… is subtracted per window.</p>
+          <p class="field-help" id="p-windows-help" data-help-for="windows">Standard deduction: ~15 ft² (1.40 m²) per window.</p>
           <p class="field-error" id="p-windows-err" hidden></p>
         </div>
       </div>
@@ -131,9 +143,9 @@
           <p class="field-error" id="p-coats-err" hidden></p>
         </div>
         <div class="field" data-field="coverage">
-          <label for="p-coverage">Paint coverage <span class="unit" data-unit-role="coverage"></span></label>
+          <label for="p-coverage">Coverage per coat <span class="unit" data-unit-role="coverage"></span></label>
           <input id="p-coverage" name="coverage" type="number" inputmode="decimal" step="any" min="0" data-role="coverage" required aria-describedby="p-coverage-help p-coverage-err" data-default-metric="10" data-default-imperial="350" autocomplete="off">
-          <p class="field-help" id="p-coverage-help">Printed on the can. Typical: 300–400 ft²/gal (8–12 m²/L) per coat.</p>
+          <p class="field-help" id="p-coverage-help">Typical: 350–400 ft²/gal (10–12 m²/L). Check the can label.</p>
           <p class="field-error" id="p-coverage-err" hidden></p>
         </div>
       </div>
@@ -155,63 +167,110 @@
       <p class="error-summary" data-error-summary role="alert" hidden></p>
       <div class="form-actions">
         <button type="submit" class="btn btn-primary">Results</button>
-        <button type="reset" class="btn btn-ghost">Clear</button>
+        <button type="reset" class="btn btn-ghost">Reset</button>
       </div>
     </form>
         </div>
         <section class="results card" id="results" data-state="empty" aria-labelledby="results-title" aria-live="polite">
           <h2 id="results-title">Results</h2>
-          <div data-results-body><p class="results-placeholder">Fill in the fields to see your result instantly.</p></div>
+          <div data-results-body><p class="results-placeholder">Enter your dimensions to see instant results.</p></div>
           <div class="results-actions">
-            <button type="button" class="btn btn-ghost btn-sm" data-copy>Copy results</button>
-            <button type="button" class="btn btn-ghost btn-sm" data-print>Print / save as PDF</button>
+            <button type="button" class="btn btn-ghost btn-sm" data-copy>Copy result</button>
+            <button type="button" class="btn btn-ghost btn-sm" data-print>Print</button>
+            <span class="visually-hidden" role="status" aria-live="polite" data-copy-status></span>
           </div>
         </section>
       </div>
-      <a class="result-bar" href="#results" data-result-bar hidden aria-label="Results">
-        <span class="result-bar-label">Paint needed (with waste)</span>
+      <a class="result-bar" href="#results" data-result-bar hidden>
+        <span class="result-bar-label">Paint needed</span>
         <strong class="result-bar-value" data-result-bar-value></strong>
         <span class="result-bar-cta" aria-hidden="true">↓</span>
       </a>
       <!-- ad-slot:calc-below-results (disabled) -->
+      <section class="section prose" aria-labelledby="guide-title">
+        <h2 id="guide-title">What it is for and how to use it</h2>
+        <p>This calculator tells you how much paint to buy for a room, apartment or exterior wall so you avoid extra trips to the store or leftover buckets.</p>
+        <h3>How to use it step by step</h3>
+        <ol class="guide-steps">
+            <li>Choose between entering room dimensions (length, width, height) or total surface area.</li>
+            <li>Decide whether to include the ceiling and enter the number of doors and windows.</li>
+            <li>Set the number of coats (usually 2) and the coverage listed on your paint can.</li>
+            <li>Add a waste allowance (5%–10% for roller absorption and touch-ups).</li>
+            <li>Select a can or pail size to see the exact container count rounded up.</li>
+        </ol>
+      </section>
       <section class="section prose" aria-labelledby="formula-title">
-        <h2 id="formula-title">How paint is calculated</h2>
-          <p>First we get the wall area: perimeter × height = 2 × (length + width) × height. If you tick the ceiling, length × width is added.</p>
-          <p>We subtract openings using typical sizes: 20 ft² (1.9 m²) per door and 16 ft² (1.5 m²) per window. The result is the net area to paint.</p>
-          <p>The net area is multiplied by the number of coats and divided by the paint coverage (ft² per gallon or m² per litre) stated by the manufacturer.</p>
-          <p>Finally waste is added and the total is rounded up to whole containers of the chosen size. Rough or very absorbent surfaces may need up to 20% more.</p>
+        <h2 id="formula-title">Formula and calculation criteria</h2>
+        <ul class="formula-box">
+            <li><code>Walls = 2 × (Length + Width) × Height</code></li>
+            <li><code>Net area = Walls + Ceiling − Openings</code></li>
+            <li><code>Paint = (Net area × Coats / Coverage) × (1 + Waste / 100)</code></li>
+            <li><code>Containers = ceil(Paint / Container_size)</code></li>
+        </ul>
+          <p>Room perimeter is multiplied by wall height to get gross wall area. If ceiling is checked, Length × Width is added.</p>
+          <p>Standard opening deductions (20 ft² / 1.85 m² per door and 15 ft² / 1.40 m² per window) are subtracted.</p>
+          <p>Net area is multiplied by the number of coats and divided by single-coat coverage.</p>
+          <p>Waste allowance is applied and the total is rounded up to whole cans or pails.</p>
+      </section>
+      <section class="section prose" aria-labelledby="interpret-title">
+        <h2 id="interpret-title">How to interpret the results</h2>
+        <ul class="guide-list">
+            <li>Net area (per coat): actual square footage or square meters covered in one pass.</li>
+            <li>Total area to cover: net area multiplied by the number of coats.</li>
+            <li>Paint needed: total gallons or liters including waste allowance.</li>
+            <li>Containers needed: whole number of cans or pails rounded up.</li>
+        </ul>
+      </section>
+      <section class="section" aria-labelledby="examples-title">
+        <h2 id="examples-title">Practical examples</h2>
+        <div class="example-grid">
+          <article class="card example-card">
+            <h3>4 × 3 m bedroom at 2.5 m height (2 coats)</h3>
+            <p>Walls only, 1 door and 1 window, 10 m²/L coverage and 0% waste.</p>
+            <p class="example-calc">Walls = 35 m² − 3.25 m² openings = 31.75 m² × 2 coats = 63.5 m² ÷ 10 m²/L</p>
+            <p class="example-result">Result: 6.35 L of paint (2 cans of 4 L).</p>
+          </article>
+          <article class="card example-card">
+            <h3>400 ft² wall area at 350 ft²/gal (1 coat)</h3>
+            <p>Direct area mode, 1 coat, no openings, 0% waste.</p>
+            <p class="example-calc">400 ft² ÷ 350 ft²/gal = 1.143 gal</p>
+            <p class="example-result">Result: 1.143 gal of paint (2 cans of 1 gal).</p>
+          </article>
+        </div>
       </section>
       
       <section class="section faq" aria-labelledby="faq-title">
         <h2 id="faq-title">Frequently asked questions</h2>
-          <details><summary>How much paint do I need for a 12 × 10 ft room?</summary><p>With 8 ft ceilings the walls are 352 ft²; after one door and one window about 316 ft² remain. Two coats at 350 ft²/gal need ≈ 1.8 gal, so two 1-gallon cans.</p></details>
-          <details><summary>How many coats of paint should I apply?</summary><p>Two coats is the standard for an even finish. Over dark colours or new drywall you may need three, or a coat of primer.</p></details>
-          <details><summary>What is typical paint coverage?</summary><p>Most latex and acrylic paints cover 300–400 ft² per gallon per coat (8–12 m² per litre). The exact figure is printed on the can.</p></details>
-          <details><summary>Does the calculator work for exteriors?</summary><p>Yes: use the “Area already known” mode with the façade surface and raise waste to 10–15% for textured stucco or siding.</p></details>
+          <details><summary>How much area does 1 gallon of paint cover?</summary><p>Standard interior latex paint typically covers 350 to 400 ft² per gallon per coat on smooth, primed drywall. Textured or porous surfaces may drop to 250–300 ft²/gal.</p></details>
+          <details><summary>How many coats of paint do I need?</summary><p>Two coats are standard for even color. Going from a dark color to a light one, or painting bare drywall without primer, may require 3 coats.</p></details>
+          <details><summary>Should I include the ceiling in the same calculation?</summary><p>Only if you are using the exact same paint for both walls and ceiling. If the ceiling uses flat white ceiling paint, calculate it separately in area mode.</p></details>
+          <details><summary>Why does the calculator round containers up?</summary><p>Because paint is sold in fixed cans or pails. Rounding up ensures you have enough to finish the final wall.</p></details>
+          <details><summary>What if I prefer not to subtract doors and windows?</summary><p>Leave both fields at 0. Keeping them at 0 gives you a small buffer for trim and future touch-ups.</p></details>
       </section>
       <section class="section related" aria-labelledby="related-title">
         <h2 id="related-title">Other calculators</h2>
-        <ul><li><a href="../../en/concrete/">Concrete calculator</a></li><li><a href="../../en/flooring/">Flooring calculator</a></li></ul>
+        <ul><li><a href="../../en/concrete/">Concrete calculator</a></li><li><a href="../../en/flooring/">Flooring &amp; tile calculator</a></li></ul>
       </section>
     </main>
     <footer class="site-footer">
       <div class="container footer-inner">
         <div>
-          <p><strong>BuildCalc</strong> — Free construction calculators</p>
-          <p>BuildCalc is an estimating tool. Always confirm quantities with your supplier or contractor before purchasing.</p>
+          <p><strong>BuildCalc</strong> — Construction Material Calculators</p>
+          <p>Estimates run locally in your browser. Always verify manufacturer specifications before ordering materials.</p>
           <p>© 2026 BuildCalc. All rights reserved.</p>
         </div>
-        <nav aria-label="Footer">
+        <nav aria-label="Footer navigation">
           <ul>
+            <li><a href="../../en/">Home</a></li>
             <li><a href="../../en/concrete/">Concrete</a></li>
-            <li><a href="../../en/paint/">Paint</a></li>
-            <li><a href="../../en/flooring/">Flooring</a></li>
+            <li><a href="../../en/paint/" aria-current="page">Paint</a></li>
+            <li><a href="../../en/flooring/">Flooring &amp; Tiles</a></li>
             <li><a href="../../en/privacy/">Privacy</a></li>
-            <li><a href="../../es/pintura/" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../es/pintura/" hreflang="es" lang="es" rel="alternate" data-lang-switch>Español</a></li>
           </ul>
         </nav>
       </div>
     </footer>
-    <script type="application/json" id="bc-i18n">{"lang":"en","locale":"en","units":{"legend":"Unit system","metric":"Metric","imperial":"Imperial","m":"m","cm":"cm","mm":"mm","ft":"ft","in":"in","m2":"m²","ft2":"ft²","m3":"m³","yd3":"yd³","ft3":"ft³","L":"L","gal":"gal","m2PerL":"m²/L","ft2PerGal":"ft²/gal","pieces":"pieces","boxes":"boxes","bags":"bags","cans":"cans"},"common":{"results":"Results","resultsEmpty":"Fill in the fields to see your result instantly.","resultsInvalid":"Fix the highlighted fields to see the result.","howCalculated":"How it was calculated","formulaSection":"Formulas & method","faq":"Frequently asked questions","related":"Other calculators","waste":"Waste (%)","wasteHelp":"Extra margin for cuts, spills and surprises. 5–10% is typical.","quantity":"Number of elements","quantityHelp":"Count of identical pieces (e.g. 4 equal columns).","reset":"Clear","print":"Print / save as PDF","copy":"Copy results","copied":"Copied","optional":"optional","required":"required","mode":"What do you know?","modeRoom":"Room dimensions","modeArea":"Area already known","disclaimer":"Estimate only. Confirm quantities with your supplier.","errors":{"required":"This field is required.","nan":"Enter a valid number.","min":"Must be greater than {min}.","minInclusive":"Must be {min} or more.","max":"Too large (maximum {max}). Check your units.","integer":"Must be a whole number."},"summaryError":"{count} field(s) need attention."},"calc":{"fields":{"length":"Room length","width":"Room width","height":"Wall height","area":"Area to paint","ceiling":"Include ceiling","doors":"Doors","doorsHelp":"{area} is subtracted per door.","windows":"Windows","windowsHelp":"{area} is subtracted per window.","coats":"Number of coats","coverage":"Paint coverage","coverageHelp":"Printed on the can. Typical: 300–400 ft²/gal (8–12 m²/L) per coat.","can":"Container size","canNone":"Don't calculate containers"},"results":{"total":"Paint needed (with waste)","net":"Paint without waste","area":"Net area to paint","areaCoats":"Total area ({coats} coats)","openings":"Subtracted for openings","cans":"{can} containers","openingsWarning":"Openings exceed the given area: check your measurements."},"steps":{"wallArea":"Wall area = 2 × (length + width) × height = 2 × ({lengthM} + {widthM}) × {heightM} = {wallAreaM2}","ceilingArea":"Ceiling area = length × width = {lengthM} × {widthM} = {ceilingAreaM2}","directArea":"Given area = {areaM2}","openings":"Openings = {doors} doors × {doorAreaM2} + {windows} windows × {windowAreaM2} = {openingsAreaM2}","netArea":"Net area = {grossAreaM2} − {openingsAreaM2} = {netAreaM2}","coats":"Total area = {netAreaM2} × {coats} coats = {totalAreaM2}","litres":"Paint = {totalAreaM2} ÷ {coverageM2PerL} = {litresNet}","waste":"Waste = {litresNet} × {wastePercent}% = {litresWaste} → Total = {litresTotal}","cans":"Containers = {litresTotal} ÷ {canLitres} ({canLabel}) = {cans} (rounded up)"}}}</script>
+    <script type="application/json" id="bc-i18n">{"lang":"en","locale":"en-US","units":{"metric":"Metric (m, cm, L)","imperial":"Imperial (ft, in, gal)","m":"m","cm":"cm","m2":"m²","m3":"m³","L":"L","ft":"ft","in":"in","ft2":"ft²","ft3":"ft³","yd3":"yd³","gal":"gal","m2PerL":"m²/L","ft2PerGal":"ft²/gal","bag25":"25 kg bags","bag50":"50 kg bags","bag40":"40 lb bags","bag60":"60 lb bags","bag80":"80 lb bags","can1L":"1 L cans","can4L":"4 L cans","can20L":"20 L pails","can1qt":"1 qt cans","can1gal":"1 gal cans","can5gal":"5 gal pails","none":"Do not calculate containers","legend":"Unit system","mm":"mm","pieces":"pieces","boxes":"boxes","bags":"bags","cans":"cans"},"common":{"unitSystem":"Unit system","calculate":"Calculate","reset":"Reset","results":"Results","resultsEmpty":"Enter your dimensions to see instant results.","resultsInvalid":"Fix the highlighted fields to view your result.","copy":"Copy result","copied":"Copied!","print":"Print","steps":"Calculation breakdown","faq":"Frequently asked questions","related":"Other calculators","summaryError":"There is {count} field(s) with errors. Please review your entries.","errors":{"required":"This field is required.","nan":"Enter a valid number.","min":"Must be greater than {min}.","minInclusive":"Must be {min} or greater.","max":"Cannot exceed {max}.","integer":"Enter a whole number."},"howCalculated":"How it was calculated","formulaSection":"Formulas & method","waste":"Waste (%)","wasteHelp":"Extra margin for cuts, spills and surprises. 5–10% is typical.","quantity":"Number of elements","quantityHelp":"Count of identical pieces (e.g. 4 equal columns).","optional":"optional","required":"required","mode":"What do you know?","modeRoom":"Room dimensions","modeArea":"Area already known","disclaimer":"Estimate only. Confirm quantities with your supplier."},"calc":{"fields":{"mode":"Calculation mode","room":"By room dimensions (length, width, height)","area":"By total surface area","length":"Room length","width":"Room width","height":"Wall height","wallArea":"Surface area to paint","includeCeiling":"Include ceiling in calculation","doors":"Doors to subtract","doorsHelp":"Standard deduction: ~20 ft² (1.85 m²) per door.","windows":"Windows to subtract","windowsHelp":"Standard deduction: ~15 ft² (1.40 m²) per window.","coats":"Number of coats","coverage":"Coverage per coat","coverageHelp":"Typical: 350–400 ft²/gal (10–12 m²/L). Check the can label.","waste":"Waste allowance (%)","canSize":"Can / pail size","ceiling":"Include ceiling","can":"Container size","canNone":"Don't calculate containers"},"results":{"netArea":"Net area (per coat)","paintedArea":"Total area to cover","total":"Paint needed","cans":"Containers needed","openingsClamped":"Opening deductions exceeded wall area and were clamped to 0.","net":"Paint without waste","area":"Net area to paint","areaCoats":"Total area ({coats} coats)","openings":"Subtracted for openings","openingsWarning":"Openings exceed the given area: check your measurements."},"steps":{"room":"Walls = 2 × ({l} + {w}) × {h} = {walls}","ceiling":"Ceiling = {l} × {w} = {ceiling}","openings":"Openings = {doors} doors + {windows} windows = {openings}","net":"Net area = {net} × {coats} coat(s) = {painted}","paint":"Paint = ({painted} ÷ {cov}) × {factor} = {total}","cans":"Containers = {total} ÷ {can} = {raw} → {cans} container(s)","wallArea":"Wall area = 2 × (length + width) × height = 2 × ({lengthM} + {widthM}) × {heightM} = {wallAreaM2}","ceilingArea":"Ceiling area = length × width = {lengthM} × {widthM} = {ceilingAreaM2}","directArea":"Given area = {areaM2}","netArea":"Net area = {grossAreaM2} − {openingsAreaM2} = {netAreaM2}","coats":"Total area = {netAreaM2} × {coats} coats = {totalAreaM2}","litres":"Paint = {totalAreaM2} ÷ {coverageM2PerL} = {litresNet}","waste":"Waste = {litresNet} × {wastePercent}% = {litresWaste} → Total = {litresTotal}"}}}</script>
 </body>
 </html>

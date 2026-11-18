@@ -3,61 +3,73 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Calculadora de pisos: baldosas, cajas y desperdicio | BuildCalc</title>
-    <meta name="description" content="Calcula los m² o ft² de piso, cuántas baldosas, porcelanatos o tablas necesitas y el número de cajas, con desperdicio por cortes. Gratis y en español.">
+    <title>Calculadora de pisos, cerámicos y cajas | BuildCalc</title>
+    <meta name="description" content="Calculá m² de piso, margen de desperdicio, cantidad de piezas y cajas completas para cerámicos, porcelanato o pisos flotantes.">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://buildcalc-c16f.onrender.com/es/pisos/">
     <link rel="alternate" hreflang="es" href="https://buildcalc-c16f.onrender.com/es/pisos/">
     <link rel="alternate" hreflang="en" href="https://buildcalc-c16f.onrender.com/en/flooring/">
     <link rel="alternate" hreflang="x-default" href="https://buildcalc-c16f.onrender.com/en/flooring/">
-    <meta name="theme-color" content="#0f6fff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0a58ca" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: dark)">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="BuildCalc">
-    <meta property="og:title" content="Calculadora de pisos: baldosas, cajas y desperdicio | BuildCalc">
-    <meta property="og:description" content="Calcula los m² o ft² de piso, cuántas baldosas, porcelanatos o tablas necesitas y el número de cajas, con desperdicio por cortes. Gratis y en español.">
+    <meta property="og:title" content="Calculadora de pisos, cerámicos y cajas | BuildCalc">
+    <meta property="og:description" content="Calculá m² de piso, margen de desperdicio, cantidad de piezas y cajas completas para cerámicos, porcelanato o pisos flotantes.">
     <meta property="og:url" content="https://buildcalc-c16f.onrender.com/es/pisos/">
-    <meta property="og:locale" content="es_ES">
+    <meta property="og:locale" content="es_LA">
+    <meta property="og:locale:alternate" content="en_US">
     <meta property="og:image" content="https://buildcalc-c16f.onrender.com/assets/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="BuildCalc — Calculadoras de materiales de construcción">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Calculadora de pisos: baldosas, cajas y desperdicio | BuildCalc">
-    <meta name="twitter:description" content="Calcula los m² o ft² de piso, cuántas baldosas, porcelanatos o tablas necesitas y el número de cajas, con desperdicio por cortes. Gratis y en español.">
+    <meta name="twitter:title" content="Calculadora de pisos, cerámicos y cajas | BuildCalc">
+    <meta name="twitter:description" content="Calculá m² de piso, margen de desperdicio, cantidad de piezas y cajas completas para cerámicos, porcelanato o pisos flotantes.">
     <meta name="twitter:image" content="https://buildcalc-c16f.onrender.com/assets/og-image.png">
-    
+    <meta name="twitter:image:alt" content="BuildCalc — Calculadoras de materiales de construcción">
+    <meta name="google-site-verification" content="DwC7mmtmJrc3ZlKKbyxzmw41Pnn1XB9e0eYh8FcVAiI">
     <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
     <link rel="manifest" href="../../assets/site.webmanifest">
     <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="modulepreload" href="../../assets/js/ui/nav.js">
+    <link rel="modulepreload" href="../../assets/js/ui/common.js">
+    <link rel="modulepreload" href="../../assets/js/ui/calc-flooring.js">
+    <link rel="modulepreload" href="../../assets/js/core/units.js">
+    <link rel="modulepreload" href="../../assets/js/core/validate.js">
+    <link rel="modulepreload" href="../../assets/js/core/format.js">
+    <link rel="modulepreload" href="../../assets/js/core/calculators/flooring.js">
     <script type="module" src="../../assets/js/ui/app.js"></script>
-    <!-- analytics: set analytics.gaMeasurementId in site.config.json to enable Google Analytics -->
-    
-    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de pisos","url":"https://buildcalc-c16f.onrender.com/es/pisos/","description":"Calcula los m² o ft² de piso, cuántas baldosas, porcelanatos o tablas necesitas y el número de cajas, con desperdicio por cortes. Gratis y en español.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"es","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"BuildCalc","url":"https://buildcalc-c16f.onrender.com/es/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántas baldosas de 60×60 necesito para 20 m²?","acceptedAnswer":{"@type":"Answer","text":"Cada pieza cubre 0.36 m². Con 10 % de desperdicio el área a comprar es 22 m² → 62 piezas; con cajas de 4 unidades, 16 cajas."}},{"@type":"Question","name":"¿Qué desperdicio debo considerar para piso laminado o vinílico?","acceptedAnswer":{"@type":"Answer","text":"Entre 7 y 10 % en colocación recta. Si el ambiente tiene muchas esquinas o se coloca en diagonal, sube al 15 %."}},{"@type":"Question","name":"¿Debo restar el área de muebles o la cocina?","acceptedAnswer":{"@type":"Answer","text":"No para los muebles móviles. Sí puedes restar islas de cocina o muebles empotrados permanentes usando el modo «Área ya conocida»."}},{"@type":"Question","name":"¿La calculadora considera las juntas entre baldosas?","acceptedAnswer":{"@type":"Answer","text":"No: la junta (2–5 mm) añade un margen pequeño a tu favor que ya queda cubierto por el porcentaje de desperdicio."}}]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://buildcalc-c16f.onrender.com/es/"},{"@type":"ListItem","position":2,"name":"Calculadora de pisos","item":"https://buildcalc-c16f.onrender.com/es/pisos/"}]}]</script>
+    <!-- analytics: disabled (set analytics.gaMeasurementId in site.config.json when ready) -->
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de pisos y baldosas","url":"https://buildcalc-c16f.onrender.com/es/pisos/","description":"Calculá m² de piso, margen de desperdicio, cantidad de piezas y cajas completas para cerámicos, porcelanato o pisos flotantes.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"es","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"BuildCalc","url":"https://buildcalc-c16f.onrender.com/es/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuánto desperdicio se calcula para cerámicos o porcelanato?","acceptedAnswer":{"@type":"Answer","text":"Para colocación recta en ambientes cuadrados o rectangulares se recomienda 10 %. Para colocación en diagonal, formato espiga o ambientes con muchos recortes conviene subir a 15 %."}},{"@type":"Question","name":"¿Por qué conviene comprar alguna caja de más del mismo lote?","acceptedAnswer":{"@type":"Answer","text":"Los cerámicos y porcelanatos pueden variar levemente de tono y calibre entre partidas. Tener 1 o 2 cajas extra del mismo lote evita diferencias visuales si necesitás hacer un arreglo en el futuro."}},{"@type":"Question","name":"¿La calculadora descuenta la junta entre baldosas?","acceptedAnswer":{"@type":"Answer","text":"Las medidas nominales comerciales suelen incluir la junta estándar, por lo que calcular con la medida de la pieza y un 10 % de desperdicio cubre ampliamente la colocación."}},{"@type":"Question","name":"¿Sirve para pisos flotantes o vinílicos?","acceptedAnswer":{"@type":"Answer","text":"Sí. Podés usar el modo por superficie por caja (el dato más habitual en pisos flotantes y SPC) o ingresar el largo y ancho de cada tabla."}},{"@type":"Question","name":"¿Qué hago si mi ambiente tiene forma de L?","acceptedAnswer":{"@type":"Answer","text":"Dividí el ambiente en dos rectángulos, calculá la superficie de cada uno y sumalos para cargar el total en el modo 'Por superficie total directa'."}}]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://buildcalc-c16f.onrender.com/es/"},{"@type":"ListItem","position":2,"name":"Calculadora de pisos y baldosas","item":"https://buildcalc-c16f.onrender.com/es/pisos/"}]}]</script>
 </head>
 <body>
-    <a class="skip-link" href="#main">Saltar al contenido</a>
+    <a class="skip-link" href="#main">Ir al contenido principal</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="../../es/" aria-label="BuildCalc — Inicio"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3" y="3" width="26" height="26" rx="6" fill="#0f6fff"/><path d="M9 22V11h5.5a3 3 0 0 1 0 6H9m0 0h6.5a3 3 0 0 1 0 6H9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 12h5M19 16h5M19 20h5" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg><span>Build<b>Calc</b></span></a>
-        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menú"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <a class="brand" href="../../es/" aria-label="BuildCalc — Inicio"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3" y="3" width="26" height="26" rx="6" fill="#0a58ca"/><path d="M9 22V11h5.5a3 3 0 0 1 0 6H9m0 0h6.5a3 3 0 0 1 0 6H9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 12h5M19 16h5M19 20h5" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".85"/></svg><span>Build<b>Calc</b></span></a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menú"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
         <nav id="site-nav" class="site-nav" aria-label="Calculadoras">
           <ul>
             <li><a href="../../es/">Inicio</a></li>
             <li><a href="../../es/hormigon/">Hormigón</a></li>
             <li><a href="../../es/pintura/">Pintura</a></li>
-            <li><a href="../../es/pisos/" aria-current="page">Pisos</a></li>
-            <li><a class="lang-switch" href="../../en/flooring/" hreflang="en" lang="en" rel="alternate" aria-label="Ver esta página en inglés">🌐 English</a></li>
+            <li><a href="../../es/pisos/" aria-current="page">Pisos y baldosas</a></li>
+            <li><a class="lang-switch" href="../../en/flooring/" hreflang="en" lang="en" rel="alternate" data-lang-switch aria-label="Switch to English">🌐 English</a></li>
           </ul>
         </nav>
       </div>
     </header>
     <main id="main" class="container" tabindex="-1">
 
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol><li><a href="../../es/">Inicio</a></li><li aria-current="page">Calculadora de pisos</li></ol>
+      <nav class="breadcrumb" aria-label="Ruta de navegación">
+        <ol><li><a href="../../es/">Inicio</a></li><li aria-current="page">Calculadora de pisos y baldosas</li></ol>
       </nav>
       <header class="page-head">
-        <h1 id="calc-title">Calculadora de pisos</h1>
-        <p class="lead">Calcula el área de tu piso, la cantidad de baldosas, porcelanatos, tablas de laminado o vinílico y el número de cajas a comprar, con el margen de desperdicio adecuado para los cortes.</p>
+        <h1 id="calc-title">Calculadora de pisos y baldosas</h1>
+        <p class="lead">Calculá la superficie a cubrir, el desperdicio por cortes, la cantidad de piezas y las cajas completas de cerámicos, porcelanato o piso flotante.</p>
       </header>
       <div class="calc-layout">
         <div>
@@ -65,26 +77,26 @@
       <fieldset class="unit-fieldset">
         <legend>Sistema de unidades</legend>
         <div class="segmented" role="radiogroup" aria-label="Sistema de unidades">
-          <label><input type="radio" name="units" value="metric" checked><span>Métrico</span></label>
-          <label><input type="radio" name="units" value="imperial"><span>Imperial</span></label>
+          <label><input type="radio" name="units" value="metric" checked><span>Métrico (m, cm, L)</span></label>
+          <label><input type="radio" name="units" value="imperial"><span>Imperial (ft, in, gal)</span></label>
         </div>
       </fieldset>
       <fieldset>
-        <legend>¿Qué datos tienes?</legend>
+        <legend>Modo de entrada</legend>
         <div class="radio-list">
-          <label class="radio-card"><input type="radio" name="mode" value="room" checked> Medidas del espacio</label>
-          <label class="radio-card"><input type="radio" name="mode" value="area"> Área ya conocida</label>
+          <label class="radio-card"><input type="radio" name="mode" value="room" checked> Por medidas del ambiente</label>
+          <label class="radio-card"><input type="radio" name="mode" value="area"> Por superficie total</label>
         </div>
       </fieldset>
       <div class="field-grid" data-show-when="mode=room">
         <div class="field" data-field="length">
-          <label for="f-length">Largo del ambiente <span class="unit" data-unit-role="length"></span></label>
+          <label for="f-length">Largo <span class="unit" data-unit-role="length"></span></label>
           <input id="f-length" name="length" type="number" inputmode="decimal" step="any" min="0" data-role="length" required aria-describedby="f-length-err" data-placeholder-metric="5" data-placeholder-imperial="12" autocomplete="off">
           
           <p class="field-error" id="f-length-err" hidden></p>
         </div>
         <div class="field" data-field="width">
-          <label for="f-width">Ancho del ambiente <span class="unit" data-unit-role="length"></span></label>
+          <label for="f-width">Ancho <span class="unit" data-unit-role="length"></span></label>
           <input id="f-width" name="width" type="number" inputmode="decimal" step="any" min="0" data-role="length" required aria-describedby="f-width-err" data-placeholder-metric="4" data-placeholder-imperial="10" autocomplete="off">
           
           <p class="field-error" id="f-width-err" hidden></p>
@@ -92,7 +104,7 @@
       </div>
       <div data-show-when="mode=area" hidden>
         <div class="field" data-field="area">
-          <label for="f-area">Área del piso <span class="unit" data-unit-role="area"></span></label>
+          <label for="f-area">Por superficie total directa <span class="unit" data-unit-role="area"></span></label>
           <input id="f-area" name="area" type="number" inputmode="decimal" step="any" min="0" data-role="area" required aria-describedby="f-area-err" data-placeholder-metric="20" data-placeholder-imperial="120" autocomplete="off">
           
           <p class="field-error" id="f-area-err" hidden></p>
@@ -101,7 +113,7 @@
       <div class="field" data-field="waste">
           <label for="f-waste">Desperdicio (%)</label>
           <input id="f-waste" name="waste" type="number" inputmode="decimal" step="any" min="0" data-role="none" required aria-describedby="f-waste-help f-waste-err" data-default-metric="10" data-default-imperial="10" autocomplete="off">
-          <p class="field-help" id="f-waste-help">Margen extra por cortes, derrames e imprevistos. 5–10 % es lo habitual.</p>
+          <p class="field-help" id="f-waste-help">Agregá 5 %–15 % por cortes, desniveles o pérdidas.</p>
           <p class="field-error" id="f-waste-err" hidden></p>
         </div>
       <fieldset>
@@ -116,17 +128,17 @@
           <div class="field" data-field="tileWidth">
           <label for="f-tile-width">Ancho de la pieza <span class="unit" data-unit-role="small"></span></label>
           <input id="f-tile-width" name="tileWidth" type="number" inputmode="decimal" step="any" min="0" data-role="small" aria-describedby="f-tile-width-help f-tile-width-err" data-placeholder-metric="60" data-placeholder-imperial="24" autocomplete="off">
-          <p class="field-help" id="f-tile-width-help">Baldosa, porcelanato o tabla. Déjalo vacío si solo necesitas el área.</p>
+          <p class="field-help" id="f-tile-width-help">Opcional si solo calculás por m² por caja.</p>
           <p class="field-error" id="f-tile-width-err" hidden></p>
         </div>
         </div>
       </fieldset>
       <fieldset>
-        <legend>Contenido de la caja</legend>
+        <legend>Cómo calcular las cajas</legend>
         <div class="radio-list">
           <label class="radio-card"><input type="radio" name="boxMode" value="none" checked> No calcular cajas</label>
-          <label class="radio-card"><input type="radio" name="boxMode" value="pieces"> Piezas por caja</label>
-          <label class="radio-card"><input type="radio" name="boxMode" value="area"> Área por caja</label>
+          <label class="radio-card"><input type="radio" name="boxMode" value="pieces"> Por piezas por caja</label>
+          <label class="radio-card"><input type="radio" name="boxMode" value="area"> Superficie por caja</label>
         </div>
       </fieldset>
       <div data-show-when="boxMode=pieces" hidden>
@@ -139,7 +151,7 @@
       </div>
       <div data-show-when="boxMode=area" hidden>
         <div class="field" data-field="boxArea">
-          <label for="f-box-area">Área que cubre una caja <span class="unit" data-unit-role="area"></span></label>
+          <label for="f-box-area">Por superficie por caja <span class="unit" data-unit-role="area"></span></label>
           <input id="f-box-area" name="boxArea" type="number" inputmode="decimal" step="any" min="0" data-role="area" required aria-describedby="f-box-area-err" data-placeholder-metric="1.44" data-placeholder-imperial="16" autocomplete="off">
           
           <p class="field-error" id="f-box-area-err" hidden></p>
@@ -148,39 +160,84 @@
       <p class="error-summary" data-error-summary role="alert" hidden></p>
       <div class="form-actions">
         <button type="submit" class="btn btn-primary">Resultados</button>
-        <button type="reset" class="btn btn-ghost">Limpiar</button>
+        <button type="reset" class="btn btn-ghost">Restablecer</button>
       </div>
     </form>
         </div>
         <section class="results card" id="results" data-state="empty" aria-labelledby="results-title" aria-live="polite">
           <h2 id="results-title">Resultados</h2>
-          <div data-results-body><p class="results-placeholder">Completa los campos para ver el resultado al instante.</p></div>
+          <div data-results-body><p class="results-placeholder">Completá los datos para ver el cálculo al instante.</p></div>
           <div class="results-actions">
-            <button type="button" class="btn btn-ghost btn-sm" data-copy>Copiar resultados</button>
-            <button type="button" class="btn btn-ghost btn-sm" data-print>Imprimir / guardar PDF</button>
+            <button type="button" class="btn btn-ghost btn-sm" data-copy>Copiar resultado</button>
+            <button type="button" class="btn btn-ghost btn-sm" data-print>Imprimir</button>
+            <span class="visually-hidden" role="status" aria-live="polite" data-copy-status></span>
           </div>
         </section>
       </div>
-      <a class="result-bar" href="#results" data-result-bar hidden aria-label="Resultados">
-        <span class="result-bar-label">Área a comprar (con desperdicio)</span>
+      <a class="result-bar" href="#results" data-result-bar hidden>
+        <span class="result-bar-label">Superficie total (con desperdicio)</span>
         <strong class="result-bar-value" data-result-bar-value></strong>
         <span class="result-bar-cta" aria-hidden="true">↓</span>
       </a>
       <!-- ad-slot:calc-below-results (disabled) -->
+      <section class="section prose" aria-labelledby="guide-title">
+        <h2 id="guide-title">Para qué sirve y cómo usar esta calculadora</h2>
+        <p>Esta herramienta calcula cuántos metros cuadrados, cuántas piezas individuales y cuántas cajas cerradas necesitás para revestir un piso o una pared con cerámicos, porcelanato o pisos flotantes.</p>
+        <h3>Cómo usarla paso a paso</h3>
+        <ol class="guide-steps">
+            <li>Elegí si cargás largo y ancho del ambiente o la superficie total directamente.</li>
+            <li>Definí el porcentaje de desperdicio según el tipo de colocación (10 % recta, 15 % diagonal).</li>
+            <li>Ingresá las medidas de la baldosa o tabla (por ejemplo, 60 × 60 cm).</li>
+            <li>Seleccioná si querés calcular las cajas por cantidad de piezas por caja o por los m² que rinde cada caja.</li>
+        </ol>
+      </section>
       <section class="section prose" aria-labelledby="formula-title">
-        <h2 id="formula-title">Cómo se calcula el piso</h2>
-          <p>El área de un ambiente rectangular es largo × ancho. Para espacios en L o irregulares, divídelos en rectángulos, suma las áreas y usa el modo «Área ya conocida».</p>
-          <p>El desperdicio cubre los cortes en bordes, esquinas y alrededor de columnas. Se recomienda 10 % para colocación recta, 15 % en diagonal o con patrones (espiga, módulos) y 5 % en ambientes grandes y simples.</p>
-          <p>La cantidad de piezas es el área a comprar dividida por el área de una pieza (largo × ancho), redondeada hacia arriba. Las medidas en centímetros o pulgadas se convierten automáticamente.</p>
-          <p>Las cajas se calculan dividiendo las piezas por el contenido de la caja o el área a comprar por los m² (ft²) que cubre cada caja, siempre redondeando hacia arriba. Compra una caja extra del mismo lote para reparaciones futuras.</p>
+        <h2 id="formula-title">Fórmula y criterios de cálculo</h2>
+        <ul class="formula-box">
+            <li><code>Superficie neta = Largo × Ancho</code></li>
+            <li><code>Superficie total = Superficie neta × (1 + Desperdicio / 100)</code></li>
+            <li><code>Piezas = redondear_arriba(Superficie total / Superficie_pieza)</code></li>
+            <li><code>Cajas = redondear_arriba(Piezas / Piezas_por_caja) o redondear_arriba(Superficie total / m²_por_caja)</code></li>
+        </ul>
+          <p>La superficie neta se multiplica por el factor de desperdicio para cubrir recortes en bordes, zócalos y posibles roturas durante la colocación.</p>
+          <p>Si ingresás las medidas de la pieza, se calcula su área unitaria y se divide la superficie total por ese valor, redondeando hacia arriba.</p>
+          <p>Cuando calculás cajas por cantidad de piezas, se divide el total de piezas por las unidades que trae cada caja.</p>
+          <p>Cuando calculás cajas por superficie por caja (dato muy común en porcelanatos y pisos flotantes), se divide la superficie total directamente por el rendimiento de la caja.</p>
+      </section>
+      <section class="section prose" aria-labelledby="interpret-title">
+        <h2 id="interpret-title">Cómo interpretar los resultados</h2>
+        <ul class="guide-list">
+            <li>Superficie neta: área exacta del ambiente sin margen de corte.</li>
+            <li>Superficie total (con desperdicio): área que debés cubrir al comprar el material.</li>
+            <li>Piezas necesarias: cantidad entera de cerámicos, porcelanatos o tablas.</li>
+            <li>Cajas necesarias: cantidad de cajas cerradas redondeada hacia arriba para evitar faltantes de partida o tono.</li>
+        </ul>
+      </section>
+      <section class="section" aria-labelledby="examples-title">
+        <h2 id="examples-title">Ejemplos prácticos</h2>
+        <div class="example-grid">
+          <article class="card example-card">
+            <h3>Living de 5 × 4 m con porcelanato de 60 × 60 cm</h3>
+            <p>Colocación recta con 10 % de desperdicio y cajas de 4 piezas.</p>
+            <p class="example-calc">20 m² × 1,10 = 22,00 m² ÷ 0,36 m²/pieza = 62 piezas ÷ 4 = 15,5</p>
+            <p class="example-result">Resultado: 22,00 m² totales, 62 piezas y 16 cajas.</p>
+          </article>
+          <article class="card example-card">
+            <h3>Dormitorio de 15 m² con piso flotante (cajas de 2,20 m²)</h3>
+            <p>10 % de desperdicio y cálculo directo por superficie por caja.</p>
+            <p class="example-calc">15 m² × 1,10 = 16,50 m² ÷ 2,20 m²/caja = 7,5</p>
+            <p class="example-result">Resultado: 16,50 m² totales y 8 cajas.</p>
+          </article>
+        </div>
       </section>
       
       <section class="section faq" aria-labelledby="faq-title">
         <h2 id="faq-title">Preguntas frecuentes</h2>
-          <details><summary>¿Cuántas baldosas de 60×60 necesito para 20 m²?</summary><p>Cada pieza cubre 0.36 m². Con 10 % de desperdicio el área a comprar es 22 m² → 62 piezas; con cajas de 4 unidades, 16 cajas.</p></details>
-          <details><summary>¿Qué desperdicio debo considerar para piso laminado o vinílico?</summary><p>Entre 7 y 10 % en colocación recta. Si el ambiente tiene muchas esquinas o se coloca en diagonal, sube al 15 %.</p></details>
-          <details><summary>¿Debo restar el área de muebles o la cocina?</summary><p>No para los muebles móviles. Sí puedes restar islas de cocina o muebles empotrados permanentes usando el modo «Área ya conocida».</p></details>
-          <details><summary>¿La calculadora considera las juntas entre baldosas?</summary><p>No: la junta (2–5 mm) añade un margen pequeño a tu favor que ya queda cubierto por el porcentaje de desperdicio.</p></details>
+          <details><summary>¿Cuánto desperdicio se calcula para cerámicos o porcelanato?</summary><p>Para colocación recta en ambientes cuadrados o rectangulares se recomienda 10 %. Para colocación en diagonal, formato espiga o ambientes con muchos recortes conviene subir a 15 %.</p></details>
+          <details><summary>¿Por qué conviene comprar alguna caja de más del mismo lote?</summary><p>Los cerámicos y porcelanatos pueden variar levemente de tono y calibre entre partidas. Tener 1 o 2 cajas extra del mismo lote evita diferencias visuales si necesitás hacer un arreglo en el futuro.</p></details>
+          <details><summary>¿La calculadora descuenta la junta entre baldosas?</summary><p>Las medidas nominales comerciales suelen incluir la junta estándar, por lo que calcular con la medida de la pieza y un 10 % de desperdicio cubre ampliamente la colocación.</p></details>
+          <details><summary>¿Sirve para pisos flotantes o vinílicos?</summary><p>Sí. Podés usar el modo por superficie por caja (el dato más habitual en pisos flotantes y SPC) o ingresar el largo y ancho de cada tabla.</p></details>
+          <details><summary>¿Qué hago si mi ambiente tiene forma de L?</summary><p>Dividí el ambiente en dos rectángulos, calculá la superficie de cada uno y sumalos para cargar el total en el modo &#39;Por superficie total directa&#39;.</p></details>
       </section>
       <section class="section related" aria-labelledby="related-title">
         <h2 id="related-title">Otras calculadoras</h2>
@@ -190,21 +247,22 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <div>
-          <p><strong>BuildCalc</strong> — Calculadoras de construcción gratuitas</p>
-          <p>BuildCalc es una herramienta de estimación. Verifica siempre las cantidades con tu proveedor o profesional antes de comprar.</p>
+          <p><strong>BuildCalc</strong> — Calculadoras de materiales de construcción</p>
+          <p>Cálculos orientativos en tu navegador. Verificá siempre con las especificaciones técnicas del fabricante antes de comprar materiales.</p>
           <p>© 2026 BuildCalc. Todos los derechos reservados.</p>
         </div>
-        <nav aria-label="Footer">
+        <nav aria-label="Enlaces del pie de página">
           <ul>
+            <li><a href="../../es/">Inicio</a></li>
             <li><a href="../../es/hormigon/">Hormigón</a></li>
             <li><a href="../../es/pintura/">Pintura</a></li>
-            <li><a href="../../es/pisos/">Pisos</a></li>
+            <li><a href="../../es/pisos/" aria-current="page">Pisos y baldosas</a></li>
             <li><a href="../../es/privacidad/">Privacidad</a></li>
-            <li><a href="../../en/flooring/" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../en/flooring/" hreflang="en" lang="en" rel="alternate" data-lang-switch>English</a></li>
           </ul>
         </nav>
       </div>
     </footer>
-    <script type="application/json" id="bc-i18n">{"lang":"es","locale":"es","units":{"legend":"Sistema de unidades","metric":"Métrico","imperial":"Imperial","m":"m","cm":"cm","mm":"mm","ft":"ft","in":"in","m2":"m²","ft2":"ft²","m3":"m³","yd3":"yd³","ft3":"ft³","L":"L","gal":"gal","m2PerL":"m²/L","ft2PerGal":"ft²/gal","pieces":"piezas","boxes":"cajas","bags":"sacos","cans":"envases"},"common":{"results":"Resultados","resultsEmpty":"Completa los campos para ver el resultado al instante.","resultsInvalid":"Corrige los campos marcados para ver el resultado.","howCalculated":"Cómo se calculó","formulaSection":"Fórmulas y método","faq":"Preguntas frecuentes","related":"Otras calculadoras","waste":"Desperdicio (%)","wasteHelp":"Margen extra por cortes, derrames e imprevistos. 5–10 % es lo habitual.","quantity":"Cantidad de elementos","quantityHelp":"Número de piezas idénticas (p. ej. 4 columnas iguales).","reset":"Limpiar","print":"Imprimir / guardar PDF","copy":"Copiar resultados","copied":"Copiado","optional":"opcional","required":"obligatorio","mode":"¿Qué datos tienes?","modeRoom":"Medidas del espacio","modeArea":"Área ya conocida","disclaimer":"Estimación orientativa. Confirma las cantidades con tu proveedor.","errors":{"required":"Este campo es obligatorio.","nan":"Introduce un número válido.","min":"Debe ser mayor que {min}.","minInclusive":"Debe ser {min} o mayor.","max":"Demasiado grande (máximo {max}). Revisa las unidades.","integer":"Debe ser un número entero."},"summaryError":"Hay {count} campo(s) con errores."},"calc":{"fields":{"length":"Largo del ambiente","width":"Ancho del ambiente","area":"Área del piso","tileLength":"Largo de la pieza","tileWidth":"Ancho de la pieza","tileHelp":"Baldosa, porcelanato o tabla. Déjalo vacío si solo necesitas el área.","boxMode":"Contenido de la caja","boxNone":"No calcular cajas","boxPieces":"Piezas por caja","boxArea":"Área por caja","piecesPerBox":"Piezas por caja","boxAreaField":"Área que cubre una caja"},"results":{"total":"Área a comprar (con desperdicio)","net":"Área del piso","waste":"Desperdicio","pieces":"Piezas necesarias","pieceArea":"Área por pieza","boxes":"Cajas a comprar"},"steps":{"floorArea":"Área = largo × ancho = {lengthM} × {widthM} = {areaM2}","directArea":"Área indicada = {areaM2}","waste":"Desperdicio = {areaM2} × {wastePercent} % = {wasteAreaM2} → Área a comprar = {areaWithWasteM2}","pieces":"Piezas = {areaWithWasteM2} ÷ ({tileLengthM} × {tileWidthM} = {pieceAreaM2}) = {pieces} (redondeado hacia arriba)","boxesByPieces":"Cajas = {pieces} ÷ {piecesPerBox} piezas por caja = {boxes} (redondeado hacia arriba)","boxesByArea":"Cajas = {areaWithWasteM2} ÷ {boxAreaM2} por caja = {boxes} (redondeado hacia arriba)"}}}</script>
+    <script type="application/json" id="bc-i18n">{"lang":"es","locale":"es-419","units":{"metric":"Métrico (m, cm, L)","imperial":"Imperial (ft, in, gal)","m":"m","cm":"cm","m2":"m²","m3":"m³","L":"L","ft":"ft","in":"in","ft2":"ft²","ft3":"ft³","yd3":"yd³","gal":"gal","m2PerL":"m²/L","ft2PerGal":"ft²/gal","bag25":"Bolsas de 25 kg","bag50":"Bolsas de 50 kg","bag40":"Bolsas de 40 lb","bag60":"Bolsas de 60 lb","bag80":"Bolsas de 80 lb","can1L":"Latas de 1 L","can4L":"Latas de 4 L","can20L":"Baldes de 20 L","can1qt":"Latas de 1 qt","can1gal":"Latas de 1 gal","can5gal":"Baldes de 5 gal","none":"No calcular envases","legend":"Sistema de unidades","mm":"mm","pieces":"piezas","boxes":"cajas","bags":"bolsas","cans":"envases"},"common":{"unitSystem":"Sistema de unidades","calculate":"Calcular","reset":"Restablecer","results":"Resultados","resultsEmpty":"Completá los datos para ver el cálculo al instante.","resultsInvalid":"Revisá los campos marcados para ver el resultado.","copy":"Copiar resultado","copied":"¡Copiado!","print":"Imprimir","steps":"Detalle del cálculo","faq":"Preguntas frecuentes","related":"Otras calculadoras","summaryError":"Hay {count} campo(s) con errores. Revisá los valores ingresados.","errors":{"required":"Este campo es obligatorio.","nan":"Ingresá un número válido.","min":"Debe ser mayor que {min}.","minInclusive":"Debe ser {min} o mayor.","max":"No puede superar {max}.","integer":"Ingresá un número entero."},"howCalculated":"Cómo se calcula","formulaSection":"Fórmula y criterios","waste":"Desperdicio (%)","wasteHelp":"Agregá 5 %–15 % por cortes, desniveles o pérdidas.","quantity":"Cantidad","quantityHelp":"Número de elementos iguales.","optional":"opcional","required":"obligatorio","mode":"Modo de entrada","modeRoom":"Por medidas del ambiente","modeArea":"Por superficie total","disclaimer":"Estimación orientativa. Verificá siempre con las especificaciones del fabricante."},"calc":{"fields":{"mode":"Modo de entrada","room":"Por medidas del ambiente (largo × ancho)","area":"Por superficie total directa","length":"Largo","width":"Ancho","areaInput":"Superficie","waste":"Margen de desperdicio (%)","wasteHelp":"Recomendado: 10 % en colocación recta; 15 % en colocación diagonal o ambientes irregulares.","tileLength":"Largo de la pieza","tileWidth":"Ancho de la pieza","boxMode":"Cómo calcular las cajas","byPieces":"Por cantidad de piezas por caja","byBoxArea":"Por m² (o ft²) que cubre cada caja","none":"No calcular cajas","piecesPerBox":"Piezas por caja","boxArea":"Superficie por caja","tileHelp":"Opcional si solo calculás por m² por caja.","boxNone":"No calcular cajas","boxPieces":"Por piezas por caja","boxAreaField":"Por superficie por caja"},"results":{"netArea":"Superficie neta","total":"Superficie total (con desperdicio)","tiles":"Piezas necesarias","boxes":"Cajas necesarias","tileAreaLabel":"Superficie por pieza","net":"Superficie neta","waste":"Con {waste}% de desperdicio","pieces":"Piezas necesarias","pieceArea":"Superficie por pieza"},"steps":{"area":"Superficie neta = {l} × {w} = {net}","waste":"Con {w}% de desperdicio = {net} × {factor} = {total}","tiles":"Piezas = {total} ÷ {tile} = {raw} → {tiles} piezas","boxesPieces":"Cajas = {tiles} piezas ÷ {ppb} por caja = {raw} → {boxes} cajas","boxesArea":"Cajas = {total} ÷ {boxArea} por caja = {raw} → {boxes} cajas","floorArea":"Superficie neta = {l} × {w} = {net}","directArea":"Superficie ingresada = {net}","pieces":"Piezas = {total} ÷ {tile} = {raw} → {pieces} piezas","boxesByPieces":"Cajas = {pieces} ÷ {ppb} = {raw} → {boxes} cajas","boxesByArea":"Cajas = {total} ÷ {boxArea} = {raw} → {boxes} cajas"}}}</script>
 </body>
 </html>

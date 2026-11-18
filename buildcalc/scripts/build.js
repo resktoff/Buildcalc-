@@ -2,13 +2,16 @@
 /**
  * BuildCalc static site generator.
  * Reads site.config.json + src/i18n/*.json, renders every page for every
- * language into ./docs (GitHub Pages "deploy from /docs" compatible).
+ * language into ./docs (compatible with Render Static Sites & GitHub Pages).
  */
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { document } from '../src/templates/layout.js';
-import { homePage, calcPage, privacyPage, notFoundPage, rootRedirect, clientI18n, calcJsonLd, homeJsonLd, calcPath } from '../src/templates/pages.js';
+import { document, escXml, absUrl } from '../src/templates/layout.js';
+import {
+  homePage, calcPage, privacyPage, notFoundPage, rootRedirect,
+  clientI18n, calcJsonLd, homeJsonLd, privacyJsonLd, calcPath,
+} from '../src/templates/pages.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -48,7 +51,7 @@ export async function build({ quiet = false } = {}) {
   await fs.mkdir(OUT, { recursive: true });
 
   const written = [];
-  const sitemapEntries = []; // { path, alternates }
+  const sitemapEntries = []; // { path, alternates, priority }
 
   // --- route table: pageId → { [lang]: path } ---
   const routes = { home: {}, privacy: {} };
@@ -60,14 +63,16 @@ export async function build({ quiet = false } = {}) {
   }
 
   for (const [lang, t] of Object.entries(dicts)) {
+    const otherOgLocale = dicts[t.meta.otherLang]?.meta?.ogLocale || null;
+
     // Home
     {
       const p = routes.home[lang];
       const html = document({
-        t, config, path: p, alternates: routes.home,
+        t, config, path: p, alternates: routes.home, otherOgLocale,
         title: t.home.metaTitle, description: t.home.metaDescription,
         body: homePage({ t, config }), navCurrent: 'home',
-        jsonLd: homeJsonLd({ t, config }), xDefault: '',
+        jsonLd: homeJsonLd({ t, config }),
       });
       written.push(await writeOut(`${p}index.html`, html));
       sitemapEntries.push({ path: p, alternates: routes.home, priority: '1.0' });
@@ -76,10 +81,10 @@ export async function build({ quiet = false } = {}) {
     for (const id of CALC_IDS) {
       const p = routes[id][lang];
       const html = document({
-        t, config, path: p, alternates: routes[id],
+        t, config, path: p, alternates: routes[id], otherOgLocale, calcId: id,
         title: t[id].metaTitle, description: t[id].metaDescription,
         body: calcPage({ t, config, id }), navCurrent: id,
-        jsonLd: calcJsonLd({ t, config, id, path: p, alternates: routes[id] }),
+        jsonLd: calcJsonLd({ t, config, id, path: p }),
         i18nClient: clientI18n(t, id),
       });
       written.push(await writeOut(`${p}index.html`, html));
@@ -89,23 +94,24 @@ export async function build({ quiet = false } = {}) {
     {
       const p = routes.privacy[lang];
       const html = document({
-        t, config, path: p, alternates: routes.privacy,
+        t, config, path: p, alternates: routes.privacy, otherOgLocale,
         title: t.privacy.metaTitle, description: t.privacy.metaDescription,
-        body: privacyPage({ t }), navCurrent: null,
+        body: privacyPage({ t }), navCurrent: 'privacy',
+        jsonLd: privacyJsonLd({ t, config, path: p }),
       });
       written.push(await writeOut(`${p}index.html`, html));
       sitemapEntries.push({ path: p, alternates: routes.privacy, priority: '0.3' });
     }
   }
 
-  // Root redirect + 404 (404 uses default language, noindex)
+  // Root redirect + 404 (404 uses base-path-absolute URLs so it works from any depth, noindex)
   written.push(await writeOut('index.html', rootRedirect({ dicts, config })));
   {
     const t = dicts[config.defaultLang];
     const html = document({
       t, config, path: '404.html', alternates: routes.home,
       title: t.notFound.metaTitle, description: t.notFound.text,
-      body: notFoundPage({ t, config }), noindex: true, xDefault: '',
+      body: notFoundPage({ t, dicts, config }), noindex: true, absoluteRoot: true,
     });
     written.push(await writeOut('404.html', html));
   }
@@ -129,18 +135,18 @@ export async function build({ quiet = false } = {}) {
     }
   }
 
-  // robots.txt, sitemap.xml, .nojekyll
-  const abs = (p) => `${config.siteUrl.replace(/\/+$/, '')}${config.basePath ? `/${config.basePath.replace(/^\/+|\/+$/g, '')}` : ''}/${String(p).replace(/^\/+/, '')}`;
+  // robots.txt, sitemap.xml (pure UTF-8 XML), .nojekyll
+  const abs = (p) => absUrl(config, p);
   const today = new Date().toISOString().slice(0, 10);
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${sitemapEntries.map((e) => `  <url>
-    <loc>${abs(e.path)}</loc>
-    <lastmod>${today}</lastmod>
+    <loc>${escXml(abs(e.path))}</loc>
+    <lastmod>${escXml(today)}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>${e.priority}</priority>
-${Object.entries(e.alternates).map(([l, p]) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${abs(p)}"/>`).join('\n')}
-    <xhtml:link rel="alternate" hreflang="x-default" href="${abs(e.alternates[config.defaultLang])}"/>
+    <priority>${escXml(e.priority)}</priority>
+${Object.entries(e.alternates).map(([l, p]) => `    <xhtml:link rel="alternate" hreflang="${escXml(l)}" href="${escXml(abs(p))}"/>`).join('\n')}
+    <xhtml:link rel="alternate" hreflang="x-default" href="${escXml(abs(e.alternates[config.defaultLang]))}"/>
   </url>`).join('\n')}
 </urlset>
 `;

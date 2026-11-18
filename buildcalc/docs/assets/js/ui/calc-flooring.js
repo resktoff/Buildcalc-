@@ -12,15 +12,15 @@ export function schema(raw, sys) {
   const A = convertArea(LIMITS.areaM2, 'm2', sys.area);
   const isRoom = (r) => r.mode !== 'area';
   const isArea = (r) => r.mode === 'area';
-  // Tile size: optional, but if one dimension is given the other is required.
-  const tileGiven = (r) => String(r.tileLength ?? '').trim() !== '' || String(r.tileWidth ?? '').trim() !== '';
+  // Tile size: required when calculating boxes by piece count, or when either dimension is entered.
+  const tileNeeded = (r) => r.boxMode === 'pieces' || String(r.tileLength ?? '').trim() !== '' || String(r.tileWidth ?? '').trim() !== '';
   return {
     length: { max: L, when: isRoom },
     width: { max: L, when: isRoom },
     area: { max: A, when: isArea },
     waste: { min: 0, exclusiveMin: false, max: LIMITS.wastePercent },
-    tileLength: { max: S, required: true, when: tileGiven },
-    tileWidth: { max: S, required: true, when: tileGiven },
+    tileLength: { max: S, required: true, when: tileNeeded },
+    tileWidth: { max: S, required: true, when: tileNeeded },
     piecesPerBox: { min: 1, exclusiveMin: false, max: LIMITS.piecesPerBox, integer: true, when: (r) => r.boxMode === 'pieces' },
     boxArea: { max: A, when: (r) => r.boxMode === 'area' },
   };

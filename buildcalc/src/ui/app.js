@@ -1,44 +1,50 @@
 /**
- * BuildCalc UI — page bootstrap (browser).
+ * BuildCalc UI — calculator bootstrap (browser).
  * Handles: nav toggle, unit system switching, live validation + calculation.
  */
 import { UNIT_SYSTEMS, convertRole, getSystem } from '../core/units.js';
 import { validateFields } from '../core/validate.js';
 import { formatNumber, interpolate } from '../core/format.js';
 import { makeContext, initialSystem, storeSystem, resultsToText, escapeHtml } from './common.js';
-import * as concrete from './calc-concrete.js';
-import * as paint from './calc-paint.js';
-import * as flooring from './calc-flooring.js';
+import { initNav } from './nav.js';
 
-const CALCS = { concrete, paint, flooring };
+const CALC_LOADERS = Object.freeze({
+  concrete: () => import('./calc-concrete.js'),
+  paint: () => import('./calc-paint.js'),
+  flooring: () => import('./calc-flooring.js'),
+});
 
-/* ---------- navigation (all pages) ---------- */
-function initNav() {
-  const btn = document.querySelector('[data-nav-toggle]');
-  const nav = document.getElementById('site-nav');
-  if (!btn || !nav) return;
-  btn.addEventListener('click', () => {
-    const open = nav.classList.toggle('is-open');
-    btn.setAttribute('aria-expanded', String(open));
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && nav.classList.contains('is-open')) {
-      nav.classList.remove('is-open');
-      btn.setAttribute('aria-expanded', 'false');
-      btn.focus();
-    }
-  });
+async function copyText(text) {
+  if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+    await navigator.clipboard.writeText(text);
+    return true;
+  }
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.setAttribute('readonly', '');
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  let ok = false;
+  try { ok = document.execCommand('copy'); } catch { ok = false; }
+  ta.remove();
+  return ok;
 }
 
 /* ---------- calculator ---------- */
-function initCalculator(form) {
-  const calc = CALCS[form.dataset.calc];
-  if (!calc) return;
+async function initCalculator(form) {
+  const load = CALC_LOADERS[form.dataset.calc];
+  if (!load) return;
   const i18nEl = document.getElementById('bc-i18n');
-  const i18n = i18nEl ? JSON.parse(i18nEl.textContent) : null;
+  let i18n = null;
+  try { i18n = i18nEl ? JSON.parse(i18nEl.textContent) : null; } catch { return; }
   if (!i18n) return;
 
+  const calc = await load();
+
   const results = document.getElementById('results');
+  if (!results) return;
   const resultsBody = results.querySelector('[data-results-body]');
   const summary = form.querySelector('[data-error-summary]');
   const bar = document.querySelector('[data-result-bar]');
@@ -80,7 +86,7 @@ function initCalculator(form) {
       if (convertValues && prevId !== systemId && input.value !== '' && Number.isFinite(input.valueAsNumber) && role !== 'none') {
         const v = convertRole(input.valueAsNumber, role, prevId, systemId);
         input.value = String(roundSmart(v));
-      } else if (input.value === '' && defAttr !== undefined && !convertValues) {
+      } else if (input.value === '' && !input.validity?.badInput && defAttr !== undefined && !convertValues) {
         input.value = defAttr;
       }
       if (input.dataset.placeholderMetric !== undefined) {
@@ -127,8 +133,12 @@ function initCalculator(form) {
     const fd = new FormData(form);
     const raw = {};
     for (const [k, v] of fd.entries()) raw[k] = v;
-    // unchecked checkboxes are absent from FormData
+    // Unchecked checkboxes are absent from FormData.
     form.querySelectorAll('input[type="checkbox"]').forEach((cb) => { if (!(cb.name in raw)) raw[cb.name] = false; });
+    // Flag browser badInput (e.g. "abc", "--", "1e") on enabled number fields so validation reports "nan".
+    form.querySelectorAll('input[type="number"]:not([disabled])').forEach((input) => {
+      if (input.validity?.badInput) raw[input.name] = '__invalid__';
+    });
     return raw;
   }
 
@@ -146,8 +156,14 @@ function initCalculator(form) {
   function errorMessage(err) {
     const e = i18n.common.errors;
     switch (err.code) {
-      case 'min': return err.min === 0 ? interpolate(e.min, { min: 0 }) : interpolate(e.minInclusive, { min: formatNumber(err.min, ctx.locale, 2) });
-      case 'max': return interpolate(e.max, { max: formatNumber(err.max, ctx.locale, 0) });
+      case 'min': {
+        const minTxt = formatNumber(err.min, ctx.locale, 2);
+        return err.exclusive ? interpolate(e.min, { min: minTxt }) : interpolate(e.minInclusive, { min: minTxt });
+      }
+      case 'max': {
+        const safeMax = err.max >= 1 ? Math.floor(err.max) : err.max;
+        return interpolate(e.max, { max: formatNumber(safeMax, ctx.locale, err.max >= 1 ? 0 : 2) });
+      }
       default: return e[err.code] || e.nan;
     }
   }
@@ -160,7 +176,8 @@ function initCalculator(form) {
       const errEl = wrap.querySelector('.field-error');
       const err = errors[name];
       const isTouched = wrap.dataset.touched === '1';
-      const show = err && (!touchedOnly || isTouched || input.value !== '');
+      const hasContent = input.value !== '' || Boolean(input.validity?.badInput);
+      const show = err && (!touchedOnly || isTouched || hasContent);
       if (show) {
         count += 1;
         wrap.classList.add('has-error');
@@ -243,6 +260,7 @@ function initCalculator(form) {
   form.addEventListener('reset', () => {
     setTimeout(() => {
       form.querySelectorAll('[data-field]').forEach((w) => { delete w.dataset.touched; });
+      selectEls.forEach((sel) => { delete sel.dataset.init; });
       applySystem(systemId, { convertValues: false });
       recalc();
       form.querySelector('input:not([type=radio]):not([type=checkbox]):not([disabled])')?.focus();
@@ -250,15 +268,24 @@ function initCalculator(form) {
   });
 
   const copyBtn = results.querySelector('[data-copy]');
+  const copyStatus = results.querySelector('[data-copy-status]');
   if (copyBtn) {
+    const copyOriginal = copyBtn.textContent;
+    let copyTimer = null;
     copyBtn.addEventListener('click', async () => {
       if (!lastResultOk) return;
       const text = resultsToText(resultsBody);
       try {
-        await navigator.clipboard.writeText(text);
-        const original = copyBtn.textContent;
+        const copied = await copyText(text);
+        if (!copied) return;
         copyBtn.textContent = i18n.common.copied;
-        setTimeout(() => { copyBtn.textContent = original; }, 1500);
+        if (copyStatus) copyStatus.textContent = i18n.common.copied;
+        if (copyTimer) clearTimeout(copyTimer);
+        copyTimer = setTimeout(() => {
+          copyBtn.textContent = copyOriginal;
+          if (copyStatus) copyStatus.textContent = '';
+          copyTimer = null;
+        }, 1500);
       } catch { /* clipboard blocked */ }
     });
   }
@@ -272,4 +299,6 @@ function initCalculator(form) {
 }
 
 initNav();
-document.querySelectorAll('form[data-calc]').forEach(initCalculator);
+document.querySelectorAll('form[data-calc]').forEach((form) => {
+  initCalculator(form).catch((err) => console.error('[BuildCalc] init error', err));
+});

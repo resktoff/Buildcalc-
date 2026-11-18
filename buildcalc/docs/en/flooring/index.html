@@ -3,49 +3,61 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Flooring Calculator: Tiles, Boxes &amp; Waste | BuildCalc</title>
-    <meta name="description" content="Calculate floor area in ft² or m², how many tiles or planks you need and the number of boxes, including cutting waste. Free and instant.">
+    <title>Flooring &amp; Tile Calculator (Area, Tiles &amp; Boxes) | BuildCalc</title>
+    <meta name="description" content="Calculate flooring square footage or m², cutting waste, tile count and full boxes for ceramic, porcelain, laminate or vinyl.">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://buildcalc-c16f.onrender.com/en/flooring/">
     <link rel="alternate" hreflang="es" href="https://buildcalc-c16f.onrender.com/es/pisos/">
     <link rel="alternate" hreflang="en" href="https://buildcalc-c16f.onrender.com/en/flooring/">
     <link rel="alternate" hreflang="x-default" href="https://buildcalc-c16f.onrender.com/en/flooring/">
-    <meta name="theme-color" content="#0f6fff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0a58ca" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: dark)">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="BuildCalc">
-    <meta property="og:title" content="Flooring Calculator: Tiles, Boxes &amp; Waste | BuildCalc">
-    <meta property="og:description" content="Calculate floor area in ft² or m², how many tiles or planks you need and the number of boxes, including cutting waste. Free and instant.">
+    <meta property="og:title" content="Flooring &amp; Tile Calculator (Area, Tiles &amp; Boxes) | BuildCalc">
+    <meta property="og:description" content="Calculate flooring square footage or m², cutting waste, tile count and full boxes for ceramic, porcelain, laminate or vinyl.">
     <meta property="og:url" content="https://buildcalc-c16f.onrender.com/en/flooring/">
     <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="es_LA">
     <meta property="og:image" content="https://buildcalc-c16f.onrender.com/assets/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="BuildCalc — Construction Material Calculators">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Flooring Calculator: Tiles, Boxes &amp; Waste | BuildCalc">
-    <meta name="twitter:description" content="Calculate floor area in ft² or m², how many tiles or planks you need and the number of boxes, including cutting waste. Free and instant.">
+    <meta name="twitter:title" content="Flooring &amp; Tile Calculator (Area, Tiles &amp; Boxes) | BuildCalc">
+    <meta name="twitter:description" content="Calculate flooring square footage or m², cutting waste, tile count and full boxes for ceramic, porcelain, laminate or vinyl.">
     <meta name="twitter:image" content="https://buildcalc-c16f.onrender.com/assets/og-image.png">
-    
+    <meta name="twitter:image:alt" content="BuildCalc — Construction Material Calculators">
+    <meta name="google-site-verification" content="DwC7mmtmJrc3ZlKKbyxzmw41Pnn1XB9e0eYh8FcVAiI">
     <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
     <link rel="manifest" href="../../assets/site.webmanifest">
     <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="modulepreload" href="../../assets/js/ui/nav.js">
+    <link rel="modulepreload" href="../../assets/js/ui/common.js">
+    <link rel="modulepreload" href="../../assets/js/ui/calc-flooring.js">
+    <link rel="modulepreload" href="../../assets/js/core/units.js">
+    <link rel="modulepreload" href="../../assets/js/core/validate.js">
+    <link rel="modulepreload" href="../../assets/js/core/format.js">
+    <link rel="modulepreload" href="../../assets/js/core/calculators/flooring.js">
     <script type="module" src="../../assets/js/ui/app.js"></script>
-    <!-- analytics: set analytics.gaMeasurementId in site.config.json to enable Google Analytics -->
-    
-    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"Flooring calculator","url":"https://buildcalc-c16f.onrender.com/en/flooring/","description":"Calculate floor area in ft² or m², how many tiles or planks you need and the number of boxes, including cutting waste. Free and instant.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"BuildCalc","url":"https://buildcalc-c16f.onrender.com/en/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many 12 × 24 in tiles do I need for 120 ft²?","acceptedAnswer":{"@type":"Answer","text":"Each tile covers 2 ft². With 10% waste the area to buy is 132 ft² → 66 tiles; with 8 tiles per box, 9 boxes."}},{"@type":"Question","name":"How much waste should I allow for laminate or vinyl plank?","acceptedAnswer":{"@type":"Answer","text":"7–10% for straight layouts. If the room has many corners or you lay diagonally, go up to 15%."}},{"@type":"Question","name":"Should I subtract furniture or kitchen cabinets?","acceptedAnswer":{"@type":"Answer","text":"Not movable furniture. You can subtract kitchen islands or permanent built-ins using the “Area already known” mode."}},{"@type":"Question","name":"Does the calculator account for grout joints?","acceptedAnswer":{"@type":"Answer","text":"No: the grout gap (1/16–3/16 in) adds a small margin in your favour that is already covered by the waste percentage."}}]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://buildcalc-c16f.onrender.com/en/"},{"@type":"ListItem","position":2,"name":"Flooring calculator","item":"https://buildcalc-c16f.onrender.com/en/flooring/"}]}]</script>
+    <!-- analytics: disabled (set analytics.gaMeasurementId in site.config.json when ready) -->
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"Flooring & tile calculator","url":"https://buildcalc-c16f.onrender.com/en/flooring/","description":"Calculate flooring square footage or m², cutting waste, tile count and full boxes for ceramic, porcelain, laminate or vinyl.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"BuildCalc","url":"https://buildcalc-c16f.onrender.com/en/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much flooring waste should I add?","acceptedAnswer":{"@type":"Answer","text":"Add 10% for straight installations in rectangular rooms, and 15% for diagonal layouts, herringbone patterns or rooms with many angles."}},{"@type":"Question","name":"Why should I order an extra box from the same batch?","acceptedAnswer":{"@type":"Answer","text":"Tile shade and caliber can vary slightly between manufacturing batches. Keeping one extra box ensures matching replacements for future repairs."}},{"@type":"Question","name":"Does the calculator subtract grout lines?","acceptedAnswer":{"@type":"Answer","text":"Nominal tile sizes already account for standard grout joints, so using nominal dimensions plus 10% waste is accurate."}},{"@type":"Question","name":"Does it work for laminate or vinyl plank flooring?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use 'By area covered per box' (standard on laminate/SPC packaging) or enter plank dimensions."}},{"@type":"Question","name":"What if my room is L-shaped?","acceptedAnswer":{"@type":"Answer","text":"Split the room into two rectangles, add their areas together, and enter the sum in 'By total area' mode."}}]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://buildcalc-c16f.onrender.com/en/"},{"@type":"ListItem","position":2,"name":"Flooring & tile calculator","item":"https://buildcalc-c16f.onrender.com/en/flooring/"}]}]</script>
 </head>
 <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="../../en/" aria-label="BuildCalc — Home"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3" y="3" width="26" height="26" rx="6" fill="#0f6fff"/><path d="M9 22V11h5.5a3 3 0 0 1 0 6H9m0 0h6.5a3 3 0 0 1 0 6H9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 12h5M19 16h5M19 20h5" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg><span>Build<b>Calc</b></span></a>
-        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <a class="brand" href="../../en/" aria-label="BuildCalc — Home"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3" y="3" width="26" height="26" rx="6" fill="#0a58ca"/><path d="M9 22V11h5.5a3 3 0 0 1 0 6H9m0 0h6.5a3 3 0 0 1 0 6H9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 12h5M19 16h5M19 20h5" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".85"/></svg><span>Build<b>Calc</b></span></a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
         <nav id="site-nav" class="site-nav" aria-label="Calculators">
           <ul>
             <li><a href="../../en/">Home</a></li>
             <li><a href="../../en/concrete/">Concrete</a></li>
             <li><a href="../../en/paint/">Paint</a></li>
-            <li><a href="../../en/flooring/" aria-current="page">Flooring</a></li>
-            <li><a class="lang-switch" href="../../es/pisos/" hreflang="es" lang="es" rel="alternate" aria-label="View this page in Spanish">🌐 Español</a></li>
+            <li><a href="../../en/flooring/" aria-current="page">Flooring &amp; Tiles</a></li>
+            <li><a class="lang-switch" href="../../es/pisos/" hreflang="es" lang="es" rel="alternate" data-lang-switch aria-label="Cambiar a Español">🌐 Español</a></li>
           </ul>
         </nav>
       </div>
@@ -53,11 +65,11 @@
     <main id="main" class="container" tabindex="-1">
 
       <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol><li><a href="../../en/">Home</a></li><li aria-current="page">Flooring calculator</li></ol>
+        <ol><li><a href="../../en/">Home</a></li><li aria-current="page">Flooring &amp; tile calculator</li></ol>
       </nav>
       <header class="page-head">
-        <h1 id="calc-title">Flooring calculator</h1>
-        <p class="lead">Work out your floor area, the number of tiles, porcelain, laminate or vinyl planks and how many boxes to buy, with the right waste allowance for cuts.</p>
+        <h1 id="calc-title">Flooring &amp; tile calculator</h1>
+        <p class="lead">Calculate floor area, cutting waste, individual tiles or planks, and full boxes for ceramic, porcelain, laminate or vinyl flooring.</p>
       </header>
       <div class="calc-layout">
         <div>
@@ -65,8 +77,8 @@
       <fieldset class="unit-fieldset">
         <legend>Unit system</legend>
         <div class="segmented" role="radiogroup" aria-label="Unit system">
-          <label><input type="radio" name="units" value="metric" checked><span>Metric</span></label>
-          <label><input type="radio" name="units" value="imperial"><span>Imperial</span></label>
+          <label><input type="radio" name="units" value="metric" checked><span>Metric (m, cm, L)</span></label>
+          <label><input type="radio" name="units" value="imperial"><span>Imperial (ft, in, gal)</span></label>
         </div>
       </fieldset>
       <fieldset>
@@ -78,13 +90,13 @@
       </fieldset>
       <div class="field-grid" data-show-when="mode=room">
         <div class="field" data-field="length">
-          <label for="f-length">Room length <span class="unit" data-unit-role="length"></span></label>
+          <label for="f-length">Length <span class="unit" data-unit-role="length"></span></label>
           <input id="f-length" name="length" type="number" inputmode="decimal" step="any" min="0" data-role="length" required aria-describedby="f-length-err" data-placeholder-metric="5" data-placeholder-imperial="12" autocomplete="off">
           
           <p class="field-error" id="f-length-err" hidden></p>
         </div>
         <div class="field" data-field="width">
-          <label for="f-width">Room width <span class="unit" data-unit-role="length"></span></label>
+          <label for="f-width">Width <span class="unit" data-unit-role="length"></span></label>
           <input id="f-width" name="width" type="number" inputmode="decimal" step="any" min="0" data-role="length" required aria-describedby="f-width-err" data-placeholder-metric="4" data-placeholder-imperial="10" autocomplete="off">
           
           <p class="field-error" id="f-width-err" hidden></p>
@@ -92,7 +104,7 @@
       </div>
       <div data-show-when="mode=area" hidden>
         <div class="field" data-field="area">
-          <label for="f-area">Floor area <span class="unit" data-unit-role="area"></span></label>
+          <label for="f-area">By total area <span class="unit" data-unit-role="area"></span></label>
           <input id="f-area" name="area" type="number" inputmode="decimal" step="any" min="0" data-role="area" required aria-describedby="f-area-err" data-placeholder-metric="20" data-placeholder-imperial="120" autocomplete="off">
           
           <p class="field-error" id="f-area-err" hidden></p>
@@ -105,16 +117,16 @@
           <p class="field-error" id="f-waste-err" hidden></p>
         </div>
       <fieldset>
-        <legend>Piece length × Piece width <small>(optional)</small></legend>
+        <legend>Tile / plank length × Tile / plank width <small>(optional)</small></legend>
         <div class="field-grid">
           <div class="field" data-field="tileLength">
-          <label for="f-tile-length">Piece length <span class="unit" data-unit-role="small"></span></label>
+          <label for="f-tile-length">Tile / plank length <span class="unit" data-unit-role="small"></span></label>
           <input id="f-tile-length" name="tileLength" type="number" inputmode="decimal" step="any" min="0" data-role="small" aria-describedby="f-tile-length-err" data-placeholder-metric="60" data-placeholder-imperial="12" autocomplete="off">
           
           <p class="field-error" id="f-tile-length-err" hidden></p>
         </div>
           <div class="field" data-field="tileWidth">
-          <label for="f-tile-width">Piece width <span class="unit" data-unit-role="small"></span></label>
+          <label for="f-tile-width">Tile / plank width <span class="unit" data-unit-role="small"></span></label>
           <input id="f-tile-width" name="tileWidth" type="number" inputmode="decimal" step="any" min="0" data-role="small" aria-describedby="f-tile-width-help f-tile-width-err" data-placeholder-metric="60" data-placeholder-imperial="24" autocomplete="off">
           <p class="field-help" id="f-tile-width-help">Tile or plank size. Leave empty if you only need the area.</p>
           <p class="field-error" id="f-tile-width-err" hidden></p>
@@ -122,7 +134,7 @@
         </div>
       </fieldset>
       <fieldset>
-        <legend>Box contents</legend>
+        <legend>Box calculation method</legend>
         <div class="radio-list">
           <label class="radio-card"><input type="radio" name="boxMode" value="none" checked> Don&#39;t calculate boxes</label>
           <label class="radio-card"><input type="radio" name="boxMode" value="pieces"> Pieces per box</label>
@@ -148,39 +160,84 @@
       <p class="error-summary" data-error-summary role="alert" hidden></p>
       <div class="form-actions">
         <button type="submit" class="btn btn-primary">Results</button>
-        <button type="reset" class="btn btn-ghost">Clear</button>
+        <button type="reset" class="btn btn-ghost">Reset</button>
       </div>
     </form>
         </div>
         <section class="results card" id="results" data-state="empty" aria-labelledby="results-title" aria-live="polite">
           <h2 id="results-title">Results</h2>
-          <div data-results-body><p class="results-placeholder">Fill in the fields to see your result instantly.</p></div>
+          <div data-results-body><p class="results-placeholder">Enter your dimensions to see instant results.</p></div>
           <div class="results-actions">
-            <button type="button" class="btn btn-ghost btn-sm" data-copy>Copy results</button>
-            <button type="button" class="btn btn-ghost btn-sm" data-print>Print / save as PDF</button>
+            <button type="button" class="btn btn-ghost btn-sm" data-copy>Copy result</button>
+            <button type="button" class="btn btn-ghost btn-sm" data-print>Print</button>
+            <span class="visually-hidden" role="status" aria-live="polite" data-copy-status></span>
           </div>
         </section>
       </div>
-      <a class="result-bar" href="#results" data-result-bar hidden aria-label="Results">
-        <span class="result-bar-label">Area to buy (with waste)</span>
+      <a class="result-bar" href="#results" data-result-bar hidden>
+        <span class="result-bar-label">Total area (with waste)</span>
         <strong class="result-bar-value" data-result-bar-value></strong>
         <span class="result-bar-cta" aria-hidden="true">↓</span>
       </a>
       <!-- ad-slot:calc-below-results (disabled) -->
+      <section class="section prose" aria-labelledby="guide-title">
+        <h2 id="guide-title">What it is for and how to use it</h2>
+        <p>This calculator estimates total square footage or square meters, individual tile/plank counts, and full boxes needed for floor or wall installations.</p>
+        <h3>How to use it step by step</h3>
+        <ol class="guide-steps">
+            <li>Choose whether to enter room length and width or total area directly.</li>
+            <li>Set your waste percentage (10% for straight lay, 15% for diagonal patterns).</li>
+            <li>Enter the tile or plank dimensions (e.g., 60 × 60 cm or 12 × 24 in).</li>
+            <li>Select whether to calculate boxes by pieces per box or by area per box.</li>
+        </ol>
+      </section>
       <section class="section prose" aria-labelledby="formula-title">
-        <h2 id="formula-title">How flooring is calculated</h2>
-          <p>The area of a rectangular room is length × width. For L-shaped or irregular rooms, split them into rectangles, add the areas and use the “Area already known” mode.</p>
-          <p>Waste covers cuts at edges, corners and around obstacles. We recommend 10% for straight layouts, 15% for diagonal or patterned layouts (herringbone, modular) and 5% for large simple rooms.</p>
-          <p>The number of pieces is the area to buy divided by the area of one piece (length × width), rounded up. Inch or centimetre sizes are converted automatically.</p>
-          <p>Boxes are the pieces divided by the box contents, or the area to buy divided by the ft² (m²) one box covers, always rounded up. Buy one spare box from the same batch for future repairs.</p>
+        <h2 id="formula-title">Formula and calculation criteria</h2>
+        <ul class="formula-box">
+            <li><code>Net area = Length × Width</code></li>
+            <li><code>Total area = Net area × (1 + Waste / 100)</code></li>
+            <li><code>Pieces = ceil(Total area / Piece_area)</code></li>
+            <li><code>Boxes = ceil(Pieces / Pieces_per_box) or ceil(Total area / Area_per_box)</code></li>
+        </ul>
+          <p>Net area is multiplied by the waste factor to cover edge cuts, doorways and accidental breakage.</p>
+          <p>When tile dimensions are entered, single-piece area is computed and total area is divided by piece area, rounded up.</p>
+          <p>In pieces-per-box mode, total pieces are divided by pieces per box and rounded up.</p>
+          <p>In area-per-box mode (common for laminate and vinyl), total area is divided directly by box coverage.</p>
+      </section>
+      <section class="section prose" aria-labelledby="interpret-title">
+        <h2 id="interpret-title">How to interpret the results</h2>
+        <ul class="guide-list">
+            <li>Net area: exact room footprint before waste.</li>
+            <li>Total area (with waste): the area you should purchase.</li>
+            <li>Tiles / planks needed: whole number of individual pieces.</li>
+            <li>Boxes needed: full boxes rounded up so all material comes from the same dye lot.</li>
+        </ul>
+      </section>
+      <section class="section" aria-labelledby="examples-title">
+        <h2 id="examples-title">Practical examples</h2>
+        <div class="example-grid">
+          <article class="card example-card">
+            <h3>5 × 4 m room with 60 × 60 cm porcelain tiles</h3>
+            <p>Straight lay with 10% waste and 4 tiles per box.</p>
+            <p class="example-calc">20 m² × 1.10 = 22.00 m² ÷ 0.36 m²/tile = 62 tiles ÷ 4 = 15.5</p>
+            <p class="example-result">Result: 22.00 m² total, 62 tiles and 16 boxes.</p>
+          </article>
+          <article class="card example-card">
+            <h3>12 × 10 ft room with 12 × 24 in planks</h3>
+            <p>10% waste, straight lay.</p>
+            <p class="example-calc">120 ft² × 1.10 = 132 ft² ÷ 2.00 ft²/plank = 66 planks</p>
+            <p class="example-result">Result: 132 ft² total and 66 planks.</p>
+          </article>
+        </div>
       </section>
       
       <section class="section faq" aria-labelledby="faq-title">
         <h2 id="faq-title">Frequently asked questions</h2>
-          <details><summary>How many 12 × 24 in tiles do I need for 120 ft²?</summary><p>Each tile covers 2 ft². With 10% waste the area to buy is 132 ft² → 66 tiles; with 8 tiles per box, 9 boxes.</p></details>
-          <details><summary>How much waste should I allow for laminate or vinyl plank?</summary><p>7–10% for straight layouts. If the room has many corners or you lay diagonally, go up to 15%.</p></details>
-          <details><summary>Should I subtract furniture or kitchen cabinets?</summary><p>Not movable furniture. You can subtract kitchen islands or permanent built-ins using the “Area already known” mode.</p></details>
-          <details><summary>Does the calculator account for grout joints?</summary><p>No: the grout gap (1/16–3/16 in) adds a small margin in your favour that is already covered by the waste percentage.</p></details>
+          <details><summary>How much flooring waste should I add?</summary><p>Add 10% for straight installations in rectangular rooms, and 15% for diagonal layouts, herringbone patterns or rooms with many angles.</p></details>
+          <details><summary>Why should I order an extra box from the same batch?</summary><p>Tile shade and caliber can vary slightly between manufacturing batches. Keeping one extra box ensures matching replacements for future repairs.</p></details>
+          <details><summary>Does the calculator subtract grout lines?</summary><p>Nominal tile sizes already account for standard grout joints, so using nominal dimensions plus 10% waste is accurate.</p></details>
+          <details><summary>Does it work for laminate or vinyl plank flooring?</summary><p>Yes. Use &#39;By area covered per box&#39; (standard on laminate/SPC packaging) or enter plank dimensions.</p></details>
+          <details><summary>What if my room is L-shaped?</summary><p>Split the room into two rectangles, add their areas together, and enter the sum in &#39;By total area&#39; mode.</p></details>
       </section>
       <section class="section related" aria-labelledby="related-title">
         <h2 id="related-title">Other calculators</h2>
@@ -190,21 +247,22 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <div>
-          <p><strong>BuildCalc</strong> — Free construction calculators</p>
-          <p>BuildCalc is an estimating tool. Always confirm quantities with your supplier or contractor before purchasing.</p>
+          <p><strong>BuildCalc</strong> — Construction Material Calculators</p>
+          <p>Estimates run locally in your browser. Always verify manufacturer specifications before ordering materials.</p>
           <p>© 2026 BuildCalc. All rights reserved.</p>
         </div>
-        <nav aria-label="Footer">
+        <nav aria-label="Footer navigation">
           <ul>
+            <li><a href="../../en/">Home</a></li>
             <li><a href="../../en/concrete/">Concrete</a></li>
             <li><a href="../../en/paint/">Paint</a></li>
-            <li><a href="../../en/flooring/">Flooring</a></li>
+            <li><a href="../../en/flooring/" aria-current="page">Flooring &amp; Tiles</a></li>
             <li><a href="../../en/privacy/">Privacy</a></li>
-            <li><a href="../../es/pisos/" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../es/pisos/" hreflang="es" lang="es" rel="alternate" data-lang-switch>Español</a></li>
           </ul>
         </nav>
       </div>
     </footer>
-    <script type="application/json" id="bc-i18n">{"lang":"en","locale":"en","units":{"legend":"Unit system","metric":"Metric","imperial":"Imperial","m":"m","cm":"cm","mm":"mm","ft":"ft","in":"in","m2":"m²","ft2":"ft²","m3":"m³","yd3":"yd³","ft3":"ft³","L":"L","gal":"gal","m2PerL":"m²/L","ft2PerGal":"ft²/gal","pieces":"pieces","boxes":"boxes","bags":"bags","cans":"cans"},"common":{"results":"Results","resultsEmpty":"Fill in the fields to see your result instantly.","resultsInvalid":"Fix the highlighted fields to see the result.","howCalculated":"How it was calculated","formulaSection":"Formulas & method","faq":"Frequently asked questions","related":"Other calculators","waste":"Waste (%)","wasteHelp":"Extra margin for cuts, spills and surprises. 5–10% is typical.","quantity":"Number of elements","quantityHelp":"Count of identical pieces (e.g. 4 equal columns).","reset":"Clear","print":"Print / save as PDF","copy":"Copy results","copied":"Copied","optional":"optional","required":"required","mode":"What do you know?","modeRoom":"Room dimensions","modeArea":"Area already known","disclaimer":"Estimate only. Confirm quantities with your supplier.","errors":{"required":"This field is required.","nan":"Enter a valid number.","min":"Must be greater than {min}.","minInclusive":"Must be {min} or more.","max":"Too large (maximum {max}). Check your units.","integer":"Must be a whole number."},"summaryError":"{count} field(s) need attention."},"calc":{"fields":{"length":"Room length","width":"Room width","area":"Floor area","tileLength":"Piece length","tileWidth":"Piece width","tileHelp":"Tile or plank size. Leave empty if you only need the area.","boxMode":"Box contents","boxNone":"Don't calculate boxes","boxPieces":"Pieces per box","boxArea":"Area per box","piecesPerBox":"Pieces per box","boxAreaField":"Area covered by one box"},"results":{"total":"Area to buy (with waste)","net":"Floor area","waste":"Waste","pieces":"Pieces needed","pieceArea":"Area per piece","boxes":"Boxes to buy"},"steps":{"floorArea":"Area = length × width = {lengthM} × {widthM} = {areaM2}","directArea":"Given area = {areaM2}","waste":"Waste = {areaM2} × {wastePercent}% = {wasteAreaM2} → Area to buy = {areaWithWasteM2}","pieces":"Pieces = {areaWithWasteM2} ÷ ({tileLengthM} × {tileWidthM} = {pieceAreaM2}) = {pieces} (rounded up)","boxesByPieces":"Boxes = {pieces} ÷ {piecesPerBox} pieces per box = {boxes} (rounded up)","boxesByArea":"Boxes = {areaWithWasteM2} ÷ {boxAreaM2} per box = {boxes} (rounded up)"}}}</script>
+    <script type="application/json" id="bc-i18n">{"lang":"en","locale":"en-US","units":{"metric":"Metric (m, cm, L)","imperial":"Imperial (ft, in, gal)","m":"m","cm":"cm","m2":"m²","m3":"m³","L":"L","ft":"ft","in":"in","ft2":"ft²","ft3":"ft³","yd3":"yd³","gal":"gal","m2PerL":"m²/L","ft2PerGal":"ft²/gal","bag25":"25 kg bags","bag50":"50 kg bags","bag40":"40 lb bags","bag60":"60 lb bags","bag80":"80 lb bags","can1L":"1 L cans","can4L":"4 L cans","can20L":"20 L pails","can1qt":"1 qt cans","can1gal":"1 gal cans","can5gal":"5 gal pails","none":"Do not calculate containers","legend":"Unit system","mm":"mm","pieces":"pieces","boxes":"boxes","bags":"bags","cans":"cans"},"common":{"unitSystem":"Unit system","calculate":"Calculate","reset":"Reset","results":"Results","resultsEmpty":"Enter your dimensions to see instant results.","resultsInvalid":"Fix the highlighted fields to view your result.","copy":"Copy result","copied":"Copied!","print":"Print","steps":"Calculation breakdown","faq":"Frequently asked questions","related":"Other calculators","summaryError":"There is {count} field(s) with errors. Please review your entries.","errors":{"required":"This field is required.","nan":"Enter a valid number.","min":"Must be greater than {min}.","minInclusive":"Must be {min} or greater.","max":"Cannot exceed {max}.","integer":"Enter a whole number."},"howCalculated":"How it was calculated","formulaSection":"Formulas & method","waste":"Waste (%)","wasteHelp":"Extra margin for cuts, spills and surprises. 5–10% is typical.","quantity":"Number of elements","quantityHelp":"Count of identical pieces (e.g. 4 equal columns).","optional":"optional","required":"required","mode":"What do you know?","modeRoom":"Room dimensions","modeArea":"Area already known","disclaimer":"Estimate only. Confirm quantities with your supplier."},"calc":{"fields":{"mode":"Input mode","room":"By room dimensions (length × width)","area":"By total area","length":"Length","width":"Width","areaInput":"Area","waste":"Waste allowance (%)","wasteHelp":"Recommended: 10% for straight lay; 15% for diagonal or complex rooms.","tileLength":"Tile / plank length","tileWidth":"Tile / plank width","boxMode":"Box calculation method","byPieces":"By pieces per box","byBoxArea":"By area covered per box","none":"Do not calculate boxes","piecesPerBox":"Pieces per box","boxArea":"Area per box","tileHelp":"Tile or plank size. Leave empty if you only need the area.","boxNone":"Don't calculate boxes","boxPieces":"Pieces per box","boxAreaField":"Area covered by one box"},"results":{"netArea":"Net area","total":"Total area (with waste)","tiles":"Tiles / planks needed","boxes":"Boxes needed","tileAreaLabel":"Area per piece","net":"Floor area","waste":"Waste","pieces":"Pieces needed","pieceArea":"Area per piece"},"steps":{"area":"Net area = {l} × {w} = {net}","waste":"With {w}% waste = {net} × {factor} = {total}","tiles":"Pieces = {total} ÷ {tile} = {raw} → {tiles} pieces","boxesPieces":"Boxes = {tiles} pieces ÷ {ppb} per box = {raw} → {boxes} boxes","boxesArea":"Boxes = {total} ÷ {boxArea} per box = {raw} → {boxes} boxes","floorArea":"Area = length × width = {lengthM} × {widthM} = {areaM2}","directArea":"Given area = {areaM2}","pieces":"Pieces = {areaWithWasteM2} ÷ ({tileLengthM} × {tileWidthM} = {pieceAreaM2}) = {pieces} (rounded up)","boxesByPieces":"Boxes = {pieces} ÷ {piecesPerBox} pieces per box = {boxes} (rounded up)","boxesByArea":"Boxes = {areaWithWasteM2} ÷ {boxAreaM2} per box = {boxes} (rounded up)"}}}</script>
 </body>
 </html>

@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: buildcalc
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Unit tests (core maths, units, validation)
+        run: npm run test:unit
+      - name: Build + JSON/SEO/i18n/link integrity tests
+        run: npm run test:build
+      - name: Install dev dependencies and Chromium for E2E
+        run: npm install && npx playwright install --with-deps chromium
+      - name: End-to-end tests (Chromium)
+        run: node --test tests/e2e/

@@ -3,61 +3,73 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Calculadora de pintura: litros o galones | BuildCalc</title>
-    <meta name="description" content="Calcula cuánta pintura necesitas para paredes y techos en litros o galones. Descuenta puertas y ventanas, elige manos, rendimiento y desperdicio. Gratis.">
+    <title>Calculadora de pintura (litros, galones y latas) | BuildCalc</title>
+    <meta name="description" content="Calculá cuántos litros o galones de pintura necesitás según paredes, cielorraso, manos, rendimiento y aberturas. Resultados al instante.">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://buildcalc-c16f.onrender.com/es/pintura/">
     <link rel="alternate" hreflang="es" href="https://buildcalc-c16f.onrender.com/es/pintura/">
     <link rel="alternate" hreflang="en" href="https://buildcalc-c16f.onrender.com/en/paint/">
     <link rel="alternate" hreflang="x-default" href="https://buildcalc-c16f.onrender.com/en/paint/">
-    <meta name="theme-color" content="#0f6fff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0a58ca" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: dark)">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="BuildCalc">
-    <meta property="og:title" content="Calculadora de pintura: litros o galones | BuildCalc">
-    <meta property="og:description" content="Calcula cuánta pintura necesitas para paredes y techos en litros o galones. Descuenta puertas y ventanas, elige manos, rendimiento y desperdicio. Gratis.">
+    <meta property="og:title" content="Calculadora de pintura (litros, galones y latas) | BuildCalc">
+    <meta property="og:description" content="Calculá cuántos litros o galones de pintura necesitás según paredes, cielorraso, manos, rendimiento y aberturas. Resultados al instante.">
     <meta property="og:url" content="https://buildcalc-c16f.onrender.com/es/pintura/">
-    <meta property="og:locale" content="es_ES">
+    <meta property="og:locale" content="es_LA">
+    <meta property="og:locale:alternate" content="en_US">
     <meta property="og:image" content="https://buildcalc-c16f.onrender.com/assets/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="BuildCalc — Calculadoras de materiales de construcción">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Calculadora de pintura: litros o galones | BuildCalc">
-    <meta name="twitter:description" content="Calcula cuánta pintura necesitas para paredes y techos en litros o galones. Descuenta puertas y ventanas, elige manos, rendimiento y desperdicio. Gratis.">
+    <meta name="twitter:title" content="Calculadora de pintura (litros, galones y latas) | BuildCalc">
+    <meta name="twitter:description" content="Calculá cuántos litros o galones de pintura necesitás según paredes, cielorraso, manos, rendimiento y aberturas. Resultados al instante.">
     <meta name="twitter:image" content="https://buildcalc-c16f.onrender.com/assets/og-image.png">
-    
+    <meta name="twitter:image:alt" content="BuildCalc — Calculadoras de materiales de construcción">
+    <meta name="google-site-verification" content="DwC7mmtmJrc3ZlKKbyxzmw41Pnn1XB9e0eYh8FcVAiI">
     <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
     <link rel="manifest" href="../../assets/site.webmanifest">
     <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="modulepreload" href="../../assets/js/ui/nav.js">
+    <link rel="modulepreload" href="../../assets/js/ui/common.js">
+    <link rel="modulepreload" href="../../assets/js/ui/calc-paint.js">
+    <link rel="modulepreload" href="../../assets/js/core/units.js">
+    <link rel="modulepreload" href="../../assets/js/core/validate.js">
+    <link rel="modulepreload" href="../../assets/js/core/format.js">
+    <link rel="modulepreload" href="../../assets/js/core/calculators/paint.js">
     <script type="module" src="../../assets/js/ui/app.js"></script>
-    <!-- analytics: set analytics.gaMeasurementId in site.config.json to enable Google Analytics -->
-    
-    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de pintura","url":"https://buildcalc-c16f.onrender.com/es/pintura/","description":"Calcula cuánta pintura necesitas para paredes y techos en litros o galones. Descuenta puertas y ventanas, elige manos, rendimiento y desperdicio. Gratis.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"es","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"BuildCalc","url":"https://buildcalc-c16f.onrender.com/es/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuánta pintura necesito para una habitación de 12 m²?","acceptedAnswer":{"@type":"Answer","text":"Una habitación de 4 × 3 m con 2.5 m de altura tiene unos 35 m² de pared; descontando una puerta y una ventana quedan ~31.6 m². Con dos manos y 10 m²/L necesitas ≈ 6.3 L, es decir dos envases de 4 L."}},{"@type":"Question","name":"¿Cuántas manos de pintura debo aplicar?","acceptedAnswer":{"@type":"Answer","text":"Dos manos es el estándar para un acabado uniforme. Sobre colores oscuros o superficies nuevas pueden hacer falta tres, o una mano de imprimación."}},{"@type":"Question","name":"¿Qué rendimiento tiene la pintura?","acceptedAnswer":{"@type":"Answer","text":"La mayoría de las pinturas látex o acrílicas rinden entre 8 y 12 m² por litro y mano (300–400 ft² por galón). El valor exacto figura en el envase."}},{"@type":"Question","name":"¿La calculadora sirve para exteriores?","acceptedAnswer":{"@type":"Answer","text":"Sí: usa el modo «Área ya conocida» con la superficie de la fachada y aumenta el desperdicio a 10–15 % por la textura del revoque."}}]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://buildcalc-c16f.onrender.com/es/"},{"@type":"ListItem","position":2,"name":"Calculadora de pintura","item":"https://buildcalc-c16f.onrender.com/es/pintura/"}]}]</script>
+    <!-- analytics: disabled (set analytics.gaMeasurementId in site.config.json when ready) -->
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de pintura","url":"https://buildcalc-c16f.onrender.com/es/pintura/","description":"Calculá cuántos litros o galones de pintura necesitás según paredes, cielorraso, manos, rendimiento y aberturas. Resultados al instante.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"es","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"BuildCalc","url":"https://buildcalc-c16f.onrender.com/es/"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántos metros cuadrados rinde 1 litro de pintura?","acceptedAnswer":{"@type":"Answer","text":"Un látex interior estándar suele rendir entre 10 y 12 m² por litro y por mano sobre pared lisa y sellada. En superficies rugosas o muy absorbentes puede bajar a 6–8 m²/L."}},{"@type":"Question","name":"¿Cuántas manos de pintura necesito?","acceptedAnswer":{"@type":"Answer","text":"Lo habitual son 2 manos para lograr un color parejo. Si cubrís un tono oscuro con uno claro o pintás sobre revoque nuevo sin fijador, pueden hacer falta 3 manos."}},{"@type":"Question","name":"¿Conviene incluir el cielorraso en el mismo cálculo?","acceptedAnswer":{"@type":"Answer","text":"Solo si vas a usar exactamente la misma pintura en paredes y techo. Si el cielorraso lleva pintura especial antihongo o blanco mate distinto, calculalo aparte en modo superficie."}},{"@type":"Question","name":"¿Por qué la calculadora redondea las latas hacia arriba?","acceptedAnswer":{"@type":"Answer","text":"Porque en pinturería no podés comprar fracciones de envase. Redondear hacia arriba asegura que no te falte pintura para terminar la última pared."}},{"@type":"Question","name":"¿Qué pasa si no quiero descontar puertas ni ventanas?","acceptedAnswer":{"@type":"Answer","text":"Dejá ambos campos en 0. Muchas veces conviene dejarlos en 0 si las aberturas son chicas y querés tener un pequeño sobrante para retoques."}}]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://buildcalc-c16f.onrender.com/es/"},{"@type":"ListItem","position":2,"name":"Calculadora de pintura","item":"https://buildcalc-c16f.onrender.com/es/pintura/"}]}]</script>
 </head>
 <body>
-    <a class="skip-link" href="#main">Saltar al contenido</a>
+    <a class="skip-link" href="#main">Ir al contenido principal</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="../../es/" aria-label="BuildCalc — Inicio"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3" y="3" width="26" height="26" rx="6" fill="#0f6fff"/><path d="M9 22V11h5.5a3 3 0 0 1 0 6H9m0 0h6.5a3 3 0 0 1 0 6H9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 12h5M19 16h5M19 20h5" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg><span>Build<b>Calc</b></span></a>
-        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menú"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <a class="brand" href="../../es/" aria-label="BuildCalc — Inicio"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3" y="3" width="26" height="26" rx="6" fill="#0a58ca"/><path d="M9 22V11h5.5a3 3 0 0 1 0 6H9m0 0h6.5a3 3 0 0 1 0 6H9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 12h5M19 16h5M19 20h5" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".85"/></svg><span>Build<b>Calc</b></span></a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menú"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
         <nav id="site-nav" class="site-nav" aria-label="Calculadoras">
           <ul>
             <li><a href="../../es/">Inicio</a></li>
             <li><a href="../../es/hormigon/">Hormigón</a></li>
             <li><a href="../../es/pintura/" aria-current="page">Pintura</a></li>
-            <li><a href="../../es/pisos/">Pisos</a></li>
-            <li><a class="lang-switch" href="../../en/paint/" hreflang="en" lang="en" rel="alternate" aria-label="Ver esta página en inglés">🌐 English</a></li>
+            <li><a href="../../es/pisos/">Pisos y baldosas</a></li>
+            <li><a class="lang-switch" href="../../en/paint/" hreflang="en" lang="en" rel="alternate" data-lang-switch aria-label="Switch to English">🌐 English</a></li>
           </ul>
         </nav>
       </div>
     </header>
     <main id="main" class="container" tabindex="-1">
 
-      <nav class="breadcrumb" aria-label="Breadcrumb">
+      <nav class="breadcrumb" aria-label="Ruta de navegación">
         <ol><li><a href="../../es/">Inicio</a></li><li aria-current="page">Calculadora de pintura</li></ol>
       </nav>
       <header class="page-head">
         <h1 id="calc-title">Calculadora de pintura</h1>
-        <p class="lead">Averigua cuántos litros o galones de pintura comprar para una habitación, descontando puertas y ventanas y ajustando el número de manos y el rendimiento de tu pintura.</p>
+        <p class="lead">Calculá los litros o galones de pintura necesarios para tus paredes y cielorraso, descontando puertas y ventanas y redondeando por envase.</p>
       </header>
       <div class="calc-layout">
         <div>
@@ -65,45 +77,45 @@
       <fieldset class="unit-fieldset">
         <legend>Sistema de unidades</legend>
         <div class="segmented" role="radiogroup" aria-label="Sistema de unidades">
-          <label><input type="radio" name="units" value="metric" checked><span>Métrico</span></label>
-          <label><input type="radio" name="units" value="imperial"><span>Imperial</span></label>
+          <label><input type="radio" name="units" value="metric" checked><span>Métrico (m, cm, L)</span></label>
+          <label><input type="radio" name="units" value="imperial"><span>Imperial (ft, in, gal)</span></label>
         </div>
       </fieldset>
       <fieldset>
-        <legend>¿Qué datos tienes?</legend>
+        <legend>Modo de entrada</legend>
         <div class="radio-list">
-          <label class="radio-card"><input type="radio" name="mode" value="room" checked> Medidas del espacio</label>
-          <label class="radio-card"><input type="radio" name="mode" value="area"> Área ya conocida</label>
+          <label class="radio-card"><input type="radio" name="mode" value="room" checked> Por medidas del ambiente</label>
+          <label class="radio-card"><input type="radio" name="mode" value="area"> Por superficie total</label>
         </div>
       </fieldset>
       <div data-show-when="mode=room">
         <div class="field-grid cols-3">
           <div class="field" data-field="length">
-          <label for="p-length">Largo de la habitación <span class="unit" data-unit-role="length"></span></label>
+          <label for="p-length">Largo del ambiente <span class="unit" data-unit-role="length"></span></label>
           <input id="p-length" name="length" type="number" inputmode="decimal" step="any" min="0" data-role="length" required aria-describedby="p-length-err" data-placeholder-metric="4" data-placeholder-imperial="12" autocomplete="off">
           
           <p class="field-error" id="p-length-err" hidden></p>
         </div>
           <div class="field" data-field="width">
-          <label for="p-width">Ancho de la habitación <span class="unit" data-unit-role="length"></span></label>
+          <label for="p-width">Ancho del ambiente <span class="unit" data-unit-role="length"></span></label>
           <input id="p-width" name="width" type="number" inputmode="decimal" step="any" min="0" data-role="length" required aria-describedby="p-width-err" data-placeholder-metric="3" data-placeholder-imperial="10" autocomplete="off">
           
           <p class="field-error" id="p-width-err" hidden></p>
         </div>
           <div class="field" data-field="height">
-          <label for="p-height">Altura de las paredes <span class="unit" data-unit-role="length"></span></label>
+          <label for="p-height">Altura de paredes <span class="unit" data-unit-role="length"></span></label>
           <input id="p-height" name="height" type="number" inputmode="decimal" step="any" min="0" data-role="length" required aria-describedby="p-height-err" data-placeholder-metric="2.5" data-placeholder-imperial="8" autocomplete="off">
           
           <p class="field-error" id="p-height-err" hidden></p>
         </div>
         </div>
         <div class="field" data-field="ceiling">
-          <label class="check"><input type="checkbox" name="ceiling"> Incluir el techo</label>
+          <label class="check"><input type="checkbox" name="ceiling"> Incluir cielorraso</label>
         </div>
       </div>
       <div data-show-when="mode=area" hidden>
         <div class="field" data-field="area">
-          <label for="p-area">Área a pintar <span class="unit" data-unit-role="area"></span></label>
+          <label for="p-area">Por superficie total directa <span class="unit" data-unit-role="area"></span></label>
           <input id="p-area" name="area" type="number" inputmode="decimal" step="any" min="0" data-role="area" required aria-describedby="p-area-err" data-placeholder-metric="30" data-placeholder-imperial="320" autocomplete="off">
           
           <p class="field-error" id="p-area-err" hidden></p>
@@ -111,29 +123,29 @@
       </div>
       <div class="field-grid">
         <div class="field" data-field="doors">
-          <label for="p-doors">Puertas</label>
+          <label for="p-doors">Puertas a descontar</label>
           <input id="p-doors" name="doors" type="number" inputmode="numeric" step="1" min="0" data-role="none" aria-describedby="p-doors-help p-doors-err" data-default-metric="1" data-default-imperial="1" autocomplete="off">
-          <p class="field-help" id="p-doors-help" data-help-for="doors">Se descuentan … por puerta.</p>
+          <p class="field-help" id="p-doors-help" data-help-for="doors">Descuento estándar: ~1,85 m² (20 ft²) por puerta.</p>
           <p class="field-error" id="p-doors-err" hidden></p>
         </div>
         <div class="field" data-field="windows">
-          <label for="p-windows">Ventanas</label>
+          <label for="p-windows">Ventanas a descontar</label>
           <input id="p-windows" name="windows" type="number" inputmode="numeric" step="1" min="0" data-role="none" aria-describedby="p-windows-help p-windows-err" data-default-metric="1" data-default-imperial="1" autocomplete="off">
-          <p class="field-help" id="p-windows-help" data-help-for="windows">Se descuentan … por ventana.</p>
+          <p class="field-help" id="p-windows-help" data-help-for="windows">Descuento estándar: ~1,40 m² (15 ft²) por ventana.</p>
           <p class="field-error" id="p-windows-err" hidden></p>
         </div>
       </div>
       <div class="field-grid">
         <div class="field" data-field="coats">
-          <label for="p-coats">Número de manos</label>
+          <label for="p-coats">Cantidad de manos</label>
           <input id="p-coats" name="coats" type="number" inputmode="numeric" step="1" min="1" data-role="none" required aria-describedby="p-coats-err" data-default-metric="2" data-default-imperial="2" autocomplete="off">
           
           <p class="field-error" id="p-coats-err" hidden></p>
         </div>
         <div class="field" data-field="coverage">
-          <label for="p-coverage">Rendimiento de la pintura <span class="unit" data-unit-role="coverage"></span></label>
+          <label for="p-coverage">Rendimiento por mano <span class="unit" data-unit-role="coverage"></span></label>
           <input id="p-coverage" name="coverage" type="number" inputmode="decimal" step="any" min="0" data-role="coverage" required aria-describedby="p-coverage-help p-coverage-err" data-default-metric="10" data-default-imperial="350" autocomplete="off">
-          <p class="field-help" id="p-coverage-help">Lo indica el envase. Típico: 8–12 m²/L (300–400 ft²/gal) por mano.</p>
+          <p class="field-help" id="p-coverage-help">Típico: 10 a 12 m²/L (350 a 400 ft²/gal). Revisá la lata.</p>
           <p class="field-error" id="p-coverage-err" hidden></p>
         </div>
       </div>
@@ -141,13 +153,13 @@
         <div class="field" data-field="waste">
           <label for="p-waste">Desperdicio (%)</label>
           <input id="p-waste" name="waste" type="number" inputmode="decimal" step="any" min="0" data-role="none" required aria-describedby="p-waste-help p-waste-err" data-default-metric="5" data-default-imperial="5" autocomplete="off">
-          <p class="field-help" id="p-waste-help">Margen extra por cortes, derrames e imprevistos. 5–10 % es lo habitual.</p>
+          <p class="field-help" id="p-waste-help">Agregá 5 %–15 % por cortes, desniveles o pérdidas.</p>
           <p class="field-error" id="p-waste-err" hidden></p>
         </div>
         <div class="field" data-field="can">
-          <label for="p-can">Tamaño del envase</label>
+          <label for="p-can">Tamaño de envase</label>
           <select id="p-can" name="can" data-select="can">
-            <option value="none">Sin cálculo de envases</option>
+            <option value="none">No calcular envases</option>
           </select>
           <p class="field-error" id="p-can-err" hidden></p>
         </div>
@@ -155,63 +167,110 @@
       <p class="error-summary" data-error-summary role="alert" hidden></p>
       <div class="form-actions">
         <button type="submit" class="btn btn-primary">Resultados</button>
-        <button type="reset" class="btn btn-ghost">Limpiar</button>
+        <button type="reset" class="btn btn-ghost">Restablecer</button>
       </div>
     </form>
         </div>
         <section class="results card" id="results" data-state="empty" aria-labelledby="results-title" aria-live="polite">
           <h2 id="results-title">Resultados</h2>
-          <div data-results-body><p class="results-placeholder">Completa los campos para ver el resultado al instante.</p></div>
+          <div data-results-body><p class="results-placeholder">Completá los datos para ver el cálculo al instante.</p></div>
           <div class="results-actions">
-            <button type="button" class="btn btn-ghost btn-sm" data-copy>Copiar resultados</button>
-            <button type="button" class="btn btn-ghost btn-sm" data-print>Imprimir / guardar PDF</button>
+            <button type="button" class="btn btn-ghost btn-sm" data-copy>Copiar resultado</button>
+            <button type="button" class="btn btn-ghost btn-sm" data-print>Imprimir</button>
+            <span class="visually-hidden" role="status" aria-live="polite" data-copy-status></span>
           </div>
         </section>
       </div>
-      <a class="result-bar" href="#results" data-result-bar hidden aria-label="Resultados">
-        <span class="result-bar-label">Pintura necesaria (con desperdicio)</span>
+      <a class="result-bar" href="#results" data-result-bar hidden>
+        <span class="result-bar-label">Pintura necesaria</span>
         <strong class="result-bar-value" data-result-bar-value></strong>
         <span class="result-bar-cta" aria-hidden="true">↓</span>
       </a>
       <!-- ad-slot:calc-below-results (disabled) -->
+      <section class="section prose" aria-labelledby="guide-title">
+        <h2 id="guide-title">Para qué sirve y cómo usar esta calculadora</h2>
+        <p>Esta calculadora te permite saber cuánta pintura comprar para pintar una habitación, un departamento o una fachada sin gastar de más ni quedarte sin material en la última mano.</p>
+        <h3>Cómo usarla paso a paso</h3>
+        <ol class="guide-steps">
+            <li>Elegí si querés ingresar las medidas del ambiente (largo, ancho, alto) o la superficie total directa.</li>
+            <li>Indicá si también vas a pintar el cielorraso y cuántas puertas y ventanas tiene el ambiente.</li>
+            <li>Definí la cantidad de manos (normalmente 2 manos) y el rendimiento que figura en la lata de pintura.</li>
+            <li>Agregá un margen de desperdicio (5 % a 10 % para retoques y absorción del rodillo).</li>
+            <li>Seleccioná el tamaño de lata o balde (1 L, 4 L o 20 L) para ver cuántos envases comprar.</li>
+        </ol>
+      </section>
       <section class="section prose" aria-labelledby="formula-title">
-        <h2 id="formula-title">Cómo se calcula la pintura</h2>
-          <p>Primero obtenemos el área de las paredes: perímetro × altura = 2 × (largo + ancho) × altura. Si marcas el techo, se suma largo × ancho.</p>
-          <p>Restamos las aberturas con tamaños típicos: 1.9 m² (≈ 20 ft²) por puerta y 1.5 m² (≈ 16 ft²) por ventana. El resultado es el área neta a pintar.</p>
-          <p>El área neta se multiplica por el número de manos y se divide por el rendimiento de la pintura (m² por litro o ft² por galón) que indica el fabricante.</p>
-          <p>Finalmente se añade el desperdicio y se redondea hacia arriba al número de envases del tamaño elegido. Superficies rugosas o muy absorbentes pueden requerir hasta un 20 % más.</p>
+        <h2 id="formula-title">Fórmula y criterios de cálculo</h2>
+        <ul class="formula-box">
+            <li><code>Paredes = 2 × (Largo + Ancho) × Altura</code></li>
+            <li><code>Superficie neta = Paredes + Cielorraso − Aberturas</code></li>
+            <li><code>Pintura = (Superficie neta × Manos / Rendimiento) × (1 + Desperdicio / 100)</code></li>
+            <li><code>Envases = redondear_arriba(Pintura / Tamaño_envase)</code></li>
+        </ul>
+          <p>El perímetro del ambiente se multiplica por la altura para obtener la superficie bruta de paredes. Si marcás cielorraso, se suma Largo × Ancho.</p>
+          <p>Se descuentan las aberturas usando valores promedio estándar (1,85 m² por puerta y 1,40 m² por ventana).</p>
+          <p>La superficie neta se multiplica por la cantidad de manos y se divide por el rendimiento por mano (por ejemplo, 10 m²/L).</p>
+          <p>Finalmente se aplica el porcentaje de desperdicio y se redondea hacia arriba según el tamaño de lata o balde elegido.</p>
+      </section>
+      <section class="section prose" aria-labelledby="interpret-title">
+        <h2 id="interpret-title">Cómo interpretar los resultados</h2>
+        <ul class="guide-list">
+            <li>Superficie neta (por mano): metros o pies cuadrados reales a cubrir en una sola pasada.</li>
+            <li>Superficie total a cubrir: superficie neta multiplicada por la cantidad de manos.</li>
+            <li>Pintura necesaria: volumen total en litros o galones incluyendo el margen de desperdicio.</li>
+            <li>Envases necesarios: cantidad entera de latas o baldes redondeada hacia arriba.</li>
+        </ul>
+      </section>
+      <section class="section" aria-labelledby="examples-title">
+        <h2 id="examples-title">Ejemplos prácticos</h2>
+        <div class="example-grid">
+          <article class="card example-card">
+            <h3>Dormitorio de 4 × 3 m y 2,5 m de altura (2 manos)</h3>
+            <p>Paredes únicamente, con 1 puerta y 1 ventana, rendimiento de 10 m²/L y sin desperdicio.</p>
+            <p class="example-calc">Paredes = 35 m² − 3,25 m² aberturas = 31,75 m² × 2 manos = 63,5 m² ÷ 10 m²/L</p>
+            <p class="example-result">Resultado: 6,35 L de pintura (2 latas de 4 L).</p>
+          </article>
+          <article class="card example-card">
+            <h3>Living de 5 × 4 m con cielorraso y 10 % de desperdicio</h3>
+            <p>Altura 2,6 m, 1 puerta, 2 ventanas, 2 manos y rendimiento de 10 m²/L.</p>
+            <p class="example-calc">46,8 m² paredes + 20 m² techo − 4,65 m² = 62,15 m² × 2 ÷ 10 × 1,10</p>
+            <p class="example-result">Resultado: 13,67 L de pintura (4 latas de 4 L o 1 balde de 20 L).</p>
+          </article>
+        </div>
       </section>
       
       <section class="section faq" aria-labelledby="faq-title">
         <h2 id="faq-title">Preguntas frecuentes</h2>
-          <details><summary>¿Cuánta pintura necesito para una habitación de 12 m²?</summary><p>Una habitación de 4 × 3 m con 2.5 m de altura tiene unos 35 m² de pared; descontando una puerta y una ventana quedan ~31.6 m². Con dos manos y 10 m²/L necesitas ≈ 6.3 L, es decir dos envases de 4 L.</p></details>
-          <details><summary>¿Cuántas manos de pintura debo aplicar?</summary><p>Dos manos es el estándar para un acabado uniforme. Sobre colores oscuros o superficies nuevas pueden hacer falta tres, o una mano de imprimación.</p></details>
-          <details><summary>¿Qué rendimiento tiene la pintura?</summary><p>La mayoría de las pinturas látex o acrílicas rinden entre 8 y 12 m² por litro y mano (300–400 ft² por galón). El valor exacto figura en el envase.</p></details>
-          <details><summary>¿La calculadora sirve para exteriores?</summary><p>Sí: usa el modo «Área ya conocida» con la superficie de la fachada y aumenta el desperdicio a 10–15 % por la textura del revoque.</p></details>
+          <details><summary>¿Cuántos metros cuadrados rinde 1 litro de pintura?</summary><p>Un látex interior estándar suele rendir entre 10 y 12 m² por litro y por mano sobre pared lisa y sellada. En superficies rugosas o muy absorbentes puede bajar a 6–8 m²/L.</p></details>
+          <details><summary>¿Cuántas manos de pintura necesito?</summary><p>Lo habitual son 2 manos para lograr un color parejo. Si cubrís un tono oscuro con uno claro o pintás sobre revoque nuevo sin fijador, pueden hacer falta 3 manos.</p></details>
+          <details><summary>¿Conviene incluir el cielorraso en el mismo cálculo?</summary><p>Solo si vas a usar exactamente la misma pintura en paredes y techo. Si el cielorraso lleva pintura especial antihongo o blanco mate distinto, calculalo aparte en modo superficie.</p></details>
+          <details><summary>¿Por qué la calculadora redondea las latas hacia arriba?</summary><p>Porque en pinturería no podés comprar fracciones de envase. Redondear hacia arriba asegura que no te falte pintura para terminar la última pared.</p></details>
+          <details><summary>¿Qué pasa si no quiero descontar puertas ni ventanas?</summary><p>Dejá ambos campos en 0. Muchas veces conviene dejarlos en 0 si las aberturas son chicas y querés tener un pequeño sobrante para retoques.</p></details>
       </section>
       <section class="section related" aria-labelledby="related-title">
         <h2 id="related-title">Otras calculadoras</h2>
-        <ul><li><a href="../../es/hormigon/">Calculadora de hormigón</a></li><li><a href="../../es/pisos/">Calculadora de pisos</a></li></ul>
+        <ul><li><a href="../../es/hormigon/">Calculadora de hormigón</a></li><li><a href="../../es/pisos/">Calculadora de pisos y baldosas</a></li></ul>
       </section>
     </main>
     <footer class="site-footer">
       <div class="container footer-inner">
         <div>
-          <p><strong>BuildCalc</strong> — Calculadoras de construcción gratuitas</p>
-          <p>BuildCalc es una herramienta de estimación. Verifica siempre las cantidades con tu proveedor o profesional antes de comprar.</p>
+          <p><strong>BuildCalc</strong> — Calculadoras de materiales de construcción</p>
+          <p>Cálculos orientativos en tu navegador. Verificá siempre con las especificaciones técnicas del fabricante antes de comprar materiales.</p>
           <p>© 2026 BuildCalc. Todos los derechos reservados.</p>
         </div>
-        <nav aria-label="Footer">
+        <nav aria-label="Enlaces del pie de página">
           <ul>
+            <li><a href="../../es/">Inicio</a></li>
             <li><a href="../../es/hormigon/">Hormigón</a></li>
-            <li><a href="../../es/pintura/">Pintura</a></li>
-            <li><a href="../../es/pisos/">Pisos</a></li>
+            <li><a href="../../es/pintura/" aria-current="page">Pintura</a></li>
+            <li><a href="../../es/pisos/">Pisos y baldosas</a></li>
             <li><a href="../../es/privacidad/">Privacidad</a></li>
-            <li><a href="../../en/paint/" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../en/paint/" hreflang="en" lang="en" rel="alternate" data-lang-switch>English</a></li>
           </ul>
         </nav>
       </div>
     </footer>
-    <script type="application/json" id="bc-i18n">{"lang":"es","locale":"es","units":{"legend":"Sistema de unidades","metric":"Métrico","imperial":"Imperial","m":"m","cm":"cm","mm":"mm","ft":"ft","in":"in","m2":"m²","ft2":"ft²","m3":"m³","yd3":"yd³","ft3":"ft³","L":"L","gal":"gal","m2PerL":"m²/L","ft2PerGal":"ft²/gal","pieces":"piezas","boxes":"cajas","bags":"sacos","cans":"envases"},"common":{"results":"Resultados","resultsEmpty":"Completa los campos para ver el resultado al instante.","resultsInvalid":"Corrige los campos marcados para ver el resultado.","howCalculated":"Cómo se calculó","formulaSection":"Fórmulas y método","faq":"Preguntas frecuentes","related":"Otras calculadoras","waste":"Desperdicio (%)","wasteHelp":"Margen extra por cortes, derrames e imprevistos. 5–10 % es lo habitual.","quantity":"Cantidad de elementos","quantityHelp":"Número de piezas idénticas (p. ej. 4 columnas iguales).","reset":"Limpiar","print":"Imprimir / guardar PDF","copy":"Copiar resultados","copied":"Copiado","optional":"opcional","required":"obligatorio","mode":"¿Qué datos tienes?","modeRoom":"Medidas del espacio","modeArea":"Área ya conocida","disclaimer":"Estimación orientativa. Confirma las cantidades con tu proveedor.","errors":{"required":"Este campo es obligatorio.","nan":"Introduce un número válido.","min":"Debe ser mayor que {min}.","minInclusive":"Debe ser {min} o mayor.","max":"Demasiado grande (máximo {max}). Revisa las unidades.","integer":"Debe ser un número entero."},"summaryError":"Hay {count} campo(s) con errores."},"calc":{"fields":{"length":"Largo de la habitación","width":"Ancho de la habitación","height":"Altura de las paredes","area":"Área a pintar","ceiling":"Incluir el techo","doors":"Puertas","doorsHelp":"Se descuentan {area} por puerta.","windows":"Ventanas","windowsHelp":"Se descuentan {area} por ventana.","coats":"Número de manos","coverage":"Rendimiento de la pintura","coverageHelp":"Lo indica el envase. Típico: 8–12 m²/L (300–400 ft²/gal) por mano.","can":"Tamaño del envase","canNone":"Sin cálculo de envases"},"results":{"total":"Pintura necesaria (con desperdicio)","net":"Pintura sin desperdicio","area":"Área neta a pintar","areaCoats":"Área total ({coats} manos)","openings":"Descontado por aberturas","cans":"Envases de {can}","openingsWarning":"Las aberturas superan el área indicada: revisa las medidas."},"steps":{"wallArea":"Área de paredes = 2 × (largo + ancho) × altura = 2 × ({lengthM} + {widthM}) × {heightM} = {wallAreaM2}","ceilingArea":"Área del techo = largo × ancho = {lengthM} × {widthM} = {ceilingAreaM2}","directArea":"Área indicada = {areaM2}","openings":"Aberturas = {doors} puertas × {doorAreaM2} + {windows} ventanas × {windowAreaM2} = {openingsAreaM2}","netArea":"Área neta = {grossAreaM2} − {openingsAreaM2} = {netAreaM2}","coats":"Área total = {netAreaM2} × {coats} manos = {totalAreaM2}","litres":"Pintura = {totalAreaM2} ÷ {coverageM2PerL} = {litresNet}","waste":"Desperdicio = {litresNet} × {wastePercent} % = {litresWaste} → Total = {litresTotal}","cans":"Envases = {litresTotal} ÷ {canLitres} ({canLabel}) = {cans} (redondeado hacia arriba)"}}}</script>
+    <script type="application/json" id="bc-i18n">{"lang":"es","locale":"es-419","units":{"metric":"Métrico (m, cm, L)","imperial":"Imperial (ft, in, gal)","m":"m","cm":"cm","m2":"m²","m3":"m³","L":"L","ft":"ft","in":"in","ft2":"ft²","ft3":"ft³","yd3":"yd³","gal":"gal","m2PerL":"m²/L","ft2PerGal":"ft²/gal","bag25":"Bolsas de 25 kg","bag50":"Bolsas de 50 kg","bag40":"Bolsas de 40 lb","bag60":"Bolsas de 60 lb","bag80":"Bolsas de 80 lb","can1L":"Latas de 1 L","can4L":"Latas de 4 L","can20L":"Baldes de 20 L","can1qt":"Latas de 1 qt","can1gal":"Latas de 1 gal","can5gal":"Baldes de 5 gal","none":"No calcular envases","legend":"Sistema de unidades","mm":"mm","pieces":"piezas","boxes":"cajas","bags":"bolsas","cans":"envases"},"common":{"unitSystem":"Sistema de unidades","calculate":"Calcular","reset":"Restablecer","results":"Resultados","resultsEmpty":"Completá los datos para ver el cálculo al instante.","resultsInvalid":"Revisá los campos marcados para ver el resultado.","copy":"Copiar resultado","copied":"¡Copiado!","print":"Imprimir","steps":"Detalle del cálculo","faq":"Preguntas frecuentes","related":"Otras calculadoras","summaryError":"Hay {count} campo(s) con errores. Revisá los valores ingresados.","errors":{"required":"Este campo es obligatorio.","nan":"Ingresá un número válido.","min":"Debe ser mayor que {min}.","minInclusive":"Debe ser {min} o mayor.","max":"No puede superar {max}.","integer":"Ingresá un número entero."},"howCalculated":"Cómo se calcula","formulaSection":"Fórmula y criterios","waste":"Desperdicio (%)","wasteHelp":"Agregá 5 %–15 % por cortes, desniveles o pérdidas.","quantity":"Cantidad","quantityHelp":"Número de elementos iguales.","optional":"opcional","required":"obligatorio","mode":"Modo de entrada","modeRoom":"Por medidas del ambiente","modeArea":"Por superficie total","disclaimer":"Estimación orientativa. Verificá siempre con las especificaciones del fabricante."},"calc":{"fields":{"mode":"Modo de cálculo","room":"Por medidas de ambiente (largo, ancho, alto)","area":"Por superficie total directa","length":"Largo del ambiente","width":"Ancho del ambiente","height":"Altura de paredes","wallArea":"Superficie a pintar","includeCeiling":"Incluir cielorraso en el cálculo","doors":"Puertas a descontar","doorsHelp":"Descuento estándar: ~1,85 m² (20 ft²) por puerta.","windows":"Ventanas a descontar","windowsHelp":"Descuento estándar: ~1,40 m² (15 ft²) por ventana.","coats":"Cantidad de manos","coverage":"Rendimiento por mano","coverageHelp":"Típico: 10 a 12 m²/L (350 a 400 ft²/gal). Revisá la lata.","waste":"Margen de desperdicio (%)","canSize":"Tamaño de lata / balde","ceiling":"Incluir cielorraso","can":"Tamaño de envase","canNone":"No calcular envases"},"results":{"netArea":"Superficie neta (por mano)","paintedArea":"Superficie total a cubrir","total":"Pintura necesaria","cans":"Envases necesarios","openingsClamped":"El descuento de aberturas superaba la superficie de paredes y se ajustó a 0.","net":"Superficie neta (por mano)","area":"Superficie bruta","areaCoats":"Superficie total ({coats} manos)","openings":"Descuento aberturas","openingsWarning":"El descuento de aberturas superaba la superficie de paredes y se ajustó a 0."},"steps":{"room":"Paredes = 2 × ({l} + {w}) × {h} = {walls}","ceiling":"Cielorraso = {l} × {w} = {ceiling}","openings":"Descuento aberturas = {doors} puertas + {windows} ventanas = {openings}","net":"Superficie neta = {net} × {coats} mano(s) = {painted}","paint":"Pintura = ({painted} ÷ {cov}) × {factor} = {total}","cans":"Envases = {total} ÷ {can} = {raw} → {cans} envase(s)","wallArea":"Paredes = 2 × ({l} + {w}) × {h} = {walls}","ceilingArea":"Cielorraso = {l} × {w} = {ceiling}","directArea":"Superficie ingresada = {area}","netArea":"Superficie neta = {gross} − {openings} = {net}","coats":"× {coats} mano(s) = {painted}","litres":"Pintura neta = {painted} ÷ {cov} = {litres}","waste":"Con {w}% de desperdicio = {total}"}}}</script>
 </body>
 </html>
