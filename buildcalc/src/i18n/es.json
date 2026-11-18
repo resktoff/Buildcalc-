@@ -178,6 +178,7 @@
       { "q": "¿Cuántas manos de pintura debo aplicar?", "a": "Dos manos es el estándar para un acabado uniforme. Sobre colores oscuros o superficies nuevas pueden hacer falta tres, o una mano de imprimación." },
       { "q": "¿Qué rendimiento tiene la pintura?", "a": "La mayoría de las pinturas látex o acrílicas rinden entre 8 y 12 m² por litro y mano (300–400 ft² por galón). El valor exacto figura en el envase." },
       { "q": "¿La calculadora sirve para exteriores?", "a": "Sí: usa el modo «Área ya conocida» con la superficie de la fachada y aumenta el desperdicio a 10–15 % por la textura del revoque." }
+      { "q": "¿Cuánto hormigón necesito para una losa de 10 m²?", "a": "Depende del espesor. Una losa de 10 m² con 10 cm de espesor necesita 1 m³ de hormigón neto. Si agregas un 5 % de desperdicio, debes calcular aproximadamente 1,05 m³." },
     ]
   },
   "flooring": {
