@@ -175,7 +175,11 @@ test('analytics / ads are NOT injected while unconfigured (no third-party script
 
   const builtHtml = await read('en/concrete/index.html');
   assert.ok(!builtHtml.includes('adsbygoogle'), 'AdSense injected while disabled');
-  assert.ok(builtHtml.includes('<!-- ad-slot:calc-below-results (disabled) -->'), 'ad slot placeholder comment present');
+  assert.ok(builtHtml.includes('https://bauval.org/22/41921c46095eecbf42ea9a25f4d05c50'), 'Adsterra 300x250 banner present on calculator pages');
+  const homeHtml = await read('en/index.html');
+  assert.ok(!homeHtml.includes('41921c46095eecbf42ea9a25f4d05c50'), 'Adsterra banner must not appear on home page');
+  const privHtml = await read('en/privacy/index.html');
+  assert.ok(!privHtml.includes('41921c46095eecbf42ea9a25f4d05c50'), 'Adsterra banner must not appear on privacy page');
 });
 
 test('page weight budget: HTML < 40 KB, CSS < 25 KB, JS total < 60 KB', async () => {

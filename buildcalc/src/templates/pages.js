@@ -167,7 +167,22 @@ export function calcPage({ t, config, id }) {
         <strong class="result-bar-value" data-result-bar-value></strong>
         <span class="result-bar-cta" aria-hidden="true">↓</span>
       </a>
-      ${adSlot(config, t, 'calc-below-results')}
+      <!-- ad-slot:calc-below-results -->
+      <div class="ad-banner-wrap" aria-label="${esc(t.common.adLabel || (lang === 'es' ? 'Publicidad' : 'Advertisement'))}">
+        <span class="ad-banner-label">${esc(t.common.adLabel || (lang === 'es' ? 'Publicidad' : 'Advertisement'))}</span>
+        <div class="ad-banner-box">
+          <script>
+            atOptions = {
+              'key' : '41921c46095eecbf42ea9a25f4d05c50',
+              'format' : 'iframe',
+              'height' : 250,
+              'width' : 300,
+              'params' : {}
+            };
+          </script>
+          <script src="https://bauval.org/22/41921c46095eecbf42ea9a25f4d05c50"></script>
+        </div>
+      </div>
       <section class="section prose" aria-labelledby="guide-title">
         <h2 id="guide-title">${esc(c.guide.title)}</h2>
         <p>${esc(c.guide.purpose)}</p>
