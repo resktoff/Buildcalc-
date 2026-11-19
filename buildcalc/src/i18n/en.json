@@ -252,6 +252,10 @@
       {
         "q": "Do I need to convert inches to feet manually?",
         "a": "No. In imperial mode, thickness is entered directly in inches (in) and converted to feet automatically."
+      },
+      {
+        "q": "What concrete thickness should I use?",
+        "a": "There is no universal thickness: it depends on the intended use, ground conditions, loads, and project design. Generic measurements should not be treated as standards or structural recommendations. Always consult a qualified professional for structural elements."
       }
     ],
     "shape": "Shape",
