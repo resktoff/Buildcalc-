@@ -184,6 +184,21 @@ test('analytics / ads are NOT injected while unconfigured (no third-party script
     const html = await read(rel);
     const count = (html.match(/https:\/\/bauval\.org\/22\/41921c46095eecbf42ea9a25f4d05c50/g) || []).length;
     assert.equal(count, 1, `Expected exactly 1 Adsterra banner in ${rel}, got ${count}`);
+    assert.ok(!html.includes('1d4d9e751a4cf2695f034c4499288b71'), `Native banner must not appear on ${rel}`);
+  }
+
+  for (const rel of ['es/index.html', 'en/index.html']) {
+    const html = await read(rel);
+    assert.ok(!html.includes('41921c46095eecbf42ea9a25f4d05c50'), `300x250 banner must not appear on ${rel}`);
+    const nativeCount = (html.match(/https:\/\/bauval\.org\/21\/1d4d9e751a4cf2695f034c4499288b71/g) || []).length;
+    assert.equal(nativeCount, 1, `Expected exactly 1 Native banner in ${rel}, got ${nativeCount}`);
+    assert.ok(html.includes('id="container-1d4d9e751a4cf2695f034c4499288b71"'), `Native banner container missing in ${rel}`);
+  }
+
+  for (const rel of ['index.html', '404.html', 'es/privacidad/index.html', 'en/privacy/index.html']) {
+    const html = await read(rel);
+    assert.ok(!html.includes('41921c46095eecbf42ea9a25f4d05c50'), `300x250 banner must not appear on ${rel}`);
+    assert.ok(!html.includes('1d4d9e751a4cf2695f034c4499288b71'), `Native banner must not appear on ${rel}`);
   }
 
   const privEs = await read('es/privacidad/index.html');
