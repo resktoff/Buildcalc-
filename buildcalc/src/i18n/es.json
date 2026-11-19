@@ -386,6 +386,10 @@
       {
         "q": "¿Qué pasa si no quiero descontar puertas ni ventanas?",
         "a": "Dejá ambos campos en 0. Muchas veces conviene dejarlos en 0 si las aberturas son chicas y querés tener un pequeño sobrante para retoques."
+      },
+      {
+        "q": "¿Cómo calculo paredes de distintas alturas y qué pasa con los envases de 10 litros?",
+        "a": "Si las paredes tienen distintas alturas, medí cada pared por separado (ancho × alto), sumá las superficies e ingresá el total en el modo «Por superficie total directa». Los envases de 10 litros son una presentación habitual y podés usarlos como referencia al planificar la compra. Recordá que el cálculo es estimativo y el rendimiento real depende de la pintura, la superficie y la cantidad de manos."
       }
     ]
   },
