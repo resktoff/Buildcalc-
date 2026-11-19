@@ -534,11 +534,11 @@
       },
       {
         "title": "4. Cookies",
-        "text": "BuildCalc currently does not use first-party or third-party cookies for tracking, analytics or advertising."
+        "text": "BuildCalc does not set first-party cookies for its calculators. However, because Google Analytics 4 is active, Google may use third-party analytics cookies or identifiers to distinguish sessions and measure traffic."
       },
       {
-        "title": "5. Web analytics",
-        "text": "Web analytics (such as Google Analytics) are currently disabled on this site. No tracking scripts are loaded and no browsing profiles are recorded."
+        "title": "5. Web analytics (Google Analytics 4)",
+        "text": "This site uses Google Analytics 4 to measure visits and improve site content and performance. Google may collect usage, browsing, approximate device data, and analytics cookies or identifiers. You can read Google's privacy policy at https://policies.google.com/privacy and opt out or limit analytics using Google's opt-out browser add-on (https://tools.google.com/dlpage/gaoptout) or by blocking cookies in your browser settings."
       },
       {
         "title": "6. Advertising",

@@ -6,6 +6,7 @@ import assert from 'node:assert/strict';
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { document as renderDocument } from '../src/templates/layout.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'docs');
@@ -154,11 +155,27 @@ test('root redirect and 404 are noindex; root offers both languages', async () =
 });
 
 test('analytics / ads are NOT injected while unconfigured (no third-party scripts)', async () => {
-  const html = await read('en/concrete/index.html');
-  assert.ok(!html.includes('googletagmanager.com'), 'GA injected without ID');
-  assert.ok(!html.includes('adsbygoogle'), 'AdSense injected while disabled');
-  assert.ok(!/<script[^>]+src="https?:\/\//.test(html), 'unexpected external script');
-  assert.ok(html.includes('<!-- ad-slot:calc-below-results (disabled) -->'), 'ad slot placeholder comment present');
+  const unconfigured = {
+    ...config,
+    analytics: { gaMeasurementId: '' },
+    ads: { enabled: false, provider: 'adsense', clientId: '', slots: {} },
+  };
+  const cleanHtml = renderDocument({
+    t: en,
+    config: unconfigured,
+    path: 'en/concrete/',
+    alternates: { en: 'en/concrete/', es: 'es/hormigon/' },
+    title: 'Test',
+    description: 'Test description',
+    body: '<p>Test</p>',
+  });
+  assert.ok(!cleanHtml.includes('googletagmanager.com'), 'GA injected without ID');
+  assert.ok(!cleanHtml.includes('adsbygoogle'), 'AdSense injected while disabled');
+  assert.ok(!/<script[^>]+src="https?:\/\//.test(cleanHtml), 'unexpected external script');
+
+  const builtHtml = await read('en/concrete/index.html');
+  assert.ok(!builtHtml.includes('adsbygoogle'), 'AdSense injected while disabled');
+  assert.ok(builtHtml.includes('<!-- ad-slot:calc-below-results (disabled) -->'), 'ad slot placeholder comment present');
 });
 
 test('page weight budget: HTML < 40 KB, CSS < 25 KB, JS total < 60 KB', async () => {
