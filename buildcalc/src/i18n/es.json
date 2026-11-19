@@ -573,7 +573,7 @@
   "privacy": {
     "slug": "privacidad",
     "metaTitle": "Política de privacidad | BuildCalc",
-    "metaDescription": "Política de privacidad de BuildCalc: almacenamiento local, uso de Google Analytics 4 activo y publicidad desactivada.",
+    "metaDescription": "Política de privacidad de BuildCalc: cálculos locales, preferencias en el navegador, Google Analytics 4 y publicidad de Adsterra en páginas de calculadoras.",
     "h1": "Política de privacidad",
     "updated": "Última actualización: {date}",
     "sections": [
@@ -599,7 +599,13 @@
       },
       {
         "title": "6. Publicidad",
-        "text": "La publicidad (como Google AdSense) se encuentra desactivada actualmente. Si en el futuro se habilitara un proveedor de anuncios, esta política se actualizará antes de activar cualquier script para informar sobre cookies y opciones de consentimiento."
+        "text": "Las páginas de calculadoras de BuildCalc muestran un espacio publicitario provisto por Adsterra. Las portadas y las páginas de privacidad no incluyen publicidad.",
+        "paragraphs": [
+          "Las páginas de calculadoras de BuildCalc muestran un espacio publicitario provisto por Adsterra. Las portadas y las páginas de privacidad no incluyen publicidad.",
+          "Al cargar o interactuar con los anuncios, Adsterra y sus socios publicitarios pueden procesar datos técnicos como la dirección IP, tipo de navegador, dispositivo, páginas visitadas e interacciones con los anuncios.",
+          "Asimismo, pueden utilizar cookies y tecnologías similares para mostrar, medir y personalizar publicidad, según corresponda. BuildCalc no controla ni conoce el listado completo de cookies de terceros, sus duraciones exactas ni todos los socios publicitarios involucrados.",
+          "Podés consultar la política de privacidad de Adsterra en https://adsterra.com/privacy-policy-managed/ y su política de cookies en https://adsterra.com/cookies/."
+        ]
       },
       {
         "title": "7. Enlaces de afiliados",

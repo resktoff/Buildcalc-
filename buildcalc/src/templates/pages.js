@@ -167,7 +167,22 @@ export function calcPage({ t, config, id }) {
         <strong class="result-bar-value" data-result-bar-value></strong>
         <span class="result-bar-cta" aria-hidden="true">↓</span>
       </a>
-      ${adSlot(config, t, 'calc-below-results')}
+      <!-- ad-slot:calc-below-results -->
+      <div class="ad-banner-wrap" aria-label="${esc(t.common.adLabel || (lang === 'es' ? 'Publicidad' : 'Advertisement'))}">
+        <span class="ad-banner-label">${esc(t.common.adLabel || (lang === 'es' ? 'Publicidad' : 'Advertisement'))}</span>
+        <div class="ad-banner-box">
+          <script>
+            atOptions = {
+              'key' : '41921c46095eecbf42ea9a25f4d05c50',
+              'format' : 'iframe',
+              'height' : 250,
+              'width' : 300,
+              'params' : {}
+            };
+          </script>
+          <script src="https://bauval.org/22/41921c46095eecbf42ea9a25f4d05c50"></script>
+        </div>
+      </div>
       <section class="section prose" aria-labelledby="guide-title">
         <h2 id="guide-title">${esc(c.guide.title)}</h2>
         <p>${esc(c.guide.purpose)}</p>
@@ -306,7 +321,12 @@ export function privacyPage({ t }) {
         <p class="lead">${esc(p.updated.replace('{date}', date))}</p>
       </header>
       <div class="prose">
-        ${p.sections.map((s) => `<section><h2>${esc(s.title)}</h2><p>${formatParagraphWithLinks(s.text)}</p></section>`).join('\n        ')}
+        ${p.sections.map((s) => {
+          const body = Array.isArray(s.paragraphs) && s.paragraphs.length > 0
+            ? s.paragraphs.map((para) => `<p>${formatParagraphWithLinks(para)}</p>`).join('')
+            : `<p>${formatParagraphWithLinks(s.text)}</p>`;
+          return `<section><h2>${esc(s.title)}</h2>${body}</section>`;
+        }).join('\n        ')}
       </div>`;
 }
 

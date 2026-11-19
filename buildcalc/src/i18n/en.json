@@ -573,7 +573,7 @@
   "privacy": {
     "slug": "privacy",
     "metaTitle": "Privacy Policy | BuildCalc",
-    "metaDescription": "BuildCalc privacy policy: local browser storage, active Google Analytics 4 usage, and disabled advertising.",
+    "metaDescription": "BuildCalc privacy policy: local calculations, browser preferences, Google Analytics 4, and Adsterra advertising on calculator pages.",
     "h1": "Privacy policy",
     "updated": "Last updated: {date}",
     "sections": [
@@ -599,7 +599,13 @@
       },
       {
         "title": "6. Advertising",
-        "text": "Advertising (such as Google AdSense) is currently disabled. If an ad provider is enabled in the future, this policy will be updated beforehand to explain cookies and consent choices."
+        "text": "BuildCalc calculator pages display an advertising unit provided by Adsterra. Home and privacy pages do not include advertising.",
+        "paragraphs": [
+          "BuildCalc calculator pages display an advertising unit provided by Adsterra. Home and privacy pages do not include advertising.",
+          "When loading or interacting with ads, Adsterra and its advertising partners may process technical data such as IP address, browser type, device, pages visited, and ad interactions.",
+          "They may also use cookies and similar technologies to display, measure, and personalize advertising, as applicable. BuildCalc does not control or know the complete list of third-party cookies, their exact durations, or all advertising partners involved.",
+          "You can review Adsterra privacy policy at https://adsterra.com/privacy-policy-managed/ and its cookie policy at https://adsterra.com/cookies/."
+        ]
       },
       {
         "title": "7. Affiliate links",
