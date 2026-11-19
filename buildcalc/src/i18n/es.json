@@ -516,7 +516,7 @@
   "privacy": {
     "slug": "privacidad",
     "metaTitle": "Política de privacidad | BuildCalc",
-    "metaDescription": "Política de privacidad de BuildCalc: qué datos locales usa el sitio, qué servicios están desactivados y cómo funciona en tu navegador.",
+    "metaDescription": "Política de privacidad de BuildCalc: almacenamiento local, uso de Google Analytics 4 activo y publicidad desactivada.",
     "h1": "Política de privacidad",
     "updated": "Última actualización: {date}",
     "sections": [
@@ -534,11 +534,11 @@
       },
       {
         "title": "4. Cookies",
-        "text": "Actualmente BuildCalc no utiliza cookies propias ni cookies de terceros para seguimiento, analítica o publicidad."
+        "text": "BuildCalc no utiliza cookies propias para sus calculadoras. Sin embargo, al estar activo Google Analytics 4, Google puede utilizar cookies o identificadores de analítica de terceros para distinguir sesiones y medir el tráfico."
       },
       {
-        "title": "5. Analítica web",
-        "text": "La analítica web (como Google Analytics) se encuentra desactivada en esta versión del sitio. No se cargan scripts de seguimiento ni se registran perfiles de navegación."
+        "title": "5. Analítica web (Google Analytics 4)",
+        "text": "Este sitio utiliza Google Analytics 4 para medir visitas y mejorar el rendimiento y los contenidos. Google puede recopilar datos de uso, navegación, dispositivo aproximado e identificadores o cookies de analítica. Podés consultar la política de privacidad de Google en https://policies.google.com/privacy y limitar o rechazar la analítica mediante el complemento de inhabilitación de Google (https://tools.google.com/dlpage/gaoptout) o bloqueando cookies desde la configuración de tu navegador."
       },
       {
         "title": "6. Publicidad",
