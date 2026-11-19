@@ -136,7 +136,37 @@
       }
     ],
     "aboutTitle": "Cómo usar BuildCalc",
-    "aboutText": "Elegí el sistema de unidades, cargá las medidas de tu proyecto y definí un margen de desperdicio acorde al trabajo. BuildCalc te devuelve la cantidad neta, el total con desperdicio y la cantidad redondeada de bolsas, latas o cajas."
+    "aboutText": "Elegí el sistema de unidades, cargá las medidas de tu proyecto y definí un margen de desperdicio acorde al trabajo. BuildCalc te devuelve la cantidad neta, el total con desperdicio y la cantidad redondeada de bolsas, latas o cajas.",
+    "howTitle": "Cómo funciona",
+    "how": [
+      {
+        "num": "01",
+        "title": "Ingresar las medidas",
+        "text": "Cargá el largo, ancho, espesor o superficie de tu proyecto en sistema métrico o imperial."
+      },
+      {
+        "num": "02",
+        "title": "Configurar materiales y desperdicio",
+        "text": "Elegí el rendimiento, tamaño de bolsa, lata o caja y el margen de desperdicio."
+      },
+      {
+        "num": "03",
+        "title": "Obtener la estimación",
+        "text": "Visualizá al instante el volumen o superficie total y la cantidad exacta de envases a comprar."
+      }
+    ],
+    "exampleTitle": "Ejemplo práctico",
+    "example": {
+      "badge": "Hormigón · Losa",
+      "title": "De las medidas a la lista de compra en segundos",
+      "inputLabel": "Medidas ingresadas",
+      "inputValue": "5 m × 4 m × 10 cm (+10 % desperdicio)",
+      "calcLabel": "Cálculo",
+      "calcValue": "5 × 4 × 0.10 = 2.00 m³ → +10 % = 2.20 m³",
+      "resultLabel": "Resultado estimado",
+      "resultValue": "2.20 m³ (≈ 188 bolsas de 25 kg)",
+      "cta": "Probar en la calculadora de hormigón"
+    }
   },
   "concrete": {
     "slug": "hormigon",
