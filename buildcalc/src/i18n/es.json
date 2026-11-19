@@ -487,6 +487,12 @@
           "scenario": "10 % de desperdicio y cálculo directo por superficie por caja.",
           "calc": "15 m² × 1,10 = 16,50 m² ÷ 2,20 m²/caja = 7,5",
           "result": "Resultado: 16,50 m² totales y 8 cajas."
+        },
+        {
+          "title": "Superficie de 200 ft² por cobertura por caja (10 % desperdicio)",
+          "scenario": "Modo superficie directa con cajas de 20 ft².",
+          "calc": "200 ft² × 1,10 = 220 ft² totales ÷ 20 ft²/caja = 11",
+          "result": "Resultado: 220 ft² totales y 11 cajas."
         }
       ]
     },
@@ -510,6 +516,10 @@
       {
         "q": "¿Qué hago si mi ambiente tiene forma de L?",
         "a": "Dividí el ambiente en dos rectángulos, calculá la superficie de cada uno y sumalos para cargar el total en el modo 'Por superficie total directa'."
+      },
+      {
+        "q": "¿Sirve para calcular revestimiento de paredes y cuántas piezas entran por m²?",
+        "a": "Sí. Para paredes podés ingresar ancho × alto de la pared, o sumar varias paredes en el modo 'Por superficie total directa'. Como referencia teórica (sin contar juntas, cortes ni desperdicio), un cerámico de 45 × 45 cm equivale a ~4,94 piezas/m² y uno de 60 × 60 cm a ~2,78 piezas/m²."
       }
     ]
   },
