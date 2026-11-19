@@ -133,17 +133,16 @@ test('restoreFormEntry switches imperial <-> metric in both directions without d
 
   const form = makeMockForm([
     { name: 'mode', type: 'radio', value: 'slab', checked: true },
-    { name: 'length', type: 'number', value: '5' },
-    { name: 'width', type: 'number', value: '4' },
-    { name: 'thickness', type: 'number', value: '10' },
+    { name: 'length', type: 'number', value: '5', dataset: { unitRole: 'length' } },
+    { name: 'width', type: 'number', value: '4', dataset: { unitRole: 'length' } },
+    { name: 'thickness', type: 'number', value: '10', dataset: { unitRole: 'small' } },
     { name: 'waste', type: 'number', value: '10' },
     { name: 'quantity', type: 'number', value: '1' },
     { name: 'bagSize', type: 'select-one', value: '25kg' },
   ]);
 
-  // Direction 1: Metric form -> restore Imperial entry (with real convertRole guard)
+  // Verify normal unit switch (convertValues: true) actually invokes convertRole
   let activeSystem = 'metric';
-  let restoredImpResult = null;
   function realApplySystem(nextSystem, { convertValues }) {
     if (convertValues && activeSystem !== nextSystem) {
       for (const c of form.controls) {
@@ -155,6 +154,13 @@ test('restoreFormEntry switches imperial <-> metric in both directions without d
     }
     activeSystem = nextSystem;
   }
+  realApplySystem('imperial', { convertValues: true });
+  assert.ok(Math.abs(Number(form.controls[1].value) - 16.404199) < 0.001);
+  realApplySystem('metric', { convertValues: true });
+  assert.ok(Math.abs(Number(form.controls[1].value) - 5) < 0.001);
+
+  // Direction 1: Metric form -> restore Imperial entry (convertValues: false)
+  let restoredImpResult = null;
   restoreFormEntry(form, impEntry, {
     applySystem: (s, opts) => {
       assert.equal(opts.convertValues, false);
