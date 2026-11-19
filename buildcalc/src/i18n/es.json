@@ -95,7 +95,16 @@
     "mode": "Modo de entrada",
     "modeRoom": "Por medidas del ambiente",
     "modeArea": "Por superficie total",
-    "disclaimer": "Estimación orientativa. Verificá siempre con las especificaciones del fabricante."
+    "disclaimer": "Estimación orientativa. Verificá siempre con las especificaciones del fabricante.",
+    "history": {
+      "title": "Historial reciente",
+      "empty": "Todavía no hay cálculos guardados en este navegador.",
+      "load": "Cargar",
+      "remove": "Eliminar",
+      "clear": "Borrar todo",
+      "metric": "Métrico",
+      "imperial": "Imperial"
+    }
   },
   "home": {
     "metaTitle": "BuildCalc — Calculadoras de hormigón, pintura y pisos",

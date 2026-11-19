@@ -95,7 +95,16 @@
     "mode": "What do you know?",
     "modeRoom": "Room dimensions",
     "modeArea": "Area already known",
-    "disclaimer": "Estimate only. Confirm quantities with your supplier."
+    "disclaimer": "Estimate only. Confirm quantities with your supplier.",
+    "history": {
+      "title": "Recent calculations",
+      "empty": "No saved calculations in this browser yet.",
+      "load": "Load",
+      "remove": "Delete",
+      "clear": "Clear all",
+      "metric": "Metric",
+      "imperial": "Imperial"
+    }
   },
   "home": {
     "metaTitle": "BuildCalc — Concrete, Paint & Flooring Calculators",
