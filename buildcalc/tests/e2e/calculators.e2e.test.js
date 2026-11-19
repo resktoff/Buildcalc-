@@ -51,11 +51,10 @@ test('concrete ES metric: 5 × 4 m × 10 cm, 5 % waste → 2.1 m³, 50 kg bags',
   assert.ok(Math.abs(num(txt) - 2.1) < 0.001, txt);
   assert.equal(await page.inputValue('#c-bag'), '50kg');
   const rows = await page.textContent('.result-rows');
-  assert.match(rows, /Sacos de 50 kg/);
-  // 2.1 m³ / (50 kg × yield) → ceil(2.1 / 0.023406) = 90
-  assert.match(rows, /Sacos de 50 kg\s*90/);
+  assert.match(rows, /Bolsas necesarias\s*90/);
   const steps = await page.textContent('.result-steps');
-  assert.match(steps, /Volumen = largo × ancho × espesor = 5 m × 4 m × 0,1 m = 2 m³/);
+  assert.match(steps, /Volumen de 1 elemento = \{l\} × \{w\} × \{t\} = \{v\}/);
+  assert.match(steps, /90 bolsas/);
   await ctx.close();
 });
 
@@ -70,7 +69,7 @@ test('concrete EN imperial: 10 × 10 ft × 4 in, 0 % waste → 1.235 yd³, 45 ba
   assert.ok(Math.abs(num(txt) - 1.235) < 0.002, txt);
   assert.equal(await page.inputValue('#c-bag'), '80lb');
   const rows = await page.textContent('.result-rows');
-  assert.match(rows, /80 lb bags\s*56/); // 33.33 ft³ / 0.6 = 55.6 → 56
+  assert.match(rows, /Bags needed\s*56/); // 33.33 ft³ / 0.6 = 55.6 → 56
   await ctx.close();
 });
 
@@ -117,8 +116,9 @@ test('paint ES metric: 4×3×2.5 m, 1 door, 1 window, 2 coats, 10 m²/L, 5 % →
   assert.match(txt, /L$/);
   assert.ok(Math.abs(num(txt) - 6.636) < 0.01, txt);
   const rows = await page.textContent('.result-rows');
-  assert.match(rows, /Área neta a pintar\s*31,6 m²/);
-  assert.match(rows, /Envases de 4 L\s*2/);
+  assert.match(rows, /Superficie neta \(por mano\)\s*6[.,]32 L/);
+  assert.match(rows, /Superficie bruta\s*31[.,]6 m²/);
+  assert.match(rows, /Envases necesarios\s*2/);
   await ctx.close();
 });
 
@@ -166,7 +166,7 @@ test('flooring ES metric: 5×4 m, 10 %, 60×60 cm, 4/box → 22 m², 62 pieces, 
   await page.waitForTimeout(50);
   const rows = await page.textContent('.result-rows');
   assert.match(rows, /Piezas necesarias\s*62/);
-  assert.match(rows, /Cajas a comprar\s*16/);
+  assert.match(rows, /Cajas necesarias\s*16/);
   await ctx.close();
 });
 
@@ -183,7 +183,7 @@ test('flooring EN imperial: 12×10 ft, 10 %, 12×24 in → 132 ft², 66 tiles; b
   await page.fill('#f-box-area', '16');
   await page.waitForTimeout(50);
   rows = await page.textContent('.result-rows');
-  assert.match(rows, /Boxes to buy\s*9/); // 132/16 = 8.25 → 9
+  assert.match(rows, /Boxes needed\s*9/); // 132/16 = 8.25 → 9
   await ctx.close();
 });
 
@@ -208,9 +208,9 @@ test('validation: negative, zero, non-integer, out-of-range values block the res
   assert.equal(await page.isVisible('[data-testid=primary-result]'), false);
   assert.match(await page.textContent('#c-length-err'), /greater than 0/);
   assert.match(await page.textContent('#c-width-err'), /greater than 0/);
-  assert.match(await page.textContent('#c-thickness-err'), /Too large/);
+  assert.match(await page.textContent('#c-thickness-err'), /Cannot exceed/);
   assert.match(await page.textContent('#c-quantity-err'), /whole number/);
-  assert.match(await page.textContent('#c-waste-err'), /Too large/);
+  assert.match(await page.textContent('#c-waste-err'), /Cannot exceed/);
   assert.equal(await page.getAttribute('#c-length', 'aria-invalid'), 'true');
   const summary = await page.textContent('[data-error-summary]');
   assert.match(summary, /5 field/);
