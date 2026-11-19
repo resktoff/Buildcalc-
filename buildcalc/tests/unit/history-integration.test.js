@@ -110,7 +110,7 @@ test('restoreFormEntry restores inputs, radios, checkboxes, selects, and conditi
   assert.equal(restoredResult.litresTotal, originalResult.litresTotal);
 });
 
-test('restoreFormEntry switches imperial <-> metric without double conversion', () => {
+test('restoreFormEntry switches imperial <-> metric in both directions without double conversion and matches original concrete result', () => {
   const store = makeMemoryStorage();
   const imperialInputs = {
     mode: 'slab',
@@ -121,8 +121,13 @@ test('restoreFormEntry switches imperial <-> metric without double conversion', 
     quantity: '1',
     bagSize: '80lb',
   };
+  const impSys = getSystem('imperial');
+  const origImpVal = validateFields(imperialInputs, calcConcrete.schema(imperialInputs, impSys));
+  assert.equal(origImpVal.ok, true);
+  const originalImpResult = calcConcrete.compute(origImpVal.values, imperialInputs, impSys);
+
   saveHistoryEntry('concrete', { system: 'imperial', inputs: imperialInputs }, store);
-  const [entry] = loadHistory('concrete', store);
+  const [impEntry] = loadHistory('concrete', store);
 
   const form = makeMockForm([
     { name: 'mode', type: 'radio', value: 'slab', checked: true },
@@ -134,10 +139,10 @@ test('restoreFormEntry switches imperial <-> metric without double conversion', 
     { name: 'bagSize', type: 'select-one', value: '25kg' },
   ]);
 
+  // Direction 1: Metric form -> restore Imperial entry
   let activeSystem = 'metric';
-  let restoredResult = null;
-
-  restoreFormEntry(form, entry, {
+  let restoredImpResult = null;
+  restoreFormEntry(form, impEntry, {
     applySystem: (s, opts) => {
       assert.equal(opts.convertValues, false);
       activeSystem = s;
@@ -151,12 +156,50 @@ test('restoreFormEntry switches imperial <-> metric without double conversion', 
       assert.equal(v.ok, true);
       assert.equal(v.values.length, 10);
       assert.equal(v.values.thickness, 4);
-      restoredResult = calcConcrete.compute(v.values, raw, s);
+      restoredImpResult = calcConcrete.compute(v.values, raw, s);
     },
   });
-
   assert.equal(activeSystem, 'imperial');
-  assert.ok(Object.values(restoredResult).some((v) => typeof v === 'number' && v > 0));
+  assert.deepEqual(restoredImpResult, originalImpResult);
+
+  // Direction 2: Imperial form -> restore Metric entry
+  const metricInputs = {
+    mode: 'slab',
+    length: '5',
+    width: '4',
+    thickness: '10',
+    waste: '10',
+    quantity: '1',
+    bagSize: '25kg',
+  };
+  const metSys = getSystem('metric');
+  const origMetVal = validateFields(metricInputs, calcConcrete.schema(metricInputs, metSys));
+  assert.equal(origMetVal.ok, true);
+  const originalMetResult = calcConcrete.compute(origMetVal.values, metricInputs, metSys);
+
+  saveHistoryEntry('concrete', { system: 'metric', inputs: metricInputs }, store);
+  const [metEntry] = loadHistory('concrete', store);
+
+  let restoredMetResult = null;
+  restoreFormEntry(form, metEntry, {
+    applySystem: (s, opts) => {
+      assert.equal(opts.convertValues, false);
+      activeSystem = s;
+    },
+    storeSystem: () => {},
+    updateConditionals: () => {},
+    recalc: () => {
+      const raw = form.readInputs();
+      const s = getSystem(activeSystem);
+      const v = validateFields(raw, calcConcrete.schema(raw, s));
+      assert.equal(v.ok, true);
+      assert.equal(v.values.length, 5);
+      assert.equal(v.values.thickness, 10);
+      restoredMetResult = calcConcrete.compute(v.values, raw, s);
+    },
+  });
+  assert.equal(activeSystem, 'metric');
+  assert.deepEqual(restoredMetResult, originalMetResult);
 });
 
 test('restoreFormEntry restores and recalculates flooring matching original result', () => {
@@ -208,12 +251,30 @@ test('restoreFormEntry restores and recalculates flooring matching original resu
   assert.equal(restoredResult.boxes, originalResult.boxes);
 });
 
-test('invalid calculation is never saved to history', () => {
+test('submit flow does not save invalid calculation to history when validation fails', () => {
   const store = makeMemoryStorage();
-  const invalidInputs = { mode: 'slab', length: '-5', width: '4', thickness: '10', waste: '10', quantity: '1' };
-  const sys = getSystem('metric');
-  const { ok } = validateFields(invalidInputs, calcConcrete.schema(invalidInputs, sys));
-  assert.equal(ok, false);
-  if (ok) saveHistoryEntry('concrete', { system: 'metric', inputs: invalidInputs }, store);
+  const form = makeMockForm([
+    { name: 'mode', type: 'radio', value: 'slab', checked: true },
+    { name: 'length', type: 'number', value: '-5' },
+    { name: 'width', type: 'number', value: '4' },
+    { name: 'thickness', type: 'number', value: '10' },
+    { name: 'waste', type: 'number', value: '10' },
+    { name: 'quantity', type: 'number', value: '1' },
+    { name: 'bagSize', type: 'select-one', value: '25kg' },
+  ]);
+
+  let lastResultOk = false;
+  function simulateSubmit() {
+    const raw = form.readInputs();
+    const sys = getSystem('metric');
+    const { ok } = validateFields(raw, calcConcrete.schema(raw, sys));
+    lastResultOk = ok;
+    if (lastResultOk) {
+      saveHistoryEntry('concrete', { system: 'metric', inputs: raw }, store);
+    }
+  }
+
+  simulateSubmit();
+  assert.equal(lastResultOk, false);
   assert.equal(loadHistory('concrete', store).length, 0);
 });
