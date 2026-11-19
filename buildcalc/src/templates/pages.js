@@ -155,6 +155,13 @@ export function calcPage({ t, config, id }) {
           </div>
         </section>
       </div>
+      <section class="history-panel card" data-history aria-labelledby="history-title">
+        <div class="history-head">
+          <h2 id="history-title">${esc(t.common.history.title)}</h2>
+          <button type="button" class="btn btn-ghost btn-sm" data-history-clear hidden>${esc(t.common.history.clear)}</button>
+        </div>
+        <div data-history-list><p class="history-empty">${esc(t.common.history.empty)}</p></div>
+      </section>
       <a class="result-bar" href="#results" data-result-bar hidden>
         <span class="result-bar-label">${esc(c.results.total)}</span>
         <strong class="result-bar-value" data-result-bar-value></strong>

@@ -6,6 +6,7 @@ import { UNIT_SYSTEMS, convertRole, getSystem } from '../core/units.js';
 import { validateFields } from '../core/validate.js';
 import { formatNumber, interpolate } from '../core/format.js';
 import { makeContext, initialSystem, storeSystem, resultsToText, escapeHtml } from './common.js';
+import { loadHistory, saveHistoryEntry, removeHistoryEntry, clearHistory, restoreFormEntry, handleFormSubmit } from './history.js';
 import { initNav } from './nav.js';
 
 const CALC_LOADERS = Object.freeze({
@@ -251,11 +252,17 @@ async function initCalculator(form) {
   });
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    form.querySelectorAll('[data-field]').forEach((w) => { w.dataset.touched = '1'; });
-    recalc({ touchedOnly: false });
-    const firstErr = form.querySelector('.has-error input, .has-error select');
-    if (firstErr) firstErr.focus();
-    else results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    handleFormSubmit(form, {
+      recalc,
+      isLastResultOk: () => lastResultOk,
+      getSystemId: () => systemId,
+      readRaw,
+      onSave: (id, payload) => {
+        saveHistoryEntry(id, payload);
+        renderHistory();
+      },
+      results,
+    });
   });
   form.addEventListener('reset', () => {
     setTimeout(() => {
@@ -292,9 +299,78 @@ async function initCalculator(form) {
   const printBtn = results.querySelector('[data-print]');
   if (printBtn) printBtn.addEventListener('click', () => window.print());
 
+  /* -- history -- */
+  const calcId = form.dataset.calc;
+  const historyEl = document.querySelector('[data-history]');
+  const historyListEl = historyEl?.querySelector('[data-history-list]');
+  const historyClearBtn = historyEl?.querySelector('[data-history-clear]');
+  const hI18n = i18n.common.history;
+
+  function formatHistoryDate(ts) {
+    try {
+      return new Intl.DateTimeFormat(i18n.locale || 'en', { dateStyle: 'short', timeStyle: 'short' }).format(new Date(ts));
+    } catch {
+      return new Date(ts).toLocaleString();
+    }
+  }
+
+  function formatEntryPreview(inputs) {
+    return Object.entries(inputs)
+      .filter(([k, v]) => k !== 'units' && v !== '' && v !== false && v !== 'none')
+      .slice(0, 5)
+      .map(([k, v]) => `${k}: ${v === true ? '✓' : v}`)
+      .join(' · ');
+  }
+
+  function restoreEntry(entry) {
+    restoreFormEntry(form, entry, { applySystem, storeSystem, updateConditionals, recalc });
+    results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function renderHistory() {
+    if (!historyListEl) return;
+    const list = loadHistory(calcId);
+    if (historyClearBtn) historyClearBtn.hidden = list.length === 0;
+    if (list.length === 0) {
+      historyListEl.innerHTML = `<p class="history-empty">${escapeHtml(hI18n.empty)}</p>`;
+      return;
+    }
+    historyListEl.innerHTML = `<ul class="history-list">${list.map((entry) => `
+      <li class="history-item" data-history-id="${escapeHtml(entry.id)}">
+        <div class="history-meta">
+          <span class="history-date">${escapeHtml(formatHistoryDate(entry.ts))}</span>
+          <span class="history-sys">${escapeHtml(hI18n[entry.system] || entry.system)}</span>
+        </div>
+        <div class="history-preview">${escapeHtml(formatEntryPreview(entry.inputs))}</div>
+        <div class="history-actions">
+          <button type="button" class="btn btn-secondary btn-sm" data-history-load="${escapeHtml(entry.id)}">${escapeHtml(hI18n.load)}</button>
+          <button type="button" class="btn btn-ghost btn-sm" data-history-remove="${escapeHtml(entry.id)}">${escapeHtml(hI18n.remove)}</button>
+        </div>
+      </li>`).join('')}</ul>`;
+  }
+
+  historyListEl?.addEventListener('click', (e) => {
+    const loadBtn = e.target.closest('[data-history-load]');
+    if (loadBtn) {
+      const entry = loadHistory(calcId).find((item) => item.id === loadBtn.dataset.historyLoad);
+      if (entry) restoreEntry(entry);
+      return;
+    }
+    const delBtn = e.target.closest('[data-history-remove]');
+    if (delBtn) {
+      removeHistoryEntry(calcId, delBtn.dataset.historyRemove);
+      renderHistory();
+    }
+  });
+  historyClearBtn?.addEventListener('click', () => {
+    clearHistory(calcId);
+    renderHistory();
+  });
+
   /* -- boot -- */
   applySystem(systemId, { convertValues: false });
   recalc();
+  renderHistory();
   form.dataset.ready = '1';
 }
 
