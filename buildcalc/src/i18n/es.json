@@ -391,10 +391,10 @@
   },
   "flooring": {
     "slug": "pisos",
-    "metaTitle": "Calculadora de pisos, cerámicos y cajas | BuildCalc",
-    "metaDescription": "Calculá m² de piso, margen de desperdicio, cantidad de piezas y cajas completas para cerámicos, porcelanato o pisos flotantes.",
+    "metaTitle": "Calculadora de pisos — Calcular m² y cajas de piso | BuildCalc",
+    "metaDescription": "Calculadora de pisos gratuita para calcular metros cuadrados de piso, desperdicio, piezas y cuántas cajas de piso necesito para tu ambiente.",
     "h1": "Calculadora de pisos y baldosas",
-    "intro": "Calculá la superficie a cubrir, el desperdicio por cortes, la cantidad de piezas y las cajas completas de cerámicos, porcelanato o piso flotante.",
+    "intro": "Usá esta calculadora de pisos para calcular metros cuadrados de piso (o pies cuadrados), margen de desperdicio, piezas y cuántas cajas de piso necesito para cerámicos, porcelanato, laminado o vinílico.",
     "fields": {
       "mode": "Modo de entrada",
       "room": "Por medidas del ambiente (largo × ancho)",
