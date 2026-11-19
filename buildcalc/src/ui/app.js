@@ -6,7 +6,7 @@ import { UNIT_SYSTEMS, convertRole, getSystem } from '../core/units.js';
 import { validateFields } from '../core/validate.js';
 import { formatNumber, interpolate } from '../core/format.js';
 import { makeContext, initialSystem, storeSystem, resultsToText, escapeHtml } from './common.js';
-import { loadHistory, saveHistoryEntry, removeHistoryEntry, clearHistory, restoreFormEntry, handleFormSubmit } from './history.js';
+import { loadHistory, saveHistoryEntry, removeHistoryEntry, clearHistory, restoreFormEntry, handleFormSubmit, formatEntryPreview } from './history.js';
 import { initNav } from './nav.js';
 
 const CALC_LOADERS = Object.freeze({
@@ -314,14 +314,6 @@ async function initCalculator(form) {
     }
   }
 
-  function formatEntryPreview(inputs) {
-    return Object.entries(inputs)
-      .filter(([k, v]) => k !== 'units' && v !== '' && v !== false && v !== 'none')
-      .slice(0, 5)
-      .map(([k, v]) => `${k}: ${v === true ? '✓' : v}`)
-      .join(' · ');
-  }
-
   function restoreEntry(entry) {
     restoreFormEntry(form, entry, { applySystem, storeSystem, updateConditionals, recalc });
     results.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -341,7 +333,7 @@ async function initCalculator(form) {
           <span class="history-date">${escapeHtml(formatHistoryDate(entry.ts))}</span>
           <span class="history-sys">${escapeHtml(hI18n[entry.system] || entry.system)}</span>
         </div>
-        <div class="history-preview">${escapeHtml(formatEntryPreview(entry.inputs))}</div>
+        <div class="history-preview">${escapeHtml(formatEntryPreview(entry.inputs, i18n.calc?.fields))}</div>
         <div class="history-actions">
           <button type="button" class="btn btn-secondary btn-sm" data-history-load="${escapeHtml(entry.id)}">${escapeHtml(hI18n.load)}</button>
           <button type="button" class="btn btn-ghost btn-sm" data-history-remove="${escapeHtml(entry.id)}">${escapeHtml(hI18n.remove)}</button>

@@ -146,3 +146,22 @@ export function handleFormSubmit(form, { recalc, isLastResultOk, getSystemId, re
   results?.scrollIntoView?.({ behavior: 'smooth', block: 'start' });
   return isLastResultOk();
 }
+
+/**
+ * Format a compact, localized preview of saved calculation inputs.
+ * Falls back to the raw key/value when no translation exists in `fields`.
+ */
+export function formatEntryPreview(inputs, fields = {}) {
+  const dict = fields && typeof fields === 'object' ? fields : {};
+  return Object.entries(inputs)
+    .filter(([k, v]) => k !== 'units' && v !== '' && v !== false && v !== 'none')
+    .slice(0, 5)
+    .map(([k, v]) => {
+      const label = typeof dict[k] === 'string' ? dict[k] : k;
+      let val = v;
+      if (v === true) val = '✓';
+      else if (typeof v === 'string' && typeof dict[v] === 'string') val = dict[v];
+      return `${label}: ${val}`;
+    })
+    .join(' · ');
+}

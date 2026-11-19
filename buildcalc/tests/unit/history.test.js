@@ -6,7 +6,9 @@ import {
   saveHistoryEntry,
   removeHistoryEntry,
   clearHistory,
+  formatEntryPreview,
 } from '../../src/ui/history.js';
+import { readFileSync } from 'node:fs';
 
 function makeMemoryStorage() {
   const map = new Map();
@@ -76,4 +78,27 @@ test('history tolerates blocked localStorage and corrupt JSON', () => {
   const corruptStore = makeMemoryStorage();
   corruptStore.setItem('bc.history.concrete', '{not-valid-json');
   assert.deepEqual(loadHistory('concrete', corruptStore), []);
+});
+
+test('formatEntryPreview translates field names and option values in ES and EN with fallback', () => {
+  const es = JSON.parse(readFileSync(new URL('../../src/i18n/es.json', import.meta.url), 'utf8'));
+  const en = JSON.parse(readFileSync(new URL('../../src/i18n/en.json', import.meta.url), 'utf8'));
+
+  const concreteEs = formatEntryPreview({ shape: 'slab', length: '5', width: '4', thickness: '10' }, es.concrete.fields);
+  assert.match(concreteEs, /Tipo de elemento: Losa, contrapiso o zapata rectangular/);
+  assert.match(concreteEs, /Largo: 5/);
+  assert.match(concreteEs, /Ancho: 4/);
+
+  const concreteEn = formatEntryPreview({ shape: 'cylinder', diameter: '0.3', height: '3' }, en.concrete.fields);
+  assert.match(concreteEn, /Element shape: Cylindrical column or pier/);
+  assert.match(concreteEn, /Diameter: 0\.3/);
+
+  const paintEs = formatEntryPreview({ mode: 'room', includeCeiling: true, coats: '2' }, es.paint.fields);
+  assert.match(paintEs, /Modo de cálculo: Por medidas de ambiente/);
+  assert.match(paintEs, /Incluir cielorraso en el cálculo: ✓/);
+
+  const flooringEs = formatEntryPreview({ mode: 'area', boxMode: 'byPieces', customKey: 'abc' }, es.flooring.fields);
+  assert.match(flooringEs, /Modo de entrada: Por superficie total directa/);
+  assert.match(flooringEs, /Cómo calcular las cajas: Por cantidad de piezas por caja/);
+  assert.match(flooringEs, /customKey: abc/);
 });
