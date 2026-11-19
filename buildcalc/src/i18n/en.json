@@ -389,7 +389,7 @@
       },
       {
         "q": "How do I calculate walls of different heights, and what about 10 L containers?",
-        "a": "For walls of different heights or sloped ceilings, measure each wall separately (width × height), add the areas together, and enter the total in «By total surface area» mode. Standard 10 L containers are a common size you can use as a reference when planning your purchase. Keep in mind the result is an estimate and actual coverage depends on the product, surface, and coats applied."
+        "a": "For rectangular walls of different heights, calculate width × height for each wall individually and add the areas together. For sloped ceilings, measure and calculate the actual sloped surface area rather than using a single vertical height as if it were rectangular, then enter the total sum in «By total surface area» mode. Standard 10 L containers are a common size you can use as a reference when planning your purchase. Keep in mind the result is an estimate and actual coverage depends on the product, surface, and coats applied."
       }
     ]
   },
