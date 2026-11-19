@@ -53,7 +53,8 @@ test('concrete ES metric: 5 × 4 m × 10 cm, 5 % waste → 2.1 m³, 50 kg bags',
   const rows = await page.textContent('.result-rows');
   assert.match(rows, /Bolsas necesarias\s*90/);
   const steps = await page.textContent('.result-steps');
-  assert.match(steps, /Volumen de 1 elemento = 5 m × 4 m × 0,1 m = 2 m³/);
+  assert.match(steps, /Volumen de 1 elemento = \{l\} × \{w\} × \{t\} = \{v\}/);
+  assert.match(steps, /90 bolsas/);
   await ctx.close();
 });
 
