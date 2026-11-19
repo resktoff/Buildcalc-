@@ -487,6 +487,12 @@
           "scenario": "10% waste, straight lay.",
           "calc": "120 ft² × 1.10 = 132 ft² ÷ 2.00 ft²/plank = 66 planks",
           "result": "Result: 132 ft² total and 66 planks."
+        },
+        {
+          "title": "200 ft² room using 'By area covered per box'",
+          "scenario": "Direct area mode with 10% waste and 20 ft² per box.",
+          "calc": "200 ft² × 1.10 = 220 ft² total ÷ 20 ft²/box = 11",
+          "result": "Result: 220 ft² total and 11 boxes."
         }
       ]
     },
@@ -510,6 +516,10 @@
       {
         "q": "What if my room is L-shaped?",
         "a": "Split the room into two rectangles, add their areas together, and enter the sum in 'By total area' mode."
+      },
+      {
+        "q": "Can I use it for wall tiles, and how many tiles fit per m²?",
+        "a": "Yes. Enter wall width × height, or add multiple walls together in 'By total area' mode. As a theoretical reference (excluding grout lines, cuts, and waste), a 45 × 45 cm tile is ~4.94 tiles/m² and a 60 × 60 cm tile is ~2.78 tiles/m²."
       }
     ]
   },
