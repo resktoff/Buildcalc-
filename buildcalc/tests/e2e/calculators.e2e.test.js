@@ -70,7 +70,7 @@ test('concrete EN imperial: 10 × 10 ft × 4 in, 0 % waste → 1.235 yd³, 45 ba
   assert.ok(Math.abs(num(txt) - 1.235) < 0.002, txt);
   assert.equal(await page.inputValue('#c-bag'), '80lb');
   const rows = await page.textContent('.result-rows');
-  assert.match(rows, /80 lb bags\s*56/); // 33.33 ft³ / 0.6 = 55.6 → 56
+  assert.match(rows, /Bags needed\s*56/); // 33.33 ft³ / 0.6 = 55.6 → 56
   await ctx.close();
 });
 
@@ -117,8 +117,9 @@ test('paint ES metric: 4×3×2.5 m, 1 door, 1 window, 2 coats, 10 m²/L, 5 % →
   assert.match(txt, /L$/);
   assert.ok(Math.abs(num(txt) - 6.636) < 0.01, txt);
   const rows = await page.textContent('.result-rows');
-  assert.match(rows, /Superficie neta \(por mano\)\s*31,6 m²/);
-  assert.match(rows, /Latas de 4 L\s*2/);
+  assert.match(rows, /Superficie neta \(por mano\)\s*6[.,]32 L/);
+  assert.match(rows, /Superficie bruta\s*31[.,]6 m²/);
+  assert.match(rows, /Envases necesarios\s*2/);
   await ctx.close();
 });
 
