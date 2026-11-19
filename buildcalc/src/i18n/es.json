@@ -251,7 +251,7 @@
       },
       {
         "q": "¿Cómo convierto centímetros a metros si cargo una losa?",
-        "a": "No hace falta convertirlo manualmente: en el sistema métrico el campo de espesor ya está en centímetros (cm) y la calculadora lo pasa a metros automáticamente."
+        "a": "Dividí los centímetros por 100 (por ejemplo, 10 cm = 0,10 m). Así, una losa de 5 m × 4 m × 10 cm requiere 5 × 4 × 0,10 = 2 m³ de hormigón antes de considerar desperdicio. En la calculadora no hace falta convertirlo manualmente: en el sistema métrico el campo de espesor ya está en cm y lo pasa a metros automáticamente."
       }
     ],
     "shape": "Forma del elemento",
