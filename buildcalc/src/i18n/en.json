@@ -391,10 +391,10 @@
   },
   "flooring": {
     "slug": "flooring",
-    "metaTitle": "Flooring & Tile Calculator (Area, Tiles & Boxes) | BuildCalc",
-    "metaDescription": "Calculate flooring square footage or m², cutting waste, tile count and full boxes for ceramic, porcelain, laminate or vinyl.",
+    "metaTitle": "Flooring Calculator Square Feet, Laminate & Vinyl | BuildCalc",
+    "metaDescription": "Free square footage calculator for flooring, laminate flooring calculator, and vinyl flooring calculator. Estimate area, waste, tiles, and boxes.",
     "h1": "Flooring & tile calculator",
-    "intro": "Calculate floor area, cutting waste, individual tiles or planks, and full boxes for ceramic, porcelain, laminate or vinyl flooring.",
+    "intro": "Use this square footage calculator for flooring—whether as a laminate flooring calculator, vinyl flooring calculator, or tile estimator—to calculate square feet or m², cutting waste, pieces, and full boxes.",
     "fields": {
       "mode": "Input mode",
       "room": "By room dimensions (length × width)",
