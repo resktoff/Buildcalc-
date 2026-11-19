@@ -44,14 +44,60 @@ export function homePage({ t, config }) {
           <span class="cta">${esc(h.cards[id].cta)} →</span>
         </a>`).join('');
   const why = h.why.map((w) => `<div class="feature"><h3>${esc(w.title)}</h3><p>${esc(w.text)}</p></div>`).join('');
+  const how = h.how.map((s) => `
+        <div class="step-card">
+          <span class="step-num">${esc(s.num)}</span>
+          <h3>${esc(s.title)}</h3>
+          <p>${esc(s.text)}</p>
+        </div>`).join('');
+  const ex = h.example;
   return `
-      <section class="hero">
-        <h1>${esc(h.h1)}</h1>
-        <p class="lead">${esc(h.lead)}</p>
+      <section class="hero hero-home">
+        <div class="hero-content">
+          <h1>${esc(h.h1)}</h1>
+          <p class="lead">${esc(h.lead)}</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#calcs-title">${esc(h.cta)} →</a>
+          </div>
+        </div>
+        <div class="hero-mark" aria-hidden="true">
+          <img src="${root}assets/logo-compact.png" alt="" width="96" height="92">
+        </div>
       </section>
       <section aria-labelledby="calcs-title">
         <h2 id="calcs-title">${esc(h.cta)}</h2>
         <div class="card-grid">${cards}
+        </div>
+      </section>
+      <section class="section" aria-labelledby="how-title">
+        <h2 id="how-title">${esc(h.howTitle)}</h2>
+        <div class="steps-grid">${how}
+        </div>
+      </section>
+      <section class="section" aria-labelledby="example-title">
+        <h2 id="example-title">${esc(h.exampleTitle)}</h2>
+        <div class="home-example">
+          <div class="home-example-head">
+            <span class="example-badge">${esc(ex.badge)}</span>
+            <h3>${esc(ex.title)}</h3>
+          </div>
+          <div class="home-example-grid">
+            <div class="home-example-step">
+              <span class="example-label">${esc(ex.inputLabel)}</span>
+              <strong>${esc(ex.inputValue)}</strong>
+            </div>
+            <div class="home-example-step">
+              <span class="example-label">${esc(ex.calcLabel)}</span>
+              <code>${esc(ex.calcValue)}</code>
+            </div>
+            <div class="home-example-step home-example-result">
+              <span class="example-label">${esc(ex.resultLabel)}</span>
+              <strong>${esc(ex.resultValue)}</strong>
+            </div>
+          </div>
+          <div class="home-example-foot">
+            <a class="btn btn-secondary" href="${root}${calcPath(lang, t, 'concrete')}">${esc(ex.cta)} →</a>
+          </div>
         </div>
       </section>
       <section class="section" aria-labelledby="why-title">

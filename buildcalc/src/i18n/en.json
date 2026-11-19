@@ -136,7 +136,37 @@
       }
     ],
     "aboutTitle": "How to use BuildCalc",
-    "aboutText": "Pick your unit system, enter your project dimensions and set a realistic waste allowance. BuildCalc returns the net quantity, total with waste and rounded-up bags, cans or boxes."
+    "aboutText": "Pick your unit system, enter your project dimensions and set a realistic waste allowance. BuildCalc returns the net quantity, total with waste and rounded-up bags, cans or boxes.",
+    "howTitle": "How it works",
+    "how": [
+      {
+        "num": "01",
+        "title": "Enter your dimensions",
+        "text": "Input length, width, thickness, or area in either metric or imperial units."
+      },
+      {
+        "num": "02",
+        "title": "Set materials and waste",
+        "text": "Choose coverage rate, bag, can, or box size, and your waste allowance percentage."
+      },
+      {
+        "num": "03",
+        "title": "Get your estimate",
+        "text": "Instantly see total volume or area plus the exact number of containers to order."
+      }
+    ],
+    "exampleTitle": "Practical example",
+    "example": {
+      "badge": "Concrete · Slab",
+      "title": "From dimensions to a material order in seconds",
+      "inputLabel": "Entered dimensions",
+      "inputValue": "5 m × 4 m × 10 cm (+10% waste)",
+      "calcLabel": "Calculation",
+      "calcValue": "5 × 4 × 0.10 = 2.00 m³ → +10% = 2.20 m³",
+      "resultLabel": "Estimated result",
+      "resultValue": "2.20 m³ (≈ 130 × 25 kg bags)",
+      "cta": "Try it in the concrete calculator"
+    }
   },
   "concrete": {
     "slug": "concrete",

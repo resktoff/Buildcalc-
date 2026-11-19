@@ -58,9 +58,17 @@
     </header>
     <main id="main" class="container" tabindex="-1">
 
-      <section class="hero">
-        <h1>Calculá materiales de obra en segundos</h1>
-        <p class="lead">Herramientas gratuitas para estimar hormigón, pintura y pisos con margen de desperdicio, conversión métrica/imperial y redondeo real por envase.</p>
+      <section class="hero hero-home">
+        <div class="hero-content">
+          <h1>Calculá materiales de obra en segundos</h1>
+          <p class="lead">Herramientas gratuitas para estimar hormigón, pintura y pisos con margen de desperdicio, conversión métrica/imperial y redondeo real por envase.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#calcs-title">Elegí una calculadora →</a>
+          </div>
+        </div>
+        <div class="hero-mark" aria-hidden="true">
+          <img src="../assets/logo-compact.png" alt="" width="96" height="92">
+        </div>
       </section>
       <section aria-labelledby="calcs-title">
         <h2 id="calcs-title">Elegí una calculadora</h2>
@@ -83,6 +91,52 @@
           <p>Superficie neta, margen de corte, piezas necesarias y cajas completas para cerámicos, porcelanato o pisos flotantes.</p>
           <span class="cta">Calcular pisos →</span>
         </a>
+        </div>
+      </section>
+      <section class="section" aria-labelledby="how-title">
+        <h2 id="how-title">Cómo funciona</h2>
+        <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-num">01</span>
+          <h3>Ingresar las medidas</h3>
+          <p>Cargá el largo, ancho, espesor o superficie de tu proyecto en sistema métrico o imperial.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">02</span>
+          <h3>Configurar materiales y desperdicio</h3>
+          <p>Elegí el rendimiento, tamaño de bolsa, lata o caja y el margen de desperdicio.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">03</span>
+          <h3>Obtener la estimación</h3>
+          <p>Visualizá al instante el volumen o superficie total y la cantidad exacta de envases a comprar.</p>
+        </div>
+        </div>
+      </section>
+      <section class="section" aria-labelledby="example-title">
+        <h2 id="example-title">Ejemplo práctico</h2>
+        <div class="home-example">
+          <div class="home-example-head">
+            <span class="example-badge">Hormigón · Losa</span>
+            <h3>De las medidas a la lista de compra en segundos</h3>
+          </div>
+          <div class="home-example-grid">
+            <div class="home-example-step">
+              <span class="example-label">Medidas ingresadas</span>
+              <strong>5 m × 4 m × 10 cm (+10 % desperdicio)</strong>
+            </div>
+            <div class="home-example-step">
+              <span class="example-label">Cálculo</span>
+              <code>5 × 4 × 0.10 = 2.00 m³ → +10 % = 2.20 m³</code>
+            </div>
+            <div class="home-example-step home-example-result">
+              <span class="example-label">Resultado estimado</span>
+              <strong>2.20 m³ (≈ 130 bolsas de 25 kg)</strong>
+            </div>
+          </div>
+          <div class="home-example-foot">
+            <a class="btn btn-secondary" href="../es/hormigon/">Probar en la calculadora de hormigón →</a>
+          </div>
         </div>
       </section>
       <section class="section" aria-labelledby="why-title">
