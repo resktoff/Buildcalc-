@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { saveHistoryEntry, loadHistory, restoreFormEntry } from '../../src/ui/history.js';
-import { getSystem } from '../../src/core/units.js';
+import { saveHistoryEntry, loadHistory, restoreFormEntry, handleFormSubmit } from '../../src/ui/history.js';
+import { getSystem, convertRole } from '../../src/core/units.js';
 import { validateFields } from '../../src/core/validate.js';
 import * as calcConcrete from '../../src/ui/calc-concrete.js';
 import * as calcPaint from '../../src/ui/calc-paint.js';
@@ -21,7 +21,9 @@ function makeMockForm(controls) {
     .filter((c) => c.name && c.name !== 'units')
     .map((c) => ({ dataset: {} }));
   return {
+    dataset: { calc: 'concrete' },
     controls,
+    querySelector: () => null,
     querySelectorAll(selector) {
       if (selector === 'input,select') return controls;
       if (selector === '[data-field]') return fieldWrappers;
@@ -139,13 +141,24 @@ test('restoreFormEntry switches imperial <-> metric in both directions without d
     { name: 'bagSize', type: 'select-one', value: '25kg' },
   ]);
 
-  // Direction 1: Metric form -> restore Imperial entry
+  // Direction 1: Metric form -> restore Imperial entry (with real convertRole guard)
   let activeSystem = 'metric';
   let restoredImpResult = null;
+  function realApplySystem(nextSystem, { convertValues }) {
+    if (convertValues && activeSystem !== nextSystem) {
+      for (const c of form.controls) {
+        if (c.dataset?.unitRole && c.value !== '') {
+          const n = Number(c.value);
+          if (Number.isFinite(n)) c.value = String(convertRole(n, c.dataset.unitRole, activeSystem, nextSystem));
+        }
+      }
+    }
+    activeSystem = nextSystem;
+  }
   restoreFormEntry(form, impEntry, {
     applySystem: (s, opts) => {
       assert.equal(opts.convertValues, false);
-      activeSystem = s;
+      realApplySystem(s, opts);
     },
     storeSystem: () => {},
     updateConditionals: () => {},
@@ -251,7 +264,7 @@ test('restoreFormEntry restores and recalculates flooring matching original resu
   assert.equal(restoredResult.boxes, originalResult.boxes);
 });
 
-test('submit flow does not save invalid calculation to history when validation fails', () => {
+test('handleFormSubmit does not save invalid calculation and saves valid calculation', () => {
   const store = makeMemoryStorage();
   const form = makeMockForm([
     { name: 'mode', type: 'radio', value: 'slab', checked: true },
@@ -264,17 +277,27 @@ test('submit flow does not save invalid calculation to history when validation f
   ]);
 
   let lastResultOk = false;
-  function simulateSubmit() {
+  const recalc = () => {
     const raw = form.readInputs();
     const sys = getSystem('metric');
-    const { ok } = validateFields(raw, calcConcrete.schema(raw, sys));
-    lastResultOk = ok;
-    if (lastResultOk) {
-      saveHistoryEntry('concrete', { system: 'metric', inputs: raw }, store);
-    }
-  }
+    lastResultOk = validateFields(raw, calcConcrete.schema(raw, sys)).ok;
+  };
+  const hooks = {
+    recalc,
+    isLastResultOk: () => lastResultOk,
+    getSystemId: () => 'metric',
+    readRaw: () => form.readInputs(),
+    onSave: (id, payload) => saveHistoryEntry(id, payload, store),
+    results: { scrollIntoView: () => {} },
+  };
 
-  simulateSubmit();
-  assert.equal(lastResultOk, false);
+  // Invalid submit -> not saved
+  assert.equal(handleFormSubmit(form, hooks), false);
   assert.equal(loadHistory('concrete', store).length, 0);
+
+  // Fix input -> valid submit -> saved
+  form.controls[1].value = '5';
+  assert.equal(handleFormSubmit(form, hooks), true);
+  assert.equal(loadHistory('concrete', store).length, 1);
+  assert.equal(loadHistory('concrete', store)[0].inputs.length, '5');
 });

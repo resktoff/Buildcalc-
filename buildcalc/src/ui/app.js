@@ -6,7 +6,7 @@ import { UNIT_SYSTEMS, convertRole, getSystem } from '../core/units.js';
 import { validateFields } from '../core/validate.js';
 import { formatNumber, interpolate } from '../core/format.js';
 import { makeContext, initialSystem, storeSystem, resultsToText, escapeHtml } from './common.js';
-import { loadHistory, saveHistoryEntry, removeHistoryEntry, clearHistory, restoreFormEntry } from './history.js';
+import { loadHistory, saveHistoryEntry, removeHistoryEntry, clearHistory, restoreFormEntry, handleFormSubmit } from './history.js';
 import { initNav } from './nav.js';
 
 const CALC_LOADERS = Object.freeze({
@@ -252,18 +252,17 @@ async function initCalculator(form) {
   });
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    form.querySelectorAll('[data-field]').forEach((w) => { w.dataset.touched = '1'; });
-    recalc({ touchedOnly: false });
-    const firstErr = form.querySelector('.has-error input, .has-error select');
-    if (firstErr) {
-      firstErr.focus();
-    } else {
-      if (lastResultOk) {
-        saveHistoryEntry(form.dataset.calc, { system: systemId, inputs: readRaw() });
+    handleFormSubmit(form, {
+      recalc,
+      isLastResultOk: () => lastResultOk,
+      getSystemId: () => systemId,
+      readRaw,
+      onSave: (id, payload) => {
+        saveHistoryEntry(id, payload);
         renderHistory();
-      }
-      results.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+      },
+      results,
+    });
   });
   form.addEventListener('reset', () => {
     setTimeout(() => {

@@ -127,3 +127,22 @@ export function restoreFormEntry(form, entry, { applySystem, storeSystem, update
   form.querySelectorAll('[data-field]').forEach((w) => { w.dataset.touched = '1'; });
   recalc({ touchedOnly: false });
 }
+
+/**
+ * Handle calculator form submission: validate/recalculate, focus first error or
+ * persist valid calculation to history and scroll to results.
+ */
+export function handleFormSubmit(form, { recalc, isLastResultOk, getSystemId, readRaw, onSave, results }) {
+  form.querySelectorAll('[data-field]').forEach((w) => { w.dataset.touched = '1'; });
+  recalc({ touchedOnly: false });
+  const firstErr = form.querySelector('.has-error input, .has-error select');
+  if (firstErr) {
+    firstErr.focus();
+    return false;
+  }
+  if (isLastResultOk()) {
+    onSave(form.dataset.calc, { system: getSystemId(), inputs: readRaw() });
+  }
+  results?.scrollIntoView?.({ behavior: 'smooth', block: 'start' });
+  return isLastResultOk();
+}
