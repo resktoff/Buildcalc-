@@ -74,8 +74,9 @@ small { color: var(--muted); }
 .site-header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
 .header-inner { display: flex; align-items: center; gap: 1rem; min-height: 60px; }
 .brand { display: inline-flex; align-items: center; gap: .55rem; font-weight: 800; font-size: 1.2rem; color: var(--text); text-decoration: none; letter-spacing: -.02em; }
-.brand svg { width: 30px; height: 30px; }
-.brand span b { color: var(--primary); }
+.brand-picture { display: inline-flex; align-items: center; }
+.brand-logo { height: 36px; width: auto; display: block; border-radius: 4px; }
+@media (max-width: 640px) { .brand-logo { height: 30px; } }
 .nav-toggle { margin-left: auto; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius-sm); color: var(--text); cursor: pointer; }
 .nav-toggle svg { width: 22px; height: 22px; }
 .site-nav { display: none; position: absolute; inset-inline: 0; top: 100%; background: var(--surface); border-bottom: 1px solid var(--border); box-shadow: var(--shadow); padding: .5rem 1rem 1rem; }
