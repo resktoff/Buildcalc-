@@ -175,11 +175,26 @@ test('analytics / ads are NOT injected while unconfigured (no third-party script
 
   const builtHtml = await read('en/concrete/index.html');
   assert.ok(!builtHtml.includes('adsbygoogle'), 'AdSense injected while disabled');
-  assert.ok(builtHtml.includes('https://bauval.org/22/41921c46095eecbf42ea9a25f4d05c50'), 'Adsterra 300x250 banner present on calculator pages');
-  const homeHtml = await read('en/index.html');
-  assert.ok(!homeHtml.includes('41921c46095eecbf42ea9a25f4d05c50'), 'Adsterra banner must not appear on home page');
-  const privHtml = await read('en/privacy/index.html');
-  assert.ok(!privHtml.includes('41921c46095eecbf42ea9a25f4d05c50'), 'Adsterra banner must not appear on privacy page');
+
+  const calcPages = [
+    'es/hormigon/index.html', 'es/pintura/index.html', 'es/pisos/index.html',
+    'en/concrete/index.html', 'en/paint/index.html', 'en/flooring/index.html',
+  ];
+  for (const rel of calcPages) {
+    const html = await read(rel);
+    const count = (html.match(/https:\/\/bauval\.org\/22\/41921c46095eecbf42ea9a25f4d05c50/g) || []).length;
+    assert.equal(count, 1, `Expected exactly 1 Adsterra banner in ${rel}, got ${count}`);
+  }
+
+  const excludedPages = [
+    'es/index.html', 'en/index.html',
+    'es/privacidad/index.html', 'en/privacy/index.html',
+    'index.html', '404.html',
+  ];
+  for (const rel of excludedPages) {
+    const html = await read(rel);
+    assert.ok(!html.includes('41921c46095eecbf42ea9a25f4d05c50'), `Adsterra banner must not appear on ${rel}`);
+  }
 });
 
 test('page weight budget: HTML < 40 KB, CSS < 25 KB, JS total < 60 KB', async () => {
