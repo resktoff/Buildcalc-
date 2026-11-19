@@ -108,7 +108,13 @@ export function homePage({ t, config }) {
         <h2 id="about-title">${esc(h.aboutTitle)}</h2>
         <p>${esc(h.aboutText)}</p>
       </section>
-      ${adSlot(config, t, 'home-footer')}`;
+      <div class="ad-banner-wrap ad-native-wrap" aria-label="${esc(t.common.adLabel || (lang === 'es' ? 'Publicidad' : 'Advertisement'))}">
+        <span class="ad-banner-label">${esc(t.common.adLabel || (lang === 'es' ? 'Publicidad' : 'Advertisement'))}</span>
+        <div class="ad-native-box">
+          <script async="async" data-cfasync="false" src="https://bauval.org/21/1d4d9e751a4cf2695f034c4499288b71"></script>
+          <div id="container-1d4d9e751a4cf2695f034c4499288b71"></div>
+        </div>
+      </div>`;
 }
 
 /* ---------- calculator page ---------- */
