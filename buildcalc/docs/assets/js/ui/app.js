@@ -6,7 +6,7 @@ import { UNIT_SYSTEMS, convertRole, getSystem } from '../core/units.js';
 import { validateFields } from '../core/validate.js';
 import { formatNumber, interpolate } from '../core/format.js';
 import { makeContext, initialSystem, storeSystem, resultsToText, escapeHtml } from './common.js';
-import { loadHistory, saveHistoryEntry, removeHistoryEntry, clearHistory } from './history.js';
+import { loadHistory, saveHistoryEntry, removeHistoryEntry, clearHistory, restoreFormEntry } from './history.js';
 import { initNav } from './nav.js';
 
 const CALC_LOADERS = Object.freeze({
@@ -324,20 +324,7 @@ async function initCalculator(form) {
   }
 
   function restoreEntry(entry) {
-    applySystem(entry.system, { convertValues: false });
-    storeSystem(entry.system);
-    updateConditionals(entry.inputs);
-    form.querySelectorAll('input,select').forEach((el) => {
-      if (!el.name || el.name === 'units') return;
-      if (!(el.name in entry.inputs)) return;
-      const val = entry.inputs[el.name];
-      if (el.type === 'radio') el.checked = (el.value === String(val));
-      else if (el.type === 'checkbox') el.checked = Boolean(val);
-      else el.value = String(val);
-    });
-    updateConditionals(entry.inputs);
-    form.querySelectorAll('[data-field]').forEach((w) => { w.dataset.touched = '1'; });
-    recalc({ touchedOnly: false });
+    restoreFormEntry(form, entry, { applySystem, storeSystem, updateConditionals, recalc });
     results.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 

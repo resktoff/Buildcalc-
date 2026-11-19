@@ -106,3 +106,24 @@ export function clearHistory(calcId, storage) {
   }
   return [];
 }
+
+/**
+ * Restore a saved history entry onto a calculator <form> and trigger recalculation.
+ * Extracted for direct integration testing without altering app behaviour.
+ */
+export function restoreFormEntry(form, entry, { applySystem, storeSystem, updateConditionals, recalc }) {
+  applySystem(entry.system, { convertValues: false });
+  storeSystem(entry.system);
+  updateConditionals(entry.inputs);
+  form.querySelectorAll('input,select').forEach((el) => {
+    if (!el.name || el.name === 'units') return;
+    if (!(el.name in entry.inputs)) return;
+    const val = entry.inputs[el.name];
+    if (el.type === 'radio') el.checked = (el.value === String(val));
+    else if (el.type === 'checkbox') el.checked = Boolean(val);
+    else el.value = String(val);
+  });
+  updateConditionals(entry.inputs);
+  form.querySelectorAll('[data-field]').forEach((w) => { w.dataset.touched = '1'; });
+  recalc({ touchedOnly: false });
+}

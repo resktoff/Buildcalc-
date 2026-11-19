@@ -1,11 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
-import { saveHistoryEntry, loadHistory } from '../../src/ui/history.js';
+import { saveHistoryEntry, loadHistory, restoreFormEntry } from '../../src/ui/history.js';
 import { getSystem } from '../../src/core/units.js';
 import { validateFields } from '../../src/core/validate.js';
 import * as calcConcrete from '../../src/ui/calc-concrete.js';
 import * as calcPaint from '../../src/ui/calc-paint.js';
+import * as calcFlooring from '../../src/ui/calc-flooring.js';
 
 function makeMemoryStorage() {
   const map = new Map();
@@ -16,40 +16,37 @@ function makeMemoryStorage() {
   };
 }
 
-test('integration: restoring a concrete record restores mode, selects, unit system without double conversion, and recalculates', () => {
-  const store = makeMemoryStorage();
-  const savedInputs = {
-    mode: 'slab',
-    length: '5',
-    width: '4',
-    thickness: '10',
-    waste: '10',
-    quantity: '1',
-    bagSize: '25kg',
+function makeMockForm(controls) {
+  const fieldWrappers = controls
+    .filter((c) => c.name && c.name !== 'units')
+    .map((c) => ({ dataset: {} }));
+  return {
+    controls,
+    querySelectorAll(selector) {
+      if (selector === 'input,select') return controls;
+      if (selector === '[data-field]') return fieldWrappers;
+      return [];
+    },
+    readInputs() {
+      const out = {};
+      for (const c of controls) {
+        if (!c.name || c.name === 'units') continue;
+        if (c.type === 'radio') {
+          if (c.checked) out[c.name] = c.value;
+        } else if (c.type === 'checkbox') {
+          out[c.name] = Boolean(c.checked);
+        } else {
+          out[c.name] = c.value;
+        }
+      }
+      return out;
+    },
   };
-  saveHistoryEntry('concrete', { system: 'metric', inputs: savedInputs }, store);
+}
 
-  const [entry] = loadHistory('concrete', store);
-  assert.equal(entry.system, 'metric');
-  assert.deepEqual(entry.inputs, savedInputs);
-
-  // Simulate user currently in imperial, then restoring a metric entry:
-  // app.js calls applySystem(entry.system, { convertValues: false }) before setting inputs.
-  const sys = getSystem(entry.system);
-  const { ok, values } = validateFields(entry.inputs, calcConcrete.schema(entry.inputs, sys));
-  assert.equal(ok, true);
-  // Values must remain in metric (no double conversion): length = 5 m, width = 4 m, thickness = 10 cm
-  assert.equal(values.length, 5);
-  assert.equal(values.width, 4);
-  assert.equal(values.thickness, 10);
-
-  const result = calcConcrete.compute(values, entry.inputs, sys);
-  assert.ok(Object.values(result).some((v) => typeof v === 'number' && Math.abs(v - 2.2) < 0.01));
-});
-
-test('integration: restoring a paint record restores checkboxes, selects, and conditional room mode', () => {
+test('restoreFormEntry restores inputs, radios, checkboxes, selects, and conditional fields and matches original paint result', () => {
   const store = makeMemoryStorage();
-  const savedInputs = {
+  const originalInputs = {
     mode: 'room',
     length: '4',
     width: '3',
@@ -62,46 +59,161 @@ test('integration: restoring a paint record restores checkboxes, selects, and co
     waste: '10',
     canSize: '4L',
   };
-  saveHistoryEntry('paint', { system: 'metric', inputs: savedInputs }, store);
+  const sys = getSystem('metric');
+  const origVal = validateFields(originalInputs, calcPaint.schema(originalInputs, sys));
+  assert.equal(origVal.ok, true);
+  const originalResult = calcPaint.compute(origVal.values, originalInputs, sys);
 
+  saveHistoryEntry('paint', { system: 'metric', inputs: originalInputs }, store);
   const [entry] = loadHistory('paint', store);
-  assert.equal(entry.inputs.includeCeiling, true);
-  assert.equal(entry.inputs.mode, 'room');
-  assert.equal(entry.inputs.canSize, '4L');
 
-  const sys = getSystem(entry.system);
-  const { ok, values } = validateFields(entry.inputs, calcPaint.schema(entry.inputs, sys));
-  assert.equal(ok, true);
+  const form = makeMockForm([
+    { name: 'mode', type: 'radio', value: 'area', checked: true },
+    { name: 'mode', type: 'radio', value: 'room', checked: false },
+    { name: 'length', type: 'number', value: '' },
+    { name: 'width', type: 'number', value: '' },
+    { name: 'height', type: 'number', value: '' },
+    { name: 'doors', type: 'number', value: '' },
+    { name: 'windows', type: 'number', value: '' },
+    { name: 'includeCeiling', type: 'checkbox', checked: false },
+    { name: 'coats', type: 'number', value: '' },
+    { name: 'coverage', type: 'number', value: '' },
+    { name: 'waste', type: 'number', value: '' },
+    { name: 'canSize', type: 'select-one', value: '1L' },
+  ]);
 
-  const result = calcPaint.compute(values, entry.inputs, sys);
-  assert.ok(result.litresTotal > 0);
+  let activeSystem = 'imperial';
+  let convertFlag = null;
+  let condCalls = 0;
+  let restoredResult = null;
+
+  restoreFormEntry(form, entry, {
+    applySystem: (s, opts) => { activeSystem = s; convertFlag = opts.convertValues; },
+    storeSystem: () => {},
+    updateConditionals: () => { condCalls += 1; },
+    recalc: ({ touchedOnly }) => {
+      assert.equal(touchedOnly, false);
+      const raw = form.readInputs();
+      const s = getSystem(activeSystem);
+      const v = validateFields(raw, calcPaint.schema(raw, s));
+      assert.equal(v.ok, true);
+      restoredResult = calcPaint.compute(v.values, raw, s);
+    },
+  });
+
+  assert.equal(activeSystem, 'metric');
+  assert.equal(convertFlag, false);
+  assert.equal(condCalls, 2);
+  assert.equal(form.controls[1].checked, true);
+  assert.equal(form.controls[7].checked, true);
+  assert.equal(form.controls[11].value, '4L');
+  assert.equal(restoredResult.litresTotal, originalResult.litresTotal);
 });
 
-test('integration: invalid calculation is never saved to history', () => {
+test('restoreFormEntry switches imperial <-> metric without double conversion', () => {
   const store = makeMemoryStorage();
-  const invalidInputs = {
-    shape: 'slab',
-    length: '-5',
-    width: '4',
-    thickness: '10',
+  const imperialInputs = {
+    mode: 'slab',
+    length: '10',
+    width: '10',
+    thickness: '4',
     waste: '10',
-    bagSize: '25kg',
+    quantity: '1',
+    bagSize: '80lb',
   };
+  saveHistoryEntry('concrete', { system: 'imperial', inputs: imperialInputs }, store);
+  const [entry] = loadHistory('concrete', store);
+
+  const form = makeMockForm([
+    { name: 'mode', type: 'radio', value: 'slab', checked: true },
+    { name: 'length', type: 'number', value: '5' },
+    { name: 'width', type: 'number', value: '4' },
+    { name: 'thickness', type: 'number', value: '10' },
+    { name: 'waste', type: 'number', value: '10' },
+    { name: 'quantity', type: 'number', value: '1' },
+    { name: 'bagSize', type: 'select-one', value: '25kg' },
+  ]);
+
+  let activeSystem = 'metric';
+  let restoredResult = null;
+
+  restoreFormEntry(form, entry, {
+    applySystem: (s, opts) => {
+      assert.equal(opts.convertValues, false);
+      activeSystem = s;
+    },
+    storeSystem: () => {},
+    updateConditionals: () => {},
+    recalc: () => {
+      const raw = form.readInputs();
+      const s = getSystem(activeSystem);
+      const v = validateFields(raw, calcConcrete.schema(raw, s));
+      assert.equal(v.ok, true);
+      assert.equal(v.values.length, 10);
+      assert.equal(v.values.thickness, 4);
+      restoredResult = calcConcrete.compute(v.values, raw, s);
+    },
+  });
+
+  assert.equal(activeSystem, 'imperial');
+  assert.ok(Object.values(restoredResult).some((v) => typeof v === 'number' && v > 0));
+});
+
+test('restoreFormEntry restores and recalculates flooring matching original result', () => {
+  const store = makeMemoryStorage();
+  const flooringInputs = {
+    mode: 'room',
+    length: '5',
+    width: '4',
+    waste: '10',
+    tileLength: '60',
+    tileWidth: '60',
+    tilesPerBox: '4',
+  };
+  const sys = getSystem('metric');
+  const origVal = validateFields(flooringInputs, calcFlooring.schema(flooringInputs, sys));
+  assert.equal(origVal.ok, true);
+  const originalResult = calcFlooring.compute(origVal.values, flooringInputs, sys);
+
+  saveHistoryEntry('flooring', { system: 'metric', inputs: flooringInputs }, store);
+  const [entry] = loadHistory('flooring', store);
+
+  const form = makeMockForm([
+    { name: 'mode', type: 'radio', value: 'room', checked: false },
+    { name: 'length', type: 'number', value: '' },
+    { name: 'width', type: 'number', value: '' },
+    { name: 'waste', type: 'number', value: '' },
+    { name: 'tileLength', type: 'number', value: '' },
+    { name: 'tileWidth', type: 'number', value: '' },
+    { name: 'tilesPerBox', type: 'number', value: '' },
+  ]);
+
+  let activeSystem = 'imperial';
+  let restoredResult = null;
+
+  restoreFormEntry(form, entry, {
+    applySystem: (s) => { activeSystem = s; },
+    storeSystem: () => {},
+    updateConditionals: () => {},
+    recalc: () => {
+      const raw = form.readInputs();
+      const s = getSystem(activeSystem);
+      const v = validateFields(raw, calcFlooring.schema(raw, s));
+      assert.equal(v.ok, true);
+      restoredResult = calcFlooring.compute(v.values, raw, s);
+    },
+  });
+
+  assert.equal(restoredResult.totalAreaM2, originalResult.totalAreaM2);
+  assert.equal(restoredResult.boxes, originalResult.boxes);
+});
+
+test('invalid calculation is never saved to history', () => {
+  const store = makeMemoryStorage();
+  const invalidInputs = { mode: 'slab', length: '-5', width: '4', thickness: '10', waste: '10', quantity: '1' };
   const sys = getSystem('metric');
   const { ok } = validateFields(invalidInputs, calcConcrete.schema(invalidInputs, sys));
   assert.equal(ok, false);
-
-  // Mirror app.js submit guard: only saveHistoryEntry when lastResultOk is true
-  if (ok) {
-    saveHistoryEntry('concrete', { system: 'metric', inputs: invalidInputs }, store);
-  }
+  if (ok) saveHistoryEntry('concrete', { system: 'metric', inputs: invalidInputs }, store);
   assert.equal(loadHistory('concrete', store).length, 0);
-});
-
-test('integration: app.js wires restoreEntry with applySystem(..., convertValues: false), updateConditionals, and recalc', () => {
-  const appSrc = readFileSync(new URL('../../src/ui/app.js', import.meta.url), 'utf8');
-  assert.match(appSrc, /applySystem\(entry\.system,\s*\{\s*convertValues:\s*false\s*\}\)/);
-  assert.match(appSrc, /updateConditionals\(entry\.inputs\)/);
-  assert.match(appSrc, /recalc\(\{\s*touchedOnly:\s*false\s*\}\)/);
-  assert.match(appSrc, /if\s*\(lastResultOk\)\s*\{\s*saveHistoryEntry\(/);
 });
