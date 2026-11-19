@@ -321,7 +321,12 @@ export function privacyPage({ t }) {
         <p class="lead">${esc(p.updated.replace('{date}', date))}</p>
       </header>
       <div class="prose">
-        ${p.sections.map((s) => `<section><h2>${esc(s.title)}</h2><p>${formatParagraphWithLinks(s.text)}</p></section>`).join('\n        ')}
+        ${p.sections.map((s) => {
+          const body = Array.isArray(s.paragraphs) && s.paragraphs.length > 0
+            ? s.paragraphs.map((para) => `<p>${formatParagraphWithLinks(para)}</p>`).join('')
+            : `<p>${formatParagraphWithLinks(s.text)}</p>`;
+          return `<section><h2>${esc(s.title)}</h2>${body}</section>`;
+        }).join('\n        ')}
       </div>`;
 }
 
