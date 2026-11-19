@@ -164,7 +164,7 @@
       "calcLabel": "Calculation",
       "calcValue": "5 × 4 × 0.10 = 2.00 m³ → +10% = 2.20 m³",
       "resultLabel": "Estimated result",
-      "resultValue": "2.20 m³ (≈ 130 × 25 kg bags)",
+      "resultValue": "2.20 m³ (≈ 188 × 25 kg bags)",
       "cta": "Try it in the concrete calculator"
     }
   },
