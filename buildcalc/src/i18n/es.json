@@ -141,9 +141,9 @@
   "concrete": {
     "slug": "hormigon",
     "metaTitle": "Calculadora de hormigón (m³, yd³ y bolsas) | BuildCalc",
-    "metaDescription": "Calculá metros cúbicos de hormigón y bolsas premezcladas para losas, contrapisos, veredas y columnas. Con desperdicio y paso a paso.",
+    "metaDescription": "Calculadora de hormigón para losas, contrapisos, zapatas y columnas. Estimá metros cúbicos, yardas cúbicas, desperdicio y bolsas premezcladas.",
     "h1": "Calculadora de hormigón",
-    "intro": "Calculá el volumen exacto de hormigón para losas, contrapisos, zapatas o columnas cilíndricas, con margen de desperdicio y cantidad de bolsas.",
+    "intro": "Usá esta calculadora de hormigón para estimar metros cúbicos (m³), yardas cúbicas (yd³) y bolsas premezcladas para losas, contrapisos, zapatas y columnas cilíndricas, con margen de desperdicio y paso a paso.",
     "fields": {
       "shape": "Tipo de elemento",
       "slab": "Losa, contrapiso o zapata rectangular",
@@ -182,28 +182,28 @@
       "quantity": "× {q} elemento(s) = {net}"
     },
     "guide": {
-      "title": "Para qué sirve y cómo usar esta calculadora",
-      "purpose": "Esta herramienta sirve para estimar cuánto hormigón necesitás antes de pedir un camión mixer o comprar bolsas de hormigón premezclado. Evita quedarte corto a mitad del llenado y te ayuda a presupuestar con un margen de desperdicio realista.",
+      "title": "Para qué sirve y cómo usar esta calculadora de hormigón",
+      "purpose": "Ya sea que necesites calcular una losa, un contrapiso, una vereda o pedir hormigón elaborado por metro cúbico, esta herramienta calcula el volumen exacto en m³, ft³ y yd³ antes de comprar.",
       "howTitle": "Cómo usarla paso a paso",
       "steps": [
-        "Elegí el sistema de unidades (métrico en m/cm o imperial en ft/in).",
-        "Seleccioná si vas a llenar una losa/contrapiso rectangular o columnas cilíndricas.",
-        "Ingresá las medidas reales y la cantidad de elementos iguales.",
-        "Definí un porcentaje de desperdicio (lo habitual es 10 % para compensar desniveles y restos en carretilla o bomba).",
-        "Si comprás bolsas premezcladas, elegí el peso de la bolsa para obtener la cantidad exacta redondeada hacia arriba."
+        "Elegí el sistema de unidades: Métrico (metros y centímetros, resultado en m³) o Imperial (pies y pulgadas, resultado en yd³ y ft³).",
+        "Seleccioná la forma del elemento: Losa o zapata rectangular, o Columna o pilote cilíndrico.",
+        "Ingresá las medidas (largo, ancho y espesor para losas; diámetro y altura para columnas) y la cantidad de elementos iguales.",
+        "Definí un margen de desperdicio (5 % a 10 % es lo habitual para losas con encofrado; 10 % a 15 % para terrenos irregulares o zapatas).",
+        "Opcionalmente elegí una presentación de bolsa premezclada (25 kg, 50 kg, 40 lb, 60 lb u 80 lb) para ver la cantidad redondeada hacia arriba."
       ]
     },
     "formula": {
-      "title": "Fórmula y criterios de cálculo",
+      "title": "Fórmula, unidades y cálculo de desperdicio",
       "equations": [
         "Losa o zapata: V = Largo × Ancho × Espesor × Cantidad",
         "Columna cilíndrica: V = π × (Diámetro / 2)² × Altura × Cantidad",
         "Volumen total: V_total = V × (1 + Desperdicio / 100)",
         "Bolsas: Cantidad = redondear_arriba(V_total / Rendimiento_bolsa)"
       ],
-      "p1": "Para losas, plateas, veredas y contrapisos se multiplica largo por ancho por espesor (convertido a metros o pies).",
+      "p1": "Unidades y conversiones: en modo Métrico, el espesor o diámetro en centímetros se divide por 100 para pasarlo a metros. En modo Imperial, el espesor en pulgadas se divide por 12 para pasarlo a pies y los pies cúbicos se dividen por 27 para obtener yardas cúbicas (1 yd³ = 27 ft³).",
       "p2": "Para columnas o pilotes cilíndricos se aplica el área del círculo π × r² multiplicada por la altura y por la cantidad de columnas.",
-      "p3": "El margen de desperdicio cubre pérdidas por encofrados irregulares, compactación y material que queda adherido a herramientas.",
+      "p3": "Desperdicio de material: agregar entre 5 % y 10 % compensa desniveles del terreno, deformaciones del encofrado, compactación y restos en carretilla o bomba.",
       "p4": "Las bolsas premezcladas se calculan dividiendo el volumen total por el rendimiento estándar del fabricante (por ejemplo, ~0,011 m³ por bolsa de 25 kg o ~0,022 m³ por bolsa de 50 kg) y redondeando hacia arriba."
     },
     "interpret": {

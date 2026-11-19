@@ -140,10 +140,10 @@
   },
   "concrete": {
     "slug": "concrete",
-    "metaTitle": "Concrete Calculator (yd³, m³ & Bags) | BuildCalc",
-    "metaDescription": "Calculate cubic yards or cubic meters of concrete and premixed bags for slabs, footings and columns. Includes waste allowance and steps.",
+    "metaTitle": "Concrete Calculator — Slab & Concrete Yard Calculator | BuildCalc",
+    "metaDescription": "Free concrete calculator, concrete slab calculator, and concrete yard calculator. Estimate cubic yards, cubic meters, waste, and premixed bags.",
     "h1": "Concrete calculator",
-    "intro": "Calculate the exact concrete volume for slabs, footings or cylindrical columns, including waste allowance and premixed bag counts.",
+    "intro": "Use this concrete calculator to estimate cubic yards (yd³), cubic meters (m³), and premixed bags for rectangular slabs, footings, and cylindrical columns—with waste allowance and step-by-step math.",
     "fields": {
       "shape": "Element shape",
       "slab": "Rectangular slab or footing",
@@ -182,29 +182,29 @@
       "quantity": "Net total = {unitVolumeM3} × {quantity} elements = {netVolumeM3}"
     },
     "guide": {
-      "title": "What it is for and how to use it",
-      "purpose": "This calculator helps you estimate concrete volume before ordering ready-mix delivery or buying premixed bags. It prevents running short mid-pour and keeps your budget realistic.",
+      "title": "What this concrete calculator is for and how to use it",
+      "purpose": "Whether you need a concrete slab calculator for a patio or driveway, or a concrete yard calculator to order ready-mix delivery, this tool computes exact volume in cubic yards (yd³), cubic feet (ft³), and cubic meters (m³) before you buy.",
       "howTitle": "How to use it step by step",
       "steps": [
-        "Choose your unit system (imperial in ft/in or metric in m/cm).",
-        "Select whether you are pouring a rectangular slab/footing or cylindrical columns.",
-        "Enter the dimensions and the number of identical elements.",
-        "Set a waste percentage (10% is standard for uneven subgrades and mixer/wheelbarrow residue).",
-        "If buying premixed bags, pick the bag weight to get the rounded-up bag count."
+        "Choose your unit system: Imperial (feet and inches, outputting yd³ and ft³) or Metric (meters and centimeters, outputting m³).",
+        "Select the element shape: Rectangular slab or footing, or Cylindrical column or pier.",
+        "Enter the dimensions (length, width, and thickness for slabs; diameter and height for columns) plus the quantity of identical elements.",
+        "Set a waste allowance percentage (5%–10% is standard for formed slabs; 10%–15% for uneven subgrades or footings).",
+        "Optionally choose a premixed bag size (40 lb, 60 lb, 80 lb, 25 kg, or 50 kg) to see the rounded-up bag count."
       ]
     },
     "formula": {
-      "title": "Formula and calculation criteria",
+      "title": "Formula, units, and waste calculation",
       "equations": [
         "Slab or footing: V = Length × Width × Thickness × Quantity",
         "Cylindrical column: V = π × (Diameter / 2)² × Height × Quantity",
         "Total volume: V_total = V × (1 + Waste / 100)",
         "Bags: Count = ceil(V_total / Bag_yield)"
       ],
-      "p1": "For slabs, patios, sidewalks and footings, length is multiplied by width and thickness (converted to feet or meters).",
-      "p2": "For cylindrical columns or piers, the circle area π × r² is multiplied by height and quantity.",
-      "p3": "The waste allowance accounts for formwork irregularities, compaction and material left in chutes or tools.",
-      "p4": "Premixed bags divide total volume by standard manufacturer yield (for example, ~0.60 ft³ per 80 lb bag or ~0.022 m³ per 50 kg bag), rounded up."
+      "p1": "Units and conversions: in Imperial mode, thickness is entered in inches and divided by 12 to convert to feet; cubic feet are divided by 27 to get cubic yards (1 yd³ = 27 ft³). In Metric mode, thickness or diameter in centimeters is divided by 100 to convert to meters.",
+      "p2": "For cylindrical columns or piers, the circular cross-section area π × r² is multiplied by height and quantity.",
+      "p3": "Material waste: adding 5%–10% waste compensates for uneven subgrades, formwork deflection, compaction, and concrete left in wheelbarrows or pump lines.",
+      "p4": "Premixed bags divide total volume by standard manufacturer yield (for example, ~0.60 ft³ per 80 lb bag, ~0.45 ft³ per 60 lb bag, or ~0.022 m³ per 50 kg bag), rounded up to whole bags."
     },
     "interpret": {
       "title": "How to interpret the results",
