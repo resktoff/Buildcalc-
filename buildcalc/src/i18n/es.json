@@ -262,10 +262,10 @@
   },
   "paint": {
     "slug": "pintura",
-    "metaTitle": "Calculadora de pintura (litros, galones y latas) | BuildCalc",
-    "metaDescription": "Calculá cuántos litros o galones de pintura necesitás según paredes, cielorraso, manos, rendimiento y aberturas. Resultados al instante.",
+    "metaTitle": "Calculadora de pintura — Calcular litros por m² | BuildCalc",
+    "metaDescription": "Calculadora de pintura gratuita para calcular litros de pintura por metro cuadrado en paredes y cielorraso, con manos, aberturas y latas.",
     "h1": "Calculadora de pintura",
-    "intro": "Calculá los litros o galones de pintura necesarios para tus paredes y cielorraso, descontando puertas y ventanas y redondeando por envase.",
+    "intro": "Usá esta calculadora de pintura para calcular litros de pintura o galones por metro cuadrado para paredes y cielorraso, descontando puertas y ventanas y redondeando por envase.",
     "fields": {
       "mode": "Modo de cálculo",
       "room": "Por medidas de ambiente (largo, ancho, alto)",
