@@ -316,15 +316,15 @@
       "waste": "Waste = {litresNet} × {wastePercent}% = {litresWaste} → Total = {litresTotal}"
     },
     "guide": {
-      "title": "What it is for and how to use it",
-      "purpose": "This calculator tells you how much paint to buy for a room, apartment or exterior wall so you avoid extra trips to the store or leftover buckets.",
+      "title": "What this paint coverage calculator is for and how to use it",
+      "purpose": "Whether you need a wall paint calculator for a single room, a ceiling paint calculator, or a full room paint calculator, this tool estimates how much paint you need before you buy.",
       "howTitle": "How to use it step by step",
       "steps": [
-        "Choose between entering room dimensions (length, width, height) or total surface area.",
-        "Decide whether to include the ceiling and enter the number of doors and windows.",
-        "Set the number of coats (usually 2) and the coverage listed on your paint can.",
+        "Choose between entering room dimensions (length, width, wall height) or total surface area directly.",
+        "Check 'Include ceiling' if you are painting the ceiling with the same paint, and enter the number of doors and windows to subtract.",
+        "Set the number of coats (2 coats is standard) and the coverage per coat from your paint can (default: 350 ft²/gal in Imperial or 10 m²/L in Metric).",
         "Add a waste allowance (5%–10% for roller absorption and touch-ups).",
-        "Select a can or pail size to see the exact container count rounded up."
+        "Select a container size (1 qt, 1 gal, 5 gal, 1 L, 4 L, 10 L, or 20 L) to see the rounded-up can count."
       ]
     },
     "formula": {
