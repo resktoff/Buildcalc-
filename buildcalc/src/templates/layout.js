@@ -135,7 +135,7 @@ export function document({
     '<meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: dark)">',
     socialHead,
     verification,
-    `<link rel="icon" href="${root}assets/favicon.svg" type="image/svg+xml">`,
+    `<link rel="icon" href="${root}assets/favicon.png" type="image/png">`,
     `<link rel="apple-touch-icon" href="${root}assets/apple-touch-icon.png">`,
     `<link rel="manifest" href="${root}assets/site.webmanifest">`,
     `<link rel="stylesheet" href="${root}assets/css/styles.css">`,
@@ -161,7 +161,7 @@ export function document({
     <a class="skip-link" href="#main">${esc(t.nav.skip)}</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="${root}${lang}/" aria-label="${esc(t.site.name)} — ${esc(t.nav.home)}">${ICONS.logo}<span>Build<b>Calc</b></span></a>
+        <a class="brand" href="${root}${lang}/" aria-label="${esc(t.site.name)} — ${esc(t.nav.home)}"><picture class="brand-picture"><source srcset="${root}assets/logo-dark.png" media="(prefers-color-scheme: dark)"><img src="${root}assets/logo-light.png" alt="${esc(t.site.name)}" class="brand-logo" height="36"></picture></a>
         <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="${esc(t.nav.menu)}">${ICONS.menu}</button>
         <nav id="site-nav" class="site-nav" aria-label="${esc(t.nav.calculators)}">
           <ul>
