@@ -573,7 +573,7 @@
   "privacy": {
     "slug": "privacy",
     "metaTitle": "Privacy Policy | BuildCalc",
-    "metaDescription": "BuildCalc privacy policy: local browser storage, active Google Analytics 4 usage, and disabled advertising.",
+    "metaDescription": "BuildCalc privacy policy: local calculations, browser preferences, Google Analytics 4, and Adsterra advertising on calculator pages.",
     "h1": "Privacy policy",
     "updated": "Last updated: {date}",
     "sections": [

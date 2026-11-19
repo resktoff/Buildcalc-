@@ -192,6 +192,8 @@ test('analytics / ads are NOT injected while unconfigured (no third-party script
   assert.ok(privEs.includes('https://adsterra.com/privacy-policy-managed/'), 'es/privacidad/index.html must link Adsterra privacy policy');
   assert.ok(privEs.includes('https://adsterra.com/cookies/'), 'es/privacidad/index.html must link Adsterra cookies policy');
   assert.ok(!/actualmente los anuncios están desactivados/i.test(privEs), 'es/privacidad/index.html must not contain obsolete disabled-ads claim');
+  assert.match(privEs, /<meta name="description" content="[^"]*Adsterra[^"]*">/, 'es/privacidad/index.html meta description must mention Adsterra');
+  assert.doesNotMatch(privEs, /<meta name="description" content="[^"]*sin publicidad[^"]*">/i, 'es/privacidad/index.html meta description must not claim no ads');
 
   const privEn = await read('en/privacy/index.html');
   assert.ok(!privEn.includes('41921c46095eecbf42ea9a25f4d05c50'), 'Adsterra banner must not appear on en/privacy/index.html');
@@ -199,6 +201,8 @@ test('analytics / ads are NOT injected while unconfigured (no third-party script
   assert.ok(privEn.includes('https://adsterra.com/privacy-policy-managed/'), 'en/privacy/index.html must link Adsterra privacy policy');
   assert.ok(privEn.includes('https://adsterra.com/cookies/'), 'en/privacy/index.html must link Adsterra cookies policy');
   assert.ok(!/ads are currently disabled/i.test(privEn), 'en/privacy/index.html must not contain obsolete disabled-ads claim');
+  assert.match(privEn, /<meta name="description" content="[^"]*Adsterra[^"]*">/, 'en/privacy/index.html meta description must mention Adsterra');
+  assert.doesNotMatch(privEn, /<meta name="description" content="[^"]*no ads[^"]*">/i, 'en/privacy/index.html meta description must not claim no ads');
 });
 
 test('page weight budget: HTML < 40 KB, CSS < 25 KB, JS total < 60 KB', async () => {
